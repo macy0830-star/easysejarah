@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Sejarah – T4 Bab 3: Konflik Dunia & Pendudukan Jepun</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root { --kuning:#F7B731; --hitam:#1A1A2E; --hijau:#2D9E5F; --merah:#D62828; --kad:#252538; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans',sans-serif; background:var(--hitam); color:#fff; min-height:100vh; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; border-bottom:2px solid rgba(247,183,49,0.25); position:sticky; top:0; background:var(--hitam); z-index:99; }
+  .logo { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.5rem; }
+  .logo span { color:var(--kuning); }
+  .badge-topik { background:rgba(247,183,49,0.15); border:1px solid var(--kuning); color:var(--kuning); font-size:0.72rem; font-weight:600; padding:4px 12px; border-radius:999px; letter-spacing:0.5px; text-transform:uppercase; }
+  .hero { text-align:center; padding:48px 24px 32px; max-width:640px; margin:0 auto; }
+  .hero-eyebrow { color:var(--kuning); font-family:'Poppins',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .hero h1 { font-family:'Poppins',sans-serif; font-weight:900; font-size:clamp(1.6rem,5.5vw,2.5rem); line-height:1.15; margin-bottom:12px; }
+  .hero h1 em { font-style:normal; color:var(--kuning); }
+  .hero p { color:rgba(255,255,255,0.55); font-size:0.9rem; line-height:1.6; margin-bottom:24px; }
+  .progress-wrap { background:rgba(255,255,255,0.1); border-radius:999px; height:6px; margin-bottom:6px; overflow:hidden; }
+  .progress-fill { height:100%; background:var(--kuning); border-radius:999px; transition:width 0.4s ease; width:0%; }
+  .progress-label { font-size:0.76rem; color:rgba(255,255,255,0.4); text-align:right; }
+  .quiz-section { max-width:680px; margin:0 auto; padding:0 20px 80px; }
+  .question-card { background:var(--kad); border-radius:16px; padding:28px 24px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.06); display:none; animation:fadeUp 0.3s ease; }
+  .question-card.active { display:block; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .q-number { font-family:'Poppins',sans-serif; font-size:0.7rem; font-weight:700; color:var(--kuning); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+  .q-text { font-family:'Poppins',sans-serif; font-size:clamp(0.95rem,3.2vw,1.1rem); font-weight:600; line-height:1.45; margin-bottom:22px; color:#fff; }
+  .options { display:flex; flex-direction:column; gap:10px; }
+  .option-btn { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.1); border-radius:10px; padding:12px 16px; cursor:pointer; text-align:left; font-family:'Noto Sans',sans-serif; font-size:0.88rem; color:rgba(255,255,255,0.82); transition:border-color 0.15s,background 0.15s; width:100%; }
+  .option-btn:hover:not(:disabled) { border-color:var(--kuning); background:rgba(247,183,49,0.08); }
+  .option-btn:disabled { cursor:default; }
+  .option-letter { width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.1); font-family:'Poppins',sans-serif; font-weight:700; font-size:0.78rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .option-btn.correct { border-color:var(--hijau); background:rgba(45,158,95,0.14); }
+  .option-btn.correct .option-letter { background:var(--hijau); color:#fff; }
+  .option-btn.wrong { border-color:var(--merah); background:rgba(214,40,40,0.12); }
+  .option-btn.wrong .option-letter { background:var(--merah); color:#fff; }
+  .explanation { display:none; margin-top:18px; padding:14px 16px; background:rgba(247,183,49,0.07); border-left:3px solid var(--kuning); border-radius:0 8px 8px 0; font-size:0.85rem; line-height:1.65; color:rgba(255,255,255,0.78); }
+  .explanation.show { display:block; }
+  .explanation strong { color:var(--kuning); }
+  .btn-next { display:none; margin-top:18px; width:100%; padding:14px; background:var(--kuning); color:var(--hitam); border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem; cursor:pointer; transition:opacity 0.2s; }
+  .btn-next:hover { opacity:0.9; }
+  .btn-next.show { display:block; }
+  #result-section { display:none; max-width:580px; margin:0 auto; padding:0 20px 80px; text-align:center; }
+  #result-section.show { display:block; }
+  .result-card { background:var(--kad); border-radius:20px; padding:40px 28px; border:1px solid rgba(255,255,255,0.08); }
+  .score-ring { width:120px; height:120px; border-radius:50%; background:conic-gradient(var(--kuning) var(--pct,0%),rgba(255,255,255,0.08) 0%); display:flex; align-items:center; justify-content:center; margin:0 auto 24px; position:relative; }
+  .score-ring::after { content:''; position:absolute; width:88px; height:88px; background:var(--kad); border-radius:50%; }
+  .score-number { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.8rem; color:var(--kuning); position:relative; z-index:1; }
+  .result-title { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.5rem; margin-bottom:8px; }
+  .result-subtitle { color:rgba(255,255,255,0.5); font-size:0.88rem; line-height:1.6; margin-bottom:28px; }
+  .stat-row { display:flex; justify-content:center; gap:18px; margin-bottom:28px; }
+  .stat-box { background:rgba(255,255,255,0.05); border-radius:10px; padding:12px 20px; min-width:82px; }
+  .stat-val { font-family:'Poppins',sans-serif; font-weight:700; font-size:1.4rem; color:var(--kuning); display:block; }
+  .stat-lbl { font-size:0.72rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.5px; }
+  .btn-retry { width:100%; padding:14px; background:var(--kuning); color:var(--hitam); border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem; cursor:pointer; margin-bottom:12px; }
+  .btn-retry:hover { opacity:0.9; }
+  .bab-nav { margin-top:32px; text-align:center; }
+  .bab-nav p { font-size:0.75rem; color:rgba(255,255,255,0.3); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+  .bab-chips { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+  .chip { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.55); border-radius:999px; padding:6px 14px; font-size:0.78rem; cursor:pointer; text-decoration:none; }
+  .chip.active { border-color:var(--kuning); color:var(--kuning); }
+  .chip.coming { opacity:0.3; cursor:default; }
+  footer { text-align:center; padding:24px 20px; font-size:0.75rem; color:rgba(255,255,255,0.18); border-top:1px solid rgba(255,255,255,0.06); margin-top:20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <div class="badge-topik">T4 Bab 3</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 4 · Bab 3</div>
+  <h1>Konflik Dunia &<br><em>Pendudukan Jepun</em></h1>
+  <p>20 soalan merangkumi PDI, PDII, serangan Jepun, dasar pendudukan, dan perjuangan rakyat menentang Jepun.</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 20 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 20</div>
+    <div class="q-text">Apakah punca utama Perang Dunia Pertama (PDI) yang bermula pada tahun 1914?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kegagalan Liga Bangsa-Bangsa mengekang pencerobohan</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Persaingan imperialisme, pakatan ketenteraan, dan krisis rantau Balkan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kebangkitan ideologi Fasisme dan Nazisme</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Ketidakpuasan hati terhadap Perjanjian Versailles</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>Punca PDI ialah persaingan imperialisme, pakatan ketenteraan, dan krisis rantau Balkan (pembunuhan Putera Mahkota Austria-Hungary). Pilihan C dan D pula adalah punca PDII. Ingat perbezaan ini kerana soalan SPM sering menguji kemampuan membezakan punca PDI dan PDII.</div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 20</div>
+    <div class="q-text">Antara berikut, yang manakah merupakan negara anggota Kuasa Tengah dalam Perang Dunia Pertama?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Britain, Perancis, Rusia</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Jerman, Austria-Hungary, Empayar Uthmaniyah, Bulgaria</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Amerika Syarikat, Itali, Jepun</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Jerman, Itali, Jepun</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: B</strong><br>Kuasa Tengah dalam PDI: Jerman, Austria-Hungary, Empayar Uthmaniyah, Bulgaria. Pakatan Bertiga: Britain, Perancis, Rusia (disokong Itali dan AS). Jangan keliru dengan kuasa pakatan dalam PDII (Paksi: Jerman, Itali, Jepun).</div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 20</div>
+    <div class="q-text">Persidangan Damai Paris (18 Januari 1919) menghasilkan Deklarasi 14 Perkara Woodrow Wilson. Apakah prinsip utama deklarasi tersebut?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pembentukan Liga Bangsa-Bangsa sahaja</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Menghukum Jerman dengan bayaran pampasan perang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Prinsip penentuan nasib negara oleh rakyat sendiri</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Penyatuan semula Eropah di bawah satu kerajaan</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: C</strong><br>Deklarasi 14 Perkara Woodrow Wilson menekankan prinsip penentuan nasib negara oleh rakyat sendiri — iaitu setiap bangsa berhak menentukan pemerintahan mereka sendiri. Prinsip ini menjadi ilham kepada gerakan kemerdekaan di Asia dan Afrika.</div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 20</div>
+    <div class="q-text">Apakah ideologi yang dibawa oleh Benito Mussolini di Itali semasa Perang Dunia Kedua?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Nazisme — menekankan ketulenan bangsa</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Komunisme — menekankan hak sama rata</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Fasisme — menekankan kepentingan negara melebihi individu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Demokrasi — menekankan hak asasi manusia</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: C</strong><br>Fasisme (Mussolini, Itali) menekankan kepentingan Negara (State) melebihi individu dan nasionalisme melampau. Nazisme (Hitler, Jerman) pula menekankan Ketulenan Bangsa (Racial Purity/Aryanism). Jangan keliru antara dua ideologi ini!</div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 20</div>
+    <div class="q-text">Antara berikut, yang manakah merupakan faktor berakhirnya Perang Dunia Kedua di Eropah?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pengguguhan bom atom di Hiroshima dan Nagasaki</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kejayaan operasi D-Day di Normandy dan kegagalan Hitler menyerang Rusia</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Penyerahan kalah Jepun kepada Tentera Bersekutu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pembentukan PBB oleh Roosevelt dan Churchill</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: B</strong><br>Perang di Eropah berakhir akibat: (1) Kejayaan D-Day di Normandy, (2) Kegagalan Hitler menyerang Rusia (musim sejuk + bekalan logistik), dan (3) kerjasama strategik Roosevelt-Churchill-Stalin. Bom atom di Hiroshima/Nagasaki pula menamatkan perang di Asia Pasifik, bukan Eropah.</div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 20</div>
+    <div class="q-text">Pada tarikh berapakah Jepun mendarat di Pantai Kuala Pak Amat, Kelantan yang menandakan bermulanya pendudukan Jepun di Tanah Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>8 Disember 1941</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>16 Disember 1941</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>19 Januari 1942</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>15 Februari 1942</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: A</strong><br>8 Dis 1941: Pendaratan serentak di Pantai Kuala Pak Amat, Kelantan + serangan Pearl Harbor. 16 Dis 1941: Miri, Sarawak jatuh. 19 Jan 1942: Sandakan, Sabah jatuh. 15 Feb 1942: Singapura (kubu pertahanan British) jatuh — tarikh paling penting untuk dihafal!</div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 20</div>
+    <div class="q-text">Apakah nama yang diberikan oleh Jepun kepada Singapura semasa pendudukan mereka?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Malai Baru</span></button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kita Boruneo</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Syonan-to</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Nippon-go</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: C</strong><br>Singapura dinamakan <em>Syonan-to</em> (Cahaya Selatan) oleh Jepun. Tanah Melayu pula dinamakan <em>Malai Baru</em>. Sarawak, Sabah, dan Brunei digabungkan sebagai <em>Kita Boruneo</em>. Nippon-go pula adalah bahasa Jepun yang diwajibkan diajar di sekolah.</div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8 daripada 20</div>
+    <div class="q-text">Apakah strategi perang Jepun yang membolehkan mereka menguasai Tanah Melayu dengan pantas?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Serangan bom nuklear</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Perang gerila di hutan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Serangan Kilat (Blitzkrieg) menggunakan basikal dan serangan udara</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Serangan laut menggunakan kapal selam</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: C</strong><br>Jepun menggunakan strategi Serangan Kilat (Blitzkrieg) dengan basikal (bergerak pantas melalui hutan) dan serangan udara yang efisien. British gagal bertahan kerana terlalu fokus kepada perang di Eropah, dan kapal perang mereka (Repulse dan Prince of Wales) berjaya ditenggelamkan Jepun.</div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 20</div>
+    <div class="q-text">Apakah matlamat sebenar Jepun mencipta "Lingkungan Sekemakmuran Asia Timur Raya"?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Membebaskan Asia daripada penjajahan Barat secara ikhlas</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mengeksploitasi sumber mentah Asia untuk membiayai industri perang Jepun</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menyatukan semua negara Asia di bawah satu pemerintahan demokratik</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menyebarkan budaya dan bahasa Jepun ke seluruh Asia</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: B</strong><br>Walaupun Jepun mendakwa ingin "membebaskan Asia", matlamat sebenar mereka adalah mengeksploitasi sumber mentah (petroleum, getah, timah) untuk membiayai industri perang. Slogan "Asia untuk Orang Asia" hanyalah propaganda untuk meraih sokongan rakyat tempatan.</div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 20</div>
+    <div class="q-text">Apakah nama mata wang yang dicetak oleh Jepun semasa pendudukan mereka di Tanah Melayu yang menyebabkan inflasi melampau?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Mata wang Yen Jepun</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mata wang "pokok pisang"</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Dolar Malaya British</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Mata wang Kimigayo</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: B</strong><br>Jepun mencetak mata wang "pokok pisang" (dinamakan demikian kerana gambar pokok pisang di atasnya) tanpa kawalan. Ini menyebabkan inflasi melampau dan kekurangan barangan, memaksa rakyat berdaya cipta seperti membuat tempe daripada biji getah.</div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="11">
+    <div class="q-number">Soalan 11 daripada 20</div>
+    <div class="q-text">Apakah nama pasukan polis rahsia Jepun yang menjalankan penguasaan dan kekejaman ke atas rakyat semasa pendudukan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>MPAJA</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Force 136</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kempeitai</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Giyu Gun</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: C</strong><br>Kempeitai adalah pasukan polis rahsia Jepun yang digeruni rakyat kerana kekejaman mereka. MPAJA pula adalah gerakan gerila menentang Jepun. Force 136 adalah pasukan rahsia British. Giyu Gun/Giyu Tai adalah pasukan sukarela tempatan yang dilatih Jepun.</div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="12">
+    <div class="q-number">Soalan 12 daripada 20</div>
+    <div class="q-text">Apakah dasar Jepun terhadap agama Islam semasa pendudukan mereka di Tanah Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Mengharamkan semua amalan agama Islam</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Menghormati Islam dan adat Melayu serta membentuk Majlis Agama Negeri</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Memaksa orang Melayu memeluk agama Shinto</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menutup semua masjid dan madrasah</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: B</strong><br>Jepun menghormati Islam dan adat Melayu serta membentuk Majlis Agama Negeri. Ini adalah strategi propaganda untuk meraih sokongan orang Melayu pada peringkat awal pendudukan. Berbeza dengan perlakuan mereka terhadap kaum Cina yang lebih kejam.</div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="13">
+    <div class="q-number">Soalan 13 daripada 20</div>
+    <div class="q-text">MPAJA (Bintang Tiga) adalah gerakan gerila terbesar menentang Jepun. Dari manakah MPAJA mendapat bekalan senjata mereka?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Daripada tentera Jepun yang menyerah kalah</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Daripada British</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Daripada Amerika Syarikat</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Daripada Sultan-sultan Melayu</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: B</strong><br>MPAJA mendapat bantuan senjata daripada British. Ini kerana British dan MPAJA mempunyai musuh yang sama — Jepun. Selepas perang, hubungan ini berubah apabila MPAJA (yang dikuasai komunis) menjadi ancaman kepada British.</div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="14">
+    <div class="q-number">Soalan 14 daripada 20</div>
+    <div class="q-text">Siapakah tokoh penting Force 136 yang mengetuai Askar Melayu Setia di Kedah/Perlis?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Albert Kwok</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kiai Salleh</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mejar Tengku Mahmood Mahyiddeen</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Ibrahim Haji Yaakob</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: C</strong><br>Mejar Tengku Mahmood Mahyiddeen adalah tokoh penting Force 136 yang menubuhkan Askar Melayu Setia di Kedah/Perlis. Albert Kwok pula mengetuai Pemberontakan Jesselton di Sabah. Kiai Salleh memimpin Gerakan Fi-Sabilillah di Johor selepas perang.</div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="15">
+    <div class="q-number">Soalan 15 daripada 20</div>
+    <div class="q-text">Operasi Semut di Sarawak melibatkan kerjasama antara Unit Khas Z Australia dengan siapa?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pasukan MPAJA dari Tanah Melayu</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kaum pribumi Dayak dan Kayan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Askar Melayu Setia</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pasukan Giyu Gun</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: B</strong><br>Operasi Semut di Sarawak melibatkan Unit Khas Z Australia yang bekerjasama dengan kaum pribumi Dayak dan Kayan untuk melancarkan perang gerila di pedalaman Sarawak menentang pendudukan Jepun.</div>
+    <button class="btn-next" onclick="nextQ(15)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="16">
+    <div class="q-number">Soalan 16 daripada 20</div>
+    <div class="q-text">Bom atom manakah yang pertama kali digugurkan di Hiroshima pada 6 Ogos 1945?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Fat Man</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Big Boy</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Little Boy</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Iron Man</button>
+    </div>
+    <div class="explanation" id="exp-16"><strong>✓ Jawapan: C</strong><br>"Little Boy" digugurkan di Hiroshima (6 Ogos 1945). "Fat Man" pula digugurkan di Nagasaki (9 Ogos 1945). Dua bom atom ini memaksa Jepun menyerah kalah tanpa syarat dan menamatkan Perang Dunia Kedua di Asia Pasifik.</div>
+    <button class="btn-next" onclick="nextQ(16)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="17">
+    <div class="q-number">Soalan 17 daripada 20</div>
+    <div class="q-text">Apakah yang berlaku semasa "kekosongan politik" (14 hari) selepas Jepun menyerah kalah sebelum British kembali ke Tanah Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sultan-sultan Melayu mengambil alih pentadbiran negara</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>MPAJA keluar dari hutan dan menguasai balai polis serta bandar</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Tentera Amerika Syarikat mengambil alih Tanah Melayu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Rakyat mengisytiharkan kemerdekaan Tanah Melayu</button>
+    </div>
+    <div class="explanation" id="exp-17"><strong>✓ Jawapan: B</strong><br>Semasa kekosongan politik 14 hari, MPAJA (Bintang Tiga) keluar dari hutan dan menguasai balai polis serta bandar-bandar. Mereka bertindak kejam menghukum sesiapa yang dianggap penyokong Jepun, mencetuskan reaksi balas orang Melayu melalui Gerakan Fi-Sabilillah.</div>
+    <button class="btn-next" onclick="nextQ(17)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="18">
+    <div class="q-number">Soalan 18 daripada 20</div>
+    <div class="q-text">Siapakah yang memimpin Gerakan Fi-Sabilillah dan pasukan Parang Panjang di Johor sebagai reaksi balas terhadap kekejaman MPAJA?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Tok Janggut</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Albert Kwok</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mejar Tengku Mahmood Mahyiddeen</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kiai Salleh</button>
+    </div>
+    <div class="explanation" id="exp-18"><strong>✓ Jawapan: D</strong><br>Kiai Salleh memimpin Gerakan Fi-Sabilillah dan pasukan Parang Panjang di Johor untuk mempertahankan agama dan maruah bangsa Melayu daripada kekejaman MPAJA semasa kekosongan politik. Tok Janggut pula menentang British sebelum PDI (isu cukai di Kelantan).</div>
+    <button class="btn-next" onclick="nextQ(18)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="19">
+    <div class="q-number">Soalan 19 daripada 20</div>
+    <div class="q-text">Apakah kesan utama pendudukan Jepun terhadap masyarakat Tanah Melayu dari aspek SOSIAL?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Peningkatan ekonomi akibat pembangunan industri</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Penerapan Nippon Seishin, pendidikan bahasa Jepun, dan penderitaan buruh paksa</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Pemberian kemerdekaan kepada Tanah Melayu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Peningkatan taraf pendidikan rakyat Melayu</button>
+    </div>
+    <div class="explanation" id="exp-19"><strong>✓ Jawapan: B</strong><br>Kesan sosial pendudukan Jepun: Penerapan Nippon Seishin (Semangat Jepun), pendidikan bahasa Jepun (Nippon-go) diwajibkan, nyanyian lagu Kimigayo, dan penderitaan fizikal/mental akibat buruh paksa Jalan Kereta Api Maut. Semua ini menunjukkan usaha Jepun memJepunkan rakyat Asia.</div>
+    <button class="btn-next" onclick="nextQ(19)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="20">
+    <div class="q-number">Soalan 20 daripada 20</div>
+    <div class="q-text">Apakah iktibar terpenting yang boleh diambil daripada pengalaman pendudukan Jepun di Tanah Melayu? (Soalan KBAT)</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Negara Asia harus bersatu menentang semua kuasa Barat</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Perpaduan kaum, kepentingan keamanan, dan semangat mempertahankan kedaulatan adalah benteng utama negara</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Malaysia perlu membina senjata nuklear untuk keselamatan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kuasa asing tidak boleh dipercayai dalam apa jua keadaan</button>
+    </div>
+    <div class="explanation" id="exp-20"><strong>✓ Jawapan: B</strong><br>Iktibar utama: (1) Menghargai keamanan — perang membawa kemusnahan nyawa, (2) Kebijaksanaan pemimpin dalam strategi dan rundingan, (3) Perpaduan kaum sebagai benteng menghadapi ancaman luar, (4) Semangat mempertahankan kedaulatan. Penderitaan ini mematangkan perjuangan nasionalisme dan mendorong rakyat berjuang untuk kemerdekaan.</div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/20</span>
+    </div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Tingkatan 4</p>
+    <div class="bab-chips">
+      <a href="t4b1-warisan-negara-bangsa.html" class="chip">Bab 1 ✓</a>
+      <a href="t4b2-kebangkitan-nasionalisme.html" class="chip">Bab 2 ✓</a>
+      <span class="chip active">Bab 3: Konflik Dunia ✓</span>
+      <span class="chip coming">Bab 4: Peralihan British</span>
+      <span class="chip coming">Bab 5 – 10</span>
+    </div>
+  </div>
+</div>
+
+<footer>© 2025 EasySejarah · Soalan berdasarkan silibus SPM Sejarah Tingkatan 4</footer>
+
+<script>
+  const CORRECT = {
+    1:'B',2:'B',3:'C',4:'C',5:'B',
+    6:'A',7:'C',8:'C',9:'B',10:'B',
+    11:'C',12:'B',13:'B',14:'C',15:'B',
+    16:'C',17:'B',18:'D',19:'B',20:'B'
+  };
+  let score=0, answered=0;
+  const TOTAL=20;
+
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');
+      const q=parseInt(card.dataset.q);
+      const chosen=this.dataset.ans;
+      const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(b.dataset.ans===correct)b.classList.add('correct');});}
+      answered++;
+      updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current){
+    document.querySelector('[data-q="'+current+'"]').classList.remove('active');
+    const next=document.querySelector('[data-q="'+(current+1)+'"]');
+    if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+
+  function updateProgress(){
+    const pct=(answered/TOTAL)*100;
+    document.getElementById('progress-fill').style.width=pct+'%';
+    document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';
+  }
+
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;
+    document.getElementById('stat-salah').textContent=TOTAL-score;
+    document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai Bab 3 sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula tarikh-tarikh penting serangan Jepun.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Fokus pada perbezaan PDI vs PDII, dan nama-nama pasukan penentangan.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota Bab 3 — terutama garis masa serangan Jepun dan dasar pendudukan.';}
+    document.getElementById('result-title').textContent=title;
+    document.getElementById('result-subtitle').textContent=sub;
+  }
+
+  function retryQuiz(){
+    score=0;answered=0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
