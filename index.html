@@ -3,19 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Easy Sejarah – Latihan SPM</title>
+<title>Easy Sejarah – Kuiz SPM Sejarah</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
 
   :root {
-    --merah: #D62828;
     --kuning: #F7B731;
     --hitam: #1A1A2E;
-    --putih: #FAFAF8;
-    --kelabu: #F0EDE8;
-    --kelabu-teks: #5C5C6E;
     --hijau: #2D9E5F;
-    --radius: 12px;
+    --merah: #D62828;
+    --kad: #252538;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,356 +20,129 @@
   body {
     font-family: 'Noto Sans', sans-serif;
     background: var(--hitam);
-    color: var(--putih);
+    color: #fff;
     min-height: 100vh;
   }
 
-  /* ── HEADER ── */
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 18px 24px;
-    border-bottom: 2px solid rgba(247,183,49,0.25);
+    border-bottom: 2px solid rgba(247,183,49,0.2);
     position: sticky; top: 0;
     background: var(--hitam);
     z-index: 99;
   }
-
-  .logo {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: 1.5rem;
-    letter-spacing: -0.5px;
-  }
+  .logo { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1.5rem; }
   .logo span { color: var(--kuning); }
+  .tagline { font-size: 0.75rem; color: rgba(255,255,255,0.4); display: none; }
+  @media(min-width:480px){ .tagline { display: block; } }
 
-  .badge-topik {
-    background: rgba(247,183,49,0.15);
-    border: 1px solid var(--kuning);
-    color: var(--kuning);
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 999px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
-  /* ── HERO ── */
   .hero {
     text-align: center;
-    padding: 52px 24px 36px;
+    padding: 56px 24px 40px;
     max-width: 640px;
     margin: 0 auto;
   }
-
   .hero-eyebrow {
     color: var(--kuning);
     font-family: 'Poppins', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 14px;
   }
-
   .hero h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
-    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-size: clamp(2rem, 7vw, 3.2rem);
     line-height: 1.1;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
-  .hero h1 em {
-    font-style: normal;
-    color: var(--kuning);
-  }
+  .hero h1 em { font-style: normal; color: var(--kuning); }
+  .hero p { color: rgba(255,255,255,0.55); font-size: 0.95rem; line-height: 1.7; margin-bottom: 32px; }
 
-  .hero p {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 28px;
-  }
-
-  /* Progress bar */
-  .progress-wrap {
-    background: rgba(255,255,255,0.1);
+  .stats-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .stat-pill {
+    background: rgba(247,183,49,0.1);
+    border: 1px solid rgba(247,183,49,0.3);
     border-radius: 999px;
-    height: 6px;
-    margin-bottom: 8px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    background: var(--kuning);
-    border-radius: 999px;
-    transition: width 0.4s ease;
-    width: 0%;
-  }
-  .progress-label {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.45);
-    text-align: right;
-  }
-
-  /* ── QUIZ CARD ── */
-  .quiz-section {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 20px 80px;
-  }
-
-  .question-card {
-    background: #252538;
-    border-radius: 16px;
-    padding: 32px 28px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(255,255,255,0.06);
-    display: none;
-    animation: fadeUp 0.35s ease;
-  }
-  .question-card.active { display: block; }
-
-  @keyframes fadeUp {
-    from { opacity:0; transform: translateY(14px); }
-    to   { opacity:1; transform: translateY(0); }
-  }
-
-  .q-number {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
+    padding: 8px 16px;
+    font-size: 0.8rem;
     color: var(--kuning);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-
-  .q-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(1rem, 3.5vw, 1.2rem);
     font-weight: 600;
-    line-height: 1.45;
-    margin-bottom: 28px;
-    color: #fff;
   }
 
-  /* Options */
-  .options { display: flex; flex-direction: column; gap: 11px; }
+  .section { max-width: 760px; margin: 0 auto; padding: 40px 20px; }
 
-  .option-btn {
-    display: flex;
-    align-items: center;
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .section-label { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1.1rem; }
+  .section-badge {
+    font-size: 0.7rem; font-weight: 700;
+    padding: 3px 10px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .badge-t4 { background: rgba(45,158,95,0.2); color: var(--hijau); border: 1px solid var(--hijau); }
+  .badge-t5 { background: rgba(214,40,40,0.15); color: #ff6b6b; border: 1px solid #ff6b6b; }
+
+  .bab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 14px;
-    background: rgba(255,255,255,0.05);
-    border: 2px solid rgba(255,255,255,0.1);
-    border-radius: 10px;
-    padding: 14px 18px;
-    cursor: pointer;
-    text-align: left;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 0.92rem;
-    color: rgba(255,255,255,0.85);
-    transition: border-color 0.15s, background 0.15s;
-    width: 100%;
-  }
-  .option-btn:hover:not(:disabled) {
-    border-color: var(--kuning);
-    background: rgba(247,183,49,0.08);
-  }
-  .option-btn:disabled { cursor: default; }
-
-  .option-letter {
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    transition: background 0.15s, color 0.15s;
   }
 
-  .option-btn.correct {
-    border-color: var(--hijau);
-    background: rgba(45,158,95,0.15);
-  }
-  .option-btn.correct .option-letter { background: var(--hijau); color: #fff; }
-
-  .option-btn.wrong {
-    border-color: var(--merah);
-    background: rgba(214,40,40,0.12);
-  }
-  .option-btn.wrong .option-letter { background: var(--merah); color: #fff; }
-
-  /* Explanation */
-  .explanation {
-    display: none;
-    margin-top: 20px;
-    padding: 16px 18px;
-    background: rgba(247,183,49,0.08);
-    border-left: 3px solid var(--kuning);
-    border-radius: 0 8px 8px 0;
-    font-size: 0.88rem;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.8);
-  }
-  .explanation.show { display: block; }
-  .explanation strong { color: var(--kuning); }
-
-  /* Next button */
-  .btn-next {
-    display: none;
-    margin-top: 22px;
-    width: 100%;
-    padding: 16px;
-    background: var(--kuning);
-    color: var(--hitam);
-    border: none;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
-  }
-  .btn-next:hover { opacity: 0.9; transform: translateY(-1px); }
-  .btn-next.show { display: block; }
-
-  /* ── RESULT CARD ── */
-  #result-section {
-    display: none;
-    max-width: 580px;
-    margin: 0 auto;
-    padding: 0 20px 80px;
-    text-align: center;
-  }
-  #result-section.show { display: block; }
-
-  .result-card {
-    background: #252538;
-    border-radius: 20px;
-    padding: 44px 32px;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .score-ring {
-    width: 130px; height: 130px;
-    border-radius: 50%;
-    background: conic-gradient(var(--kuning) var(--pct, 0%), rgba(255,255,255,0.08) 0%);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 28px;
-    position: relative;
-  }
-  .score-ring::after {
-    content: '';
-    position: absolute;
-    width: 96px; height: 96px;
-    background: #252538;
-    border-radius: 50%;
-  }
-  .score-number {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: 2rem;
-    color: var(--kuning);
-    position: relative;
-    z-index: 1;
-  }
-
-  .result-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-  .result-subtitle {
-    color: rgba(255,255,255,0.55);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 32px;
-  }
-
-  .stat-row {
+  .bab-card {
+    background: var(--kad);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 20px 18px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.15s, background 0.2s;
     display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 36px;
-  }
-  .stat-box {
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px;
-    padding: 14px 22px;
-    min-width: 90px;
-  }
-  .stat-box .stat-val {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--kuning);
-    display: block;
-  }
-  .stat-box .stat-lbl {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.45);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .btn-retry {
-    width: 100%;
-    padding: 16px;
-    background: var(--kuning);
-    color: var(--hitam);
-    border: none;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 14px;
-    transition: opacity 0.2s;
-  }
-  .btn-retry:hover { opacity: 0.9; }
-
-  .topic-nav {
-    margin-top: 36px;
-    text-align: center;
-  }
-  .topic-nav p {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 14px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-  .topic-chips {
-    display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
-    justify-content: center;
+    position: relative;
   }
-  .chip {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.6);
-    border-radius: 999px;
-    padding: 7px 16px;
-    font-size: 0.82rem;
-    cursor: pointer;
-    transition: border-color 0.15s, color 0.15s;
+  .bab-card.ready:hover {
+    border-color: var(--kuning);
+    background: #2e2d45;
+    transform: translateY(-2px);
   }
-  .chip:hover { border-color: var(--kuning); color: var(--kuning); }
-  .chip.coming-soon { opacity: 0.35; cursor: default; }
+  .bab-card.coming { opacity: 0.4; cursor: default; pointer-events: none; }
+
+  .bab-num { font-size: 0.68rem; font-weight: 700; color: var(--kuning); letter-spacing: 1.5px; text-transform: uppercase; }
+  .bab-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.92rem; line-height: 1.35; color: #fff; }
+  .bab-meta { display: flex; align-items: center; gap: 8px; margin-top: auto; }
+  .bab-soalan { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--hijau); flex-shrink: 0; }
+  .status-dot.coming { background: rgba(255,255,255,0.2); }
+
+  .animasi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .animasi-card {
+    background: var(--kad);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 20px 18px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.15s;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .animasi-card:hover { border-color: rgba(247,183,49,0.5); transform: translateY(-2px); }
+  .animasi-icon { font-size: 1.4rem; }
+  .animasi-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.9rem; color: #fff; }
+  .animasi-desc { font-size: 0.75rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
+
+  .divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 0 20px; }
 
   footer {
     text-align: center;
     padding: 28px 20px;
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.2);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.18);
     border-top: 1px solid rgba(255,255,255,0.06);
     margin-top: 20px;
   }
@@ -382,329 +152,183 @@
 
 <header>
   <div class="logo">Easy<span>Sejarah</span></div>
-  <div class="badge-topik">SPM Tingkatan 5</div>
+  <div class="tagline">Kuiz SPM Sejarah · Percuma</div>
 </header>
 
 <div class="hero">
-  <div class="hero-eyebrow">Latihan Soalan KBAT</div>
-  <h1>Kuiz Sejarah<br><em>Dasar Ekonomi & Perpaduan</em></h1>
-  <p>10 soalan pilihan berganda berdasarkan topik ramalan tinggi SPM. Semak jawapan dan huraian selepas setiap soalan.</p>
-
-  <div class="progress-wrap">
-    <div class="progress-fill" id="progress-fill"></div>
+  <div class="hero-eyebrow">Platform Ulang Kaji SPM</div>
+  <h1>Sejarah<br><em>Jadi Mudah.</em></h1>
+  <p>Kuiz interaktif berdasarkan silibus SPM Sejarah Tingkatan 4 & 5. Jawab soalan, semak jawapan, dan faham dengan huraian ringkas.</p>
+  <div class="stats-row">
+    <div class="stat-pill">📚 20 Bab</div>
+    <div class="stat-pill">✏️ 20 Soalan / Bab</div>
+    <div class="stat-pill">🆓 100% Percuma</div>
   </div>
-  <div class="progress-label" id="progress-label">0 / 10 soalan</div>
 </div>
 
-<div class="quiz-section" id="quiz-section">
-
-  <!-- Q1 -->
-  <div class="question-card active" data-q="1">
-    <div class="q-number">Soalan 1 daripada 10</div>
-    <div class="q-text">Apakah matlamat utama Dasar Ekonomi Baru (DEB) yang dilancarkan pada tahun 1971?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Membangunkan industri berat di Malaysia</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Membasmi kemiskinan dan menyusun semula masyarakat</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menarik pelabur asing dari Eropah</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menggantikan tenaga kerja asing dengan tenaga tempatan</button>
-    </div>
-    <div class="explanation" id="exp-1">
-      <strong>✓ Jawapan: B</strong><br>
-      DEB mempunyai dua matlamat utama — (1) membasmi kemiskinan tanpa mengira kaum, dan (2) menyusun semula masyarakat agar pemilikan ekonomi tidak dikenal pasti mengikut kaum. Ia dilaksanakan dalam RMK Kedua hingga RMK Kelima (1971–1990).
-    </div>
-    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+<!-- T4 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">Tingkatan 4</div>
+    <span class="section-badge badge-t4">Pembinaan Negara Bangsa</span>
   </div>
+  <div class="bab-grid">
 
-  <!-- Q2 -->
-  <div class="question-card" data-q="2">
-    <div class="q-number">Soalan 2 daripada 10</div>
-    <div class="q-text">Peristiwa apakah yang menjadi punca utama penggubalan Dasar Ekonomi Baru (DEB) pada tahun 1971?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pencerobohan Lahad Datu</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Darurat 1948</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Rusuhan Kaum 13 Mei 1969</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Konfrontasi Indonesia-Malaysia</button>
+    <a href="t4b1-warisan-negara-bangsa.html" class="bab-card ready">
+      <div class="bab-num">Bab 1</div>
+      <div class="bab-title">Warisan Negara Bangsa</div>
+      <div class="bab-meta"><span class="status-dot"></span><span class="bab-soalan">20 soalan · Sedia</span></div>
+    </a>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 2</div>
+      <div class="bab-title">Kebangkitan Nasionalisme</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
     </div>
-    <div class="explanation" id="exp-2">
-      <strong>✓ Jawapan: C</strong><br>
-      Rusuhan Kaum 13 Mei 1969 mendedahkan ketidakseimbangan ekonomi yang ketara antara kaum. Ini mendorong kerajaan menggubal DEB untuk merapatkan jurang sosioekonomi dan mengekalkan perpaduan negara.
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 3</div>
+      <div class="bab-title">Konflik Dunia & Pendudukan Jepun</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
     </div>
-    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 4</div>
+      <div class="bab-title">Era Peralihan Kuasa British</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 5</div>
+      <div class="bab-title">Persekutuan Tanah Melayu 1948</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 6</div>
+      <div class="bab-title">Ancaman Komunis & Darurat</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 7</div>
+      <div class="bab-title">Usaha ke Arah Kemerdekaan</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 8</div>
+      <div class="bab-title">Pilihan Raya</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 9</div>
+      <div class="bab-title">Perlembagaan Persekutuan 1957</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 10</div>
+      <div class="bab-title">Pemasyhuran Kemerdekaan</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
   </div>
-
-  <!-- Q3 -->
-  <div class="question-card" data-q="3">
-    <div class="q-number">Soalan 3 daripada 10</div>
-    <div class="q-text">Agensi manakah yang ditubuhkan di bawah DEB untuk membangunkan kawasan luar bandar dan membasmi kemiskinan peneroka?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>MARA</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>FELDA</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>EPU</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>PETRONAS</button>
-    </div>
-    <div class="explanation" id="exp-3">
-      <strong>✓ Jawapan: B</strong><br>
-      FELDA (Lembaga Kemajuan Tanah Persekutuan) membantu peneroka membuka tanah baharu untuk pertanian, terutamanya kelapa sawit dan getah. Ia menjadi model pembangunan luar bandar yang berjaya mengurangkan kemiskinan secara drastik.
-    </div>
-    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
-  </div>
-
-  <!-- Q4 -->
-  <div class="question-card" data-q="4">
-    <div class="q-number">Soalan 4 daripada 10</div>
-    <div class="q-text">Dasar Pembangunan Nasional (DPN) menggantikan DEB pada tahun 1991. Apakah visi jangka panjang yang menjadi teras DPN?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Wawasan 2020</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Wawasan 2050</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Rancangan Malaysia Ke-7</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Dasar Kebudayaan Kebangsaan</button>
-    </div>
-    <div class="explanation" id="exp-4">
-      <strong>✓ Jawapan: A</strong><br>
-      DPN (1991–2000) digubal bersama Wawasan 2020 yang diumumkan oleh YAB Tun Dr. Mahathir Mohamad. Matlamatnya ialah menjadikan Malaysia sebuah negara maju sepenuhnya menjelang tahun 2020 — dari segi ekonomi, sosial dan politik.
-    </div>
-    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
-  </div>
-
-  <!-- Q5 -->
-  <div class="question-card" data-q="5">
-    <div class="q-number">Soalan 5 daripada 10</div>
-    <div class="q-text">Apakah badan yang ditubuhkan selepas peristiwa 13 Mei 1969 untuk mentadbir negara semasa darurat?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Jemaah Menteri</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>MAGERAN</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Majlis Raja-Raja</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Parlimen Sementara</button>
-    </div>
-    <div class="explanation" id="exp-5">
-      <strong>✓ Jawapan: B</strong><br>
-      MAGERAN (Majlis Gerakan Negara) ditubuhkan pada 16 Mei 1969 di bawah Tun Abdul Razak. Ia mengambil alih kuasa pentadbiran negara semasa parlimen digantung, dan merangka dasar-dasar baru untuk memulihkan perpaduan kaum.
-    </div>
-    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
-  </div>
-
-  <!-- Q6 -->
-  <div class="question-card" data-q="6">
-    <div class="q-number">Soalan 6 daripada 10</div>
-    <div class="q-text">Lima prinsip Rukun Negara telah digubal sebagai panduan perpaduan rakyat. Prinsip manakah yang PERTAMA dalam susunan Rukun Negara?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Keluhuran Perlembagaan</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kepercayaan kepada Tuhan</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kedaulatan Undang-Undang</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kesopanan dan Kesusilaan</button>
-    </div>
-    <div class="explanation" id="exp-6">
-      <strong>✓ Jawapan: B</strong><br>
-      Susunan lima prinsip Rukun Negara ialah: (1) Kepercayaan kepada Tuhan, (2) Kesetiaan kepada Raja dan Negara, (3) Keluhuran Perlembagaan, (4) Kedaulatan Undang-Undang, (5) Kesopanan dan Kesusilaan.
-    </div>
-    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
-  </div>
-
-  <!-- Q7 -->
-  <div class="question-card" data-q="7">
-    <div class="q-number">Soalan 7 daripada 10</div>
-    <div class="q-text">Dalam konteks Perlembagaan Persekutuan Malaysia, apakah ciri TRADISIONAL yang membezakannya daripada ciri moden?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Demokrasi berparlimen</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kewarganegaraan untuk semua kaum</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Pemerintahan beraja berperlembagaan</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pilihan raya umum</button>
-    </div>
-    <div class="explanation" id="exp-7">
-      <strong>✓ Jawapan: C</strong><br>
-      Ciri <em>tradisional</em> dalam Perlembagaan Persekutuan termasuk: Pemerintahan beraja, Islam sebagai agama rasmi, dan Bahasa Melayu sebagai bahasa kebangsaan. Manakala ciri <em>moden</em> pula ialah demokrasi berparlimen, sistem persekutuan, dan kewarganegaraan bagi semua kaum.
-    </div>
-    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
-  </div>
-
-  <!-- Q8 -->
-  <div class="question-card" data-q="8">
-    <div class="q-number">Soalan 8 daripada 10</div>
-    <div class="q-text">Malaysia telah aktif menyertai pertubuhan antarabangsa. Apakah pertubuhan serantau yang disertai Malaysia sejak penubuhannya pada tahun 1967?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>OIC</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>NAM</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>ASEAN</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Komanwel</button>
-    </div>
-    <div class="explanation" id="exp-8">
-      <strong>✓ Jawapan: C</strong><br>
-      ASEAN (Persatuan Negara-Negara Asia Tenggara) ditubuhkan pada 8 Ogos 1967 melalui Deklarasi Bangkok. Malaysia adalah antara lima negara pengasas bersama Indonesia, Thailand, Filipina, dan Singapura.
-    </div>
-    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
-  </div>
-
-  <!-- Q9 -->
-  <div class="question-card" data-q="9">
-    <div class="q-number">Soalan 9 daripada 10</div>
-    <div class="q-text">Dalam soalan KBAT (8 markah) Sejarah SPM, formula apakah yang digunakan untuk menulis perenggan yang mendapat Aras 4 (7–8 markah)?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>F + H + C + I (Fakta, Huraian, Contoh, Inferens)</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>P + E + S (Politik, Ekonomi, Sosial)</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>S + E + B + A (Sebab, Faktor, Bukti, Analisis)</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Tulis sebanyak mungkin fakta tanpa huraian</button>
-    </div>
-    <div class="explanation" id="exp-9">
-      <strong>✓ Jawapan: A</strong><br>
-      Formula F+H+C+I ("Burger KBAT") ialah struktur penulisan yang diiktiraf oleh pemeriksa SPM untuk mencapai Aras 4. <strong>Fakta</strong> = idea utama, <strong>Huraian</strong> = jelaskan sebab/akibat, <strong>Contoh</strong> = bukti khusus, <strong>Inferens</strong> = rumusan kesan akhir. PES (Politik, Ekonomi, Sosial) pula digunakan untuk <em>mencari</em> idea sebelum menulis.
-    </div>
-    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
-  </div>
-
-  <!-- Q10 -->
-  <div class="question-card" data-q="10">
-    <div class="q-number">Soalan 10 daripada 10</div>
-    <div class="q-text">Apakah kesan negatif kepada negara sekiranya jurang ekonomi antara kaum TIDAK diatasi?</div>
-    <div class="options">
-      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pelabur asing akan meningkat</button>
-      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Perpaduan kaum menjadi lebih kukuh</button>
-      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Masyarakat berpecah belah dan ekonomi merosot</button>
-      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kerajaan lebih mudah mentadbir negara</button>
-    </div>
-    <div class="explanation" id="exp-10">
-      <strong>✓ Jawapan: C</strong><br>
-      Jurang ekonomi yang tidak diatasi akan mewujudkan perasaan tidak puas hati antara kaum → masyarakat berpecah belah → rusuhan sosial → pelabur asing tidak berminat → ekonomi merosot. Ini adalah logik rantai PES (Sosial → Ekonomi) yang sering diuji dalam soalan KBAT.
-    </div>
-    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
-  </div>
-
 </div>
 
-<!-- RESULT -->
-<div id="result-section">
-  <div class="result-card">
-    <div class="score-ring" id="score-ring">
-      <span class="score-number" id="score-display">0/10</span>
-    </div>
-    <div class="result-title" id="result-title">Tahniah!</div>
-    <div class="result-subtitle" id="result-subtitle">Anda telah menamatkan kuiz ini.</div>
-    <div class="stat-row">
-      <div class="stat-box">
-        <span class="stat-val" id="stat-betul">0</span>
-        <span class="stat-lbl">Betul</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-val" id="stat-salah">0</span>
-        <span class="stat-lbl">Salah</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-val" id="stat-pct">0%</span>
-        <span class="stat-lbl">Markah</span>
-      </div>
-    </div>
-    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
-  </div>
+<hr class="divider">
 
-  <div class="topic-nav">
-    <p>Topik Lain</p>
-    <div class="topic-chips">
-      <span class="chip">DEB &amp; DPN ✓</span>
-      <span class="chip coming-soon">Perlembagaan</span>
-      <span class="chip coming-soon">Perang Dunia</span>
-      <span class="chip coming-soon">Dasar Luar</span>
-      <span class="chip coming-soon">Pendudukan Jepun</span>
+<!-- T5 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">Tingkatan 5</div>
+    <span class="section-badge badge-t5">Pembinaan & Kemajuan Negara</span>
+  </div>
+  <div class="bab-grid">
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 1</div>
+      <div class="bab-title">Kedaulatan Negara</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
     </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 2</div>
+      <div class="bab-title">Perlembagaan Persekutuan</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 3</div>
+      <div class="bab-title">Raja Berperlembagaan & Demokrasi Berparlimen</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 4</div>
+      <div class="bab-title">Sistem Persekutuan</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 5</div>
+      <div class="bab-title">Pembentukan Malaysia</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 6</div>
+      <div class="bab-title">Cabaran Selepas Pembentukan Malaysia</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 7</div>
+      <div class="bab-title">Membina Kesejahteraan Negara</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 8</div>
+      <div class="bab-title">Membina Kemakmuran Negara</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 9</div>
+      <div class="bab-title">Dasar Luar Malaysia</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+    <div class="bab-card coming">
+      <div class="bab-num">Bab 10</div>
+      <div class="bab-title">Kecemerlangan Malaysia di Persada Dunia</div>
+      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ANIMASI -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">Animasi & Nota Visual</div>
+  </div>
+  <div class="animasi-grid">
+    <a href="Kedaulatan%20Negara%20(standalone).html" class="animasi-card">
+      <div class="animasi-icon">🎬</div>
+      <div class="animasi-title">Kedaulatan Negara</div>
+      <div class="animasi-desc">Animasi interaktif konsep kedaulatan negara Malaysia</div>
+    </a>
   </div>
 </div>
 
 <footer>
-  © 2025 EasySejarah · Semua soalan adalah untuk tujuan pembelajaran sahaja.
+  © 2025 EasySejarah · Dibina untuk pelajar SPM Malaysia · Semua kandungan adalah percuma
 </footer>
 
-<script>
-  const CORRECT = { 1:'B', 2:'C', 3:'B', 4:'A', 5:'B', 6:'B', 7:'C', 8:'C', 9:'A', 10:'C' };
-  let score = 0;
-  let answered = 0;
-
-  document.querySelectorAll('.option-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const card = this.closest('.question-card');
-      const q = parseInt(card.dataset.q);
-      const chosen = this.dataset.ans;
-      const correct = CORRECT[q];
-
-      // disable all options in this card
-      card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-
-      if (chosen === correct) {
-        this.classList.add('correct');
-        score++;
-      } else {
-        this.classList.add('wrong');
-        // highlight correct
-        card.querySelectorAll('.option-btn').forEach(b => {
-          if (b.dataset.ans === correct) b.classList.add('correct');
-        });
-      }
-
-      answered++;
-      updateProgress();
-
-      // show explanation + next btn
-      document.getElementById('exp-' + q).classList.add('show');
-      card.querySelector('.btn-next').classList.add('show');
-    });
-  });
-
-  function nextQ(current) {
-    document.querySelector('[data-q="' + current + '"]').classList.remove('active');
-    const next = document.querySelector('[data-q="' + (current + 1) + '"]');
-    if (next) {
-      next.classList.add('active');
-      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  function updateProgress() {
-    const pct = (answered / 10) * 100;
-    document.getElementById('progress-fill').style.width = pct + '%';
-    document.getElementById('progress-label').textContent = answered + ' / 10 soalan';
-  }
-
-  function showResult() {
-    document.getElementById('quiz-section').style.display = 'none';
-    const rs = document.getElementById('result-section');
-    rs.classList.add('show');
-    rs.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    const pct = Math.round((score / 10) * 100);
-    document.getElementById('score-display').textContent = score + '/10';
-    document.getElementById('stat-betul').textContent = score;
-    document.getElementById('stat-salah').textContent = 10 - score;
-    document.getElementById('stat-pct').textContent = pct + '%';
-
-    // animate ring
-    document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
-
-    let title = '', sub = '';
-    if (pct === 100) { title = 'Cemerlang! 🏆'; sub = 'Markah penuh! Anda bersedia untuk SPM. Teruskan semangat ini!'; }
-    else if (pct >= 70) { title = 'Bagus! 🎉'; sub = 'Prestasi yang baik. Semak semula soalan yang salah dan anda pasti boleh capai A+.'; }
-    else if (pct >= 50) { title = 'Boleh Lagi! 💪'; sub = 'Asas ada, tapi perlu lebih banyak latihan. Cuba semula untuk tingkatkan markah.'; }
-    else { title = 'Jangan Putus Asa! 📚'; sub = 'Baca semula huraian setiap soalan dan fahami konsep PES + F-H-C-I. Cuba lagi!'; }
-
-    document.getElementById('result-title').textContent = title;
-    document.getElementById('result-subtitle').textContent = sub;
-  }
-
-  function retryQuiz() {
-    score = 0; answered = 0;
-    updateProgress();
-
-    document.getElementById('result-section').classList.remove('show');
-    document.getElementById('quiz-section').style.display = 'block';
-
-    document.querySelectorAll('.question-card').forEach((card, i) => {
-      card.classList.toggle('active', i === 0);
-      card.querySelectorAll('.option-btn').forEach(b => {
-        b.disabled = false;
-        b.classList.remove('correct', 'wrong');
-      });
-      card.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
-      card.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
-    });
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
 </body>
 </html>
