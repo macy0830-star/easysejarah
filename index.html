@@ -6,146 +6,45 @@
 <title>Easy Sejarah – Kuiz SPM Sejarah</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
-
-  :root {
-    --kuning: #F7B731;
-    --hitam: #1A1A2E;
-    --hijau: #2D9E5F;
-    --merah: #D62828;
-    --kad: #252538;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Noto Sans', sans-serif;
-    background: var(--hitam);
-    color: #fff;
-    min-height: 100vh;
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 24px;
-    border-bottom: 2px solid rgba(247,183,49,0.2);
-    position: sticky; top: 0;
-    background: var(--hitam);
-    z-index: 99;
-  }
-  .logo { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1.5rem; }
-  .logo span { color: var(--kuning); }
-  .tagline { font-size: 0.75rem; color: rgba(255,255,255,0.4); display: none; }
-  @media(min-width:480px){ .tagline { display: block; } }
-
-  .hero {
-    text-align: center;
-    padding: 56px 24px 40px;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  .hero-eyebrow {
-    color: var(--kuning);
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .hero h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: clamp(2rem, 7vw, 3.2rem);
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-  .hero h1 em { font-style: normal; color: var(--kuning); }
-  .hero p { color: rgba(255,255,255,0.55); font-size: 0.95rem; line-height: 1.7; margin-bottom: 32px; }
-
-  .stats-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-  .stat-pill {
-    background: rgba(247,183,49,0.1);
-    border: 1px solid rgba(247,183,49,0.3);
-    border-radius: 999px;
-    padding: 8px 16px;
-    font-size: 0.8rem;
-    color: var(--kuning);
-    font-weight: 600;
-  }
-
-  .section { max-width: 760px; margin: 0 auto; padding: 40px 20px; }
-
-  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-  .section-label { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1.1rem; }
-  .section-badge {
-    font-size: 0.7rem; font-weight: 700;
-    padding: 3px 10px; border-radius: 999px;
-    text-transform: uppercase; letter-spacing: 0.5px;
-  }
-  .badge-t4 { background: rgba(45,158,95,0.2); color: var(--hijau); border: 1px solid var(--hijau); }
-  .badge-t5 { background: rgba(214,40,40,0.15); color: #ff6b6b; border: 1px solid #ff6b6b; }
-
-  .bab-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 14px;
-  }
-
-  .bab-card {
-    background: var(--kad);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 14px;
-    padding: 20px 18px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.2s, transform 0.15s, background 0.2s;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: relative;
-  }
-  .bab-card.ready:hover {
-    border-color: var(--kuning);
-    background: #2e2d45;
-    transform: translateY(-2px);
-  }
-  .bab-card.coming { opacity: 0.4; cursor: default; pointer-events: none; }
-
-  .bab-num { font-size: 0.68rem; font-weight: 700; color: var(--kuning); letter-spacing: 1.5px; text-transform: uppercase; }
-  .bab-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.92rem; line-height: 1.35; color: #fff; }
-  .bab-meta { display: flex; align-items: center; gap: 8px; margin-top: auto; }
-  .bab-soalan { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
-  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--hijau); flex-shrink: 0; }
-  .status-dot.coming { background: rgba(255,255,255,0.2); }
-
-  .animasi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
-  .animasi-card {
-    background: var(--kad);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 14px;
-    padding: 20px 18px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.2s, transform 0.15s;
-    display: flex; flex-direction: column; gap: 8px;
-  }
-  .animasi-card:hover { border-color: rgba(247,183,49,0.5); transform: translateY(-2px); }
-  .animasi-icon { font-size: 1.4rem; }
-  .animasi-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.9rem; color: #fff; }
-  .animasi-desc { font-size: 0.75rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
-
-  .divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 0 20px; }
-
-  footer {
-    text-align: center;
-    padding: 28px 20px;
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.18);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    margin-top: 20px;
-  }
+  :root { --kuning:#F7B731; --hitam:#1A1A2E; --hijau:#2D9E5F; --merah:#D62828; --kad:#252538; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans',sans-serif; background:var(--hitam); color:#fff; min-height:100vh; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; border-bottom:2px solid rgba(247,183,49,0.2); position:sticky; top:0; background:var(--hitam); z-index:99; }
+  .logo { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.5rem; }
+  .logo span { color:var(--kuning); }
+  .tagline { font-size:0.75rem; color:rgba(255,255,255,0.4); display:none; }
+  @media(min-width:480px){ .tagline { display:block; } }
+  .hero { text-align:center; padding:56px 24px 40px; max-width:640px; margin:0 auto; }
+  .hero-eyebrow { color:var(--kuning); font-family:'Poppins',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  .hero h1 { font-family:'Poppins',sans-serif; font-weight:900; font-size:clamp(2rem,7vw,3.2rem); line-height:1.1; margin-bottom:16px; }
+  .hero h1 em { font-style:normal; color:var(--kuning); }
+  .hero p { color:rgba(255,255,255,0.55); font-size:0.95rem; line-height:1.7; margin-bottom:32px; }
+  .stats-row { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+  .stat-pill { background:rgba(247,183,49,0.1); border:1px solid rgba(247,183,49,0.3); border-radius:999px; padding:8px 16px; font-size:0.8rem; color:var(--kuning); font-weight:600; }
+  .section { max-width:760px; margin:0 auto; padding:40px 20px; }
+  .section-header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .section-label { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.1rem; }
+  .section-badge { font-size:0.7rem; font-weight:700; padding:3px 10px; border-radius:999px; text-transform:uppercase; letter-spacing:0.5px; }
+  .badge-t4 { background:rgba(45,158,95,0.2); color:var(--hijau); border:1px solid var(--hijau); }
+  .badge-t5 { background:rgba(214,40,40,0.15); color:#ff6b6b; border:1px solid #ff6b6b; }
+  .bab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; }
+  .bab-card { background:var(--kad); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:20px 18px; text-decoration:none; color:inherit; transition:border-color 0.2s,transform 0.15s,background 0.2s; display:flex; flex-direction:column; gap:10px; }
+  .bab-card.ready:hover { border-color:var(--kuning); background:#2e2d45; transform:translateY(-2px); }
+  .bab-card.coming { opacity:0.4; cursor:default; pointer-events:none; }
+  .bab-num { font-size:0.68rem; font-weight:700; color:var(--kuning); letter-spacing:1.5px; text-transform:uppercase; }
+  .bab-title { font-family:'Poppins',sans-serif; font-weight:700; font-size:0.92rem; line-height:1.35; color:#fff; }
+  .bab-meta { display:flex; align-items:center; gap:8px; margin-top:auto; }
+  .bab-soalan { font-size:0.72rem; color:rgba(255,255,255,0.4); }
+  .status-dot { width:7px; height:7px; border-radius:50%; background:var(--hijau); flex-shrink:0; }
+  .status-dot.coming { background:rgba(255,255,255,0.2); }
+  .animasi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+  .animasi-card { background:var(--kad); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:20px 18px; text-decoration:none; color:inherit; transition:border-color 0.2s,transform 0.15s; display:flex; flex-direction:column; gap:8px; }
+  .animasi-card:hover { border-color:rgba(247,183,49,0.5); transform:translateY(-2px); }
+  .animasi-icon { font-size:1.4rem; }
+  .animasi-title { font-family:'Poppins',sans-serif; font-weight:700; font-size:0.9rem; color:#fff; }
+  .animasi-desc { font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.5; }
+  .divider { border:none; border-top:1px solid rgba(255,255,255,0.07); margin:0 20px; }
+  footer { text-align:center; padding:28px 20px; font-size:0.75rem; color:rgba(255,255,255,0.18); border-top:1px solid rgba(255,255,255,0.06); margin-top:20px; }
 </style>
 </head>
 <body>
@@ -180,23 +79,23 @@
       <div class="bab-meta"><span class="status-dot"></span><span class="bab-soalan">20 soalan · Sedia</span></div>
     </a>
 
-    <div class="bab-card coming">
+    <a href="t4b2-kebangkitan-nasionalisme.html" class="bab-card ready">
       <div class="bab-num">Bab 2</div>
       <div class="bab-title">Kebangkitan Nasionalisme</div>
-      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
-    </div>
+      <div class="bab-meta"><span class="status-dot"></span><span class="bab-soalan">20 soalan · Sedia</span></div>
+    </a>
 
-    <div class="bab-card coming">
+    <a href="t4b3-konflik-dunia-pendudukan-jepun.html" class="bab-card ready">
       <div class="bab-num">Bab 3</div>
       <div class="bab-title">Konflik Dunia & Pendudukan Jepun</div>
-      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
-    </div>
+      <div class="bab-meta"><span class="status-dot"></span><span class="bab-soalan">20 soalan · Sedia</span></div>
+    </a>
 
-    <div class="bab-card coming">
+    <a href="t4b4-era-peralihan-kuasa-british.html" class="bab-card ready">
       <div class="bab-num">Bab 4</div>
       <div class="bab-title">Era Peralihan Kuasa British</div>
-      <div class="bab-meta"><span class="status-dot coming"></span><span class="bab-soalan">Akan datang</span></div>
-    </div>
+      <div class="bab-meta"><span class="status-dot"></span><span class="bab-soalan">20 soalan · Sedia</span></div>
+    </a>
 
     <div class="bab-card coming">
       <div class="bab-num">Bab 5</div>
@@ -326,9 +225,7 @@
   </div>
 </div>
 
-<footer>
-  © 2025 EasySejarah · Dibina untuk pelajar SPM Malaysia · Semua kandungan adalah percuma
-</footer>
+<footer>© 2025 EasySejarah · Dibina untuk pelajar SPM Malaysia · Semua kandungan adalah percuma</footer>
 
 </body>
 </html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Sejarah – T4 Bab 4: Era Peralihan Kuasa British</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root { --kuning:#F7B731; --hitam:#1A1A2E; --hijau:#2D9E5F; --merah:#D62828; --kad:#252538; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans',sans-serif; background:var(--hitam); color:#fff; min-height:100vh; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; border-bottom:2px solid rgba(247,183,49,0.25); position:sticky; top:0; background:var(--hitam); z-index:99; }
+  .logo { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.5rem; }
+  .logo span { color:var(--kuning); }
+  .badge-topik { background:rgba(247,183,49,0.15); border:1px solid var(--kuning); color:var(--kuning); font-size:0.72rem; font-weight:600; padding:4px 12px; border-radius:999px; letter-spacing:0.5px; text-transform:uppercase; }
+  .hero { text-align:center; padding:48px 24px 32px; max-width:640px; margin:0 auto; }
+  .hero-eyebrow { color:var(--kuning); font-family:'Poppins',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .hero h1 { font-family:'Poppins',sans-serif; font-weight:900; font-size:clamp(1.6rem,5.5vw,2.5rem); line-height:1.15; margin-bottom:12px; }
+  .hero h1 em { font-style:normal; color:var(--kuning); }
+  .hero p { color:rgba(255,255,255,0.55); font-size:0.9rem; line-height:1.6; margin-bottom:24px; }
+  .progress-wrap { background:rgba(255,255,255,0.1); border-radius:999px; height:6px; margin-bottom:6px; overflow:hidden; }
+  .progress-fill { height:100%; background:var(--kuning); border-radius:999px; transition:width 0.4s ease; width:0%; }
+  .progress-label { font-size:0.76rem; color:rgba(255,255,255,0.4); text-align:right; }
+  .quiz-section { max-width:680px; margin:0 auto; padding:0 20px 80px; }
+  .question-card { background:var(--kad); border-radius:16px; padding:28px 24px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.06); display:none; animation:fadeUp 0.3s ease; }
+  .question-card.active { display:block; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .q-number { font-family:'Poppins',sans-serif; font-size:0.7rem; font-weight:700; color:var(--kuning); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+  .q-text { font-family:'Poppins',sans-serif; font-size:clamp(0.95rem,3.2vw,1.1rem); font-weight:600; line-height:1.45; margin-bottom:22px; color:#fff; }
+  .options { display:flex; flex-direction:column; gap:10px; }
+  .option-btn { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.1); border-radius:10px; padding:12px 16px; cursor:pointer; text-align:left; font-family:'Noto Sans',sans-serif; font-size:0.88rem; color:rgba(255,255,255,0.82); transition:border-color 0.15s,background 0.15s; width:100%; }
+  .option-btn:hover:not(:disabled) { border-color:var(--kuning); background:rgba(247,183,49,0.08); }
+  .option-btn:disabled { cursor:default; }
+  .option-letter { width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.1); font-family:'Poppins',sans-serif; font-weight:700; font-size:0.78rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .option-btn.correct { border-color:var(--hijau); background:rgba(45,158,95,0.14); }
+  .option-btn.correct .option-letter { background:var(--hijau); color:#fff; }
+  .option-btn.wrong { border-color:var(--merah); background:rgba(214,40,40,0.12); }
+  .option-btn.wrong .option-letter { background:var(--merah); color:#fff; }
+  .explanation { display:none; margin-top:18px; padding:14px 16px; background:rgba(247,183,49,0.07); border-left:3px solid var(--kuning); border-radius:0 8px 8px 0; font-size:0.85rem; line-height:1.65; color:rgba(255,255,255,0.78); }
+  .explanation.show { display:block; }
+  .explanation strong { color:var(--kuning); }
+  .btn-next { display:none; margin-top:18px; width:100%; padding:14px; background:var(--kuning); color:var(--hitam); border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem; cursor:pointer; transition:opacity 0.2s; }
+  .btn-next:hover { opacity:0.9; }
+  .btn-next.show { display:block; }
+  #result-section { display:none; max-width:580px; margin:0 auto; padding:0 20px 80px; text-align:center; }
+  #result-section.show { display:block; }
+  .result-card { background:var(--kad); border-radius:20px; padding:40px 28px; border:1px solid rgba(255,255,255,0.08); }
+  .score-ring { width:120px; height:120px; border-radius:50%; background:conic-gradient(var(--kuning) var(--pct,0%),rgba(255,255,255,0.08) 0%); display:flex; align-items:center; justify-content:center; margin:0 auto 24px; position:relative; }
+  .score-ring::after { content:''; position:absolute; width:88px; height:88px; background:var(--kad); border-radius:50%; }
+  .score-number { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.8rem; color:var(--kuning); position:relative; z-index:1; }
+  .result-title { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.5rem; margin-bottom:8px; }
+  .result-subtitle { color:rgba(255,255,255,0.5); font-size:0.88rem; line-height:1.6; margin-bottom:28px; }
+  .stat-row { display:flex; justify-content:center; gap:18px; margin-bottom:28px; }
+  .stat-box { background:rgba(255,255,255,0.05); border-radius:10px; padding:12px 20px; min-width:82px; }
+  .stat-val { font-family:'Poppins',sans-serif; font-weight:700; font-size:1.4rem; color:var(--kuning); display:block; }
+  .stat-lbl { font-size:0.72rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.5px; }
+  .btn-retry { width:100%; padding:14px; background:var(--kuning); color:var(--hitam); border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem; cursor:pointer; margin-bottom:12px; }
+  .btn-retry:hover { opacity:0.9; }
+  .bab-nav { margin-top:32px; text-align:center; }
+  .bab-nav p { font-size:0.75rem; color:rgba(255,255,255,0.3); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+  .bab-chips { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+  .chip { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.55); border-radius:999px; padding:6px 14px; font-size:0.78rem; text-decoration:none; }
+  .chip.active { border-color:var(--kuning); color:var(--kuning); }
+  .chip.coming { opacity:0.3; cursor:default; }
+  footer { text-align:center; padding:24px 20px; font-size:0.75rem; color:rgba(255,255,255,0.18); border-top:1px solid rgba(255,255,255,0.06); margin-top:20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <div class="badge-topik">T4 Bab 4</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 4 · Bab 4</div>
+  <h1>Era Peralihan<br><em>Kuasa British</em></h1>
+  <p>20 soalan merangkumi BMA, Malayan Union, penentangan UMNO, penyerahan Sarawak dan Sabah kepada British.</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 20 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 20</div>
+    <div class="q-text">Pada tarikh berapakah Pentadbiran Tentera British (BMA) dimulakan di Tanah Melayu selepas kekalahan Jepun?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>15 Februari 1945</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>12 September 1945</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>1 Disember 1945</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>11 Mei 1946</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>BMA dimulakan pada 12 September 1945 di bawah arahan Lord Mountbatten. Ia adalah pentadbiran peralihan selepas pendudukan Jepun. 1 Disember 1945 pula adalah tarikh MPAJA dibubarkan oleh BMA.</div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 20</div>
+    <div class="q-text">Apakah kegagalan utama BMA yang menyebabkan kekecewaan rakyat Tanah Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>BMA gagal membubarkan pasukan MPAJA</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>BMA gagal menangani inflasi melampau dan kegiatan pasar gelap</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>BMA gagal menghalau tentera Jepun dari Tanah Melayu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>BMA gagal menubuhkan Malayan Union</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: B</strong><br>Kegagalan utama BMA ialah tidak dapat menangani inflasi melampau dan pasar gelap. Harga beras melonjak daripada $0.06 sekati (Dis 1941) kepada $75.00 sekati (Ogos 1945). Wabak beri-beri dan masalah bekalan makanan turut menghantui rakyat.</div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 20</div>
+    <div class="q-text">Apakah matlamat British memperkenalkan Malayan Union pada tahun 1946?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Memberikan kemerdekaan kepada Tanah Melayu</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Menyatukan pentadbiran dan mempertahankan kepentingan ekonomi British</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Melindungi hak orang Melayu daripada ancaman komunis</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menyatukan Tanah Melayu dengan Singapura dan Borneo</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: B</strong><br>Malayan Union bertujuan menyatukan pentadbiran dan mempertahankan kepentingan ekonomi British. Ia adalah peralihan daripada sistem naungan kepada penjajahan mutlak — menguasai sumber kekayaan negara secara langsung tanpa bergantung kepada kebenaran sultan.</div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 20</div>
+    <div class="q-text">Di bawah Malayan Union, apakah fungsi Sultan yang dihadkan oleh British?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sultan dibuang negeri sepenuhnya</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Sultan hanya bertindak dalam hal ehwal agama Islam dan adat istiadat Melayu sahaja</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sultan menjadi Gabenor British</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Sultan dikekalkan kuasa penuh dalam pentadbiran</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: B</strong><br>Di bawah Malayan Union, Sultan hanya menjadi ahli Majlis Raja-Raja yang fungsinya terhad kepada hal ehwal agama Islam dan adat istiadat Melayu sahaja. Kuasa politik sultan sepenuhnya dipindahkan kepada Gabenor British — inilah yang paling mencabar maruah Melayu.</div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 20</div>
+    <div class="q-text">Apakah prinsip kewarganegaraan yang diperkenalkan dalam Malayan Union yang mencabar hak orang Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Jus sanguinis — kewarganegaraan berdasarkan keturunan</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Jus soli — kewarganegaraan terbuka kepada sesiapa yang lahir di Tanah Melayu</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kewarganegaraan hanya untuk orang Melayu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kewarganegaraan berdasarkan tempoh kerja dengan British</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: B</strong><br>Jus soli memberikan kewarganegaraan kepada sesiapa yang lahir di Tanah Melayu dan Singapura, dengan syarat mastautin yang sangat longgar (10–15 tahun). Ini dianggap mengancam kedudukan istimewa orang Melayu kerana membuka kerakyatan kepada semua kaum tanpa syarat yang ketat.</div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 20</div>
+    <div class="q-text">Siapakah utusan British yang menggunakan taktik desakan dan ugutan untuk mendapatkan tandatangan Raja-raja Melayu bagi meluluskan Malayan Union?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sir Edward Gent</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Lord Mountbatten</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sir Harold MacMichael</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>George Henry Hall</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: C</strong><br>Sir Harold MacMichael menggunakan taktik desakan dan ugutan — termasuk mengancam menurunkan takhta sultan yang enggan menandatangani — untuk mendapatkan persetujuan Raja-raja Melayu dalam masa dua bulan sahaja. Sir Edward Gent pula adalah Gabenor Malayan Union yang pertama.</div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 20</div>
+    <div class="q-text">Sultan manakah dari Kedah yang menentang MacMichael dengan perdebatan sengit dan enggan menandatangani perjanjian Malayan Union?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sultan Ibrahim</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Sultan Badlishah</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sultan Hisamuddin</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Sultan Yahya Petra</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: B</strong><br>Sultan Badlishah (Kedah) menentang MacMichael dengan perdebatan sengit. Sultan Ibrahim (Kelantan) pula mengugut tidak mengiktiraf Raja-raja Melayu lain jika British terus mendesak, walaupun akhirnya terpaksa menandatangani juga.</div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8 daripada 20</div>
+    <div class="q-text">Raja-raja Melayu memulaukan upacara pelantikan Gabenor Malayan Union pertama. Siapakah Gabenor tersebut?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sir Harold MacMichael</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Lord Mountbatten</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sir Edward Gent</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>George Henry Hall</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: C</strong><br>Sir Edward Gent adalah Gabenor Malayan Union yang pertama. Pemulauannya oleh Raja-raja Melayu adalah tanda protes yang kuat dan berkesan — ia membuktikan kepada dunia bahawa Malayan Union tidak mendapat legitimasi daripada pemerintah sah Tanah Melayu.</div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 20</div>
+    <div class="q-text">UMNO ditubuhkan pada 11 Mei 1946 melalui Kongres Melayu. Siapakah pemimpin yang memainkan peranan utama dalam penubuhannya?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Tunku Abdul Rahman</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Dato' Onn Jaafar</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Abdul Razak Hussein</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Ibrahim Haji Yaakob</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: B</strong><br>Dato' Onn Jaafar memimpin Kongres Melayu yang berjaya menyatukan pelbagai persatuan untuk menubuhkan UMNO pada 11 Mei 1946. UMNO menjadi benteng perjuangan orang Melayu menentang Malayan Union dan kemudiannya memimpin Malaysia ke arah kemerdekaan.</div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 20</div>
+    <div class="q-text">Apakah peranan akhbar dalam perjuangan menentang Malayan Union?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menyokong dasar Malayan Union British</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Utusan Melayu, Majlis, dan Warta Negara membakar semangat rakyat menentang Malayan Union</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menyebarkan maklumat tentang kebaikan Malayan Union</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menghantar wakil ke London untuk berunding dengan British</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: B</strong><br>Akhbar Utusan Melayu, Majlis, dan Warta Negara memainkan peranan kritikal dalam membakar semangat rakyat menentang Malayan Union. Ini membuktikan media cetak sebagai senjata perjuangan yang berkesan — sama seperti peranan Al-Imam dalam gerakan Kaum Muda.</div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="11">
+    <div class="q-number">Soalan 11 daripada 20</div>
+    <div class="q-text">Berapa ramai orang yang hadir dalam perhimpunan besar-besaran di Alor Setar menentang Malayan Union, membuktikan kekuatan sokongan rakyat?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>5,000 orang</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>20,000 orang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>50,000 orang</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>100,000 orang</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: C</strong><br>Perhimpunan di Alor Setar melibatkan 50,000 orang, bersama perhimpunan besar di Ipoh dan Seremban. Kekuatan sokongan massa ini memberikan mesej jelas kepada British bahawa Malayan Union tidak mendapat mandat rakyat.</div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="12">
+    <div class="q-number">Soalan 12 daripada 20</div>
+    <div class="q-text">Vyner Brooke menyerahkan Sarawak kepada British pada tahun 1946. Apakah faktor utama yang mendorong penyerahan ini?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Tekanan daripada rakyat Sarawak</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Vyner Brooke tiada waris lelaki dan terdapat muslihat British melalui Gerard MacBryan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sarawak berjaya memerdekakan diri daripada Brooke</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Perjanjian antarabangsa memaksa penyerahan Sarawak</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: B</strong><br>Dua faktor utama: (1) Vyner Brooke tiada waris lelaki dan mengenepikan Anthony Brooke sebagai pengganti, (2) Gerard T. MacBryan menggunakan tekanan dan sogokan untuk memujuk ketua tempatan menyokong penyerahan kepada British.</div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="13">
+    <div class="q-number">Soalan 13 daripada 20</div>
+    <div class="q-text">Apakah slogan utama gerakan anti-penyerahan Sarawak kepada British?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Merdeka!</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>No Cession</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Hidup Brooke!</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Sarawak untuk Rakyat</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: B</strong><br>"No Cession" adalah slogan utama gerakan anti-penyerahan Sarawak. Ia merupakan manifestasi konsep Self-Determination — hak rakyat menentukan masa depan mereka sendiri tanpa dijual beli oleh keluarga Brooke kepada mana-mana kuasa asing.</div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="14">
+    <div class="q-number">Soalan 14 daripada 20</div>
+    <div class="q-text">Siapakah tokoh wanita dari PKMS yang masuk ke pedalaman Sarawak untuk berkempen menentang penyerahan kepada British?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Ibu Zain</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Raden Adjeng Kartini</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Cikgu Lily Eberwein</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Datin Seri Endon</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: C</strong><br>Cikgu Lily Eberwein dari PKMS (Persatuan Kebangsaan Melayu Sarawak) masuk ke pedalaman untuk berkempen menentang penyerahan. Ini membuktikan peranan wanita sebagai pejuang nasionalisme — bukan sekadar di bandar, malah hingga ke pedalaman.</div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="15">
+    <div class="q-number">Soalan 15 daripada 20</div>
+    <div class="q-text">Berapa ramai penjawat awam yang meletak jawatan beramai-ramai sebagai bantahan terhadap Pekeliling No. 9/1946 di Sarawak?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>109 orang</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>209 orang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>309 orang</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>409 orang</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: D</strong><br>Seramai 409 penjawat awam meletak jawatan beramai-ramai sebagai bantahan terhadap Pekeliling No. 9/1946. Ini dianggap kemuncak penentangan terhadap British di Sarawak — mereka sanggup mengorbankan kerjaya demi prinsip kedaulatan negara.</div>
+    <button class="btn-next" onclick="nextQ(15)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="16">
+    <div class="q-number">Soalan 16 daripada 20</div>
+    <div class="q-text">Sabah diserahkan kepada British pada 15 Julai 1946 oleh Syarikat Borneo Utara British (SBUB). Siapakah Gabenor pertama Sabah?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sir Harold MacMichael</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Sir Edward Gent</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sir Edward Twining</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Lord Mountbatten</button>
+    </div>
+    <div class="explanation" id="exp-16"><strong>✓ Jawapan: C</strong><br>Sir Edward Twining dilantik sebagai Gabenor pertama Sabah selepas ia menjadi tanah jajahan British (Crown Colony). SBUB menyerahkan Sabah kerana tidak mampu menanggung kos pembinaan semula prasarana yang musnah akibat perang.</div>
+    <button class="btn-next" onclick="nextQ(16)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="17">
+    <div class="q-number">Soalan 17 daripada 20</div>
+    <div class="q-text">Mengapakah tiada penentangan besar-besaran di Sabah berbanding Sarawak semasa penyerahan kepada British?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Rakyat Sabah bersetuju sepenuhnya dengan penjajahan British</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>British mematikan semangat berpersatuan dan rakyat lebih fokus kepada pemulihan sosioekonomi</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sabah sudah merdeka sebelum penyerahan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pemimpin Sabah telah dibunuh oleh Jepun</button>
+    </div>
+    <div class="explanation" id="exp-17"><strong>✓ Jawapan: B</strong><br>Dua sebab: (1) British memindahkan pemimpin aktif BARIP ke daerah lain untuk mematikan semangat berpersatuan, (2) Penduduk lebih fokus kepada pemulihan sosioekonomi pasca-perang. Ketiadaan penentangan bukan bermakna rakyat bersetuju — ia hasil dasar penindasan halus British.</div>
+    <button class="btn-next" onclick="nextQ(17)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="18">
+    <div class="q-number">Soalan 18 daripada 20</div>
+    <div class="q-text">Apakah perbezaan utama antara penentangan di Sarawak berbanding Sabah terhadap penyerahan kepada British?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sarawak menerima penyerahan, Sabah menentang</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Sarawak militan dan radikal, Sabah mengalami transisi yang senyap</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kedua-dua negeri menentang dengan cara yang sama</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Sabah lebih radikal daripada Sarawak</button>
+    </div>
+    <div class="explanation" id="exp-18"><strong>✓ Jawapan: B</strong><br>Sarawak melalui fasa perjuangan militan dan radikal (termasuk peristiwa Sungkit Berdarah, peletakan jawatan beramai-ramai, dan kempen Cikgu Lily Eberwein). Sabah pula mengalami transisi yang senyap akibat dasar penindasan British dan kurang kesedaran politik.</div>
+    <button class="btn-next" onclick="nextQ(18)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="19">
+    <div class="q-number">Soalan 19 daripada 20</div>
+    <div class="q-text">Raja-raja Melayu menghantar surat bantahan rasmi kepada siapa di London bagi menentang Malayan Union?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Lord Mountbatten</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Sir Harold MacMichael</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>George Henry Hall</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Sir Edward Gent</button>
+    </div>
+    <div class="explanation" id="exp-19"><strong>✓ Jawapan: C</strong><br>Raja-raja Melayu menghantar surat bantahan rasmi kepada George Henry Hall, Setiausaha Tanah Jajahan di London. Mereka juga membawa kes Malayan Union ke Mahkamah Tinggi England dan memulaukan upacara pelantikan Gabenor Sir Edward Gent.</div>
+    <button class="btn-next" onclick="nextQ(19)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="20">
+    <div class="q-number">Soalan 20 daripada 20</div>
+    <div class="q-text">Apakah iktibar terpenting daripada peristiwa penentangan Malayan Union yang boleh kita aplikasikan pada masa kini? (Soalan KBAT)</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Orang Melayu harus menentang semua dasar kerajaan</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Perpaduan rakyat dan diplomasi yang disokong sokongan massa mampu menggoyahkan dasar kolonial yang paling kukuh</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Perjuangan bersenjata adalah cara terbaik menuntut hak</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Hanya pemimpin yang bijak boleh mengubah dasar kerajaan</button>
+    </div>
+    <div class="explanation" id="exp-20"><strong>✓ Jawapan: B</strong><br>Iktibar utama: Perpaduan rakyat + diplomasi + sokongan massa = kuasa yang mampu menggoyahkan penjajah. UMNO berjaya kerana menyatukan raja, cendekiawan, dan rakyat jelata dalam satu perjuangan konstitusional. Semangat ini masih relevan — waspada terhadap campur tangan asing dan hargai warisan kepimpinan tokoh terdahulu.</div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/20</span>
+    </div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Tingkatan 4</p>
+    <div class="bab-chips">
+      <a href="t4b1-warisan-negara-bangsa.html" class="chip">Bab 1 ✓</a>
+      <a href="t4b2-kebangkitan-nasionalisme.html" class="chip">Bab 2 ✓</a>
+      <a href="t4b3-konflik-dunia-pendudukan-jepun.html" class="chip">Bab 3 ✓</a>
+      <span class="chip active">Bab 4: Peralihan British ✓</span>
+      <span class="chip coming">Bab 5 – 10</span>
+    </div>
+  </div>
+</div>
+
+<footer>© 2025 EasySejarah · Soalan berdasarkan silibus SPM Sejarah Tingkatan 4</footer>
+
+<script>
+  const CORRECT = {
+    1:'B',2:'B',3:'B',4:'B',5:'B',
+    6:'C',7:'B',8:'C',9:'B',10:'B',
+    11:'C',12:'B',13:'B',14:'C',15:'D',
+    16:'C',17:'B',18:'B',19:'C',20:'B'
+  };
+  let score=0, answered=0;
+  const TOTAL=20;
+
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');
+      const q=parseInt(card.dataset.q);
+      const chosen=this.dataset.ans;
+      const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(b.dataset.ans===correct)b.classList.add('correct');});}
+      answered++;
+      updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current){
+    document.querySelector('[data-q="'+current+'"]').classList.remove('active');
+    const next=document.querySelector('[data-q="'+(current+1)+'"]');
+    if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+
+  function updateProgress(){
+    const pct=(answered/TOTAL)*100;
+    document.getElementById('progress-fill').style.width=pct+'%';
+    document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';
+  }
+
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;
+    document.getElementById('stat-salah').textContent=TOTAL-score;
+    document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai Bab 4 sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula nama tokoh dan tarikh penting.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Fokus pada ciri-ciri Malayan Union, penentangan raja-raja, dan perbezaan Sarawak vs Sabah.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota Bab 4 — terutama bahagian BMA, Malayan Union, dan UMNO.';}
+    document.getElementById('result-title').textContent=title;
+    document.getElementById('result-subtitle').textContent=sub;
+  }
+
+  function retryQuiz(){
+    score=0;answered=0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
