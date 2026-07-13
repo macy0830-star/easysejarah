@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Sejarah – T5 Bab 1: Kedaulatan Negara</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root { --kuning:#F7B731; --hitam:#1A1A2E; --hijau:#2D9E5F; --merah:#D62828; --kad:#252538; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans',sans-serif; background:var(--hitam); color:#fff; min-height:100vh; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; border-bottom:2px solid rgba(247,183,49,0.25); position:sticky; top:0; background:var(--hitam); z-index:99; }
+  .logo { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.5rem; }
+  .logo span { color:var(--kuning); }
+  .badge-topik { background:rgba(247,183,49,0.15); border:1px solid var(--kuning); color:var(--kuning); font-size:0.72rem; font-weight:600; padding:4px 12px; border-radius:999px; letter-spacing:0.5px; text-transform:uppercase; }
+  .hero { text-align:center; padding:48px 24px 32px; max-width:640px; margin:0 auto; }
+  .hero-eyebrow { color:var(--kuning); font-family:'Poppins',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .hero h1 { font-family:'Poppins',sans-serif; font-weight:900; font-size:clamp(1.6rem,5.5vw,2.5rem); line-height:1.15; margin-bottom:12px; }
+  .hero h1 em { font-style:normal; color:var(--kuning); }
+  .hero p { color:rgba(255,255,255,0.55); font-size:0.9rem; line-height:1.6; margin-bottom:24px; }
+  .progress-wrap { background:rgba(255,255,255,0.1); border-radius:999px; height:6px; margin-bottom:6px; overflow:hidden; }
+  .progress-fill { height:100%; background:var(--kuning); border-radius:999px; transition:width 0.4s ease; width:0%; }
+  .progress-label { font-size:0.76rem; color:rgba(255,255,255,0.4); text-align:right; }
+  .quiz-section { max-width:680px; margin:0 auto; padding:0 20px 80px; }
+  .question-card { background:var(--kad); border-radius:16px; padding:28px 24px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.06); display:none; animation:fadeUp 0.3s ease; }
+  .question-card.active { display:block; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .q-number { font-family:'Poppins',sans-serif; font-size:0.7rem; font-weight:700; color:var(--kuning); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+  .q-text { font-family:'Poppins',sans-serif; font-size:clamp(0.95rem,3.2vw,1.1rem); font-weight:600; line-height:1.45; margin-bottom:22px; color:#fff; }
+  .options { display:flex; flex-direction:column; gap:10px; }
+  .option-btn { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.1); border-radius:10px; padding:12px 16px; cursor:pointer; text-align:left; font-family:'Noto Sans',sans-serif; font-size:0.88rem; color:rgba(255,255,255,0.82); transition:border-color 0.15s,background 0.15s; width:100%; }
+  .option-btn:hover:not(:disabled) { border-color:var(--kuning); background:rgba(247,183,49,0.08); }
+  .option-btn:disabled { cursor:default; }
+  .option-letter { width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.1); font-family:'Poppins',sans-serif; font-weight:700; font-size:0.78rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .option-btn.correct { border-color:var(--hijau); background:rgba(45,158,95,0.14); }
+  .option-btn.correct .option-letter { background:var(--hijau); color:#fff; }
+  .option-btn.wrong { border-color:var(--merah); background:rgba(214,40,40,0.12); }
+  .option-btn.wrong .option-letter { background:var(--merah); color:#fff; }
+  .explanation { display:none; margin-top:18px; padding:14px 16px; background:rgba(247,183,49,0.07); border-left:3px solid var(--kuning); border-radius:0 8px 8px 0; font-size:0.85rem; line-height:1.65; color:rgba(255,255,255,0.78); }
+  .explanation.show { display:block; }
+  .explanation strong { color:var(--kuning); }
+  .btn-next { display:none; margin-top:18px; width:100%; padding:14px; background:var(--kuning); color:var(--hitam); border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem; cursor:pointer; transition:opacity 0.2s; }
+  .btn-next:hover { opacity:0.9; }
+  .btn-next.show { display:block; }
+  #result-section { display:none; max-width:580px; margin:0 auto; padding:0 20px 80px; text-align:center; }
+  #result-section.show { display:block; }
+  .result-card { background:var(--kad); border-radius:20px; padding:40px 28px; border:1px solid rgba(255,255,255,0.08); }
+  .score-ring { width:120px; height:120px; border-radius:50%; background:conic-gradient(var(--kuning) var(--pct,0%),rgba(255,255,255,0.08) 0%); display:flex; align-items:center; justify-content:center; margin:0 auto 24px; position:relative; }
+  .score-ring::after { content:''; position:absolute; width:88px; height:88px; background:var(--kad); border-radius:50%; }
+  .score-number { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.8rem; color:var(--kuning); position:relative; z-index:1; }
+  .result-title { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.5rem; margin-bottom:8px; }
+  .result-subtitle { color:rgba(255,255,255,0.5); font-size:0.88rem; line-height:1.6; margin-bottom:28px; }
+  .stat-row { display:flex; justify-content:center; gap:18px; margin-bottom:28px; }
+  .stat-box { background:rgba(255,255,255,0.05); border-radius:10px; padding:12px 20px; min-width:82px; }
+  .stat-val { font-family:'Poppins',sans-serif; font-weight:700; font-size:1.4rem; color:var(--kuning); display:block; }
+  .stat-lbl { font-size:0.72rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.5px; }
+  .btn-retry { width:100%; padding:14px; background:var(--kuning); color:var(--hitam); border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem; cursor:pointer; margin-bottom:12px; }
+  .btn-retry:hover { opacity:0.9; }
+  .bab-nav { margin-top:32px; text-align:center; }
+  .bab-nav p { font-size:0.75rem; color:rgba(255,255,255,0.3); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+  .bab-chips { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+  .chip { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.55); border-radius:999px; padding:6px 14px; font-size:0.78rem; text-decoration:none; }
+  .chip.active { border-color:var(--kuning); color:var(--kuning); }
+  .chip.coming { opacity:0.3; cursor:default; }
+  footer { text-align:center; padding:24px 20px; font-size:0.75rem; color:rgba(255,255,255,0.18); border-top:1px solid rgba(255,255,255,0.06); margin-top:20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.15s;" onmouseover="this.style.color='#F7B731'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <div class="badge-topik">T5 Bab 1</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 5 · Bab 1</div>
+  <h1>Kedaulatan<br><em>Negara</em></h1>
+  <p>20 soalan merangkumi konsep kedaulatan, takrif tokoh, jenis kedaulatan, ciri negara berdaulat, kepentingan dan langkah mempertahankannya.</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 20 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 20</div>
+    <div class="q-text">Apakah takrif kedaulatan dalam bahasa Arab?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Negara yang bebas dan merdeka</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Negara mempunyai kuasa penuh terhadap pemerintahan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kuasa pemerintahan sesebuah kerajaan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kekuasaan tertinggi terhadap pemerintahan negara</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: C</strong><br>Perkataan kedaulatan dalam bahasa Arab berasal daripada kata <em>daulah</em> yang bermaksud kuasa pemerintahan sesebuah kerajaan. Bahasa Melayu: <em>daulat</em> = kekuasaan tertinggi. Bahasa Inggeris: <em>sovereignty</em> = kuasa penuh. Bahasa Yunani: <em>superanus</em> = agung atau tertinggi.</div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 20</div>
+    <div class="q-text">Apakah takrif kedaulatan menurut Aristotle, ahli falsafah Yunani?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kedaulatan merupakan kekuatan dan kekuasaan negara berasaskan semangat kekitaan bangsa</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kedaulatan merupakan kuasa tertinggi dalam sistem pemerintahan yang terikat oleh undang-undang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kedaulatan mempunyai sifat kekal dengan kuasa tidak terbatas untuk membuat undang-undang</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kedaulatan dibina berdasarkan prinsip kebebasan dan keadilan demi kebajikan rakyat</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: B</strong><br>Aristotle menyatakan kedaulatan merupakan kuasa tertinggi dalam sistem pemerintahan sesebuah negara dan merujuk kerajaan yang terikat oleh undang-undang. Ibnu Khaldun (A), Jean Bodin (C), dan Tunku Abdul Rahman (D) masing-masing mempunyai takrif yang berbeza.</div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 20</div>
+    <div class="q-text">Ibnu Khaldun mendefinisikan kedaulatan sebagai kekuatan negara berdasarkan apakah?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kekuatan angkatan tentera dan ekonomi</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Semangat kekitaan bangsa yang diiringi semangat beragama</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Perlembagaan yang kukuh dan sistem kehakiman yang bebas</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pengiktirafan Pertubuhan Bangsa-Bangsa Bersatu</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: B</strong><br>Ibnu Khaldun menyatakan kedaulatan merupakan kekuatan dan kekuasaan negara berasaskan semangat kekitaan bangsanya. Kekuatan semangat kekitaan yang diiringi semangat beragama menyebabkan sesuatu bangsa rela berkorban demi mencapai cita-cita yang sama.</div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 20</div>
+    <div class="q-text">Apakah ciri utama kedaulatan menurut Jean Bodin, ahli falsafah politik Perancis?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kedaulatan terikat oleh undang-undang perlembagaan</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kedaulatan mempunyai sifat kekal dan kuasa tidak terbatas untuk membuat undang-undang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kedaulatan bergantung kepada persetujuan rakyat</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kedaulatan diperoleh melalui pengiktirafan antarabangsa</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: B</strong><br>Jean Bodin menyatakan kedaulatan merupakan kuasa tertinggi dalam sesebuah negara yang mempunyai sifat kekal dan kuasa tidak terbatas untuk membuat undang-undang, mentafsir dan melaksanakannya. Ini berbeza dengan Aristotle yang menekankan kerajaan terikat oleh undang-undang.</div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 20</div>
+    <div class="q-text">Apakah jenis kedaulatan yang merujuk sistem pemerintahan berkuasa mutlak yang berpaksi pada kekuasaan dan kewibawaan raja?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kedaulatan Moden</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kedaulatan Undang-undang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kedaulatan Tradisional</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kedaulatan Antarabangsa</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: C</strong><br>Kedaulatan Tradisional merujuk sistem pemerintahan berkuasa mutlak yang menguasai sepenuhnya segala urusan negara. Kedaulatan negara kita berpaksi pada kedaulatan Raja-raja Melayu — raja merupakan pemerintah yang mempunyai kuasa tertinggi, diperkukuh oleh taat setia rakyat.</div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 20</div>
+    <div class="q-text">Kedaulatan moden dikaitkan dengan kemunculan negara bangsa selepas peristiwa manakah?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Revolusi Industri di England dan Revolusi Amerika</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Revolusi Keagungan di England dan Revolusi Perancis</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Perang Dunia Pertama dan Perang Dunia Kedua</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kemerdekaan Tanah Melayu dan Pembentukan Malaysia</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: B</strong><br>Kedaulatan moden dikaitkan dengan idea kemunculan negara bangsa selepas Revolusi Keagungan di England dan Revolusi Perancis. Ia dikaitkan dengan hak rakyat dan kerajaan berperlembagaan. Kedaulatan negara kita sebagai negara bangsa lahir melalui PTM 1957 dan Malaysia 1963.</div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 20</div>
+    <div class="q-text">Kedaulatan undang-undang menjadi prinsip yang keberapa dalam Rukun Negara?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Prinsip Kedua</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Prinsip Ketiga</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Prinsip Keempat</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Prinsip Kelima</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: C</strong><br>Kedaulatan undang-undang menjadi prinsip keempat dalam Rukun Negara — "Kedaulatan Undang-Undang". Lima prinsip Rukun Negara: (1) Kepercayaan kepada Tuhan, (2) Kesetiaan kepada Raja dan Negara, (3) Keluhuran Perlembagaan, (4) Kedaulatan Undang-Undang, (5) Kesopanan dan Kesusilaan.</div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8 daripada 20</div>
+    <div class="q-text">Kedaulatan antarabangsa Malaysia dibuktikan apabila Persekutuan Tanah Melayu diterima sebagai anggota PBB pada tarikh yang mana?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>31 Ogos 1957</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>17 September 1957</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>16 September 1963</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>31 Ogos 1963</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: B</strong><br>Persekutuan Tanah Melayu diterima sebagai anggota ke-82 PBB pada 17 September 1957. Ini membuktikan bahawa dunia mengiktiraf negara kita sebagai negara yang bebas, merdeka dan berdaulat pada peringkat antarabangsa.</div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 20</div>
+    <div class="q-text">Antara berikut, yang manakah merupakan ciri negara yang berdaulat?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Mempunyai pemerintahan, sempadan, perundangan dan rakyat</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mempunyai angkatan tentera, mata wang, bendera dan bahasa</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mempunyai ibu kota, raja, perlembagaan dan pilihan raya</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Mempunyai dasar luar, ekonomi, budaya dan sukan kebangsaan</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: A</strong><br>Empat ciri negara yang berdaulat menurut buku teks ialah: (1) Mempunyai Pemerintahan, (2) Mempunyai Sempadan, (3) Mempunyai Perundangan, dan (4) Mempunyai Rakyat. Keempat-empat ciri ini menjadi identiti Malaysia sebagai negara bebas dan berdaulat.</div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 20</div>
+    <div class="q-text">Apakah sistem pemerintahan yang diamalkan oleh Malaysia sebagai sebuah negara persekutuan yang berdaulat?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sistem Republik dan Demokrasi Langsung</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Sistem Raja Berkuasa Mutlak dan Parlimen Bicameral</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Raja Berperlembagaan dan Demokrasi Berparlimen</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Sistem Persekutuan dan Pemerintahan Presiden</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: C</strong><br>Malaysia sebagai sebuah negara persekutuan mengamalkan sistem Raja Berperlembagaan dan Demokrasi Berparlimen. Ketua Utama Negara ialah Yang di-Pertuan Agong. Ketua Kerajaan ialah Perdana Menteri yang dibantu oleh Jemaah Menteri.</div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="11">
+    <div class="q-number">Soalan 11 daripada 20</div>
+    <div class="q-text">Malaysia berkongsi sempadan dengan negara jiran di Asia Tenggara. Yang manakah antara berikut BUKAN negara jiran Malaysia?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Singapura dan Thailand</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Indonesia dan Brunei</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Filipina dan Vietnam</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Singapura dan Filipina</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: C</strong><br>Malaysia berkongsi sempadan darat, air dan udara dengan Singapura, Thailand, Indonesia, Brunei dan Filipina. Vietnam BUKAN negara jiran Malaysia yang disebutkan dalam buku teks. Sempadan Malaysia diakui oleh masyarakat antarabangsa, khasnya PBB.</div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="12">
+    <div class="q-number">Soalan 12 daripada 20</div>
+    <div class="q-text">Apakah kepentingan kedaulatan dari aspek keberkesanan pentadbiran?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Memberi hak kepada negara menjalinkan hubungan diplomatik dengan negara lain</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Membolehkan negara melaksanakan dasar kemakmuran ekonomi secara bebas</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Memberikan kebebasan kepada negara menjalankan urusan pentadbiran tanpa campur tangan pihak luar</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Membolehkan negara mewujudkan kesejahteraan sosial melalui pendidikan</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: C</strong><br>Dari aspek keberkesanan pentadbiran, kedaulatan memberikan kebebasan kepada negara untuk menjalankan urusan pentadbiran tanpa campur tangan pihak luar. Dasar pentadbiran dilaksanakan melalui Jemaah Menteri dan kementerian berkaitan, diperkukuh melalui peruntukan Perlembagaan Persekutuan.</div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="13">
+    <div class="q-number">Soalan 13 daripada 20</div>
+    <div class="q-text">Apakah kepentingan kedaulatan dari aspek kecemerlangan hubungan luar negara?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Membolehkan negara menjadi anggota PBB dan menjalinkan hubungan diplomatik</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Membolehkan negara menghantar tentera ke luar negara</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Membolehkan negara memungut cukai daripada negara lain</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Membolehkan negara menguasai wilayah negara jiran</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: A</strong><br>Kedaulatan penting bagi memberikan hak kepada negara untuk menjalinkan hubungan dengan negara lain melalui penggubalan dasar luar. Negara dapat menjalinkan hubungan diplomatik, mengadakan perjanjian dan kerjasama, serta meningkatkan imej negara melalui keanggotaan pertubuhan serantau dan antarabangsa.</div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="14">
+    <div class="q-number">Soalan 14 daripada 20</div>
+    <div class="q-text">Antara berikut, yang manakah merupakan peranan PEMERINTAH dalam mewujudkan kestabilan politik dan kemakmuran ekonomi?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Memberikan kesetiaan kepada raja dan negara</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Memupuk kerjasama dengan semua kaum</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mewujudkan pentadbiran yang cekap dan mengelakkan amalan rasuah</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Mematuhi undang-undang negara</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: C</strong><br>Peranan pemerintah termasuk mewujudkan pentadbiran yang cekap, mengelakkan amalan rasuah, memastikan agihan sumber kekayaan negara secara adil, dan melaksanakan undang-undang menurut perlembagaan. Pilihan A, B, dan D adalah peranan RAKYAT.</div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="15">
+    <div class="q-number">Soalan 15 daripada 20</div>
+    <div class="q-text">Apakah yang dimaksudkan dengan patriotisme?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kesediaan untuk berkhidmat dalam angkatan tentera negara</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Perasaan cinta yang mendalam terhadap negara serta sanggup mempertahankan sejarah, bahasa, undang-undang, warisan dan budaya</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Semangat bersaing dengan negara lain dalam bidang ekonomi dan teknologi</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Perasaan bangga terhadap pencapaian peribadi demi nama negara</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: B</strong><br>Patriotisme ialah perasaan cinta yang mendalam terhadap negara serta sanggup mempertahankan sejarah, bahasa, undang-undang, warisan dan budaya. Patriotisme merupakan nadi kepada kebebasan, kestabilan dan kemajuan sesebuah negara.</div>
+    <button class="btn-next" onclick="nextQ(15)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="16">
+    <div class="q-number">Soalan 16 daripada 20</div>
+    <div class="q-text">Antara berikut, yang manakah merupakan langkah PEMERINTAH dalam memupuk patriotisme?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menghormati lambang negara seperti bendera Jalur Gemilang</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Menganjurkan sambutan Hari Kebangsaan dan Hari Pahlawan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menyanjungi dan menghargai adat dan warisan negara</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menghargai tokoh pelbagai kaum yang berjuang untuk kemerdekaan</button>
+    </div>
+    <div class="explanation" id="exp-16"><strong>✓ Jawapan: B</strong><br>Peranan PEMERINTAH memupuk patriotisme: menganjurkan sambutan Hari Kebangsaan dan Hari Pahlawan, mewajibkan mata pelajaran Sejarah, menganjurkan kempen dan menerbitkan filem patriotik, serta memberikan pengiktirafan kepada rakyat yang berjasa. Pilihan A, C, D adalah peranan RAKYAT.</div>
+    <button class="btn-next" onclick="nextQ(16)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="17">
+    <div class="q-number">Soalan 17 daripada 20</div>
+    <div class="q-text">Antara berikut, yang manakah merupakan langkah RAKYAT dalam mengukuhkan pertahanan negara?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menggubal dasar dan undang-undang untuk melindungi keselamatan negara</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mengadakan perjanjian pertahanan dengan negara serantau dan antarabangsa</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Memodenkan aset ketenteraan untuk mengukuhkan pasukan pertahanan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Peka terhadap isu keselamatan dan mengelakkan kolaborasi dengan pihak luar yang mengancam kedaulatan</button>
+    </div>
+    <div class="explanation" id="exp-17"><strong>✓ Jawapan: D</strong><br>Peranan RAKYAT dalam pertahanan negara: peka terhadap isu keselamatan (termasuk memberikan maklumat pencerobohan sempadan), mengelakkan kolaborasi dengan pihak luar yang mengancam kedaulatan, menganggotai pasukan keselamatan dan sukarelawan, serta sanggup berkorban demi kedaulatan negara. Pilihan A, B, C adalah peranan PEMERINTAH.</div>
+    <button class="btn-next" onclick="nextQ(17)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="18">
+    <div class="q-number">Soalan 18 daripada 20</div>
+    <div class="q-text">Apakah langkah yang dilaksanakan PEMERINTAH dalam mengekalkan perpaduan kaum?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menggunakan bahasa kebangsaan dan menghayati prinsip Rukun Negara</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Memahami dan menghormati agama serta budaya pelbagai kaum</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menggubal dasar dan undang-undang berkaitan perpaduan kaum serta integrasi nasional</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Melibatkan diri dalam program kemasyarakatan yang memupuk kerjasama antara kaum</button>
+    </div>
+    <div class="explanation" id="exp-18"><strong>✓ Jawapan: C</strong><br>Peranan PEMERINTAH dalam perpaduan: menggubal dasar dan undang-undang berkaitan perpaduan kaum, memastikan keberkesanan pelaksanaan dasar bahasa, pendidikan dan kebudayaan, merangka program dan kempen perpaduan, serta memperuntukkan belanjawan yang mencukupi. Pilihan A, B, D adalah peranan RAKYAT.</div>
+    <button class="btn-next" onclick="nextQ(18)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="19">
+    <div class="q-number">Soalan 19 daripada 20</div>
+    <div class="q-text">Apakah titah Sultan Nazrin Muizzuddin Shah (Sultan Perak) berkaitan kedaulatan negara yang disebutkan dalam buku teks?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>"Kedaulatan negara bergantung pada kekuatan ekonominya"</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>"Kedaulatan negara bergantung pada warganya yang bersatu"</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>"Kedaulatan negara bergantung pada kekuatan tenteranya"</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>"Kedaulatan negara bergantung pada pengiktirafan antarabangsa"</button>
+    </div>
+    <div class="explanation" id="exp-19"><strong>✓ Jawapan: B</strong><br>Titah Duli Yang Maha Mulia Paduka Seri Sultan Perak, Sultan Nazrin Muizzuddin Shah: "Kedaulatan negara bergantung pada warganya yang bersatu." Titah ini menekankan perpaduan rakyat sebagai tunjang utama kedaulatan negara Malaysia.</div>
+    <button class="btn-next" onclick="nextQ(19)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="20">
+    <div class="q-number">Soalan 20 daripada 20</div>
+    <div class="q-text">Apakah iktibar terpenting daripada Bab 1 Kedaulatan Negara yang boleh diamalkan oleh generasi muda Malaysia hari ini? (Soalan KBAT)</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Generasi muda perlu mahir dalam teknologi untuk bersaing di peringkat antarabangsa</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Memahami konsep kedaulatan, menghormati kepelbagaian budaya, dan memupuk perpaduan sebagai tanggungjawab bersama mempertahankan negara</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Generasi muda perlu menyertai angkatan tentera untuk mempertahankan sempadan negara</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Malaysia perlu mengelak daripada menjalin hubungan dengan kuasa asing</button>
+    </div>
+    <div class="explanation" id="exp-20"><strong>✓ Jawapan: B</strong><br>Iktibar utama: memahami konsep kedaulatan memberi kesedaran tentang cabaran mempertahankan negara. Rakyat perlu menggunakan kebijaksanaan menghadapi cabaran, menghormati kepelbagaian budaya dan agama untuk mengukuhkan perpaduan, serta menjiwai identiti negara — kerana "kedaulatan negara bergantung pada warganya yang bersatu."</div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/20</span>
+    </div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Tingkatan 5</p>
+    <div class="bab-chips">
+      <span class="chip active">Bab 1: Kedaulatan ✓</span>
+      <span class="chip coming">Bab 2: Perlembagaan</span>
+      <span class="chip coming">Bab 3: Raja Berperlembagaan</span>
+      <span class="chip coming">Bab 4 – 10</span>
+    </div>
+  </div>
+</div>
+
+<footer>© 2025 EasySejarah · Soalan berdasarkan buku teks SPM Sejarah Tingkatan 5 (KPM)</footer>
+
+<script>
+  const CORRECT = {
+    1:'C', 2:'B', 3:'B', 4:'B', 5:'C',
+    6:'B', 7:'C', 8:'B', 9:'A', 10:'C',
+    11:'C', 12:'C', 13:'A', 14:'C', 15:'B',
+    16:'B', 17:'D', 18:'C', 19:'B', 20:'B'
+  };
+  let score=0, answered=0;
+  const TOTAL=20;
+
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');
+      const q=parseInt(card.dataset.q);
+      const chosen=this.dataset.ans;
+      const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(b.dataset.ans===correct)b.classList.add('correct');});}
+      answered++;
+      updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current){
+    document.querySelector('[data-q="'+current+'"]').classList.remove('active');
+    const next=document.querySelector('[data-q="'+(current+1)+'"]');
+    if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+
+  function updateProgress(){
+    const pct=(answered/TOTAL)*100;
+    document.getElementById('progress-fill').style.width=pct+'%';
+    document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';
+  }
+
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;
+    document.getElementById('stat-salah').textContent=TOTAL-score;
+    document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai Bab 1 T5 sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula takrif tokoh dan jenis kedaulatan.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Fokus pada perbezaan peranan pemerintah vs rakyat dalam 4 langkah mempertahankan kedaulatan.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota Bab 1 — terutama bahagian takrif tokoh, 4 jenis kedaulatan, dan 4 ciri negara berdaulat.';}
+    document.getElementById('result-title').textContent=title;
+    document.getElementById('result-subtitle').textContent=sub;
+  }
+
+  function retryQuiz(){
+    score=0;answered=0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
