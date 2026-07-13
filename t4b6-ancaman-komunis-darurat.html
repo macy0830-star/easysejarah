@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Sejarah – T4 Bab 6: Ancaman Komunis & Darurat</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root { --kuning:#F7B731; --hitam:#1A1A2E; --hijau:#2D9E5F; --merah:#D62828; --kad:#252538; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans',sans-serif; background:var(--hitam); color:#fff; min-height:100vh; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; border-bottom:2px solid rgba(247,183,49,0.25); position:sticky; top:0; background:var(--hitam); z-index:99; }
+  .logo { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.5rem; }
+  .logo span { color:var(--kuning); }
+  .badge-topik { background:rgba(247,183,49,0.15); border:1px solid var(--kuning); color:var(--kuning); font-size:0.72rem; font-weight:600; padding:4px 12px; border-radius:999px; letter-spacing:0.5px; text-transform:uppercase; }
+  .hero { text-align:center; padding:48px 24px 32px; max-width:640px; margin:0 auto; }
+  .hero-eyebrow { color:var(--kuning); font-family:'Poppins',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .hero h1 { font-family:'Poppins',sans-serif; font-weight:900; font-size:clamp(1.6rem,5.5vw,2.5rem); line-height:1.15; margin-bottom:12px; }
+  .hero h1 em { font-style:normal; color:var(--kuning); }
+  .hero p { color:rgba(255,255,255,0.55); font-size:0.9rem; line-height:1.6; margin-bottom:24px; }
+  .progress-wrap { background:rgba(255,255,255,0.1); border-radius:999px; height:6px; margin-bottom:6px; overflow:hidden; }
+  .progress-fill { height:100%; background:var(--kuning); border-radius:999px; transition:width 0.4s ease; width:0%; }
+  .progress-label { font-size:0.76rem; color:rgba(255,255,255,0.4); text-align:right; }
+  .quiz-section { max-width:680px; margin:0 auto; padding:0 20px 80px; }
+  .question-card { background:var(--kad); border-radius:16px; padding:28px 24px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.06); display:none; animation:fadeUp 0.3s ease; }
+  .question-card.active { display:block; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .q-number { font-family:'Poppins',sans-serif; font-size:0.7rem; font-weight:700; color:var(--kuning); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+  .q-text { font-family:'Poppins',sans-serif; font-size:clamp(0.95rem,3.2vw,1.1rem); font-weight:600; line-height:1.45; margin-bottom:22px; color:#fff; }
+  .options { display:flex; flex-direction:column; gap:10px; }
+  .option-btn { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.1); border-radius:10px; padding:12px 16px; cursor:pointer; text-align:left; font-family:'Noto Sans',sans-serif; font-size:0.88rem; color:rgba(255,255,255,0.82); transition:border-color 0.15s,background 0.15s; width:100%; }
+  .option-btn:hover:not(:disabled) { border-color:var(--kuning); background:rgba(247,183,49,0.08); }
+  .option-btn:disabled { cursor:default; }
+  .option-letter { width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.1); font-family:'Poppins',sans-serif; font-weight:700; font-size:0.78rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .option-btn.correct { border-color:var(--hijau); background:rgba(45,158,95,0.14); }
+  .option-btn.correct .option-letter { background:var(--hijau); color:#fff; }
+  .option-btn.wrong { border-color:var(--merah); background:rgba(214,40,40,0.12); }
+  .option-btn.wrong .option-letter { background:var(--merah); color:#fff; }
+  .explanation { display:none; margin-top:18px; padding:14px 16px; background:rgba(247,183,49,0.07); border-left:3px solid var(--kuning); border-radius:0 8px 8px 0; font-size:0.85rem; line-height:1.65; color:rgba(255,255,255,0.78); }
+  .explanation.show { display:block; }
+  .explanation strong { color:var(--kuning); }
+  .btn-next { display:none; margin-top:18px; width:100%; padding:14px; background:var(--kuning); color:var(--hitam); border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem; cursor:pointer; transition:opacity 0.2s; }
+  .btn-next:hover { opacity:0.9; }
+  .btn-next.show { display:block; }
+  #result-section { display:none; max-width:580px; margin:0 auto; padding:0 20px 80px; text-align:center; }
+  #result-section.show { display:block; }
+  .result-card { background:var(--kad); border-radius:20px; padding:40px 28px; border:1px solid rgba(255,255,255,0.08); }
+  .score-ring { width:120px; height:120px; border-radius:50%; background:conic-gradient(var(--kuning) var(--pct,0%),rgba(255,255,255,0.08) 0%); display:flex; align-items:center; justify-content:center; margin:0 auto 24px; position:relative; }
+  .score-ring::after { content:''; position:absolute; width:88px; height:88px; background:var(--kad); border-radius:50%; }
+  .score-number { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.8rem; color:var(--kuning); position:relative; z-index:1; }
+  .result-title { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.5rem; margin-bottom:8px; }
+  .result-subtitle { color:rgba(255,255,255,0.5); font-size:0.88rem; line-height:1.6; margin-bottom:28px; }
+  .stat-row { display:flex; justify-content:center; gap:18px; margin-bottom:28px; }
+  .stat-box { background:rgba(255,255,255,0.05); border-radius:10px; padding:12px 20px; min-width:82px; }
+  .stat-val { font-family:'Poppins',sans-serif; font-weight:700; font-size:1.4rem; color:var(--kuning); display:block; }
+  .stat-lbl { font-size:0.72rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.5px; }
+  .btn-retry { width:100%; padding:14px; background:var(--kuning); color:var(--hitam); border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem; cursor:pointer; margin-bottom:12px; }
+  .btn-retry:hover { opacity:0.9; }
+  .bab-nav { margin-top:32px; text-align:center; }
+  .bab-nav p { font-size:0.75rem; color:rgba(255,255,255,0.3); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+  .bab-chips { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+  .chip { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.55); border-radius:999px; padding:6px 14px; font-size:0.78rem; text-decoration:none; }
+  .chip.active { border-color:var(--kuning); color:var(--kuning); }
+  .chip.coming { opacity:0.3; cursor:default; }
+  footer { text-align:center; padding:24px 20px; font-size:0.75rem; color:rgba(255,255,255,0.18); border-top:1px solid rgba(255,255,255,0.06); margin-top:20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.15s;" onmouseover="this.style.color='#F7B731'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a><div class="badge-topik">T4 Bab 6</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 4 · Bab 6</div>
+  <h1>Ancaman Komunis &<br><em>Perisytiharan Darurat</em></h1>
+  <p>20 soalan merangkumi kemasukan komunis, penubuhan PKM, tindakan komunis, usaha menangani darurat, dan kesannya.</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 20 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 20</div>
+    <div class="q-text">Siapakah yang mengasaskan ideologi komunisme dan menulis karya Communist Manifesto dan Das Kapital?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Lenin dan Stalin</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Karl Marx dan Friedrich Engels</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mao Zedong dan Ho Chi Minh</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Chin Peng dan Rashid Maidin</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>Komunisme ialah ideologi yang diasaskan oleh Karl Marx dan Friedrich Engels. Mereka menulis karya Communist Manifesto dan Das Kapital. Komunisme menjadikan ekonomi dan barang pengguna sebagai milik negara.</div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 20</div>
+    <div class="q-text">Melalui saluran manakah ideologi komunis mula dibawa masuk ke Tanah Melayu sejak awal tahun 1920-an dari China?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Melalui cawangan Parti Komunis China (PKC)</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Melalui cawangan Parti Kuomintang (KMT)</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Melalui Parti Komunis Nanyang (PKN)</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Melalui Comintern yang berpusat di Moscow</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: B</strong><br>Ideologi komunis mula dibawa masuk ke negara kita sejak awal tahun 1920-an melalui cawangan Parti Kuomintang (KMT) yang beribu pejabat di China. Menjelang 1924, cawangan KMT ditubuhkan di hampir setiap bandar di negeri Melayu.</div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 20</div>
+    <div class="q-text">Parti Komunis Malaya (PKM) ditubuhkan pada 30 April 1930. Di manakah ia ditubuhkan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kuala Lumpur, Selangor</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Ipoh, Perak</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kuala Pilah, Negeri Sembilan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Muar, Johor</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: C</strong><br>PKM ditubuhkan pada 30 April 1930 di Kuala Pilah, Negeri Sembilan. PKM bergerak melalui kesatuan sekerja, pertubuhan, penerbitan akhbar dan sekolah Cina untuk menyebarkan pengaruh komunis.</div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 20</div>
+    <div class="q-text">Apakah nama pasukan anti-Jepun yang dibentuk oleh PKM semasa pendudukan Jepun (1941-1945)?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pasukan Senoi Praaq</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Sarawak Rangers</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Force 136</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Malayan People's Anti-Japanese Army (MPAJA)</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: D</strong><br>PKM membentuk Malayan People's Anti-Japanese Army (MPAJA) atau Bintang Tiga pada tahun 1942 semasa pendudukan Jepun. MPAJA menerima bantuan senjata, latihan, kewangan, bekalan logistik dan perubatan daripada pihak British.</div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 20</div>
+    <div class="q-text">Apakah peristiwa yang mencetuskan Perisytiharan Darurat pada 16 Jun 1948?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Komunis menyerang Balai Polis Bukit Kepong</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Komunis membunuh tiga pengurus ladang Eropah di Sungai Siput, Perak</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Komunis membunuh Sir Henry Gurney di Jalan Kuala Kubu Bharu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Komunis mencampakkan bom tangan di Kampar, Perak</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: B</strong><br>Pada 16 Jun 1948, komunis membunuh tiga pengurus ladang Eropah di Sungai Siput, Perak — Arthur Walker (Ladang Ephil), John Allison (Ladang Phin Soon) dan pembantunya Ian Cristian. Berikutan itu, Sir Edward Gent mengisytiharkan darurat.</div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 20</div>
+    <div class="q-text">Pada tarikh berapakah Undang-Undang Darurat dikuatkuasakan ke seluruh Tanah Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>16 Jun 1948</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>17 Jun 1948</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>18 Jun 1948</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>23 Julai 1948</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: C</strong><br>Urutan: 16 Jun — darurat di kawasan tertentu Perak dan Johor. 17 Jun — diperluas ke seluruh Perak dan Johor. 18 Jun 1948 — dikuatkuasakan ke seluruh Tanah Melayu. 23 Julai 1948 — pendaftaran kebangsaan dan kad pengenalan diperkenalkan.</div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 20</div>
+    <div class="q-text">Apakah tujuan utama Rancangan Briggs yang dilancarkan pada tahun 1950?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Melatih pasukan keselamatan tempatan untuk memerangi komunis</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Memutuskan hubungan PKM dengan Min Yuen yang membekalkan makanan, senjata dan ubat-ubatan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mengadakan pilihan raya untuk melibatkan orang bukan Melayu dalam politik</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menawarkan pengampunan kepada komunis yang menyerah diri</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: B</strong><br>Tujuan utama Rancangan Briggs adalah untuk memutuskan hubungan PKM dengan Min Yuen yang membekalkan makanan, senjata, maklumat dan ubat-ubatan kepada PKM. Leftenan Jeneral Sir Harold Rowdon Briggs dilantik sebagai Pengarah Operasi.</div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8 daripada 20</div>
+    <div class="q-text">Sehingga bulan Mac 1952, berapa ramaikah penduduk yang dipindahkan ke Kampung Baru di bawah Rancangan Briggs?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Lebih daripada 123 ribu orang ke 210 buah Kampung Baru</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Lebih daripada 223 ribu orang ke 310 buah Kampung Baru</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Lebih daripada 323 ribu orang ke 380 buah Kampung Baru</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Lebih daripada 423 ribu orang ke 410 buah Kampung Baru</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: D</strong><br>Sehingga bulan Mac 1952, lebih daripada 423 ribu orang penduduk di pinggir hutan dipindahkan ke 410 buah Kampung Baru. Kampung Baru dilengkapi dengan kemudahan tempat tinggal, bekalan elektrik, air paip, sekolah dan kemudahan kesihatan.</div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 20</div>
+    <div class="q-text">Apakah peranan Min Yuen dalam gerakan komunis di Tanah Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pasukan tempur utama PKM yang berperang dengan tentera British</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mendapatkan bekalan makanan dan wang, melakukan propaganda dan sabotaj untuk PKM</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Pasukan perisikan yang menyusup ke dalam kerajaan British</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pertubuhan yang menguruskan penyerahan diri komunis kepada kerajaan</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: B</strong><br>Min Yuen (Organisasi Massa) ditubuhkan untuk mendapatkan bekalan makanan dan wang kepada komunis. Mereka juga melakukan peras ugut, merompak, menjalankan propaganda, melakukan perisikan dan sabotaj, merekrut ahli baharu. Min Yuen beroperasi pada sebelah malam tanpa senjata api.</div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 20</div>
+    <div class="q-text">Pada tarikh berapakah Sir Henry Gurney dibunuh oleh komunis dan di manakah peristiwa itu berlaku?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>13 September 1948 di Sungai Siput, Perak</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>6 Oktober 1951 di Jalan Kuala Kubu Bharu menuju Bukit Fraser</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>22 Februari 1950 di Balai Polis Bukit Kepong</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>5 Julai 1949 di Kampar, Perak</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: B</strong><br>Pada 6 Oktober 1951, Sir Henry Gurney menjadi mangsa serangan hendap komunis di Jalan Kuala Kubu Bharu dalam perjalanan ke Bukit Fraser. Beliau dilantik sebagai Pesuruhjaya Tinggi British pada 13 September 1948 menggantikan Sir Edward Gent.</div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="11">
+    <div class="q-number">Soalan 11 daripada 20</div>
+    <div class="q-text">Apakah cogan kata Sarawak Rangers yang bertugas menjejak persembunyian komunis di dalam hutan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>"The Silent Killers"</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>"Urang Perang"</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>"Agi Idup Agi Ngelaban"</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>"Jangan Sia-siakan Pengorbanan"</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: C</strong><br>Cogan kata Sarawak Rangers ialah "Agi Idup Agi Ngelaban" yang bermaksud "Selagi hidup selagi melawan". Pasukan ini terdiri daripada orang Iban yang mahir dalam selok-belok hutan. "The Silent Killers" pula adalah gelaran bagi pasukan Senoi Praaq.</div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="12">
+    <div class="q-number">Soalan 12 daripada 20</div>
+    <div class="q-text">Pada tahun berapakah pasukan Polis Wanita ditubuhkan dan siapakah pegawai polis wanita yang pertama?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Ogos 1948 — Guy C. Madoc</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Ogos 1950 — Guy C. Madoc</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Ogos 1955 — Barbara D.R. Wentworth</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Oktober 1956 — Barbara D.R. Wentworth</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: C</strong><br>Polis Wanita ditubuhkan pada bulan Ogos 1955. Barbara D.R. Wentworth merupakan pegawai polis wanita yang pertama. Beliau ditugaskan melatih anggota baharu dan menyusun pasukan polis wanita. Guy C. Madoc pula mengetuai Cawangan Khas pada Ogos 1950.</div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="13">
+    <div class="q-number">Soalan 13 daripada 20</div>
+    <div class="q-text">Apakah syarat yang ditetapkan oleh Chin Peng dalam Rundingan Baling 1955 sebelum bersetuju meletakkan senjata?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>PKM diberi jaminan keselamatan untuk semua ahlinya</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kerajaan bersetuju mengiktiraf PKM sebagai sebuah parti politik yang sah</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Chin Peng diberi pengampunan penuh dan bebas meninggalkan negara</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kerajaan menarik balik semua pasukan tentera dari kawasan hutan</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: B</strong><br>Chin Peng menetapkan syarat bahawa peletakan senjata akan dibuat seandainya kerajaan bersetuju mengakui PKM sebagai sebuah parti politik yang sah. Tunku Abdul Rahman enggan menerima syarat tersebut, menyebabkan rundingan menemui kegagalan.</div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="14">
+    <div class="q-number">Soalan 14 daripada 20</div>
+    <div class="q-text">Siapakah wakil kerajaan Persekutuan Tanah Melayu dalam Rundingan Baling 1955?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Tunku Abdul Rahman, Tan Cheng Lock dan David Marshall</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Tunku Abdul Rahman, Abdul Razak dan Tan Cheng Lock</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sir Gerald Templer, Tunku Abdul Rahman dan David Marshall</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Dato' Onn Jaafar, Tan Cheng Lock dan John Thivy</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: A</strong><br>Wakil Persekutuan Tanah Melayu dalam Rundingan Baling ialah Tunku Abdul Rahman yang ditemani oleh Tan Cheng Lock dan David Marshall. PKM pula diwakili oleh Chin Peng, Chen Tien dan Rashid Maidin. Rundingan ini diadakan di Sekolah Inggeris, Baling, Kedah pada 28 Disember 1955.</div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="15">
+    <div class="q-number">Soalan 15 daripada 20</div>
+    <div class="q-text">Dalam perang saraf, apakah hadiah wang tunai yang ditawarkan kepada sesiapa yang berjaya menangkap Chin Peng sama ada hidup atau mati?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>$100 ribu</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>$150 ribu</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>$200 ribu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>$250 ribu</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: D</strong><br>Sesiapa yang berjaya menangkap Chin Peng, pemimpin PKM, sama ada hidup atau mati akan diberikan hadiah sebanyak $250 ribu. Tawaran hadiah wang tunai ini adalah salah satu elemen perang saraf yang dilaksanakan oleh Templer.</div>
+    <button class="btn-next" onclick="nextQ(15)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="16">
+    <div class="q-number">Soalan 16 daripada 20</div>
+    <div class="q-text">Malayan Chinese Association (MCA) ditubuhkan oleh Tan Cheng Lock pada tarikh dan tempat yang mana?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>27 Februari 1948 di Pulau Pinang</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>27 Februari 1949 di Kuala Lumpur</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>27 Februari 1950 di Ipoh</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>27 Februari 1952 di Kuala Lumpur</button>
+    </div>
+    <div class="explanation" id="exp-16"><strong>✓ Jawapan: B</strong><br>Tan Cheng Lock membentuk MCA di Kuala Lumpur pada 27 Februari 1949. Penubuhan MCA meyakinkan British bahawa bukan semua orang Cina menyokong komunis. Sehingga Februari 1953, MCA mempunyai 250 ribu orang ahli.</div>
+    <button class="btn-next" onclick="nextQ(16)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="17">
+    <div class="q-number">Soalan 17 daripada 20</div>
+    <div class="q-text">Dalam perang saraf, berapa ramaikah orang Cina dan India yang menjadi warganegara selepas kelonggaran syarat kewarganegaraan pada 14 September 1952?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Lebih kurang 800 ribu orang Cina dan 80 ribu orang India</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Lebih kurang 1.2 juta orang Cina dan 180 ribu orang India</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Lebih kurang 1.5 juta orang Cina dan 200 ribu orang India</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Lebih kurang 2 juta orang Cina dan 300 ribu orang India</button>
+    </div>
+    <div class="explanation" id="exp-17"><strong>✓ Jawapan: B</strong><br>Pada 14 September 1952, seramai lebih kurang 1.2 juta orang Cina dan 180 ribu orang India layak menjadi warganegara hasil kelonggaran syarat kewarganegaraan oleh Templer dalam rangka perang saraf memenangi hati penduduk.</div>
+    <button class="btn-next" onclick="nextQ(17)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="18">
+    <div class="q-number">Soalan 18 daripada 20</div>
+    <div class="q-text">Apakah yang dimaksudkan dengan "kawasan putih" dalam konsep yang diperkenalkan semasa perang saraf?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kawasan yang didiami oleh kaum Cina sahaja</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kawasan yang terdapat kegiatan komunis yang aktif dan dikenakan perintah berkurung</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kawasan yang diisytiharkan bebas daripada ancaman komunis</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kawasan Kampung Baru yang dilindungi oleh Special Constables</button>
+    </div>
+    <div class="explanation" id="exp-18"><strong>✓ Jawapan: C</strong><br>Kawasan putih ialah kawasan yang diisytiharkan bebas daripada ancaman komunis. Kawasan hitam pula ialah kawasan yang terdapat kegiatan komunis yang aktif dan dikenakan perintah berkurung. Sehingga tahun 1954, Melaka, Terengganu, Kedah, Perlis dan Negeri Sembilan diisytiharkan kawasan putih.</div>
+    <button class="btn-next" onclick="nextQ(18)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="19">
+    <div class="q-number">Soalan 19 daripada 20</div>
+    <div class="q-text">Apakah kesan zaman darurat terhadap hubungan kaum di Tanah Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Hubungan kaum semakin erat kerana mereka bersatu menentang komunis</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Pengasingan dalam Kampung Baru menyebabkan hubungan antara kaum semakin renggang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kaum Cina dan Melayu bersatu di bawah kepimpinan British</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Semua kaum berpindah ke kawasan bandar yang sama</button>
+    </div>
+    <div class="explanation" id="exp-19"><strong>✓ Jawapan: B</strong><br>Rancangan penempatan semula Kampung Baru didominasi oleh kaum tertentu — kaum Cina dikumpulkan di kawasan petempatan yang sama. Kawalan ketat menyebabkan hubungan dengan kaum lain terbatas. Pengasingan ini menyebabkan hubungan antara kaum semakin renggang.</div>
+    <button class="btn-next" onclick="nextQ(19)">Soalan Seterusnya →</button>
+  </div>
+
+  <div class="question-card" data-q="20">
+    <div class="q-number">Soalan 20 daripada 20</div>
+    <div class="q-text">Pada tarikh berapakah darurat di seluruh negara ditamatkan, dan berapa lamakah tempoh darurat berlangsung? (Soalan KBAT)</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>31 Julai 1958 — 10 tahun</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>31 Julai 1960 — 12 tahun</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>31 Ogos 1960 — 12 tahun</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>31 Julai 1962 — 14 tahun</button>
+    </div>
+    <div class="explanation" id="exp-20"><strong>✓ Jawapan: B</strong><br>Penamatan zaman darurat di seluruh negara berkuat kuasa mulai 31 Julai 1960. Darurat berlangsung selama 12 tahun (1948–1960). Tempoh ini meninggalkan kesan besar dari aspek politik (peningkatan warganegara, penubuhan MCA, mempercepat kemerdekaan) dan sosioekonomi (kerugian harta benda, penderitaan rakyat, hubungan kaum renggang).</div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/20</span>
+    </div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Tingkatan 4</p>
+    <div class="bab-chips">
+      <a href="t4b1-warisan-negara-bangsa.html" class="chip">Bab 1 ✓</a>
+      <a href="t4b2-kebangkitan-nasionalisme.html" class="chip">Bab 2 ✓</a>
+      <a href="t4b3-konflik-dunia-pendudukan-jepun.html" class="chip">Bab 3 ✓</a>
+      <a href="t4b4-era-peralihan-kuasa-british.html" class="chip">Bab 4 ✓</a>
+      <a href="t4b5-persekutuan-tanah-melayu.html" class="chip">Bab 5 ✓</a>
+      <span class="chip active">Bab 6: Komunis ✓</span>
+      <span class="chip coming">Bab 7 – 10</span>
+    </div>
+  </div>
+</div>
+
+<footer>© 2025 EasySejarah · Soalan berdasarkan buku teks SPM Sejarah Tingkatan 4 (KPM)</footer>
+
+<script>
+  const CORRECT = {
+    1:'B', 2:'B', 3:'C', 4:'D', 5:'B',
+    6:'C', 7:'B', 8:'D', 9:'B', 10:'B',
+    11:'C', 12:'C', 13:'B', 14:'A', 15:'D',
+    16:'B', 17:'B', 18:'C', 19:'B', 20:'B'
+  };
+  let score=0, answered=0;
+  const TOTAL=20;
+
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');
+      const q=parseInt(card.dataset.q);
+      const chosen=this.dataset.ans;
+      const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(b.dataset.ans===correct)b.classList.add('correct');});}
+      answered++;
+      updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current){
+    document.querySelector('[data-q="'+current+'"]').classList.remove('active');
+    const next=document.querySelector('[data-q="'+(current+1)+'"]');
+    if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+
+  function updateProgress(){
+    const pct=(answered/TOTAL)*100;
+    document.getElementById('progress-fill').style.width=pct+'%';
+    document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';
+  }
+
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;
+    document.getElementById('stat-salah').textContent=TOTAL-score;
+    document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai Bab 6 sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula tarikh-tarikh penting dan nama pasukan keselamatan.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Fokus pada 9 usaha menangani komunis dan kesan zaman darurat.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota Bab 6 — terutama bahagian Rancangan Briggs, Perang Saraf, dan Rundingan Baling.';}
+    document.getElementById('result-title').textContent=title;
+    document.getElementById('result-subtitle').textContent=sub;
+  }
+
+  function retryQuiz(){
+    score=0;answered=0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
