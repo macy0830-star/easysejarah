@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Sejarah – T3 Bab 7: Penentangan Masyarakat Tempatan</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+
+  :root {
+    --merah: #C49A9A; /* Dusty Pink */
+    --kuning: #D5BFAF; /* Beige */
+    --hitam: #2F2E2C; /* Muted Dark */
+    --putih: #F4F1EA;
+    --kelabu: #E0DCD3;
+    --kelabu-teks: #9A958F;
+    --hijau: #94A695; /* Sage Green */
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: var(--hitam);
+    color: var(--putih);
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 2px solid rgba(213, 191, 175, 0.25);
+    position: sticky; top: 0;
+    background: var(--hitam);
+    z-index: 99;
+  }
+
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--kuning); }
+
+  .badge-topik {
+    background: rgba(213, 191, 175, 0.15);
+    border: 1px solid var(--kuning);
+    color: var(--kuning);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 48px 24px 32px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    color: var(--kuning);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 em { font-style: normal; color: var(--kuning); }
+
+  .hero p {
+    color: rgba(244, 241, 234, 0.55);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .progress-wrap {
+    background: rgba(244, 241, 234, 0.1);
+    border-radius: 999px;
+    height: 6px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--kuning);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-label {
+    font-size: 0.76rem;
+    color: rgba(244, 241, 234, 0.4);
+    text-align: right;
+  }
+
+  .quiz-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  .question-card {
+    background: #3C3A38;
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(244, 241, 234, 0.06);
+    display: none;
+    animation: fadeUp 0.3s ease;
+  }
+  .question-card.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .q-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--kuning);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .q-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 22px;
+    color: var(--putih);
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(244, 241, 234, 0.05);
+    border: 2px solid rgba(244, 241, 234, 0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(244, 241, 234, 0.82);
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--kuning);
+    background: rgba(213, 191, 175, 0.08);
+  }
+  .option-btn:disabled { cursor: default; }
+
+  .option-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(244, 241, 234, 0.1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .option-btn.correct { border-color: var(--hijau); background: rgba(148, 166, 149, 0.14); }
+  .option-btn.correct .option-letter { background: var(--hijau); color: var(--hitam); }
+  .option-btn.wrong { border-color: var(--merah); background: rgba(196, 154, 154, 0.12); }
+  .option-btn.wrong .option-letter { background: var(--merah); color: var(--hitam); }
+
+  .explanation {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: rgba(213, 191, 175, 0.07);
+    border-left: 3px solid var(--kuning);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(244, 241, 234, 0.78);
+  }
+  .explanation.show { display: block; }
+  .explanation strong { color: var(--kuning); }
+
+  .btn-next {
+    display: none;
+    margin-top: 18px;
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .btn-next:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-next.show { display: block; }
+
+  /* RESULT */
+  #result-section {
+    display: none;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    text-align: center;
+  }
+  #result-section.show { display: block; }
+
+  .result-card {
+    background: #3C3A38;
+    border-radius: 20px;
+    padding: 40px 28px;
+    border: 1px solid rgba(244, 241, 234, 0.08);
+  }
+
+  .score-ring {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(var(--kuning) var(--pct, 0%), rgba(244, 241, 234, 0.08) 0%);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .score-ring::after {
+    content: '';
+    position: absolute;
+    width: 88px; height: 88px;
+    background: #3C3A38;
+    border-radius: 50%;
+  }
+  .score-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--kuning);
+    position: relative;
+    z-index: 1;
+  }
+
+  .result-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .result-subtitle {
+    color: rgba(244, 241, 234, 0.5);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .stat-box {
+    background: rgba(244, 241, 234, 0.05);
+    border-radius: 10px;
+    padding: 12px 20px;
+    min-width: 82px;
+  }
+  .stat-val {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--kuning);
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: rgba(244, 241, 234, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-retry {
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: opacity 0.2s;
+  }
+  .btn-retry:hover { opacity: 0.9; }
+
+  .bab-nav {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .bab-nav p {
+    font-size: 0.75rem;
+    color: rgba(244, 241, 234, 0.3);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .bab-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .chip {
+    background: rgba(244, 241, 234, 0.05);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    color: rgba(244, 241, 234, 0.55);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    text-decoration: none;
+  }
+  .chip.active { border-color: var(--kuning); color: var(--kuning); }
+  .chip.coming { opacity: 0.3; cursor: default; }
+
+  footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.75rem;
+    color: rgba(244, 241, 234, 0.18);
+    border-top: 1px solid rgba(244, 241, 234, 0.06);
+    margin-top: 20px;
+  }
+
+  .btn-yt-result { display:inline-flex; align-items:center; gap:8px; background:#FF0000; color:#fff; text-decoration:none; padding:13px 22px; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.92rem; transition:opacity 0.2s; width:100%; justify-content:center; margin-top:12px; }
+  .btn-yt-result:hover { opacity:0.85; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+</head>
+<body>
+
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="#" style="color:rgba(244,241,234,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.15s;" onmouseover="this.style.color='var(--kuning)'" onmouseout="this.style.color='rgba(244,241,234,0.5)'">← Laman Utama</a><div class="badge-topik">T3 Bab 7</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 3 · Bab 7</div>
+  <h1>Penentangan Masyarakat<br><em>Tempatan</em></h1>
+  <p>10 soalan pilihan berganda merangkumi perjuangan tokoh-tokoh tempatan menentang penjajah, taktik penentangan, dan kesan pentadbiran British.</p>
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-label">0 / 10 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <!-- Q1 -->
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 10</div>
+    <div class="q-text">Dol Said menentang bayaran cukai hasil tahunan sebanyak 1/10 yang dikenakan oleh British. Beliau mendakwa Naning ialah sebuah negeri yang merdeka. Apakah tindakan British setelah arahannya diingkari?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Merampas hasil penduduk Naning</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Menduduki Naning dengan serangan ketenteraan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Memulaukan wilayah Naning daripada perdagangan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Melantik Residen British di Naning</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>Setelah Dol Said enggan membayar cukai, British melancarkan Perang Naning dan akhirnya berjaya menakluki Taboh (pusat pentadbiran Naning) lalu menyatukan Naning dengan Melaka.</div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 10</div>
+    <div class="q-text">Siapakah tokoh pemimpin orang Iban di Sungai Skrang yang digelar "Raja Ulu" dan bangkit menentang James Brooke?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sharif Masahor</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Rentap</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Datu Patinggi Abdul Gapur</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Mat Salleh</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: B</strong><br>Rentap (yang bermaksud "penggoncang dunia") atau nama asalnya Libau, digelar Raja Ulu dan Raja Darat. Beliau menentang James Brooke yang cuba menghapuskan petempatan orang Iban dengan alasan memerangi lanun.</div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 10</div>
+    <div class="q-text">Dato' Maharaja Lela bangkit menentang British di Perak kerana campur tangan Residen British pertama, J.W.W. Birch. Apakah tindakan J.W.W. Birch yang mencetuskan kemarahan ini?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Membawa masuk tentera Gurkha</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Menghapuskan sistem perhambaan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mengambil hak mengutip cukai dan mencabuli adat resam orang Melayu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Memaksa Sultan Abdullah turun takhta secara terbuka</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: C</strong><br>J.W.W. Birch mengambil alih kuasa Sultan, campur tangan dalam urusan mengutip cukai, dan mencabuli adat resam orang Melayu yang menyebabkan pembesar Perak bersepakat menentangnya.</div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 10</div>
+    <div class="q-text">Mat Salleh melancarkan penentangan terhadap Syarikat Borneo Utara British (SBUB) di Sabah. Apakah punca utama kebangkitan beliau?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>SBUB membina landasan kereta api merentasi tanah adat</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>SBUB mengambil alih hak memungut cukai sehingga pembesar tempatan hilang kuasa</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>SBUB menghapuskan jawatan Ketua Anak Negeri</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>SBUB memaksa orang Suluk bekerja sebagai buruh paksa</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: B</strong><br>Mat Salleh menentang tindakan SBUB yang mengambil alih hak memungut cukai, yang mengakibatkan beliau dan pembesar tempatan kehilangan kuasa. Beliau juga mencabar perjanjian yang tidak ditepati oleh SBUB di Tambunan.</div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 10</div>
+    <div class="q-text">Haji Abdul Rahman Limbong memimpin gerakan Kebangkitan Tani di Terengganu. Beliau menggunakan satu strategi yang unik dalam perjuangannya. Apakah strategi tersebut?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menggunakan sistem perundangan dengan memohon Lesen Wakil (pleader) di mahkamah</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Membina kubu bawah tanah di Kuala Telemong</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mendapatkan bantuan ketenteraan daripada Kesultanan Kelantan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Melancarkan mogok lapar dan boikot ekonomi</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: A</strong><br>Haji Abdul Rahman Limbong bertindak sebagai peguam (pleader) mewakili petani Terengganu di mahkamah, menggunakan hujah agama bahawa tanah adalah hak Allah dan menolak undang-undang tanah British.</div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 10</div>
+    <div class="q-text">Antara strategi kejayaan peringkat awal pejuang tempatan ialah pembinaan kubu pertahanan semula jadi yang kukuh. Di manakah terletaknya kubu kuat Rentap yang sangat sukar ditembusi oleh Charles Brooke?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Bukit Putus</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Bukit Sadok</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Jeram Ampai</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pasir Salak</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: B</strong><br>Kubu Bukit Sadok yang didirikan oleh Rentap sangat ampuh. Ia terletak di kawasan perbukitan tinggi, dikelilingi hutan rimba, dan dilindungi kayu belian setebal dua kaki serta dilengkapi meriam "Bujang Timpang Berang".</div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 10</div>
+    <div class="q-text">Dato' Bahaman melancarkan gerakan menentang British di Pahang setelah beliau dipecat dan ditarik gelaran. Apakah punca sebenar beliau hilang sabar terhadap British?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Penarikan hak mengutip cukai dan pembinaan balai polis di Lubuk Terua tanpa izin</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Penubuhan pasukan polis Sikh di Pahang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Perlantikan J.P. Rodger sebagai Residen Pahang</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Penghapusan hukum syarak di mahkamah Pahang</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: A</strong><br>Dato' Bahaman menentang kehilangan hak mengutip cukai (digantikan dengan elaun kecil) dan pembinaan balai polis di kawasan pengaruhnya di Semantan tanpa pengetahuannya yang mencabar kekuasaannya.</div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8             daripada 10</div>
+    <div class="q-text">Dalam usaha melumpuhkan kebangkitan Tok Janggut di Kelantan, apakah taktik tipu muslihat yang digunakan oleh British?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menawarkan jawatan Ketua Jajahan Pasir Puteh kepada Tok Janggut</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Membakar kampung penduduk secara rahsia pada waktu malam</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mendesak Sultan mengisytiharkan perjuangan Tok Janggut sebagai penderhakaan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menandatangani perjanjian damai sementara menunggu tentera bantuan</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: C</strong><br>British menggunakan nama dan kedudukan Sultan Muhammad IV Kelantan untuk mengisytiharkan Tok Janggut sebagai penderhaka, lantas menakutkan penduduk tempatan daripada terus memberikan sokongan kepadanya.</div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 10</div>
+    <div class="q-text">Apakah kesan penentangan masyarakat tempatan terhadap pentadbiran British di negeri-negeri Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>British memansuhkan sepenuhnya sistem cukai</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>British mengundur diri dari negeri-negeri Melayu</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>British menjadi lebih berhati-hati dan menubuhkan Majlis Mesyuarat Negeri</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>British menghapuskan institusi Kesultanan Melayu</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: C</strong><br>Penentangan (seperti pembunuhan J.W.W. Birch) menyebabkan kerugian besar. British menjadi lebih berhati-hati, melantik Residen yang fasih budaya Melayu dan menubuhkan Majlis Mesyuarat Negeri (MMN) sebagai badan penasihat.</div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 10</div>
+    <div class="q-text">Peraturan cukai tanah dan tanaman baharu di Pasir Puteh, Kelantan yang diperkenalkan pada 1915 menimbulkan ketidakpuasan hati. Antara berikut, manakah masalah utama yang dihadapi oleh penduduk?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Cukai mesti dibayar menggunakan mata wang emas</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Pejabat cukai terletak jauh dan mereka yang gagal membayar didenda atau dipenjarakan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kadar cukai pokok kelapa lebih mahal daripada padi sawah</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>British merampas hasil pertanian secara terus dari ladang</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: B</strong><br>Penduduk Pasir Puteh terbeban kerana terpaksa berjalan jauh ke pejabat cukai yang hanya beroperasi pada waktu pejabat, dan mereka yang gagal mematuhi atau membayar cukai akan ditangkap, didenda, atau dipenjarakan.</div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/10</span>
+    </div>
+    <div class="result-title" id="result-title">Tahniah!</div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-val" id="stat-betul">0</span>
+        <span class="stat-lbl">Betul</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-salah">0</span>
+        <span class="stat-lbl">Salah</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-pct">0%</span>
+        <span class="stat-lbl">Markah</span>
+      </div>
+    </div>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+  </div>
+
+  <div class="bab-nav">
+    <p>Bab Lain — Tingkatan 3</p>
+    <div class="bab-chips">
+      <span class="chip coming">Bab 1-5</span>
+      <span class="chip coming">Bab 6: Kesan Pentadbiran Barat</span>
+      <span class="chip active">Bab 7 ✓</span>
+      <span class="chip coming">Bab 8: Kebijaksanaan Raja & Pembesar</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 EasySejarah · Soalan berdasarkan silibus SPM Sejarah Tingkatan 3
+</footer>
+
+<script>
+  const CORRECT = {
+    1:'B', 2:'B', 3:'C', 4:'B', 5:'A',
+    6:'B', 7:'A', 8:'C', 9:'C', 10:'B'
+  };
+
+  let score = 0, answered = 0;
+  const TOTAL = 10;
+
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.question-card');
+      const q = parseInt(card.dataset.q);
+      const chosen = this.dataset.ans;
+      const correct = CORRECT[q];
+
+      card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+
+      if (chosen === correct) {
+        this.classList.add('correct');
+        score++;
+      } else {
+        this.classList.add('wrong');
+        card.querySelectorAll('.option-btn').forEach(b => {
+          if (b.dataset.ans === correct) b.classList.add('correct');
+        });
+      }
+
+      answered++;
+      updateProgress();
+      document.getElementById('exp-' + q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current) {
+    document.querySelector('[data-q="' + current + '"]').classList.remove('active');
+    const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+    if (next) {
+      next.classList.add('active');
+      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function updateProgress() {
+    const pct = (answered / TOTAL) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+  }
+
+  function showResult() {
+    document.getElementById('quiz-section').style.display = 'none';
+    const rs = document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const pct = Math.round((score / TOTAL) * 100);
+    document.getElementById('score-display').textContent = score + '/' + TOTAL;
+    document.getElementById('stat-betul').textContent = score;
+    document.getElementById('stat-salah').textContent = TOTAL - score;
+    document.getElementById('stat-pct').textContent = pct + '%';
+    document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+
+    let title = '', sub = '';
+    if (pct === 100) { title = 'Cemerlang! 🏆'; sub = 'Markah penuh! Pengetahuan sejarah anda sangat mendalam.'; }
+    else if (pct >= 80) { title = 'Bagus! 🎉'; sub = 'Hampir sempurna! Teruskan usaha mengkaji sejarah pejuang tempatan.'; }
+    else if (pct >= 60) { title = 'Boleh Lagi! 💪'; sub = 'Anda mempunyai asas yang baik. Sila buat sedikit ulang kaji tentang peristiwa khusus.'; }
+    else { title = 'Jangan Putus Asa! 📚'; sub = 'Baca semula nota Bab 7 dan hayati perjuangan tokoh-tokoh negara.'; }
+
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-subtitle').textContent = sub;
+  }
+
+  function retryQuiz() {
+    score = 0; answered = 0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display = 'block';
+
+    document.querySelectorAll('.question-card').forEach((card, i) => {
+      card.classList.toggle('active', i === 0);
+      card.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('correct', 'wrong');
+      });
+      card.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Sejarah – T3 Bab 1: Kedatangan Kuasa Barat</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+
+  :root {
+    --merah: #D62828;
+    --kuning: #F7B731;
+    --hitam: #1A1A2E;
+    --putih: #FAFAF8;
+    --kelabu: #F0EDE8;
+    --kelabu-teks: #5C5C6E;
+    --hijau: #2D9E5F;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: var(--hitam);
+    color: var(--putih);
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 2px solid rgba(247,183,49,0.25);
+    position: sticky; top: 0;
+    background: var(--hitam);
+    z-index: 99;
+  }
+
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--kuning); }
+
+  .badge-topik {
+    background: rgba(247,183,49,0.15);
+    border: 1px solid var(--kuning);
+    color: var(--kuning);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 48px 24px 32px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    color: var(--kuning);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 em { font-style: normal; color: var(--kuning); }
+
+  .hero p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .progress-wrap {
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    height: 6px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--kuning);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-label {
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+  }
+
+  .quiz-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  .question-card {
+    background: #252538;
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: none;
+    animation: fadeUp 0.3s ease;
+  }
+  .question-card.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .q-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--kuning);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .q-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 22px;
+    color: #fff;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.82);
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--kuning);
+    background: rgba(247,183,49,0.08);
+  }
+  .option-btn:disabled { cursor: default; }
+
+  .option-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .option-btn.correct { border-color: var(--hijau); background: rgba(45,158,95,0.14); }
+  .option-btn.correct .option-letter { background: var(--hijau); color: #fff; }
+  .option-btn.wrong { border-color: var(--merah); background: rgba(214,40,40,0.12); }
+  .option-btn.wrong .option-letter { background: var(--merah); color: #fff; }
+
+  .explanation {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: rgba(247,183,49,0.07);
+    border-left: 3px solid var(--kuning);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+  }
+  .explanation.show { display: block; }
+  .explanation strong { color: var(--kuning); }
+
+  .btn-next {
+    display: none;
+    margin-top: 18px;
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .btn-next:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-next.show { display: block; }
+
+  /* RESULT */
+  #result-section {
+    display: none;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    text-align: center;
+  }
+  #result-section.show { display: block; }
+
+  .result-card {
+    background: #252538;
+    border-radius: 20px;
+    padding: 40px 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .score-ring {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(var(--kuning) var(--pct, 0%), rgba(255,255,255,0.08) 0%);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .score-ring::after {
+    content: '';
+    position: absolute;
+    width: 88px; height: 88px;
+    background: #252538;
+    border-radius: 50%;
+  }
+  .score-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--kuning);
+    position: relative;
+    z-index: 1;
+  }
+
+  .result-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .result-subtitle {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 12px 20px;
+    min-width: 82px;
+  }
+  .stat-val {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--kuning);
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-retry {
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: opacity 0.2s;
+  }
+  .btn-retry:hover { opacity: 0.9; }
+
+  .bab-nav {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .bab-nav p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .bab-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .chip {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.55);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    text-decoration: none;
+  }
+  .chip.active { border-color: var(--kuning); color: var(--kuning); }
+  .chip.coming { opacity: 0.3; cursor: default; }
+
+  footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.18);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 20px;
+  }
+
+  .btn-yt-result { display:inline-flex; align-items:center; gap:8px; background:#FF0000; color:#fff; text-decoration:none; padding:13px 22px; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.92rem; transition:opacity 0.2s; width:100%; justify-content:center; margin-top:12px; }
+  .btn-yt-result:hover { opacity:0.85; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+</head>
+<body>
+
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="#" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.15s;" onmouseover="this.style.color='#F7B731'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a><div class="badge-topik">T3 Bab 1</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 3 · Bab 1</div>
+  <h1>Kedatangan<br><em>Kuasa Barat</em></h1>
+  <p>10 soalan pilihan berganda merangkumi kestabilan negara, faktor, persaingan, dan strategi kuasa Barat meluaskan kuasa.</p>
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-label">0 / 10 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <!-- Q1 -->
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 10</div>
+    <div class="q-text">Kestabilan dan kemakmuran negara kita telah menarik kedatangan kuasa Barat. Apakah unit paling kecil dalam sistem pemerintahan masyarakat Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Mukim</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Jajahan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Daerah</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kampung</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: D</strong><br>Kampung ialah unit paling kecil dalam hierarki sistem pemerintahan masyarakat Melayu. Ia diketuai oleh Penghulu atau Penggawa.</div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 10</div>
+    <div class="q-text">Mengapakah negara kita sangat dikenali di persada antarabangsa sebelum kedatangan kuasa Barat?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Memiliki kekayaan hasil bumi dan sumber alam</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mengamalkan sistem demokrasi moden</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mempunyai senjata peperangan yang canggih</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menjadi pusat penyebaran tamadun Barat</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: A</strong><br>Negara kita terkenal kerana kekayaan hasil bumi (seperti bijih timah dan emas) serta sumber alam yang sangat berharga (seperti rempah-ratus dan hasil hutan).</div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 10</div>
+    <div class="q-text">Sistem timbangan manakah yang diambil oleh masyarakat Melayu daripada pedagang China?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kepul, leng, kal</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kati, tahil dan pikul</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Saga, mayam dan bungkal</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Auns, paun dan tan</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: B</strong><br>Sistem kati, tahil, dan pikul diambil daripada pedagang China. Timbangan dari pedagang India pula menggunakan saga, mayam, bungkal, dan kati.</div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 10</div>
+    <div class="q-text">Apakah tujuan pendidikan tidak formal dalam masyarakat tempatan sebelum kedatangan Barat?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Melahirkan golongan pentadbir dan pegawai</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mengajarkan ilmu keagamaan secara khusus di sekolah</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Melahirkan individu berakhlak mulia dan boleh berdikari</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menyediakan pelajar untuk menduduki peperiksaan</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: C</strong><br>Pendidikan tidak formal diberikan menerusi keluarga. Ia bertujuan melahirkan individu yang berakhlak mulia, berkelakuan sopan, dan berdikari melalui asuhan dan tunjuk ajar kemahiran.</div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 10</div>
+    <div class="q-text">Apakah barangan mewah dari China yang paling mendapat permintaan tinggi daripada orang Eropah pada Abad ke-16?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Rempah-ratus dan bijih timah</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Teh, sutera dan tembikar</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Emas, perak dan batu permata</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Damar, rotan dan getah jelutung</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: B</strong><br>Orang Eropah sangat memerlukan barangan mewah dari China seperti teh, sutera, dan tembikar untuk dibawa pulang ke Eropah.</div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 10</div>
+    <div class="q-text">Apakah kesan Revolusi Perindustrian (bermula di Britain) terhadap negara-negara di Alam Melayu?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Penyebaran agama Kristian berlaku secara meluas</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kuasa Barat giat mencari tanah jajahan untuk membekalkan bahan mentah kilang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Alam Melayu menjadi negara perindustrian setanding Eropah</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Perkembangan sistem pendidikan moden yang pantas</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: B</strong><br>Revolusi Perindustrian menyebabkan dasar kuasa-kuasa Barat berubah. Mereka perlukan pusat perdagangan dan tanah jajahan bagi memastikan bekalan bahan mentah kilang berterusan dan kawasan pasaran yang lebih luas.</div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 10</div>
+    <div class="q-text">Pembukaan Terusan Suez pada tahun 1869 telah memendekkan jarak perjalanan kapal dagang. Laut manakah yang dihubungkan oleh terusan ini?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Laut Mediterranean dan Laut Merah</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Laut China Selatan dan Lautan Hindi</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Laut Baltik dan Laut Utara</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Lautan Atlantik dan Lautan Pasifik</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: A</strong><br>Terusan Suez menghubungkan Pelabuhan Said di Laut Mediterranean dan Suez di Laut Merah. Pembukaannya sangat mempercepatkan urusan perdagangan antara Eropah dengan Alam Melayu.</div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8 daripada 10</div>
+    <div class="q-text">Kuasa Barat menggunakan pelbagai slogan untuk mewajarkan tindakan penjajahan mereka. Apakah slogan yang digunakan oleh Perancis?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Beban Orang Putih</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Tugas Menyebarkan Tamadun</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Asia untuk Orang Asia</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pembebasan Tanah Jajahan</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: B</strong><br>Kuasa Perancis menggunakan muslihat "Tugas Menyebarkan Tamadun" (Mission Civilisatrice) kepada penduduk bukan Barat. "Beban Orang Putih" pula ialah slogan yang digunakan oleh British dan Amerika Syarikat.</div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 10</div>
+    <div class="q-text">Pada tahun 1641, apakah strategi licik yang digunakan oleh Belanda untuk berjaya mengalahkan Portugis di Melaka?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Manipulasi</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Ugutan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Pajakan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pakatan</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: D</strong><br>Belanda menggunakan strategi 'Pakatan' dengan mengadakan kerjasama bersama Kesultanan Johor pada tahun 1641 untuk menyerang dan mengalahkan Portugis di Melaka.</div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 10</div>
+    <div class="q-text">British telah memaksa Sultan Perak, Sultan Selangor, Yamtuan Seri Menanti dan Sultan Pahang menerima naungan mereka. Apakah strategi yang digunakan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Perjanjian</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Serangan Fizikal</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Manipulasi</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pajakan</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: A</strong><br>British menggunakan strategi "Perjanjian" di mana mereka mendesak sultan-sultan untuk memeterai perjanjian yang mengikat negeri-negeri Melayu ini supaya menerima naungan British.</div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/10</span>
+    </div>
+    <div class="result-title" id="result-title">Tahniah!</div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-val" id="stat-betul">0</span>
+        <span class="stat-lbl">Betul</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-salah">0</span>
+        <span class="stat-lbl">Salah</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-pct">0%</span>
+        <span class="stat-lbl">Markah</span>
+      </div>
+    </div>
+    <a href="https://youtu.be/ykyID5jTZwU" target="_blank" class="btn-yt-result">▶ Tonton Video: T3 Bab 1 – Kedatangan Kuasa Barat</a>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+  </div>
+
+  <div class="bab-nav">
+    <p>Bab Lain — Tingkatan 3</p>
+    <div class="bab-chips">
+      <span class="chip active">Bab 1 ✓</span>
+      <span class="chip coming">Bab 2: Pentadbiran NNS</span>
+      <span class="chip coming">Bab 3: NNMB</span>
+      <span class="chip coming">Bab 4: NNMTB</span>
+      <span class="chip coming">Bab 5: Sarawak & Sabah</span>
+      <span class="chip coming">Bab 6-8</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 EasySejarah · Soalan berdasarkan silibus SPM Sejarah Tingkatan 3
+</footer>
+
+<script>
+  const CORRECT = {
+    1:'D', 2:'A', 3:'B', 4:'C', 5:'B',
+    6:'B', 7:'A', 8:'B', 9:'D', 10:'A'
+  };
+
+  let score = 0, answered = 0;
+  const TOTAL = 10;
+
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.question-card');
+      const q = parseInt(card.dataset.q);
+      const chosen = this.dataset.ans;
+      const correct = CORRECT[q];
+
+      card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+
+      if (chosen === correct) {
+        this.classList.add('correct');
+        score++;
+      } else {
+        this.classList.add('wrong');
+        card.querySelectorAll('.option-btn').forEach(b => {
+          if (b.dataset.ans === correct) b.classList.add('correct');
+        });
+      }
+
+      answered++;
+      updateProgress();
+      document.getElementById('exp-' + q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current) {
+    document.querySelector('[data-q="' + current + '"]').classList.remove('active');
+    const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+    if (next) {
+      next.classList.add('active');
+      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function updateProgress() {
+    const pct = (answered / TOTAL) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+  }
+
+  function showResult() {
+    document.getElementById('quiz-section').style.display = 'none';
+    const rs = document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const pct = Math.round((score / TOTAL) * 100);
+    document.getElementById('score-display').textContent = score + '/' + TOTAL;
+    document.getElementById('stat-betul').textContent = score;
+    document.getElementById('stat-salah').textContent = TOTAL - score;
+    document.getElementById('stat-pct').textContent = pct + '%';
+    document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+
+    let title = '', sub = '';
+    if (pct === 100) { title = 'Cemerlang! 🏆'; sub = 'Markah penuh! Anda menguasai Bab 1 sepenuhnya.'; }
+    else if (pct >= 80) { title = 'Bagus! 🎉'; sub = 'Hampir sempurna! Semak semula soalan yang salah.'; }
+    else if (pct >= 60) { title = 'Boleh Lagi! 💪'; sub = 'Asas ada. Fokus pada bahagian strategi kuasa Barat.'; }
+    else { title = 'Jangan Putus Asa! 📚'; sub = 'Baca semula nota Bab 1.'; }
+
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-subtitle').textContent = sub;
+  }
+
+  function retryQuiz() {
+    score = 0; answered = 0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display = 'block';
+
+    document.querySelectorAll('.question-card').forEach((card, i) => {
+      card.classList.toggle('active', i === 0);
+      card.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('correct', 'wrong');
+      });
+      card.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
