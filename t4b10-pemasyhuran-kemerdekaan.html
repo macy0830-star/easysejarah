@@ -92,6 +92,20 @@
   .chip.active { border-color:var(--kuning); color:var(--kuning); }
   .chip.t5 { border-color:rgba(255,107,107,0.4); color:#ff6b6b; }
   footer { text-align:center; padding:24px 20px; font-size:0.75rem; color:rgba(255,255,255,0.18); border-top:1px solid rgba(255,255,255,0.06); margin-top:20px; }
+
+  .btn-next-bab {
+    display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(135deg,#e8447a,#c4306a);
+    color:#fff; text-decoration:none;
+    padding:16px 22px; border-radius:12px;
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem;
+    margin-bottom:12px; transition:opacity 0.2s; gap:12px;
+    box-shadow:0 4px 14px rgba(232,68,122,0.35);
+  }
+  .btn-next-bab:hover { opacity:0.88; }
+  .btn-next-bab .next-label { font-size:0.7rem; font-weight:600; opacity:0.8; text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:2px; }
+  .btn-next-bab .next-title { display:block; }
+  .btn-next-bab .next-arrow { font-size:1.4rem; flex-shrink:0; }
 </style>
 </head>
 <body>
@@ -388,6 +402,11 @@
     </div>
     <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
     <a href="https://youtu.be/-8nLR4IY0OQ" target="_blank" class="btn-yt-result">▶ Tonton Video: T4 Bab 10 – Pemasyhuran Kemerdekaan</a>
+  
+    <a href="index.html" class="btn-next-bab" style="background:linear-gradient(135deg,#2db87a,#1e8a5a);box-shadow:0 4px 14px rgba(45,184,122,0.35);">
+      <div><span class="next-label">🎉 Tamat! Kembali ke</span><span class="next-title">🏠 Laman Utama</span></div>
+      <span class="next-arrow">✓</span>
+    </a>
   </div>
   <div class="bab-nav">
     <p>Semua Bab Tingkatan 4 — Selesai! 🎉</p>

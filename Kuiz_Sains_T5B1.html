@@ -360,6 +360,20 @@
     border-top: 1px solid rgba(255,255,255,0.06);
     margin-top: 20px;
   }
+
+  .btn-next-bab {
+    display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(135deg,#e8447a,#c4306a);
+    color:#fff; text-decoration:none;
+    padding:16px 22px; border-radius:12px;
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem;
+    margin-bottom:12px; transition:opacity 0.2s; gap:12px;
+    box-shadow:0 4px 14px rgba(232,68,122,0.35);
+  }
+  .btn-next-bab:hover { opacity:0.88; }
+  .btn-next-bab .next-label { font-size:0.7rem; font-weight:600; opacity:0.8; text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:2px; }
+  .btn-next-bab .next-title { display:block; }
+  .btn-next-bab .next-arrow { font-size:1.4rem; flex-shrink:0; }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
@@ -624,6 +638,11 @@
       </div>
     </div>
     <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+  
+    <a href="Kuiz_Sains_T5B2_Nutrisi_Makanan.html" class="btn-next-bab">
+      <div><span class="next-label">Bab Seterusnya →</span><span class="next-title">T5 Bab 2: Nutrisi Makanan</span></div>
+      <span class="next-arrow">→</span>
+    </a>
   </div>
 
     <div class="bab-nav">

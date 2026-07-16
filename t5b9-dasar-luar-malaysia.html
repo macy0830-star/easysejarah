@@ -92,6 +92,20 @@
   .chip.active { border-color:var(--kuning); color:var(--kuning); }
   .chip.coming { opacity:0.3; cursor:default; }
   footer { text-align:center; padding:24px 20px; font-size:0.75rem; color:rgba(255,255,255,0.18); border-top:1px solid rgba(255,255,255,0.06); margin-top:20px; }
+
+  .btn-next-bab {
+    display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(135deg,#e8447a,#c4306a);
+    color:#fff; text-decoration:none;
+    padding:16px 22px; border-radius:12px;
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem;
+    margin-bottom:12px; transition:opacity 0.2s; gap:12px;
+    box-shadow:0 4px 14px rgba(232,68,122,0.35);
+  }
+  .btn-next-bab:hover { opacity:0.88; }
+  .btn-next-bab .next-label { font-size:0.7rem; font-weight:600; opacity:0.8; text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:2px; }
+  .btn-next-bab .next-title { display:block; }
+  .btn-next-bab .next-arrow { font-size:1.4rem; flex-shrink:0; }
 </style>
 </head>
 <body>
@@ -408,6 +422,11 @@
     </div>
     <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
     <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt-result">▶ Tonton Video di YouTube – EasySejarah</a>
+  
+    <a href="t5b10-kecemerlangan-malaysia.html" class="btn-next-bab">
+      <div><span class="next-label">Bab Seterusnya →</span><span class="next-title">Bab 10: Kecemerlangan Malaysia</span></div>
+      <span class="next-arrow">→</span>
+    </a>
   </div>
     <div class="bab-nav">
     <p>Bab Lain — Tingkatan 5 Sejarah</p>
