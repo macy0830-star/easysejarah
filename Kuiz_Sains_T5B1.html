@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Sains – T5 Bab 1: Mikroorganisma</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+
+  :root {
+    --merah: #D62828;
+    --kuning: #F7B731;
+    --hitam: #1A1A2E;
+    --putih: #FAFAF8;
+    --kelabu: #F0EDE8;
+    --kelabu-teks: #5C5C6E;
+    --hijau: #2D9E5F;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: var(--hitam);
+    color: var(--putih);
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 2px solid rgba(247,183,49,0.25);
+    position: sticky; top: 0;
+    background: var(--hitam);
+    z-index: 99;
+  }
+
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--kuning); }
+
+  .badge-topik {
+    background: rgba(247,183,49,0.15);
+    border: 1px solid var(--kuning);
+    color: var(--kuning);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 48px 24px 32px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    color: var(--kuning);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 em { font-style: normal; color: var(--kuning); }
+
+  .hero p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .progress-wrap {
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    height: 6px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--kuning);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-label {
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+  }
+
+  .quiz-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  .question-card {
+    background: #252538;
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: none;
+    animation: fadeUp 0.3s ease;
+  }
+  .question-card.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .q-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--kuning);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .q-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 22px;
+    color: #fff;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.82);
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--kuning);
+    background: rgba(247,183,49,0.08);
+  }
+  .option-btn:disabled { cursor: default; }
+
+  .option-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .option-btn.correct { border-color: var(--hijau); background: rgba(45,158,95,0.14); }
+  .option-btn.correct .option-letter { background: var(--hijau); color: #fff; }
+  .option-btn.wrong { border-color: var(--merah); background: rgba(214,40,40,0.12); }
+  .option-btn.wrong .option-letter { background: var(--merah); color: #fff; }
+
+  .explanation {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: rgba(247,183,49,0.07);
+    border-left: 3px solid var(--kuning);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+  }
+  .explanation.show { display: block; }
+  .explanation strong { color: var(--kuning); }
+
+  .btn-next {
+    display: none;
+    margin-top: 18px;
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .btn-next:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-next.show { display: block; }
+
+  /* RESULT */
+  #result-section {
+    display: none;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    text-align: center;
+  }
+  #result-section.show { display: block; }
+
+  .result-card {
+    background: #252538;
+    border-radius: 20px;
+    padding: 40px 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .score-ring {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(var(--kuning) var(--pct, 0%), rgba(255,255,255,0.08) 0%);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .score-ring::after {
+    content: '';
+    position: absolute;
+    width: 88px; height: 88px;
+    background: #252538;
+    border-radius: 50%;
+  }
+  .score-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--kuning);
+    position: relative;
+    z-index: 1;
+  }
+
+  .result-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .result-subtitle {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 12px 20px;
+    min-width: 82px;
+  }
+  .stat-val {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--kuning);
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-retry {
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: opacity 0.2s;
+  }
+  .btn-retry:hover { opacity: 0.9; }
+
+  .bab-nav {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .bab-nav p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .bab-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .chip {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.55);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    text-decoration: none;
+  }
+  .chip.active { border-color: var(--kuning); color: var(--kuning); }
+  .chip.coming { opacity: 0.3; cursor: default; }
+
+  footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.18);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 20px;
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+</head>
+<body>
+
+<header>
+  <div class="logo">Easy<span>Sains</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.15s;" onmouseover="this.style.color='#F7B731'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a><div class="badge-topik">T5 Bab 1</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 5 Sains · Bab 1</div>
+  <h1>Dunia<br><em>Mikroorganisma</em></h1>
+  <p>15 soalan pilihan berganda merangkumi pengelasan mikroorganisma, faktor pertumbuhan, mikroorganisma berfaedah, dan kaedah pensterilan.</p>
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-label">0 / 15 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <!-- Q1 -->
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 15</div>
+    <div class="q-text">Mikroorganisma yang manakah paling seni (kurang daripada 0.5 μm) dan hanya boleh dilihat menggunakan mikroskop elektron?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Bakteria</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Virus</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Fungi</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Protozoa</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>Virus merupakan mikroorganisma yang paling seni dengan saiz kurang daripada 0.5 μm dan hanya dapat dilihat melalui mikroskop elektron. Ia terdiri daripada asid nukleik dan lapisan protein (kapsid).</div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 15</div>
+    <div class="q-text">Apakah ciri utama yang membezakan alga mikroskopik daripada kebanyakan mikroorganisma lain?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Mempunyai dinding sel</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mendapat makanan melalui fagositosis</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mempunyai kloroplas untuk menjalankan fotosintesis</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Membiak secara eksklusif melalui pertunasan</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: C</strong><br>Alga seperti <i>Chlamydomonas sp.</i> dan <i>Spirogyra sp.</i> mempunyai kloroplas yang mengandungi klorofil membolehkannya menghasilkan makanan sendiri melalui proses fotosintesis.</div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 15</div>
+    <div class="q-text">Antara mikroorganisma berikut, yang manakah membiak secara aseks melalui pertunasan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Yis</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mukor</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Amoeba sp.</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Bakteriofaj</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: A</strong><br>Yis ialah fungi unisel yang membiak secara aseks melalui proses pertunasan. Mukor pula membiak melalui spora manakala Amoeba membiak secara belahan dedua.</div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 15</div>
+    <div class="q-text">Pengelasan bakteria dibuat berdasarkan bentuk asasnya. Bakteria yang berbentuk seperti koma dikenali sebagai...</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kokus</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Spirilum</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Basilus</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Vibrio</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: D</strong><br>Bakteria dikelaskan kepada empat bentuk asas: kokus (sfera), spirilum (pilin), basilus (rod), dan vibrio (koma). Contoh bagi vibrio ialah <i>Vibrio cholerae</i>.</div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 15</div>
+    <div class="q-text"><i>Amoeba sp.</i> mendapatkan nutrien dengan bergerak dan mengepung makanannya melalui proses fagositosis. Apakah struktur yang digunakan untuk pergerakan tersebut?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Silia</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Flagelum</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Pseudopodium (Kaki palsu)</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Vakuol makanan</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: C</strong><br><i>Amoeba sp.</i> menggunakan unjuran sitoplasma yang dikenali sebagai pseudopodium atau 'kaki palsu' untuk bergerak dan mengepung makanan semasa proses fagositosis.</div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 15</div>
+    <div class="q-text">Apakah struktur perlindungan yang dibentuk oleh bakteria seperti <i>Bacillus anthracis</i> bagi membolehkannya bertahan dalam persekitaran yang ekstrem (panas/kemarau)?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kapsul tebal</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Plasmid</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Endospora</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Dinding sel selulosa</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: C</strong><br>Bakteria boleh membentuk endospora, iaitu spora yang terbentuk di dalam sel bakteria yang mempunyai permukaan perlindungan yang kuat untuk bertahan dalam suhu ekstrem atau kekurangan makanan.</div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 15</div>
+    <div class="q-text">Antara faktor berikut, yang manakah lazimnya <strong>TIDAK</strong> dipertimbangkan sebagai faktor utama yang mempengaruhi pertumbuhan mikroorganisma?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kelembapan</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Suhu dan nilai pH</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kehadiran nutrien dan cahaya</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Ketinggian dari aras laut</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: D</strong><br>Lima faktor utama yang mempengaruhi pertumbuhan mikroorganisma ialah nutrien, kelembapan, cahaya, suhu (optimum 35°C–40°C), dan nilai pH (optimum pH 7). Ketinggian tidak secara langsung disenaraikan sebagai faktor utama.</div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8 daripada 15</div>
+    <div class="q-text">Antara yang berikut, yang manakah merupakan contoh flora normal yang sering ditemukan di bahagian usus kecil manusia?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Staphylococcus sp.</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Escherichia coli</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Bacillus anthracis</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Vibrio cholerae</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: B</strong><br>Flora normal yang hidup di dalam usus kecil manusia termasuklah <i>Escherichia coli</i>, <i>Lactobacillus sp.</i> dan <i>Streptococcus sp.</i> Flora ini tidak berbahaya malah membantu fungsi badan.</div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 15</div>
+    <div class="q-text">Dalam bidang perubatan, DNA rekombinan <i>E. coli</i> sangat berguna dan digunakan dalam penghasilan bahan apa?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Vaksin Rotavirus</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Hormon seperti insulin</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Antibiotik penisilin</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Serum bakteria untuk pencernaan</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: B</strong><br>DNA rekombinan bakteria <i>E. coli</i> digunakan secara meluas dalam perubatan terutamanya dalam bioteknologi untuk menghasilkan hormon seperti insulin manusia.</div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 15</div>
+    <div class="q-text">Apakah kelebihan menggunakan larutan pembersih ekoenzim berbanding bahan pencuci kimia?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Ia dihasilkan menggunakan surfaktan kimia yang kuat</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Ia menghasilkan banyak buih yang tebal</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Enzimnya menguraikan lemak kepada molekul kecil tanpa menyumbat saliran</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Memerlukan sentalan yang kuat untuk menanggalkan kotoran</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: C</strong><br>Ekoenzim (dari penapaian sisa pertanian) menguraikan lemak dan gris kepada molekul lebih kecil secara semula jadi, tidak menyumbatkan saliran paip, dan sangat mesra alam.</div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card" data-q="11">
+    <div class="q-number">Soalan 11 daripada 15</div>
+    <div class="q-text">Kaedah pensterilan yang paling sesuai digunakan untuk menyingkirkan zarah-zarah seni dan mikroorganisma (0.1 μm – 10 μm) daripada cecair atau air ialah...</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Autoklaf bersuhu 130°C</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mendidihkan air pada suhu 100°C</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Pendedahan Sinar Ultraungu</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Penggunaan penapis mikron</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: D</strong><br>Penapis mikron digunakan khusus untuk menapis atau mengasingkan zarah seni dan mikroorganisma bersaiz 0.1 μm – 10 μm daripada air mahupun bahan cecair.</div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card" data-q="12">
+    <div class="q-number">Soalan 12 daripada 15</div>
+    <div class="q-text">Bahan kimia manakah yang merupakan antiseptik dan selamat disapu pada permukaan kulit atau luka untuk mencegah jangkitan patogen?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Bahan peluntur rumah</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Cecair klorin</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Acriflavine (ubat kuning)</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Sabun dan air sahaja</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: C</strong><br>Antiseptik seperti acriflavine, povidone, dan alkohol isopropil 70% direka untuk menyekat pertumbuhan kuman dan selamat disapukan pada tisu hidup (kulit). Bahan seperti peluntur dan cecair klorin ialah disinfektan untuk objek bukan hidup.</div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q13 -->
+  <div class="question-card" data-q="13">
+    <div class="q-number">Soalan 13 daripada 15</div>
+    <div class="q-text">Seseorang pesakit telah didiagnos menghidap penyakit jangkitan <i>athlete's foot</i>. Apakah jenis ubat yang paling sesuai dipreskripsikan kepadanya?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Antibiotik</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Antiviral</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Antifungal</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Vaksinasi</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: C</strong><br><i>Athlete's foot</i> disebabkan oleh jangkitan fungi (seperti <i>Trichophyton rubrum</i>). Oleh itu, penyakit ini dirawat menggunakan ubat antifungal (contohnya clotrimazole).</div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question-card" data-q="14">
+    <div class="q-number">Soalan 14 daripada 15</div>
+    <div class="q-text">Apakah kesan sekiranya pesakit tidak mengambil ubat antibiotik mengikut preskripsi yang ditetapkan atau tidak menghabiskannya?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menyebabkan kerintangan antibiotik ke atas bakteria</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Berlakunya mutasi pada virus dalam badan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Meningkatkan aras antibodi secara mendadak</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Membunuh flora normal sahaja</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: A</strong><br>Jika antibiotik tidak diambil dengan betul, bakteria akan menjadi lali dan hilang keupayaan untuk dibunuh oleh ubat tersebut. Keadaan ini dikenali sebagai kerintangan antibiotik.</div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question-card" data-q="15">
+    <div class="q-number">Soalan 15 daripada 15</div>
+    <div class="q-text">Serum bakteria <i>Lactobacillus sp.</i> digunakan dalam pelbagai industri. Apakah kegunaan utamanya dalam sektor kelestarian alam dan pertanian?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Digunakan sebagai antibiotik merawat penyakit haiwan</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Merawat sisa kumbahan, menyingkirkan bau busuk dan membantu pencernaan ternakan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Melembutkan barangan kulit dalam perindustrian</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Memusnahkan terus semua jenis flora normal perumah</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: B</strong><br>Serum bakteria <i>Lactobacillus sp.</i> banyak membantu dalam merawat air sisa/kumbahan dalam saliran, menyingkir bau busuk, membuat kompos, dan memajukan industri pertanian (pencernaan haiwan).</div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/15</span>
+    </div>
+    <div class="result-title" id="result-title">Tahniah!</div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-val" id="stat-betul">0</span>
+        <span class="stat-lbl">Betul</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-salah">0</span>
+        <span class="stat-lbl">Salah</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-pct">0%</span>
+        <span class="stat-lbl">Markah</span>
+      </div>
+    </div>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+  </div>
+
+    <div class="bab-nav">
+    <p>Bab Lain — Sains T4 &amp; T5</p>
+    <div class="bab-chips">
+      <a href="Kuiz_Sains_T4B1_Keselamatan.html" class="chip">T4 Bab 1: Keselamatan ✓</a>
+      <span class="chip coming">T4 Bab 2: Bantuan Kecemasan</span>
+      <span class="chip coming">T4 Bab 3: Teknik Mengukur</span>
+      <span class="chip coming">T4 Bab 4: Teknologi Hijau</span>
+      <span class="chip coming">T4 Bab 5: Genetik</span>
+      <span class="chip coming">T4 Bab 6–12</span>
+      <span class="chip active">T5 Bab 1: Mikroorganisma ✓</span>
+      <a href="Kuiz_Sains_T5B2_Nutrisi_Makanan.html" class="chip">T5 Bab 2: Nutrisi Makanan ✓</a>
+      <span class="chip coming">T5 Bab 3: Kelestarian Alam</span>
+      <span class="chip coming">T5 Bab 4: Kadar Tindak Balas</span>
+      <span class="chip coming">T5 Bab 5: Sebatian Karbon</span>
+      <span class="chip coming">T5 Bab 6–9</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  © 2025 EasySains · Soalan berdasarkan silibus KSSM Sains Tingkatan 5
+</footer>
+
+<script>
+  const CORRECT = {
+    1:'B', 2:'C', 3:'A', 4:'D', 5:'C',
+    6:'C', 7:'D', 8:'B', 9:'B', 10:'C',
+    11:'D', 12:'C', 13:'C', 14:'A', 15:'B'
+  };
+
+  let score = 0, answered = 0;
+  const TOTAL = 15;
+
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.question-card');
+      const q = parseInt(card.dataset.q);
+      const chosen = this.dataset.ans;
+      const correct = CORRECT[q];
+
+      card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+
+      if (chosen === correct) {
+        this.classList.add('correct');
+        score++;
+      } else {
+        this.classList.add('wrong');
+        card.querySelectorAll('.option-btn').forEach(b => {
+          if (b.dataset.ans === correct) b.classList.add('correct');
+        });
+      }
+
+      answered++;
+      updateProgress();
+      document.getElementById('exp-' + q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current) {
+    document.querySelector('[data-q="' + current + '"]').classList.remove('active');
+    const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+    if (next) {
+      next.classList.add('active');
+      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function updateProgress() {
+    const pct = (answered / TOTAL) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+  }
+
+  function showResult() {
+    document.getElementById('quiz-section').style.display = 'none';
+    const rs = document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const pct = Math.round((score / TOTAL) * 100);
+    document.getElementById('score-display').textContent = score + '/' + TOTAL;
+    document.getElementById('stat-betul').textContent = score;
+    document.getElementById('stat-salah').textContent = TOTAL - score;
+    document.getElementById('stat-pct').textContent = pct + '%';
+    document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+
+    let title = '', sub = '';
+    if (pct === 100) { title = 'Cemerlang! 🏆'; sub = 'Markah penuh! Anda menguasai Bab 1 sepenuhnya.'; }
+    else if (pct >= 80) { title = 'Bagus! 🎉'; sub = 'Hampir sempurna! Semak semula soalan yang salah.'; }
+    else if (pct >= 60) { title = 'Boleh Lagi! 💪'; sub = 'Asas ada. Fokus pada bahagian teknik aseptik dan pembiakan mikroorganisma.'; }
+    else { title = 'Jangan Putus Asa! 📚'; sub = 'Baca semula nota Bab 1 — terutama bahagian pengelasan, patogen dan kaedah pensterilan.'; }
+
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-subtitle').textContent = sub;
+  }
+
+  function retryQuiz() {
+    score = 0; answered = 0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display = 'block';
+
+    document.querySelectorAll('.question-card').forEach((card, i) => {
+      card.classList.toggle('active', i === 0);
+      card.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('correct', 'wrong');
+      });
+      card.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

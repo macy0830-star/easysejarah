@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Sains – T5 Bab 2: Nutrisi dan Teknologi Makanan</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+
+  :root {
+    --merah: #D62828;
+    --kuning: #F7B731;
+    --hitam: #1A1A2E;
+    --putih: #FAFAF8;
+    --kelabu: #F0EDE8;
+    --kelabu-teks: #5C5C6E;
+    --hijau: #2D9E5F;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: var(--hitam);
+    color: var(--putih);
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 2px solid rgba(247,183,49,0.25);
+    position: sticky; top: 0;
+    background: var(--hitam);
+    z-index: 99;
+  }
+
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--kuning); }
+
+  .badge-topik {
+    background: rgba(247,183,49,0.15);
+    border: 1px solid var(--kuning);
+    color: var(--kuning);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 48px 24px 32px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    color: var(--kuning);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 em { font-style: normal; color: var(--kuning); }
+
+  .hero p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .progress-wrap {
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    height: 6px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--kuning);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-label {
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+  }
+
+  .quiz-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  .question-card {
+    background: #252538;
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: none;
+    animation: fadeUp 0.3s ease;
+  }
+  .question-card.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .q-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--kuning);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .q-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 22px;
+    color: #fff;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.82);
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--kuning);
+    background: rgba(247,183,49,0.08);
+  }
+  .option-btn:disabled { cursor: default; }
+
+  .option-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .option-btn.correct { border-color: var(--hijau); background: rgba(45,158,95,0.14); }
+  .option-btn.correct .option-letter { background: var(--hijau); color: #fff; }
+  .option-btn.wrong { border-color: var(--merah); background: rgba(214,40,40,0.12); }
+  .option-btn.wrong .option-letter { background: var(--merah); color: #fff; }
+
+  .explanation {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: rgba(247,183,49,0.07);
+    border-left: 3px solid var(--kuning);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+  }
+  .explanation.show { display: block; }
+  .explanation strong { color: var(--kuning); }
+
+  .btn-next {
+    display: none;
+    margin-top: 18px;
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .btn-next:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-next.show { display: block; }
+
+  /* RESULT */
+  #result-section {
+    display: none;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    text-align: center;
+  }
+  #result-section.show { display: block; }
+
+  .result-card {
+    background: #252538;
+    border-radius: 20px;
+    padding: 40px 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .score-ring {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(var(--kuning) var(--pct, 0%), rgba(255,255,255,0.08) 0%);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .score-ring::after {
+    content: '';
+    position: absolute;
+    width: 88px; height: 88px;
+    background: #252538;
+    border-radius: 50%;
+  }
+  .score-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--kuning);
+    position: relative;
+    z-index: 1;
+  }
+
+  .result-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .result-subtitle {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 12px 20px;
+    min-width: 82px;
+  }
+  .stat-val {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--kuning);
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-retry {
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: opacity 0.2s;
+  }
+  .btn-retry:hover { opacity: 0.9; }
+
+  .bab-nav {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .bab-nav p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .bab-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .chip {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.55);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    text-decoration: none;
+  }
+  .chip.active { border-color: var(--kuning); color: var(--kuning); }
+  .chip.coming { opacity: 0.3; cursor: default; }
+
+  footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.18);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 20px;
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+</head>
+<body>
+
+<header>
+  <div class="logo">Easy<span>Sains</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.15s;" onmouseover="this.style.color='#F7B731'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a>
+  <div class="badge-topik">T5 Bab 2</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 5 Sains · Bab 2</div>
+  <h1>Nutrisi dan Teknologi<br><em>Makanan</em></h1>
+  <p>15 soalan pilihan berganda merangkumi gizi seimbang, keperluan nutrien tumbuhan, kitar nitrogen, teknologi pengeluaran dan pemprosesan makanan serta akta makanan.</p>
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-label">0 / 15 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <!-- Q1 -->
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 15</div>
+    <div class="q-text">Antara kelas makanan berikut, yang manakah membekalkan nilai kalori paling tinggi bagi setiap gram?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Karbohidrat</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Protein</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Lemak</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Vitamin</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: C</strong><br>Lemak membekalkan nilai kalori tertinggi iaitu kira-kira 37 kJ bagi setiap gram, manakala karbohidrat dan protein masing-masing membekalkan kira-kira 17 kJ bagi setiap gram.</div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 15</div>
+    <div class="q-text">Seorang kanak-kanak mengalami simptom perut buncit, pertumbuhan terbantut, serta kulit mengelupas akibat kekurangan protein yang teruk dalam diet. Apakah nama penyakit malnutrisi ini?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Skurvi</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kwashiorkor</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Rikets</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Anemia</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: B</strong><br>Kwashiorkor ialah sejenis malnutrisi yang disebabkan oleh kekurangan protein yang serius dalam diet harian, dicirikan oleh perut yang buncit.</div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 15</div>
+    <div class="q-text">Antara nutrien tumbuhan berikut, yang manakah dikategorikan sebagai mikronutrien?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Nitrogen</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Boron</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kalsium</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Magnesium</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: B</strong><br>Boron diperlukan oleh tumbuhan dalam kuantiti yang sedikit (mikronutrien), manakala Nitrogen, Kalsium, dan Magnesium diperlukan dalam kuantiti yang banyak (makronutrien).</div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 15</div>
+    <div class="q-text">Kekurangan makronutrien yang manakah pada tumbuhan akan menyebabkan daun mengalami klorosis (menjadi kuning) bermula dari daun matang di bahagian bawah?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Fosforus</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Kalium</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kalsium</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Nitrogen</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: D</strong><br>Nitrogen sangat penting untuk sintesis klorofil. Kekurangan nitrogen menyebabkan klorosis, iaitu daun menjadi kuning terutamanya pada daun tua di bahagian bawah tumbuhan.</div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 15</div>
+    <div class="q-text">Tumbuhan yang mengalami kekurangan Fosforus akan menunjukkan simptom yang mana?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pertumbuhan akar merosot dan daun berwarna ungu atau merah</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Tepi daun bertukar menjadi coklat dan mati</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Daun atas menjadi kecil dan gugur prematur</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Batang menjadi lembut dan melentur</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: A</strong><br>Fosforus merangsang perkembangan akar. Kekurangannya menyebabkan pertumbuhan akar merosot dan pembentukan bintik atau warna ungu/merah pada daun tua.</div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 15</div>
+    <div class="q-text">Dalam kitar nitrogen, apakah peranan bakteria <em>Rhizobium</em> yang hidup di dalam nodul akar tumbuhan kekacang?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menukarkan nitrat kepada gas nitrogen</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mengikat gas nitrogen atmosfera menjadi sebatian ammonium</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menukarkan ammonium kepada nitrit</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Mengurai bangkai organisma menjadi sebatian ammonium</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: B</strong><br>Bakteria pengikat nitrogen seperti <em>Rhizobium</em> menukarkan gas nitrogen daripada atmosfera secara terus kepada sebatian ammonium yang boleh digunakan oleh tumbuhan kekacang.</div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 15</div>
+    <div class="q-text">Bakteria penitritan seperti <em>Nitrosomonas</em> terlibat dalam proses penukaran...</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Gas nitrogen kepada ion ammonium</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Ion ammonium kepada ion nitrit</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Ion nitrit kepada ion nitrat</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Ion nitrat kepada gas nitrogen</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: B</strong><br>Proses penitritan berlaku dalam dua peringkat: <em>Nitrosomonas</em> menukarkan sebatian ammonium kepada ion nitrit, kemudian <em>Nitrobacter</em> menukarkan nitrit kepada ion nitrat.</div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8 daripada 15</div>
+    <div class="q-text">Manakah antara berikut merupakan kesan daripada aktiviti bakteria pendenitritan dalam tanah?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Meningkatkan kesuburan tanah dengan menambah ion nitrat</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mengurangkan kandungan nitrat dalam tanah dengan membebaskan gas nitrogen ke atmosfera</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mempercepatkan proses reputan bahan organik</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Membantu akar tumbuhan menyerap air dengan lebih cekap</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: B</strong><br>Bakteria pendenitritan menukarkan ion nitrat di dalam tanah kembali menjadi gas nitrogen ke atmosfera, sekali gus mengurangkan kandungan nitrat dan kesuburan tanah.</div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 15</div>
+    <div class="q-text">Baka padi "Malja" dan kelapa sawit "Tenera" dihasilkan melalui teknologi pengeluaran makanan yang dikenali sebagai...</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kejuruteraan genetik</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Pendebungaan silang</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Hidroponik</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kultur tisu</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: B</strong><br>Pendebungaan silang dilakukan dalam pertanian untuk menghasilkan baka tanaman yang berkualiti tinggi, seperti padi Malja yang tahan rintang dan sawit Tenera yang menghasilkan banyak minyak.</div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 15</div>
+    <div class="q-text">Apakah kaedah pemprosesan makanan yang sesuai digunakan untuk mensterilkan susu segar tanpa merosakkan nilai zat serta mengekalkan rasanya?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pasterisasi</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Pendehidratan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Penyinaran</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pengetinan</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: A</strong><br>Pasterisasi melibatkan pemanasan cecair di bawah takat didih (contoh: 63°C selama 30 minit) untuk membunuh patogen berbahaya tanpa menjejaskan nilai nutrisi dan rasa semula jadi susu.</div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card" data-q="11">
+    <div class="q-number">Soalan 11 daripada 15</div>
+    <div class="q-text">Mengapakah makanan dalam tin dipanaskan pada suhu melebihi 121°C di bawah tekanan tinggi dalam autoklaf semasa proses pengetinan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Untuk mempercepatkan proses memasak daging di dalam tin</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Untuk memastikan tin logam tidak mudah berkarat</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Untuk membunuh semua mikroorganisma termasuk spora bakteria yang tahan haba</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Untuk mengekalkan tekstur rangup makanan</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: C</strong><br>Proses pengetinan memerlukan suhu tinggi (121°C) di bawah tekanan dalam autoklaf untuk memusnahkan spora bakteria yang tahan haba seperti <em>Clostridium botulinum</em>.</div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card" data-q="12">
+    <div class="q-number">Soalan 12 daripada 15</div>
+    <div class="q-text">Apakah fungsi bahan kimia asid askorbik (Vitamin C) apabila ditambah ke dalam produk makanan seperti minyak masak atau jus buah-buahan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Sebagai ejen pengemulsi lemak</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Sebagai antipengoksida untuk mencegah makanan daripada menjadi tengik</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sebagai peluntur warna tiruan</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Sebagai penstabil tekstur puding</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: B</strong><br>Asid askorbik bertindak sebagai antipengoksida yang menghalang tindak balas pengoksidaan lemak atau minyak, mengekalkan kesegaran dan menghalang makanan menjadi tengik.</div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q13 -->
+  <div class="question-card" data-q="13">
+    <div class="q-number">Soalan 13 daripada 15</div>
+    <div class="q-text">Bahan tambah makanan yang manakah digunakan untuk menyatukan dua cecair yang tidak bercampur, seperti minyak dan air dalam penghasilan produk mayones?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pengawet</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Pengemulsi</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Penstabil</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Peluntur</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: B</strong><br>Pengemulsi (seperti lesitin) berfungsi untuk memendapkan tenaga permukaan bagi menyatukan dua fasa cecair yang tidak bercampur seperti minyak dan air.</div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question-card" data-q="14">
+    <div class="q-number">Soalan 14 daripada 15</div>
+    <div class="q-text">Antara maklumat berikut, yang manakah <strong>tidak diwajibkan</strong> di bawah Peraturan Makanan 1985 untuk dipaparkan pada label pembungkusan makanan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Nama dan alamat pengilang atau pengimport</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Tarikh luput produk</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Penyataan ramuan makanan mengikut berat menurun</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Laporan kewangan tahunan syarikat pengilang</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: D</strong><br>Peraturan Makanan 1985 mewajibkan label mengandungi nama makanan, ramuan, tarikh luput, kuantiti bersih, dan nama pengilang. Laporan kewangan tidak ada kaitan dengan keselamatan makanan.</div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question-card" data-q="15">
+    <div class="q-number">Soalan 15 daripada 15</div>
+    <div class="q-text">Apakah kepentingan utama skim pensijilan "MeSTI" oleh Kementerian Kesihatan Malaysia (KKM) pada label produk makanan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menjamin produk tersebut 100% organik tanpa baja kimia</button>
+      <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Membuktikan premis makanan tersebut memenuhi kriteria kebersihan dan keselamatan makanan yang ditetapkan</button>
+      <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menunjukkan produk itu sesuai untuk golongan atlet sahaja</button>
+      <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menandakan harga produk dikawal oleh kerajaan</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: B</strong><br>Pensijilan MeSTI (Makanan Selamat Tanggungjawab Industri) membuktikan pengusaha makanan mengamalkan sistem jaminan keselamatan makanan dan kebersihan yang ketat di bawah selera KKM.</div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/15</span>
+    </div>
+    <div class="result-title" id="result-title">Tahniah!</div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-val" id="stat-betul">0</span>
+        <span class="stat-lbl">Betul</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-salah">0</span>
+        <span class="stat-lbl">Salah</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-pct">0%</span>
+        <span class="stat-lbl">Markah</span>
+      </div>
+    </div>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+  </div>
+
+    <div class="bab-nav">
+    <p>Bab Lain — Sains T4 &amp; T5</p>
+    <div class="bab-chips">
+      <a href="Kuiz_Sains_T4B1_Keselamatan.html" class="chip">T4 Bab 1: Keselamatan ✓</a>
+      <span class="chip coming">T4 Bab 2: Bantuan Kecemasan</span>
+      <span class="chip coming">T4 Bab 3: Teknik Mengukur</span>
+      <span class="chip coming">T4 Bab 4: Teknologi Hijau</span>
+      <span class="chip coming">T4 Bab 5: Genetik</span>
+      <span class="chip coming">T4 Bab 6–12</span>
+      <a href="Kuiz_Sains_T5B1.html" class="chip">T5 Bab 1: Mikroorganisma ✓</a>
+      <span class="chip active">T5 Bab 2: Nutrisi Makanan ✓</span>
+      <span class="chip coming">T5 Bab 3: Kelestarian Alam</span>
+      <span class="chip coming">T5 Bab 4: Kadar Tindak Balas</span>
+      <span class="chip coming">T5 Bab 5: Sebatian Karbon</span>
+      <span class="chip coming">T5 Bab 6–9</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  © 2026 EasySains · Soalan berdasarkan silibus Sains Tingkatan 5 KSSM
+</footer>
+
+<script>
+  const CORRECT = {
+    1:'C', 2:'B', 3:'B', 4:'D', 5:'A',
+    6:'B', 7:'B', 8:'B', 9:'B', 10:'A',
+    11:'C', 12:'B', 13:'B', 14:'D', 15:'B'
+  };
+
+  let score = 0, answered = 0;
+  const TOTAL = 15;
+
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.question-card');
+      const q = parseInt(card.dataset.q);
+      const chosen = this.dataset.ans;
+      const correct = CORRECT[q];
+
+      card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+
+      if (chosen === correct) {
+        this.classList.add('correct');
+        score++;
+      } else {
+        this.classList.add('wrong');
+        card.querySelectorAll('.option-btn').forEach(b => {
+          if (b.dataset.ans === correct) b.classList.add('correct');
+        });
+      }
+
+      answered++;
+      updateProgress();
+      document.getElementById('exp-' + q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current) {
+    document.querySelector('[data-q="' + current + '"]').classList.remove('active');
+    const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+    if (next) {
+      next.classList.add('active');
+      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function updateProgress() {
+    const pct = (answered / TOTAL) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+  }
+
+  function showResult() {
+    document.getElementById('quiz-section').style.display = 'none';
+    const rs = document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const pct = Math.round((score / TOTAL) * 100);
+    document.getElementById('score-display').textContent = score + '/' + TOTAL;
+    document.getElementById('stat-betul').textContent = score;
+    document.getElementById('stat-salah').textContent = TOTAL - score;
+    document.getElementById('stat-pct').textContent = pct + '%';
+    document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+
+    let title = '', sub = '';
+    if (pct === 100) { title = 'Cemerlang! 🏆'; sub = 'Markah penuh! Anda menguasai Bab 2 sepenuhnya.'; }
+    else if (pct >= 80) { title = 'Bagus! 🎉'; sub = 'Hampir sempurna! Semak semula soalan yang salah.'; }
+    else if (pct >= 60) { title = 'Boleh Lagi! 💪'; sub = 'Asas ada. Sila kaji semula bahagian kitar nitrogen dan teknologi pemprosesan makanan.'; }
+    else { title = 'Jangan Putus Asa! 📚'; sub = 'Baca semula nota Bab 2 — terutama tentang kesan kekurangan nutrien tumbuhan dan akta makanan.'; }
+
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-subtitle').textContent = sub;
+  }
+
+  function retryQuiz() {
+    score = 0; answered = 0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display = 'block';
+
+    document.querySelectorAll('.question-card').forEach((card, i) => {
+      card.classList.toggle('active', i === 0);
+      card.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('correct', 'wrong');
+      });
+      card.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
