@@ -112,6 +112,20 @@ header { display:flex; align-items:center; justify-content:space-between; paddin
 /* TINGKATAN SUB-LABEL */
 .tingkatan-label { font-family:'Poppins',sans-serif; font-weight:700; font-size:0.8rem; color:var(--ungu); margin:20px 0 10px; padding-bottom:6px; border-bottom:2px solid #f0ebff; }
 
+/* BLOG GRID */
+.blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+.blog-card { background:var(--card); border:1.5px solid var(--border); border-radius:16px; text-decoration:none; color:inherit; overflow:hidden; transition:all 0.18s; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+.blog-card:hover { transform:translateY(-3px); box-shadow:var(--shadow2); border-color:#f59e0b; }
+.blog-thumb { position:relative; height:180px; overflow:hidden; }
+.blog-thumb img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease; }
+.blog-card:hover .blog-thumb img { transform:scale(1.04); }
+.blog-badge { position:absolute; top:10px; left:10px; background:var(--pink); color:#fff; font-size:0.65rem; font-weight:700; padding:3px 10px; border-radius:999px; letter-spacing:0.5px; text-transform:uppercase; }
+.blog-body { padding:18px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
+.blog-meta { font-size:0.7rem; color:var(--text2); }
+.blog-title { font-family:'Poppins',sans-serif; font-weight:800; font-size:0.98rem; line-height:1.35; color:var(--dark); }
+.blog-excerpt { font-size:0.8rem; color:var(--text2); line-height:1.6; }
+.blog-cta { font-family:'Poppins',sans-serif; font-weight:700; font-size:0.8rem; color:var(--pink); margin-top:auto; padding-top:4px; }
+
 /* INFO CARDS */
 .info-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
 .info-card { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:20px; box-shadow:var(--shadow); }
@@ -163,6 +177,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
     <hr class="sb-divider">
     <div class="sb-section">
       <div class="sb-subject">Lain-lain</div>
+      <button class="sb-btn" onclick="show('blog')" id="btn-blog"><span class="sb-icon">📝</span><span class="sb-label">Blog</span><span class="sb-badge" style="background:#f59e0b;">Baru</span></button>
       <button class="sb-btn" onclick="show('animasi')" id="btn-animasi"><span class="sb-icon">🎬</span><span class="sb-label">Animasi</span></button>
       <button class="sb-btn" onclick="show('about')" id="btn-about"><span class="sb-icon">ℹ️</span><span class="sb-label">Tentang Kami</span></button>
     </div>
@@ -197,6 +212,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         <div class="qcard" onclick="show('t5')"><div class="qcard-icon">📕</div><div class="qcard-name">Sejarah T5</div><div class="qcard-count">10 bab · SPM</div></div>
         <div class="qcard sains" onclick="show('sains4')"><div class="qcard-icon">🔬</div><div class="qcard-name">Sains T4</div><div class="qcard-count">1 bab sedia</div></div>
         <div class="qcard sains" onclick="show('sains5')"><div class="qcard-icon">🧬</div><div class="qcard-name">Sains T5</div><div class="qcard-count">2 bab sedia · Baharu!</div></div>
+        <div class="qcard" onclick="show('blog')" style="border-color:#f59e0b20;"><div class="qcard-icon">📝</div><div class="qcard-name" style="color:#d97706;">Blog</div><div class="qcard-count">Tips belajar SPM</div></div>
       </div>
     </div>
 
@@ -283,6 +299,31 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       </div>
     </div>
 
+    <!-- BLOG -->
+    <div class="section" id="section-blog">
+      <div class="sec-header">
+        <div class="sec-title">Blog — Tips Belajar SPM</div>
+        <span class="sec-badge" style="background:#fff8e1;color:#d97706;border:1px solid #f59e0b;">Artikel</span>
+      </div>
+      <div class="blog-grid">
+
+        <a href="blog-teknik-belajar-sejarah-spm.html" class="blog-card">
+          <div class="blog-thumb">
+            <img src="Sunny___Luna.png" alt="Sunny dan Luna podcast EasySejarah">
+            <span class="blog-badge">Tips Belajar</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">EasySejarah · 5 minit bacaan</div>
+            <div class="blog-title">Baca Buku Tiga Kali Tapi Masih Blank? Ini Sebabnya.</div>
+            <div class="blog-excerpt">Ramai pelajar belajar Sejarah dengan cara yang salah. Kenali 3 teknik yang terbukti berkesan: Fishbone Method™, Active Recall &amp; Reverse Engineering.</div>
+            <div class="blog-cta">Baca Artikel →</div>
+          </div>
+        </a>
+
+      </div>
+      <p style="margin-top:20px;font-size:0.8rem;color:var(--text2);text-align:center;">Lebih banyak artikel akan datang. <a href="https://www.youtube.com/@EasySejarah" target="_blank" style="color:var(--pink);">Subscribe YouTube</a> untuk update terkini.</p>
+    </div>
+
     <!-- ANIMASI -->
     <div class="section" id="section-animasi">
       <div class="sec-header"><div class="sec-title">Animasi &amp; Nota Visual</div></div>
@@ -331,7 +372,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   if(localStorage.getItem('cookieOK')) document.getElementById('cookie-banner').style.display='none';
   function acceptCookie(){ localStorage.setItem('cookieOK','1'); document.getElementById('cookie-banner').style.display='none'; }
 
-  const SECTIONS = ['home','t3','t4','t5','sains4','sains5','animasi','about'];
+  const SECTIONS = ['home','t3','t4','t5','sains4','sains5','blog','animasi','about'];
   function show(id){
     SECTIONS.forEach(s=>{
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
