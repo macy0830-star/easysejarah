@@ -112,6 +112,74 @@ header { display:flex; align-items:center; justify-content:space-between; paddin
 /* TINGKATAN SUB-LABEL */
 .tingkatan-label { font-family:'Poppins',sans-serif; font-weight:700; font-size:0.8rem; color:var(--ungu); margin:20px 0 10px; padding-bottom:6px; border-bottom:2px solid #f0ebff; }
 
+/* GAME HERO BANNER */
+.game-hero-banner {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 20px;
+  padding: 28px 24px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(232,68,122,0.25);
+  border: 1.5px solid rgba(232,68,122,0.3);
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.game-hero-banner:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(232,68,122,0.35); }
+.game-hero-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(232,68,122,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.game-banner-text { flex: 1; z-index: 1; }
+.game-hot-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: linear-gradient(135deg, #ff4444, #ff8800);
+  color: #fff; font-size: 0.65rem; font-weight: 900;
+  padding: 3px 10px; border-radius: 999px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 10px; animation: hotPulse 1.8s ease-in-out infinite;
+}
+@keyframes hotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,68,68,0.5); }
+  50% { box-shadow: 0 0 0 6px rgba(255,68,68,0); }
+}
+.game-banner-title {
+  font-family: 'Poppins', sans-serif; font-weight: 900;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: #fff; line-height: 1.2; margin-bottom: 8px;
+}
+.game-banner-title em { font-style: normal; color: #ffd966; }
+.game-banner-desc { color: rgba(255,255,255,0.65); font-size: 0.82rem; line-height: 1.6; margin-bottom: 16px; }
+.game-banner-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.game-tag {
+  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.75);
+  border-radius: 999px; padding: 3px 10px; font-size: 0.7rem;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.game-play-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, #e8447a, #c4306a);
+  color: #fff; font-family: 'Poppins', sans-serif;
+  font-weight: 800; font-size: 0.88rem;
+  padding: 11px 22px; border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(232,68,122,0.4);
+  transition: all 0.18s;
+}
+.game-hero-banner:hover .game-play-btn { transform: scale(1.04); }
+.game-banner-visual {
+  flex-shrink: 0; text-align: center; z-index: 1;
+}
+.game-banner-emoji { font-size: clamp(3rem, 8vw, 5rem); display: block; line-height: 1; animation: floatGame 2.5s ease-in-out infinite; }
+@keyframes floatGame { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.game-banner-stat { color: rgba(255,255,255,0.5); font-size: 0.7rem; margin-top: 6px; }
+@media(max-width:500px){ .game-banner-visual { display:none; } }
+
 /* BLOG GRID */
 .blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
 .blog-card { background:var(--card); border:1.5px solid var(--border); border-radius:16px; text-decoration:none; color:inherit; overflow:hidden; transition:all 0.18s; box-shadow:var(--shadow); display:flex; flex-direction:column; }
@@ -163,6 +231,11 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   <nav class="sidebar">
     <div class="sb-section">
       <div class="sb-subject">Sejarah</div>
+      <button class="sb-btn" onclick="window.location.href='spm_warrior_master.html'" id="btn-game" style="color:#ffd966;background:rgba(26,26,46,0.06);border-left-color:transparent;">
+        <span class="sb-icon">⚔️</span>
+        <span class="sb-label" style="font-weight:700;">Warrior Game</span>
+        <span class="sb-badge" style="background:linear-gradient(135deg,#ff4444,#ff8800);animation:hotPulse 1.8s ease-in-out infinite;">🔥</span>
+      </button>
       <button class="sb-btn active" onclick="show('home')" id="btn-home"><span class="sb-icon">🏠</span><span class="sb-label">Laman Utama</span></button>
       <button class="sb-btn" onclick="show('t3')" id="btn-t3"><span class="sb-icon">📗</span><span class="sb-label">Tingkatan 3</span><span class="sb-badge">8</span></button>
       <button class="sb-btn" onclick="show('t4')" id="btn-t4"><span class="sb-icon">📘</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge">10</span></button>
@@ -205,8 +278,34 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         </div>
       </div>
 
-      <p style="font-size:0.82rem;color:var(--text2);margin-bottom:14px;font-weight:600;">Pilih subjek dan tingkatan:</p>
+      <!-- GAME HERO BANNER -->
+      <a href="spm_warrior_master.html" class="game-hero-banner">
+        <div class="game-banner-text">
+          <div class="game-hot-badge">🔥 HOT &nbsp;· &nbsp;Baharu!</div>
+          <div class="game-banner-title">SPM Sejarah Warrior —<br><em>Misi Pengembara Sejarah</em></div>
+          <div class="game-banner-desc">Jelajah 20 bab Sejarah T4 &amp; T5 dalam bentuk RPG! Kalahkan Kabus Lupa, kumpulkan serpihan sejarah, dan jadi Sejarah Warrior.</div>
+          <div class="game-banner-tags">
+            <span class="game-tag">🗺️ 20 Bab</span>
+            <span class="game-tag">⚔️ RPG Adventure</span>
+            <span class="game-tag">🎵 Muzik + Bunyi</span>
+            <span class="game-tag">🆓 Percuma</span>
+          </div>
+          <div class="game-play-btn">▶ Main Sekarang!</div>
+        </div>
+        <div class="game-banner-visual">
+          <span class="game-banner-emoji">⚔️</span>
+          <div class="game-banner-stat">T4 &amp; T5 · 20 Bab</div>
+        </div>
+      </a>
+
+      <p style="font-size:0.82rem;color:var(--text2);margin-bottom:14px;font-weight:600;">Atau pilih subjek dan tingkatan:</p>
       <div class="quick-nav">
+        <div class="qcard" onclick="window.location.href='spm_warrior_master.html'" style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-color:rgba(232,68,122,0.4);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg,#ff4444,#ff8800);color:#fff;font-size:0.55rem;font-weight:900;padding:2px 7px;border-radius:999px;letter-spacing:1px;">🔥 HOT</div>
+          <div class="qcard-icon">⚔️</div>
+          <div class="qcard-name" style="color:#ffd966;">Warrior Game</div>
+          <div class="qcard-count" style="color:rgba(255,255,255,0.45);">RPG · 20 Bab T4&amp;T5</div>
+        </div>
         <div class="qcard" onclick="show('t3')"><div class="qcard-icon">📗</div><div class="qcard-name">Sejarah T3</div><div class="qcard-count">8 bab · PT3</div></div>
         <div class="qcard" onclick="show('t4')"><div class="qcard-icon">📘</div><div class="qcard-name">Sejarah T4</div><div class="qcard-count">10 bab · SPM</div></div>
         <div class="qcard" onclick="show('t5')"><div class="qcard-icon">📕</div><div class="qcard-name">Sejarah T5</div><div class="qcard-count">10 bab · SPM</div></div>
