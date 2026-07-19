@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Sains T5 Bab 3 | EasySejarah</title>
+<meta name="description" content="Kuiz Sains Sains T5 Bab 3 — 10 soalan MCQ dengan jawapan dan huraian lengkap. Percuma untuk pelajar SPM Malaysia.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Kuiz Sains T5 Bab 3","educationalLevel":"SPM","provider":{"@type":"Organization","name":"EasySejarah","url":"https://www.easysejarah.com"}}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root{--kuning:#F7B731;--hitam:#1A1A2E;--hijau:#2D9E5F;--merah:#D62828;--kad:#252538;--ungu:#7c5cbf;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans',sans-serif;background:var(--hitam);color:#fff;min-height:100vh;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:2px solid rgba(124,92,191,0.3);position:sticky;top:0;background:var(--hitam);z-index:99;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;}
+  .logo span{color:var(--ungu);}
+  .badge-topik{background:rgba(124,92,191,0.15);border:1px solid var(--ungu);color:var(--ungu);font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;}
+  .hero{text-align:center;padding:48px 24px 32px;max-width:640px;margin:0 auto;}
+  .hero-eyebrow{color:var(--ungu);font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+  .hero h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.6rem,5.5vw,2.5rem);line-height:1.15;margin-bottom:12px;}
+  .hero h1 em{font-style:normal;color:var(--kuning);}
+  .hero p{color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.6;margin-bottom:24px;}
+  .progress-wrap{background:rgba(255,255,255,0.1);border-radius:999px;height:6px;margin-bottom:6px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--ungu);border-radius:999px;transition:width 0.4s ease;width:0%;}
+  .progress-label{font-size:0.76rem;color:rgba(255,255,255,0.4);text-align:right;}
+  .quiz-section{max-width:680px;margin:0 auto;padding:0 20px 80px;}
+  .question-card{background:var(--kad);border-radius:16px;padding:28px 24px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.06);display:none;animation:fadeUp 0.3s ease;}
+  .question-card.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .q-number{font-family:'Poppins',sans-serif;font-size:0.7rem;font-weight:700;color:var(--ungu);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .q-text{font-family:'Poppins',sans-serif;font-size:clamp(0.92rem,3vw,1.05rem);font-weight:600;line-height:1.5;margin-bottom:22px;color:#fff;}
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .option-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;cursor:pointer;text-align:left;font-family:'Noto Sans',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.82);transition:border-color 0.15s,background 0.15s;width:100%;}
+  .option-btn:hover:not(:disabled){border-color:var(--ungu);background:rgba(124,92,191,0.1);}
+  .option-btn:disabled{cursor:default;}
+  .option-letter{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.1);font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .option-btn.correct{border-color:var(--hijau);background:rgba(45,158,95,0.14);}
+  .option-btn.correct .option-letter{background:var(--hijau);color:#fff;}
+  .option-btn.wrong{border-color:var(--merah);background:rgba(214,40,40,0.12);}
+  .option-btn.wrong .option-letter{background:var(--merah);color:#fff;}
+  .explanation{display:none;margin-top:18px;padding:14px 16px;background:rgba(124,92,191,0.09);border-left:3px solid var(--ungu);border-radius:0 8px 8px 0;font-size:0.85rem;line-height:1.65;color:rgba(255,255,255,0.78);}
+  .explanation.show{display:block;}
+  .explanation strong{color:var(--kuning);}
+  .btn-next{display:none;margin-top:18px;width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:opacity 0.2s;}
+  .btn-next:hover{opacity:0.88;}
+  .btn-next.show{display:block;}
+  #result-section{display:none;max-width:580px;margin:0 auto;padding:0 20px 80px;text-align:center;}
+  #result-section.show{display:block;}
+  .result-card{background:var(--kad);border-radius:20px;padding:40px 28px;border:1px solid rgba(255,255,255,0.08);}
+  .score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--ungu) var(--pct,0%),rgba(255,255,255,0.08) 0%);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;}
+  .score-ring::after{content:'';position:absolute;width:88px;height:88px;background:var(--kad);border-radius:50%;}
+  .score-number{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.8rem;color:var(--ungu);position:relative;z-index:1;}
+  .result-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;margin-bottom:8px;}
+  .result-subtitle{color:rgba(255,255,255,0.5);font-size:0.88rem;line-height:1.6;margin-bottom:28px;}
+  .stat-row{display:flex;justify-content:center;gap:18px;margin-bottom:28px;}
+  .stat-box{background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 20px;min-width:82px;}
+  .stat-val{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;color:var(--ungu);display:block;}
+  .stat-lbl{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.5px;}
+  .btn-retry{width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;margin-bottom:12px;}
+  .btn-retry:hover{opacity:0.88;}
+  .btn-yt-result{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;text-decoration:none;padding:13px 22px;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.92rem;transition:opacity 0.2s;width:100%;justify-content:center;margin-top:12px;}
+  .btn-yt-result:hover{opacity:0.85;}
+  .btn-next-bab{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#7c5cbf,#5a3d9a);color:#fff;text-decoration:none;padding:16px 22px;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:12px;transition:opacity 0.2s;gap:12px;box-shadow:0 4px 14px rgba(124,92,191,0.35);}
+  .btn-next-bab:hover{opacity:0.88;}
+  .btn-next-bab .next-label{font-size:0.7rem;font-weight:600;opacity:0.8;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px;}
+  .btn-next-bab .next-title{display:block;}
+  .btn-next-bab .next-arrow{font-size:1.4rem;flex-shrink:0;}
+  .bab-nav{margin-top:32px;text-align:center;}
+  .bab-nav p{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+  .bab-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .chip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.55);border-radius:999px;padding:6px 14px;font-size:0.78rem;text-decoration:none;}
+  .chip.active{border-color:var(--ungu);color:var(--ungu);}
+  .chip.coming{opacity:0.3;cursor:default;}
+  footer{text-align:center;padding:24px 20px;font-size:0.75rem;color:rgba(255,255,255,0.18);border-top:1px solid rgba(255,255,255,0.06);margin-top:20px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#7c5cbf'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a>
+  <div class="badge-topik">Sains T5 Bab 3</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Sains · Sains T5 Bab 3</div>
+  <h1>T5 Bab 3<br><em>Kelestarian Alam Sekitar</em></h1>
+  <p>10 soalan merangkumi kitar hayat produk (upcycle, jejak karbon, tapak tangan karbon, cradle-to-cradle), pencemaran (eutrofikasi, BOD, bebola lumpur EM), dan pemeliharaan alam (Perjanjian Paris, singki karbon, Teknologi Emisi Negatif).</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 10 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 10</div>
+    <div class="q-text">Antara yang berikut, yang manakah menerangkan maksud proses upcycle mengikut kandungan teks?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Proses kitar semula untuk menghasilkan produk baharu yang mempunyai nilai yang lebih tinggi daripada produk asal</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Proses mengurangkan kuantiti produk plastik yang digunakan dalam kehidupan seharian</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Proses membiarkan sesuatu sisa produk mereput sepenuhnya di tapak pelupusan sampah</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Proses menyingkirkan kandungan gas rumah hijau daripada atmosfera menggunakan teknologi moden</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: A</strong><br>Teks menyatakan upcycle merupakan proses kitar semula untuk menghasilkan produk baharu yang mempunyai nilai yang lebih tinggi daripada produk asal.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.1 Kitaran Hayat Produk (Upcycle)</span></div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="2">
+    <div class="q-number">Soalan 2 daripada 10</div>
+    <div class="q-text">Perjanjian antarabangsa manakah yang dianjurkan oleh PBB pada tahun 2016 untuk mengehadkan kenaikan suhu global sebanyak 1.5 darjah Celsius?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Persidangan Rio</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Protokol Kyoto</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Perjanjian Paris</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Konvensyen Penipisan Ozon</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: C</strong><br>Teks menyatakan Perjanjian Paris pada tahun 2016 bertujuan untuk mengurangkan kandungan dan pembebasan gas rumah hijau serta mengehadkan kenaikan suhu global sebanyak 1.5 darjah Celsius.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.3 Pemeliharaan dan Pemuliharaan Alam Sekitar (Peranan PBB)</span></div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="3">
+    <div class="q-number">Soalan 3 daripada 10</div>
+    <div class="q-text">Apakah fungsi utama singki karbon semula jadi seperti hutan dan lautan terhadap atmosfera?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Membebaskan gas oksigen bagi meningkatkan suhu global secara semula jadi</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Mempercepatkan proses pereputan sisa organik di dalam ekosistem akuatik</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Menghalang sinaran ultraungu daripada menembusi lapisan troposfera</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Menyingkirkan gas karbon dioksida daripada udara</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: D</strong><br>Teks menyatakan singki karbon merupakan tempat semula jadi seperti hutan dan lautan yang berfungsi menyingkirkan karbon dioksida daripada udara.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.1 Kitaran Hayat Produk (Singki Karbon)</span></div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="4">
+    <div class="q-number">Soalan 4 daripada 10</div>
+    <div class="q-text">Bagaimanakah impak sesuatu produk terhadap kelestarian alam sekitar dibezakan antara jejak karbon dengan tapak tangan karbon?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Jejak karbon merujuk kepada impak positif manakala tapak tangan karbon merujuk kepada impak negatif terhadap kelestarian alam sekitar sepanjang kitar hayatnya</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Jejak karbon mengukur kuantiti sisa plastik yang dihasilkan manakala tapak tangan karbon mengukur isipadu air yang tercemar oleh sisa domestik</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Jejak karbon dinilai pada peringkat pengurusan sisa manakala tapak tangan karbon hanya dinilai pada peringkat perolehan sumber bahan mentah</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Jejak karbon merujuk kepada impak negatif manakala tapak tangan karbon merujuk kepada impak positif terhadap kelestarian alam sekitar sepanjang kitar hayatnya</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: D</strong><br>Jejak karbon merujuk kepada impak NEGATIF, manakala tapak tangan karbon merujuk kepada impak POSITIF terhadap kelestarian alam sekitar sepanjang kitar hayatnya.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.1 Kitaran Hayat Produk (Jejak Karbon dan Tapak Tangan Karbon)</span></div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="5">
+    <div class="q-number">Soalan 5 daripada 10</div>
+    <div class="q-text">Mengapakah fenomena eutrofikasi akibat lambakan ion nitrat dan fosfat boleh menyebabkan kematian haiwan akuatik secara besar-besaran?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Berlaku pengurangan kandungan oksigen terlarut di dalam air yang menjejaskan respirasi hidupan akuatik</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Pertumbuhan alga yang pesat menyekat laluan mekanikal pengaliran air dan memerangkap haiwan akuatik</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Kepekatan ion nitrat dan fosfat yang terlalu tinggi bertindak sebagai racun toksik secara langsung kepada tisu ikan</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Peningkatan suhu terma air secara mendadak akibat pembebasan haba oleh alga yang mereput</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: A</strong><br>Eutrofikasi menyebabkan pengurangan kandungan oksigen terlarut dalam air akibat pertumbuhan pesat alga, yang boleh membunuh haiwan dan tumbuhan akuatik.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.2 Pencemaran Alam Sekitar (Eutrofikasi)</span></div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="6">
+    <div class="q-number">Soalan 6 daripada 10</div>
+    <div class="q-text">Maklumat berikut menunjukkan peranan sejenis mikroorganisma dalam bebola lumpur EM: menggunakan bahan organik untuk mensintesis bahan berguna dan menghasilkan asid amino serta gula untuk pemakanan haiwan dan tumbuhan akuatik. Apakah jenis mikroorganisma tersebut?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Bakteria asid laktik seperti Lactobacillus casei</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Yis seperti Saccharomyces cerevisiae</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Bakteria fotosintetik seperti Rhodopseudomonas palustris</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Fungi putih yang menyaluti permukaan bebola lumpur</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: C</strong><br>Bakteria fotosintetik seperti Rhodopseudomonas palustris menggunakan bahan organik untuk mensintesis asid amino dan gula bagi pemakanan haiwan dan tumbuhan akuatik.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.2 Pencemaran Alam Sekitar (Mikroorganisma Efektif)</span></div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="7">
+    <div class="q-number">Soalan 7 daripada 10</div>
+    <div class="q-text">Antara yang berikut, yang manakah membandingkan dengan betul antara kitar hayat produk jenis cradle-to-cradle dengan cradle-to-grave?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Kitar hayat cradle-to-cradle melibatkan proses pengangkutan bahan mentah manakala cradle-to-grave langsung tidak melalui peringkat pengangkutan</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kitar hayat cradle-to-cradle berakhir dengan peringkat produk dikitar semula manakala cradle-to-grave berakhir dengan peringkat produk dibiarkan mereput</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Kitar hayat cradle-to-cradle bermula daripada sisa domestik manakala cradle-to-grave bermula daripada stesen jana kuasa biojisim</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Kitar hayat cradle-to-cradle digunakan khusus untuk produk plastik manakala cradle-to-grave digunakan untuk sisa organik</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: B</strong><br>Cradle-to-cradle berakhir pada peringkat dikitar semula, manakala cradle-to-grave berakhir pada peringkat dibiarkan mereput di tapak pelupusan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.1 Kitaran Hayat Produk (Kitaran Hayat Sesuatu Produk)</span></div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="8">
+    <div class="q-number">Soalan 8 daripada 10</div>
+    <div class="q-text">Mengapakah mikroalga marin sesuai digunakan sebagai komponen utama dalam Teknologi Emisi Negatif bagi menangani isu alam sekitar?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Mikroalga marin mampu merembeskan ion nitrat bagi meneutralkan sisa detergen di kawasan muara sungai</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Mikroalga marin mengurangkan kandungan gas karbon dioksida dalam atmosfera melalui proses fotosintesis</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Mikroalga marin berfungsi sebagai medium pertukaran universal yang dikenali sebagai eco currency</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Mikroalga marin boleh mempercepatkan pembentukan fungi putih semasa pembuatan bebola lumpur EM</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: B</strong><br>Mikroalga marin sesuai digunakan dalam Teknologi Emisi Negatif kerana ia mengurangkan kandungan karbon dioksida dalam atmosfera melalui proses fotosintesis.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.3 Pemeliharaan dan Pemuliharaan Alam Sekitar (Teknologi Emisi Negatif)</span></div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="9">
+    <div class="q-number">Soalan 9 daripada 10</div>
+    <div class="q-text">Dalam satu eksperimen, sebuah lampu elektrik membebaskan sebanyak 117 g karbon dioksida. Berdasarkan anggapan bahawa penggunaan 50 kWj tenaga elektrik menghasilkan 39 g karbon dioksida, berapakah jumlah tenaga elektrik yang telah digunakan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>50 kWj</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>100 kWj</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>150 kWj</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>200 kWj</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: C</strong><br>Pengiraan: (117 g ÷ 39 g) × 50 kWj = 3 × 50 kWj = 150 kWj.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.1 Kitaran Hayat Produk (Aktiviti 3.1)</span></div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="10">
+    <div class="q-number">Soalan 10 daripada 10</div>
+    <div class="q-text">Empat sampel air ditambah larutan metilena biru dan disimpan dalam almari gelap. Masa untuk warna luntur: W=4 jam, X=1 jam, Y=warna tidak luntur langsung, Z=2 jam. Berdasarkan prinsip BOD, susun sampel mengikut tahap pencemaran yang meningkat.</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Y, W, Z, X (Y paling bersih, X paling tercemar)</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>X, Z, W, Y (X paling bersih, Y paling tercemar)</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Y, Z, W, X (mengikut masa luntur terpanjang ke terpendek)</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>W, Z, X, Y (mengikut abjad)</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: A</strong><br>Semakin singkat masa warna metilena biru luntur, semakin tinggi tahap pencemaran. Y (tidak luntur=paling bersih) → W (4j) → Z (2j) → X (1j=paling tercemar).<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 3.2 Pencemaran Alam Sekitar (BOD)</span></div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring"><span class="score-number" id="score-display">0/10</span></div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <a href="Kuiz_Sains_T5B4_Kadar_TindakBalas.html" class="btn-next-bab"><div><span class="next-label">Bab Seterusnya →</span><span class="next-title">T5 Bab 4: Kadar Tindak Balas</span></div><span class="next-arrow">→</span></a>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt-result">▶ Tonton Video di YouTube – EasySejarah</a>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Sains T4 &amp; T5</p>
+    <div class="bab-chips">
+      <a href="Kuiz_Sains_T4B1_Keselamatan.html" class="chip">T4 B1: Keselamatan ✓</a>
+      <a href="Kuiz_Sains_T4B2_Bantuan_Kecemasan.html" class="chip">T4 B2: Bantuan Kecemasan ✓</a>
+      <a href="Kuiz_Sains_T4B3_Teknik_Mengukur.html" class="chip">T4 B3: Teknik Mengukur ✓</a>
+      <a href="Kuiz_Sains_T4B4_Teknologi_Hijau.html" class="chip">T4 B4: Teknologi Hijau ✓</a>
+      <a href="Kuiz_Sains_T4B5_Genetik.html" class="chip">T4 B5: Genetik ✓</a>
+      <a href="Kuiz_Sains_T4B6_Sokongan_Pergerakan.html" class="chip">T4 B6: Sokongan & Pergerakan ✓</a>
+      <a href="Kuiz_Sains_T4B7_Koordinasi.html" class="chip">T4 B7: Koordinasi ✓</a>
+      <a href="Kuiz_Sains_T5B1.html" class="chip">T5 B1: Mikroorganisma ✓</a>
+      <a href="Kuiz_Sains_T5B2_Nutrisi_Makanan.html" class="chip">T5 B2: Nutrisi Makanan ✓</a>
+      <span class="chip active">T5 B3: Kelestarian Alam ✓</span>
+      <a href="Kuiz_Sains_T5B4_Kadar_TindakBalas.html" class="chip">T5 B4: Kadar Tindak Balas ✓</a>
+      <a href="Kuiz_Sains_T5B5_Sebatian_Karbon.html" class="chip">T5 B5: Sebatian Karbon ✓</a>
+    </div>
+  </div>
+</div>
+
+<footer>© 2025 EasySejarah · Soalan berdasarkan buku teks SPM Sains Tingkatan 5 (KPM)</footer>
+
+<script>
+  const CORRECT = {1:0,2:2,3:3,4:3,5:0,6:2,7:1,8:1,9:2,10:0};
+  const TOTAL = 10;
+  let score=0, answered=0;
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');
+      const q=parseInt(card.dataset.q);
+      const chosen=parseInt(this.dataset.ans);
+      const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(parseInt(b.dataset.ans)===correct)b.classList.add('correct');});}
+      answered++;
+      updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+  function nextQ(current){
+    document.querySelector('[data-q="'+current+'"]').classList.remove('active');
+    const next=document.querySelector('[data-q="'+(current+1)+'"]');
+    if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  function updateProgress(){
+    const pct=(answered/TOTAL)*100;
+    document.getElementById('progress-fill').style.width=pct+'%';
+    document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';
+  }
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;
+    document.getElementById('stat-salah').textContent=TOTAL-score;
+    document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai bab ini sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula soalan yang salah dan cuba sekali lagi.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Cuba semak semula konsep utama bab ini dan ulangi kuiz.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota bab ini, kemudian cuba kuiz sekali lagi.';}
+    document.getElementById('result-title').textContent=title;
+    document.getElementById('result-subtitle').textContent=sub;
+  }
+  function retryQuiz(){
+    score=0;answered=0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
