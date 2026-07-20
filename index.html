@@ -224,6 +224,11 @@ header { display:flex; align-items:center; justify-content:space-between; paddin
 .game-banner-stat { color: rgba(255,255,255,0.5); font-size: 0.7rem; margin-top: 6px; }
 @media(max-width:500px){ .game-banner-visual { display:none; } }
 
+/* PERNIAGAAN CARD */
+.bab-card.niaga-card.ready:hover { border-color:#2db87a; }
+.bab-card.niaga-card .bab-num { color:#2db87a; }
+.bab-type-niaga { background:#e8f7ef; color:#1a7a4a; border:1px solid rgba(26,122,74,0.3); }
+
 /* BLOG GRID */
 .blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
 .blog-card { background:var(--card); border:1.5px solid var(--border); border-radius:16px; text-decoration:none; color:inherit; overflow:hidden; transition:all 0.18s; box-shadow:var(--shadow); display:flex; flex-direction:column; }
@@ -293,6 +298,11 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
     </div>
     <hr class="sb-divider">
     <div class="sb-section">
+      <div class="sb-subject">Perniagaan</div>
+      <button class="sb-btn" onclick="show('niaga4')" id="btn-niaga4"><span class="sb-icon">💼</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge" style="background:#1a7a4a;">1</span></button>
+    </div>
+    <hr class="sb-divider">
+    <div class="sb-section">
       <div class="sb-subject">Lain-lain</div>
       <button class="sb-btn" onclick="show('blog')" id="btn-blog"><span class="sb-icon">📝</span><span class="sb-label">Blog</span><span class="sb-badge" style="background:#f59e0b;">Baru</span></button>
       <button class="sb-btn" onclick="show('animasi')" id="btn-animasi"><span class="sb-icon">🎬</span><span class="sb-label">Animasi</span></button>
@@ -358,6 +368,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         <div class="qcard sains" onclick="show('sains4')"><div class="qcard-icon">🔬</div><div class="qcard-name">Sains T4</div><div class="qcard-count">12 bab · SPM</div></div>
         <div class="qcard sains" onclick="show('sains5')"><div class="qcard-icon">🧬</div><div class="qcard-name">Sains T5</div><div class="qcard-count">8 bab · SPM</div></div>
         <div class="qcard" onclick="show('blog')" style="border-color:#f59e0b20;"><div class="qcard-icon">📝</div><div class="qcard-name" style="color:#d97706;">Blog</div><div class="qcard-count">Tips belajar SPM</div></div>
+        <div class="qcard" onclick="show('niaga4')" style="border-color:rgba(26,122,74,0.3);"><div class="qcard-icon">💼</div><div class="qcard-name" style="color:#2db87a;">Perniagaan T4</div><div class="qcard-count">1 bab · SPM · Baharu!</div></div>
       </div>
     </div>
 
@@ -457,6 +468,25 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       </div>
     </div>
 
+    <!-- PERNIAGAAN T4 -->
+    <div class="section" id="section-niaga4">
+      <div class="sec-header">
+        <div class="sec-title">Perniagaan Tingkatan 4</div>
+        <span class="sec-badge" style="background:#e8f7ef;color:#1a7a4a;border:1px solid rgba(26,122,74,0.3);">SPM · Baharu!</span>
+      </div>
+      <div class="bab-grid">
+        <a href="Kuiz_Perniagaan_T4B1.html" class="bab-card ready niaga-card">
+          <div class="bab-type-label bab-type-niaga">✏️ KUIZ</div>
+          <div class="bab-num">Bab 1</div>
+          <div class="bab-title">Tujuan Perniagaan dan Pemilikan Perniagaan</div>
+          <div class="bab-meta"><span class="dot" style="background:#2db87a"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+        <div class="bab-card coming niaga-card"><div class="bab-num">Bab 2</div><div class="bab-title">Pengurusan Perniagaan</div><div class="bab-meta"><span class="dot coming"></span><span class="bab-info">Akan datang</span></div></div>
+        <div class="bab-card coming niaga-card"><div class="bab-num">Bab 3</div><div class="bab-title">Pemasaran</div><div class="bab-meta"><span class="dot coming"></span><span class="bab-info">Akan datang</span></div></div>
+        <div class="bab-card coming niaga-card"><div class="bab-num">Bab 4</div><div class="bab-title">Pengurusan Kewangan</div><div class="bab-meta"><span class="dot coming"></span><span class="bab-info">Akan datang</span></div></div>
+      </div>
+    </div>
+
     <!-- BLOG -->
     <div class="section" id="section-blog">
       <div class="sec-header">
@@ -531,7 +561,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   if(localStorage.getItem('cookieOK')) document.getElementById('cookie-banner').style.display='none';
   function acceptCookie(){ localStorage.setItem('cookieOK','1'); document.getElementById('cookie-banner').style.display='none'; }
 
-  const SECTIONS = ['home','t3','t4','t5','sains4','sains5','blog','animasi','about'];
+  const SECTIONS = ['home','t3','t4','t5','sains4','sains5','niaga4','blog','animasi','about'];
   function show(id){
     SECTIONS.forEach(s=>{
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
