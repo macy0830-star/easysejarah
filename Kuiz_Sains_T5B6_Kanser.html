@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Sains T5 Bab 6 | EasySejarah</title>
+<meta name="description" content="Kuiz Sains Sains T5 Bab 6 — 10 soalan MCQ dengan jawapan dan huraian lengkap. Percuma untuk pelajar SPM Malaysia.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Kuiz Sains T5 Bab 6","educationalLevel":"SPM","provider":{"@type":"Organization","name":"EasySejarah","url":"https://www.easysejarah.com"}}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root{--kuning:#F7B731;--hitam:#1A1A2E;--hijau:#2D9E5F;--merah:#D62828;--kad:#252538;--ungu:#7c5cbf;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans',sans-serif;background:var(--hitam);color:#fff;min-height:100vh;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:2px solid rgba(124,92,191,0.3);position:sticky;top:0;background:var(--hitam);z-index:99;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;}.logo span{color:var(--ungu);}
+  .badge-topik{background:rgba(124,92,191,0.15);border:1px solid var(--ungu);color:var(--ungu);font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;}
+  .hero{text-align:center;padding:48px 24px 32px;max-width:640px;margin:0 auto;}
+  .hero-eyebrow{color:var(--ungu);font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+  .hero h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.6rem,5.5vw,2.5rem);line-height:1.15;margin-bottom:12px;}
+  .hero h1 em{font-style:normal;color:var(--kuning);}
+  .hero p{color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.6;margin-bottom:24px;}
+  .progress-wrap{background:rgba(255,255,255,0.1);border-radius:999px;height:6px;margin-bottom:6px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--ungu);border-radius:999px;transition:width 0.4s ease;width:0%;}
+  .progress-label{font-size:0.76rem;color:rgba(255,255,255,0.4);text-align:right;}
+  .quiz-section{max-width:680px;margin:0 auto;padding:0 20px 80px;}
+  .question-card{background:var(--kad);border-radius:16px;padding:28px 24px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.06);display:none;animation:fadeUp 0.3s ease;}
+  .question-card.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .q-number{font-family:'Poppins',sans-serif;font-size:0.7rem;font-weight:700;color:var(--ungu);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .q-text{font-family:'Poppins',sans-serif;font-size:clamp(0.92rem,3vw,1.05rem);font-weight:600;line-height:1.5;margin-bottom:22px;color:#fff;}
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .option-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;cursor:pointer;text-align:left;font-family:'Noto Sans',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.82);transition:border-color 0.15s,background 0.15s;width:100%;}
+  .option-btn:hover:not(:disabled){border-color:var(--ungu);background:rgba(124,92,191,0.1);}
+  .option-btn:disabled{cursor:default;}
+  .option-letter{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.1);font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .option-btn.correct{border-color:var(--hijau);background:rgba(45,158,95,0.14);}
+  .option-btn.correct .option-letter{background:var(--hijau);color:#fff;}
+  .option-btn.wrong{border-color:var(--merah);background:rgba(214,40,40,0.12);}
+  .option-btn.wrong .option-letter{background:var(--merah);color:#fff;}
+  .explanation{display:none;margin-top:18px;padding:14px 16px;background:rgba(124,92,191,0.09);border-left:3px solid var(--ungu);border-radius:0 8px 8px 0;font-size:0.85rem;line-height:1.65;color:rgba(255,255,255,0.78);}
+  .explanation.show{display:block;}
+  .explanation strong{color:var(--kuning);}
+  .btn-next{display:none;margin-top:18px;width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:opacity 0.2s;}
+  .btn-next:hover{opacity:0.88;}.btn-next.show{display:block;}
+  #result-section{display:none;max-width:580px;margin:0 auto;padding:0 20px 80px;text-align:center;}
+  #result-section.show{display:block;}
+  .result-card{background:var(--kad);border-radius:20px;padding:40px 28px;border:1px solid rgba(255,255,255,0.08);}
+  .score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--ungu) var(--pct,0%),rgba(255,255,255,0.08) 0%);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;}
+  .score-ring::after{content:'';position:absolute;width:88px;height:88px;background:var(--kad);border-radius:50%;}
+  .score-number{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.8rem;color:var(--ungu);position:relative;z-index:1;}
+  .result-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;margin-bottom:8px;}
+  .result-subtitle{color:rgba(255,255,255,0.5);font-size:0.88rem;line-height:1.6;margin-bottom:28px;}
+  .stat-row{display:flex;justify-content:center;gap:18px;margin-bottom:28px;}
+  .stat-box{background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 20px;min-width:82px;}
+  .stat-val{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;color:var(--ungu);display:block;}
+  .stat-lbl{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.5px;}
+  .btn-retry{width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;margin-bottom:12px;}
+  .btn-retry:hover{opacity:0.88;}
+  .btn-yt-result{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;text-decoration:none;padding:13px 22px;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.92rem;transition:opacity 0.2s;width:100%;justify-content:center;margin-top:12px;}
+  .btn-yt-result:hover{opacity:0.85;}
+  .btn-next-bab{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#7c5cbf,#5a3d9a);color:#fff;text-decoration:none;padding:16px 22px;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:12px;transition:opacity 0.2s;gap:12px;box-shadow:0 4px 14px rgba(124,92,191,0.35);}
+  .btn-next-bab:hover{opacity:0.88;}
+  .btn-next-bab .next-label{font-size:0.7rem;font-weight:600;opacity:0.8;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px;}
+  .btn-next-bab .next-title{display:block;}.btn-next-bab .next-arrow{font-size:1.4rem;flex-shrink:0;}
+  .bab-nav{margin-top:32px;text-align:center;}
+  .bab-nav p{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+  .bab-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .chip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.55);border-radius:999px;padding:6px 14px;font-size:0.78rem;text-decoration:none;}
+  .chip.active{border-color:var(--ungu);color:var(--ungu);}.chip.coming{opacity:0.3;cursor:default;}
+  footer{text-align:center;padding:24px 20px;font-size:0.75rem;color:rgba(255,255,255,0.18);border-top:1px solid rgba(255,255,255,0.06);margin-top:20px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#7c5cbf'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a>
+  <div class="badge-topik">Sains T5 Bab 6</div>
+</header>
+<div class="hero">
+  <div class="hero-eyebrow">Sains · Sains T5 Bab 6</div>
+  <h1>T5 Bab 6<br><em>Kanser</em></h1>
+  <p>10 soalan merangkumi kawalan pembelahan sel, faktor risiko kanser (boleh & tidak boleh diubah suai), tumor malignan vs benignan, metastasis, kaedah saringan (mamografi, Pap smear, kolonoskopi, PSA), radioterapi, kemoterapi vs terapi sasaran, epidemiologi, proto-onkogen & gen penekan tumor.</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 10 soalan</div>
+</div>
+<div class="quiz-section" id="quiz-section">
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 10</div>
+    <div class="q-text">Apakah yang membezakan tisu kanser daripada tisu normal dari segi kawalan pembelahan sel?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Tisu kanser hanya terbentuk daripada sel-sel tua yang mengalami kemerosotan.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Tisu kanser membelah secara tidak terkawal tanpa mematuhi isyarat kimia normal badan.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Tisu kanser membelah mengikut kadar yang sama dengan tisu normal tetapi tidak mati.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Tisu kanser membelah lebih perlahan kerana kekurangan nutrien.</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>Sel kanser membelah secara tidak terkawal tanpa mematuhi isyarat kimia badan yang biasanya mengawal pembelahan sel.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.1 Sel Kanser dan Kawalan Pembelahan Sel</span></div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="2">
+    <div class="q-number">Soalan 2 daripada 10</div>
+    <div class="q-text">Manakah antara berikut yang merupakan faktor risiko boleh diubah suai bagi kanser?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Jenis sel dalam badan</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Merokok, diet tinggi lemak dan pendedahan berlebihan kepada cahaya matahari</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Jantina dan warisan genetik</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Usia dan kumpulan etnik</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: B</strong><br>Faktor risiko boleh diubah suai termasuk gaya hidup seperti merokok, diet tidak sihat, dan pendedahan berlebihan kepada cahaya matahari UV. Jantina, usia, dan genetik tidak boleh diubah.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.2 Faktor Risiko Kanser</span></div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="3">
+    <div class="q-number">Soalan 3 daripada 10</div>
+    <div class="q-text">Apakah perbezaan antara tumor malignan dengan tumor benignan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Tumor malignan ialah kanser yang boleh merebak ke bahagian lain badan, manakala tumor benignan tidak merebak.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Tumor benignan merupakan kanser peringkat akhir, manakala tumor malignan peringkat awal.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Kedua-duanya merupakan sel kanser yang sama berbahaya dan sama-sama merebak.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Tumor benignan berbahaya kerana merebak ke organ lain, manakala tumor malignan tidak merebak.</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: A</strong><br>Tumor malignan ialah kanser yang boleh merebak ke bahagian lain badan (metastasis), manakala tumor benignan tumbuh terhad di satu tempat dan tidak merebak.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.3 Tumor Malignan dan Benignan</span></div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="4">
+    <div class="q-number">Soalan 4 daripada 10</div>
+    <div class="q-text">Apakah kaedah saringan yang digunakan untuk mengesan kanser kolon (usus besar)?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Ujian Pap smear</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Endoskopi kolon (kolonoskopi)</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Pemeriksaan mamografi</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Ujian PSA darah</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: B</strong><br>Endoskopi kolon (kolonoskopi) digunakan untuk mengesan kanser kolon dengan memeriksa dinding dalam usus besar secara langsung menggunakan kamera.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.4 Kaedah Saringan Kanser</span></div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="5">
+    <div class="q-number">Soalan 5 daripada 10</div>
+    <div class="q-text">Apakah yang berlaku semasa proses metastasis dalam kanser?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Sel kanser hanya tumbuh membesar di tempat asal tanpa bergerak.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Sel kanser merebak dari tapak asal ke bahagian lain badan melalui sistem darah atau limfa.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Sel kanser menjadi sel normal semula selepas rawatan.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Sel kanser berhenti membelah dan menjadi tidak aktif.</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: B</strong><br>Metastasis berlaku apabila sel kanser merebak dari tapak asal ke bahagian lain badan melalui sistem peredaran darah atau sistem limfa.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.5 Proses Metastasis</span></div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="6">
+    <div class="q-number">Soalan 6 daripada 10</div>
+    <div class="q-text">Seorang pesakit kanser payudara diberikan rawatan radiasi (radioterapi). Apakah mekanisme utama radioterapi dalam membunuh sel kanser?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Radioterapi menggunakan sinaran tenaga tinggi untuk merosakkan DNA sel kanser, menghalang pembelahannya.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Radioterapi menyuntik antibodi ke dalam tumor untuk melisiskan sel kanser.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Radioterapi membekukan sel kanser supaya tidak dapat bergerak.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Radioterapi meningkatkan sistem imun badan untuk menyerang sel kanser.</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: A</strong><br>Radioterapi menggunakan sinaran tenaga tinggi (seperti sinar-X atau sinar gamma) untuk merosakkan DNA sel kanser, menghalang sel tersebut daripada membahagi dan membiak.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.6 Rawatan Kanser - Radioterapi</span></div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="7">
+    <div class="q-number">Soalan 7 daripada 10</div>
+    <div class="q-text">Apakah perbezaan antara kemoterapi dengan terapi sasaran dalam rawatan kanser?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Kemoterapi digunakan untuk kanser otak sahaja, manakala terapi sasaran untuk kanser kulit.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kemoterapi membunuh semua sel yang membelah dengan cepat (termasuk sel sihat), manakala terapi sasaran menyerang molekul spesifik pada sel kanser sahaja.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Kemoterapi hanya menyerang sel kanser sahaja, manakala terapi sasaran membunuh semua sel badan.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Terapi sasaran adalah lebih murah dan lebih biasa digunakan berbanding kemoterapi.</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: B</strong><br>Kemoterapi membunuh semua sel yang membelah dengan cepat termasuk sel sihat seperti sel rambut dan sel darah, manakala terapi sasaran lebih spesifik menyerang molekul atau protein tertentu yang terdapat pada sel kanser sahaja.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.7 Perbandingan Kemoterapi dan Terapi Sasaran</span></div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="8">
+    <div class="q-number">Soalan 8 daripada 10</div>
+    <div class="q-text">Kajian epidemiologi mendapati peningkatan kadar kanser paru-paru dalam kalangan perokok. Apakah kesimpulan sains yang boleh dibuat?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Kanser paru-paru tidak berkait dengan merokok langsung.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Hanya perokok pasif yang berisiko mendapat kanser paru-paru.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Semua perokok pasti mendapat kanser paru-paru.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Terdapat hubungan antara merokok dengan peningkatan risiko kanser paru-paru.</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: D</strong><br>Data epidemiologi menunjukkan terdapat korelasi yang kuat antara tabiat merokok dengan peningkatan risiko kanser paru-paru, walaupun tidak semua perokok akan mendapat kanser.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.8 Epidemiologi dan Kajian Kanser</span></div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="9">
+    <div class="q-number">Soalan 9 daripada 10</div>
+    <div class="q-text">Apakah peranan protein proto-onkogen dan gen penekan tumor dalam mengawal pembelahan sel?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Proto-onkogen menghalang pembelahan sel, manakala gen penekan tumor menggalakkan pembelahan.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kedua-duanya berfungsi sama iaitu menggalakkan pertumbuhan sel.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Proto-onkogen menggalakkan pembelahan sel (apabila bermutasi menjadi onkogen), manakala gen penekan tumor mengawal dan menghalang pembelahan sel yang tidak terkawal.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Kedua-duanya berfungsi menghalang pembelahan sel secara kekal.</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: C</strong><br>Proto-onkogen menggalakkan pertumbuhan dan pembelahan sel. Apabila bermutasi menjadi onkogen, ia menyebabkan pembelahan tidak terkawal. Gen penekan tumor pula mengawal pembelahan sel dan apabila tidak berfungsi, turut menyumbang kepada pembentukan kanser.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.9 Gen Onkogen dan Gen Penekan Tumor</span></div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="10">
+    <div class="q-number">Soalan 10 daripada 10</div>
+    <div class="q-text">Seorang pelajar mendapati bahawa jiran beliau yang berusia 60 tahun didiagnosis dengan kanser prostat. Apakah faktor risiko yang TIDAK boleh diubah suai dalam kes ini?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Usia dan jantina (lelaki)</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Pendedahan kepada cahaya matahari</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Tabiat pemakanan jiran tersebut</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Tahap aktiviti fizikal jiran tersebut</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: A</strong><br>Usia lanjut dan jantina lelaki merupakan faktor risiko yang tidak boleh diubah suai bagi kanser prostat. Pemakanan, aktiviti fizikal, dan pendedahan matahari adalah faktor yang boleh diubah suai.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 6.2 Faktor Risiko Kanser - Boleh dan Tidak Boleh Diubah Suai</span></div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring"><span class="score-number" id="score-display">0/10</span></div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <a href="Kuiz_Sains_T5B7_Tekanan.html" class="btn-next-bab"><div><span class="next-label">Bab Seterusnya →</span><span class="next-title">T5 Bab 7: Tekanan</span></div><span class="next-arrow">→</span></a>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt-result">▶ Tonton Video di YouTube – EasySejarah</a>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Sains T4 &amp; T5</p>
+    <div class="bab-chips">
+      <a href="Kuiz_Sains_T4B1_Keselamatan.html" class="chip">T4 B1 ✓</a>
+      <a href="Kuiz_Sains_T4B2_Bantuan_Kecemasan.html" class="chip">T4 B2 ✓</a>
+      <a href="Kuiz_Sains_T4B3_Teknik_Mengukur.html" class="chip">T4 B3 ✓</a>
+      <a href="Kuiz_Sains_T4B4_Teknologi_Hijau.html" class="chip">T4 B4 ✓</a>
+      <a href="Kuiz_Sains_T4B5_Genetik.html" class="chip">T4 B5 ✓</a>
+      <a href="Kuiz_Sains_T4B6_Sokongan_Pergerakan.html" class="chip">T4 B6 ✓</a>
+      <a href="Kuiz_Sains_T4B7_Koordinasi.html" class="chip">T4 B7 ✓</a>
+      <a href="Kuiz_Sains_T4B8_Unsur_Bahan.html" class="chip">T4 B8 ✓</a>
+      <a href="Kuiz_Sains_T4B9_Kimia_Industri.html" class="chip">T4 B9 ✓</a>
+      <a href="Kuiz_Sains_T4B10_Kimia_Perubatan.html" class="chip">T4 B10 ✓</a>
+      <a href="Kuiz_Sains_T4B11_Gerakan_Linear.html" class="chip">T4 B11 ✓</a>
+      <a href="Kuiz_Sains_T4B12_Tenaga_Nuklear.html" class="chip">T4 B12 ✓</a>
+      <a href="Kuiz_Sains_T5B1.html" class="chip">T5 B1 ✓</a>
+      <a href="Kuiz_Sains_T5B2_Nutrisi_Makanan.html" class="chip">T5 B2 ✓</a>
+      <a href="Kuiz_Sains_T5B3_Kelestarian.html" class="chip">T5 B3 ✓</a>
+      <a href="Kuiz_Sains_T5B4_Kadar_TindakBalas.html" class="chip">T5 B4 ✓</a>
+      <a href="Kuiz_Sains_T5B5_Sebatian_Karbon.html" class="chip">T5 B5 ✓</a>
+      <span class="chip active">T5 B6 ✓</span>
+      <a href="Kuiz_Sains_T5B7_Tekanan.html" class="chip">T5 B7 ✓</a>
+      <a href="Kuiz_Sains_T5B8_Elektrik.html" class="chip">T5 B8 ✓</a>
+    </div>
+  </div>
+</div>
+<footer>© 2025 EasySejarah · Soalan berdasarkan buku teks SPM Sains Tingkatan 5 (KPM)</footer>
+<script>
+  const CORRECT={1:1,2:1,3:0,4:1,5:1,6:0,7:1,8:3,9:2,10:0};const TOTAL=10;let score=0,answered=0;
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');const q=parseInt(card.dataset.q);
+      const chosen=parseInt(this.dataset.ans);const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(parseInt(b.dataset.ans)===correct)b.classList.add('correct');});}
+      answered++;updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+  function nextQ(c){document.querySelector('[data-q="'+c+'"]').classList.remove('active');const n=document.querySelector('[data-q="'+(c+1)+'"]');if(n){n.classList.add('active');n.scrollIntoView({behavior:'smooth',block:'start'});}}
+  function updateProgress(){const p=(answered/TOTAL)*100;document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';}
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');rs.classList.add('show');rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;document.getElementById('stat-salah').textContent=TOTAL-score;document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai bab ini sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula soalan yang salah dan cuba sekali lagi.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Cuba semak semula konsep utama bab ini dan ulangi kuiz.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota bab ini, kemudian cuba kuiz sekali lagi.';}
+    document.getElementById('result-title').textContent=title;document.getElementById('result-subtitle').textContent=sub;
+  }
+  function retryQuiz(){
+    score=0;answered=0;updateProgress();
+    document.getElementById('result-section').classList.remove('show');document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>

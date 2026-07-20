@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Sains T5 Bab 8 | EasySejarah</title>
+<meta name="description" content="Kuiz Sains Sains T5 Bab 8 — 10 soalan MCQ dengan jawapan dan huraian lengkap. Percuma untuk pelajar SPM Malaysia.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Kuiz Sains T5 Bab 8","educationalLevel":"SPM","provider":{"@type":"Organization","name":"EasySejarah","url":"https://www.easysejarah.com"}}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root{--kuning:#F7B731;--hitam:#1A1A2E;--hijau:#2D9E5F;--merah:#D62828;--kad:#252538;--ungu:#7c5cbf;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans',sans-serif;background:var(--hitam);color:#fff;min-height:100vh;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:2px solid rgba(124,92,191,0.3);position:sticky;top:0;background:var(--hitam);z-index:99;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;}.logo span{color:var(--ungu);}
+  .badge-topik{background:rgba(124,92,191,0.15);border:1px solid var(--ungu);color:var(--ungu);font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;}
+  .hero{text-align:center;padding:48px 24px 32px;max-width:640px;margin:0 auto;}
+  .hero-eyebrow{color:var(--ungu);font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+  .hero h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.6rem,5.5vw,2.5rem);line-height:1.15;margin-bottom:12px;}
+  .hero h1 em{font-style:normal;color:var(--kuning);}
+  .hero p{color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.6;margin-bottom:24px;}
+  .progress-wrap{background:rgba(255,255,255,0.1);border-radius:999px;height:6px;margin-bottom:6px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--ungu);border-radius:999px;transition:width 0.4s ease;width:0%;}
+  .progress-label{font-size:0.76rem;color:rgba(255,255,255,0.4);text-align:right;}
+  .quiz-section{max-width:680px;margin:0 auto;padding:0 20px 80px;}
+  .question-card{background:var(--kad);border-radius:16px;padding:28px 24px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.06);display:none;animation:fadeUp 0.3s ease;}
+  .question-card.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .q-number{font-family:'Poppins',sans-serif;font-size:0.7rem;font-weight:700;color:var(--ungu);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .q-text{font-family:'Poppins',sans-serif;font-size:clamp(0.92rem,3vw,1.05rem);font-weight:600;line-height:1.5;margin-bottom:22px;color:#fff;}
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .option-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;cursor:pointer;text-align:left;font-family:'Noto Sans',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.82);transition:border-color 0.15s,background 0.15s;width:100%;}
+  .option-btn:hover:not(:disabled){border-color:var(--ungu);background:rgba(124,92,191,0.1);}
+  .option-btn:disabled{cursor:default;}
+  .option-letter{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.1);font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .option-btn.correct{border-color:var(--hijau);background:rgba(45,158,95,0.14);}
+  .option-btn.correct .option-letter{background:var(--hijau);color:#fff;}
+  .option-btn.wrong{border-color:var(--merah);background:rgba(214,40,40,0.12);}
+  .option-btn.wrong .option-letter{background:var(--merah);color:#fff;}
+  .explanation{display:none;margin-top:18px;padding:14px 16px;background:rgba(124,92,191,0.09);border-left:3px solid var(--ungu);border-radius:0 8px 8px 0;font-size:0.85rem;line-height:1.65;color:rgba(255,255,255,0.78);}
+  .explanation.show{display:block;}
+  .explanation strong{color:var(--kuning);}
+  .btn-next{display:none;margin-top:18px;width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:opacity 0.2s;}
+  .btn-next:hover{opacity:0.88;}.btn-next.show{display:block;}
+  #result-section{display:none;max-width:580px;margin:0 auto;padding:0 20px 80px;text-align:center;}
+  #result-section.show{display:block;}
+  .result-card{background:var(--kad);border-radius:20px;padding:40px 28px;border:1px solid rgba(255,255,255,0.08);}
+  .score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--ungu) var(--pct,0%),rgba(255,255,255,0.08) 0%);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;}
+  .score-ring::after{content:'';position:absolute;width:88px;height:88px;background:var(--kad);border-radius:50%;}
+  .score-number{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.8rem;color:var(--ungu);position:relative;z-index:1;}
+  .result-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;margin-bottom:8px;}
+  .result-subtitle{color:rgba(255,255,255,0.5);font-size:0.88rem;line-height:1.6;margin-bottom:28px;}
+  .stat-row{display:flex;justify-content:center;gap:18px;margin-bottom:28px;}
+  .stat-box{background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 20px;min-width:82px;}
+  .stat-val{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;color:var(--ungu);display:block;}
+  .stat-lbl{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.5px;}
+  .btn-retry{width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;margin-bottom:12px;}
+  .btn-retry:hover{opacity:0.88;}
+  .btn-yt-result{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;text-decoration:none;padding:13px 22px;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.92rem;transition:opacity 0.2s;width:100%;justify-content:center;margin-top:12px;}
+  .btn-yt-result:hover{opacity:0.85;}
+  .btn-next-bab{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#7c5cbf,#5a3d9a);color:#fff;text-decoration:none;padding:16px 22px;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:12px;transition:opacity 0.2s;gap:12px;box-shadow:0 4px 14px rgba(124,92,191,0.35);}
+  .btn-next-bab:hover{opacity:0.88;}
+  .btn-next-bab .next-label{font-size:0.7rem;font-weight:600;opacity:0.8;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px;}
+  .btn-next-bab .next-title{display:block;}.btn-next-bab .next-arrow{font-size:1.4rem;flex-shrink:0;}
+  .bab-nav{margin-top:32px;text-align:center;}
+  .bab-nav p{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+  .bab-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .chip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.55);border-radius:999px;padding:6px 14px;font-size:0.78rem;text-decoration:none;}
+  .chip.active{border-color:var(--ungu);color:var(--ungu);}.chip.coming{opacity:0.3;cursor:default;}
+  footer{text-align:center;padding:24px 20px;font-size:0.75rem;color:rgba(255,255,255,0.18);border-top:1px solid rgba(255,255,255,0.06);margin-top:20px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#7c5cbf'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a>
+  <div class="badge-topik">Sains T5 Bab 8</div>
+</header>
+<div class="hero">
+  <div class="hero-eyebrow">Sains · Sains T5 Bab 8</div>
+  <h1>T5 Bab 8<br><em>Elektrik</em></h1>
+  <p>10 soalan merangkumi arus AC vs DC, bekalan Malaysia (50 Hz, 240 V), transformer (step-up & step-down, nisbah lilitan), mengapa voltan tinggi dalam penghantaran (P=I²R), peringkat voltan sistem pengagihan Malaysia (11 kV→275 kV→132 kV→33 kV→240 V), kesan haba & magnet arus, litar sesiri vs selari, dan pengiraan transformer (voltan & arus).</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 10 soalan</div>
+</div>
+<div class="quiz-section" id="quiz-section">
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 10</div>
+    <div class="q-text">Apakah yang dimaksudkan dengan arus ulang-alik (AC) dan bagaimana ia berbeza daripada arus terus (DC)?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Arus AC digunakan dalam bateri, manakala arus DC digunakan dalam talian elektrik utama.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Arus AC bertukar arah secara berkala mengikut frekuensi tertentu, manakala arus DC mengalir dalam satu arah yang tetap sahaja.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Arus AC dan DC adalah sama sahaja, perbezaannya hanya pada voltan sahaja.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Arus AC mengalir dalam satu arah sahaja, manakala arus DC bertukar arah secara berkala.</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>Arus ulang-alik (AC) bertukar arah secara berkala mengikut frekuensi tertentu (50 Hz di Malaysia). Arus terus (DC) mengalir dalam satu arah yang tetap sahaja, seperti dalam bateri.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.1 Arus Ulang-Alik dan Arus Terus</span></div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="2">
+    <div class="q-number">Soalan 2 daripada 10</div>
+    <div class="q-text">Berapakah nilai frekuensi dan voltan bekalan elektrik arus ulang-alik (AC) di Malaysia?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>60 Hz dan 110 V</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>50 Hz dan 240 V</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>50 Hz dan 110 V</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>60 Hz dan 240 V</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: B</strong><br>Bekalan elektrik AC di Malaysia mempunyai frekuensi 50 Hz dan voltan 240 V. Ini bermakna arus elektrik bertukar arah sebanyak 50 kali sesaat.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.1 Bekalan Elektrik Malaysia</span></div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="3">
+    <div class="q-number">Soalan 3 daripada 10</div>
+    <div class="q-text">Apakah fungsi utama transformer dalam sistem penghantaran kuasa elektrik jarak jauh?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Menambah kuasa elektrik semasa penghantaran supaya tiada kehilangan tenaga.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Menyimpan tenaga elektrik dalam kapasitor besar semasa waktu permintaan rendah.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Menaik atau menurunkan voltan elektrik untuk penghantaran efisien atau kegunaan selamat di rumah.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Menukar arus AC kepada arus DC untuk penghantaran lebih efisien.</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: C</strong><br>Transformer berfungsi untuk menaik voltan (step-up) semasa penghantaran jarak jauh (mengurangkan kehilangan tenaga akibat rintangan) dan menurun voltan (step-down) kepada voltan selamat untuk kegunaan di rumah dan industri.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.2 Transformer dan Penghantaran Kuasa</span></div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="4">
+    <div class="q-number">Soalan 4 daripada 10</div>
+    <div class="q-text">Mengapakah voltan dinaikkan kepada nilai yang sangat tinggi (seperti 275,000 V) semasa penghantaran elektrik jarak jauh melalui talian transmisi?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Voltan tinggi mengurangkan arus dalam talian, seterusnya mengurangkan kehilangan kuasa dalam bentuk haba akibat rintangan talian (P = I²R).</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Voltan tinggi mempercepatkan penghantaran elektrik supaya sampai ke destinasi lebih cepat.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Voltan tinggi diperlukan untuk mengekalkan suhu talian transmisi supaya tidak terlalu sejuk.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Voltan tinggi membolehkan talian transmisi menggunakan wayar yang lebih tebal dan tahan lama.</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: A</strong><br>Berdasarkan P = IV, untuk kuasa yang sama, voltan yang lebih tinggi memerlukan arus yang lebih rendah. Berdasarkan P_hilang = I²R, arus yang lebih rendah mengurangkan kehilangan kuasa dalam bentuk haba secara besar-besaran.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.2 Mengapa Voltan Tinggi dalam Penghantaran</span></div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="5">
+    <div class="q-number">Soalan 5 daripada 10</div>
+    <div class="q-text">Apakah yang berlaku kepada nisbah bilangan lilitan dan voltan dalam transformer step-up dan transformer step-down?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Transformer step-up: N_s > N_p dan V_s > V_p; transformer step-down: N_s < N_p dan V_s < V_p.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Transformer step-up dan step-down mempunyai nisbah lilitan yang sama, perbezaannya hanya pada arah arus.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Transformer step-up meningkatkan arus, manakala transformer step-down meningkatkan voltan.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Transformer step-up: V_p > V_s; transformer step-down: V_p < V_s.</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: A</strong><br>Transformer step-up: N_s > N_p dan V_s > V_p (voltan sekunder lebih tinggi). Transformer step-down: N_s < N_p dan V_s < V_p (voltan sekunder lebih rendah). Hubungan: V_p/V_s = N_p/N_s.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.3 Prinsip Transformer</span></div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="6">
+    <div class="q-number">Soalan 6 daripada 10</div>
+    <div class="q-text">Dalam sistem pengagihan elektrik di Malaysia, apakah peringkat voltan elektrik dari stesen jana kuasa hingga ke rumah kediaman?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>11 kV → 275 kV → 132 kV → 33 kV → 415 V/240 V</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>33 kV → 11 kV → 240 V → 415 V</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>240 V → 33 kV → 132 kV → 275 kV</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>11 kV → 132 kV → 33 kV → 240 V</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: A</strong><br>Sistem pengagihan elektrik Malaysia: Jana kuasa (11 kV) → Step-up (275 kV) untuk penghantaran → Step-down (132 kV) → (33 kV) → (415 V untuk industri / 240 V untuk kediaman).<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.4 Sistem Pengagihan Elektrik Malaysia</span></div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="7">
+    <div class="q-number">Soalan 7 daripada 10</div>
+    <div class="q-text">Transformer ideal mempunyai voltan primer 240 V dengan 200 lilitan. Jika bilangan lilitan sekunder ialah 50, berapakah voltan sekunder?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>480 V</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>120 V</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>60 V</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>960 V</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: C</strong><br>Menggunakan formula transformer: V_p/V_s = N_p/N_s → 240/V_s = 200/50 → V_s = 240 × 50/200 = 60 V. Ini merupakan transformer step-down.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.3 Pengiraan Transformer</span></div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="8">
+    <div class="q-number">Soalan 8 daripada 10</div>
+    <div class="q-text">Apakah dua kesan utama arus elektrik yang diaplikasikan dalam alatan elektrik harian?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Kesan haba dan kesan kimia</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kesan cahaya dan kesan bunyi</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Kesan haba dan kesan magnet</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Kesan magnet dan kesan cahaya</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: C</strong><br>Dua kesan utama arus elektrik: (1) Kesan haba — digunakan dalam cerek elektrik, seterika dan mentol pijar; (2) Kesan magnet — digunakan dalam motor elektrik, pembesar suara dan jangkaan elektrik.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.5 Kesan Arus Elektrik</span></div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="9">
+    <div class="q-number">Soalan 9 daripada 10</div>
+    <div class="q-text">Apakah perbezaan antara litar sesiri dengan litar selari dalam konteks bekalan rumah?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Litar sesiri digunakan dalam semua peranti rumah; litar selari hanya dalam lampu.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Litar sesiri mempunyai voltan yang sama merentasi semua komponen; litar selari mempunyai arus yang sama.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Dalam litar sesiri, jika satu komponen rosak semua komponen lain mati; dalam litar selari, komponen lain kekal berfungsi walaupun satu rosak.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Litar sesiri digunakan untuk bekalan AC; litar selari hanya untuk bekalan DC.</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: C</strong><br>Dalam litar sesiri, komponen disambung berturutan; jika satu rosak, litar terbuka dan semua komponen mati. Dalam litar selari, setiap komponen disambung terus ke bekalan; jika satu rosak, komponen lain kekal berfungsi. Oleh itu, bekalan rumah menggunakan litar selari.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.6 Litar Sesiri dan Litar Selari</span></div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="10">
+    <div class="q-number">Soalan 10 daripada 10</div>
+    <div class="q-text">Sebuah transformer mempunyai voltan primer 12 V, voltan sekunder 240 V, dan arus primer 10 A. Dengan menganggap transformer adalah 100% cekap, berapakah arus sekunder?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>10 A</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>120 A</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>200 A</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>0.5 A</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: D</strong><br>Transformer cekap 100%: Kuasa primer = Kuasa sekunder → V_p × I_p = V_s × I_s → 12 × 10 = 240 × I_s → I_s = 120/240 = 0.5 A.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 8.3 Pengiraan Transformer - Kecekapan</span></div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring"><span class="score-number" id="score-display">0/10</span></div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <a href="index.html" class="btn-next-bab" style="background:linear-gradient(135deg,#2db87a,#1e8a5a);box-shadow:0 4px 14px rgba(45,184,122,0.35);"><div><span class="next-label">🎉 Tamat! Kembali ke</span><span class="next-title">🏠 Laman Utama</span></div><span class="next-arrow">✓</span></a>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt-result">▶ Tonton Video di YouTube – EasySejarah</a>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Sains T4 &amp; T5</p>
+    <div class="bab-chips">
+      <a href="Kuiz_Sains_T4B1_Keselamatan.html" class="chip">T4 B1 ✓</a>
+      <a href="Kuiz_Sains_T4B2_Bantuan_Kecemasan.html" class="chip">T4 B2 ✓</a>
+      <a href="Kuiz_Sains_T4B3_Teknik_Mengukur.html" class="chip">T4 B3 ✓</a>
+      <a href="Kuiz_Sains_T4B4_Teknologi_Hijau.html" class="chip">T4 B4 ✓</a>
+      <a href="Kuiz_Sains_T4B5_Genetik.html" class="chip">T4 B5 ✓</a>
+      <a href="Kuiz_Sains_T4B6_Sokongan_Pergerakan.html" class="chip">T4 B6 ✓</a>
+      <a href="Kuiz_Sains_T4B7_Koordinasi.html" class="chip">T4 B7 ✓</a>
+      <a href="Kuiz_Sains_T4B8_Unsur_Bahan.html" class="chip">T4 B8 ✓</a>
+      <a href="Kuiz_Sains_T4B9_Kimia_Industri.html" class="chip">T4 B9 ✓</a>
+      <a href="Kuiz_Sains_T4B10_Kimia_Perubatan.html" class="chip">T4 B10 ✓</a>
+      <a href="Kuiz_Sains_T4B11_Gerakan_Linear.html" class="chip">T4 B11 ✓</a>
+      <a href="Kuiz_Sains_T4B12_Tenaga_Nuklear.html" class="chip">T4 B12 ✓</a>
+      <a href="Kuiz_Sains_T5B1.html" class="chip">T5 B1 ✓</a>
+      <a href="Kuiz_Sains_T5B2_Nutrisi_Makanan.html" class="chip">T5 B2 ✓</a>
+      <a href="Kuiz_Sains_T5B3_Kelestarian.html" class="chip">T5 B3 ✓</a>
+      <a href="Kuiz_Sains_T5B4_Kadar_TindakBalas.html" class="chip">T5 B4 ✓</a>
+      <a href="Kuiz_Sains_T5B5_Sebatian_Karbon.html" class="chip">T5 B5 ✓</a>
+      <a href="Kuiz_Sains_T5B6_Kanser.html" class="chip">T5 B6 ✓</a>
+      <a href="Kuiz_Sains_T5B7_Tekanan.html" class="chip">T5 B7 ✓</a>
+      <span class="chip active">T5 B8 ✓</span>
+    </div>
+  </div>
+</div>
+<footer>© 2025 EasySejarah · Soalan berdasarkan buku teks SPM Sains Tingkatan 5 (KPM)</footer>
+<script>
+  const CORRECT={1:1,2:1,3:2,4:0,5:0,6:0,7:2,8:2,9:2,10:3};const TOTAL=10;let score=0,answered=0;
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');const q=parseInt(card.dataset.q);
+      const chosen=parseInt(this.dataset.ans);const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(parseInt(b.dataset.ans)===correct)b.classList.add('correct');});}
+      answered++;updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+  function nextQ(c){document.querySelector('[data-q="'+c+'"]').classList.remove('active');const n=document.querySelector('[data-q="'+(c+1)+'"]');if(n){n.classList.add('active');n.scrollIntoView({behavior:'smooth',block:'start'});}}
+  function updateProgress(){const p=(answered/TOTAL)*100;document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';}
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');rs.classList.add('show');rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;document.getElementById('stat-salah').textContent=TOTAL-score;document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai bab ini sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula soalan yang salah dan cuba sekali lagi.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Cuba semak semula konsep utama bab ini dan ulangi kuiz.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota bab ini, kemudian cuba kuiz sekali lagi.';}
+    document.getElementById('result-title').textContent=title;document.getElementById('result-subtitle').textContent=sub;
+  }
+  function retryQuiz(){
+    score=0;answered=0;updateProgress();
+    document.getElementById('result-section').classList.remove('show');document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
