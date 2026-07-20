@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Sains T4 Bab 11 | EasySejarah</title>
+<meta name="description" content="Kuiz Sains Sains T4 Bab 11 — 15 soalan MCQ dengan jawapan dan huraian lengkap. Percuma untuk pelajar SPM Malaysia.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Kuiz Sains T4 Bab 11","educationalLevel":"SPM","provider":{"@type":"Organization","name":"EasySejarah","url":"https://www.easysejarah.com"}}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root{--kuning:#F7B731;--hitam:#1A1A2E;--hijau:#2D9E5F;--merah:#D62828;--kad:#252538;--ungu:#7c5cbf;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans',sans-serif;background:var(--hitam);color:#fff;min-height:100vh;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:2px solid rgba(124,92,191,0.3);position:sticky;top:0;background:var(--hitam);z-index:99;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;}.logo span{color:var(--ungu);}
+  .badge-topik{background:rgba(124,92,191,0.15);border:1px solid var(--ungu);color:var(--ungu);font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;}
+  .hero{text-align:center;padding:48px 24px 32px;max-width:640px;margin:0 auto;}
+  .hero-eyebrow{color:var(--ungu);font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+  .hero h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.6rem,5.5vw,2.5rem);line-height:1.15;margin-bottom:12px;}
+  .hero h1 em{font-style:normal;color:var(--kuning);}
+  .hero p{color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.6;margin-bottom:24px;}
+  .progress-wrap{background:rgba(255,255,255,0.1);border-radius:999px;height:6px;margin-bottom:6px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--ungu);border-radius:999px;transition:width 0.4s ease;width:0%;}
+  .progress-label{font-size:0.76rem;color:rgba(255,255,255,0.4);text-align:right;}
+  .quiz-section{max-width:680px;margin:0 auto;padding:0 20px 80px;}
+  .question-card{background:var(--kad);border-radius:16px;padding:28px 24px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.06);display:none;animation:fadeUp 0.3s ease;}
+  .question-card.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .q-number{font-family:'Poppins',sans-serif;font-size:0.7rem;font-weight:700;color:var(--ungu);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .q-text{font-family:'Poppins',sans-serif;font-size:clamp(0.92rem,3vw,1.05rem);font-weight:600;line-height:1.5;margin-bottom:22px;color:#fff;}
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .option-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;cursor:pointer;text-align:left;font-family:'Noto Sans',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.82);transition:border-color 0.15s,background 0.15s;width:100%;}
+  .option-btn:hover:not(:disabled){border-color:var(--ungu);background:rgba(124,92,191,0.1);}
+  .option-btn:disabled{cursor:default;}
+  .option-letter{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.1);font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .option-btn.correct{border-color:var(--hijau);background:rgba(45,158,95,0.14);}
+  .option-btn.correct .option-letter{background:var(--hijau);color:#fff;}
+  .option-btn.wrong{border-color:var(--merah);background:rgba(214,40,40,0.12);}
+  .option-btn.wrong .option-letter{background:var(--merah);color:#fff;}
+  .explanation{display:none;margin-top:18px;padding:14px 16px;background:rgba(124,92,191,0.09);border-left:3px solid var(--ungu);border-radius:0 8px 8px 0;font-size:0.85rem;line-height:1.65;color:rgba(255,255,255,0.78);}
+  .explanation.show{display:block;}
+  .explanation strong{color:var(--kuning);}
+  .btn-next{display:none;margin-top:18px;width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:opacity 0.2s;}
+  .btn-next:hover{opacity:0.88;}.btn-next.show{display:block;}
+  #result-section{display:none;max-width:580px;margin:0 auto;padding:0 20px 80px;text-align:center;}
+  #result-section.show{display:block;}
+  .result-card{background:var(--kad);border-radius:20px;padding:40px 28px;border:1px solid rgba(255,255,255,0.08);}
+  .score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--ungu) var(--pct,0%),rgba(255,255,255,0.08) 0%);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;}
+  .score-ring::after{content:'';position:absolute;width:88px;height:88px;background:var(--kad);border-radius:50%;}
+  .score-number{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.8rem;color:var(--ungu);position:relative;z-index:1;}
+  .result-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;margin-bottom:8px;}
+  .result-subtitle{color:rgba(255,255,255,0.5);font-size:0.88rem;line-height:1.6;margin-bottom:28px;}
+  .stat-row{display:flex;justify-content:center;gap:18px;margin-bottom:28px;}
+  .stat-box{background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 20px;min-width:82px;}
+  .stat-val{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;color:var(--ungu);display:block;}
+  .stat-lbl{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.5px;}
+  .btn-retry{width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;margin-bottom:12px;}
+  .btn-retry:hover{opacity:0.88;}
+  .btn-yt-result{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;text-decoration:none;padding:13px 22px;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.92rem;transition:opacity 0.2s;width:100%;justify-content:center;margin-top:12px;}
+  .btn-yt-result:hover{opacity:0.85;}
+  .btn-next-bab{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#7c5cbf,#5a3d9a);color:#fff;text-decoration:none;padding:16px 22px;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:12px;transition:opacity 0.2s;gap:12px;box-shadow:0 4px 14px rgba(124,92,191,0.35);}
+  .btn-next-bab:hover{opacity:0.88;}
+  .btn-next-bab .next-label{font-size:0.7rem;font-weight:600;opacity:0.8;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px;}
+  .btn-next-bab .next-title{display:block;}.btn-next-bab .next-arrow{font-size:1.4rem;flex-shrink:0;}
+  .bab-nav{margin-top:32px;text-align:center;}
+  .bab-nav p{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+  .bab-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .chip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.55);border-radius:999px;padding:6px 14px;font-size:0.78rem;text-decoration:none;}
+  .chip.active{border-color:var(--ungu);color:var(--ungu);}.chip.coming{opacity:0.3;cursor:default;}
+  footer{text-align:center;padding:24px 20px;font-size:0.75rem;color:rgba(255,255,255,0.18);border-top:1px solid rgba(255,255,255,0.06);margin-top:20px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#7c5cbf'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a>
+  <div class="badge-topik">Sains T4 Bab 11</div>
+</header>
+<div class="hero">
+  <div class="hero-eyebrow">Sains · Sains T4 Bab 11</div>
+  <h1>T4 Bab 11<br><em>Gerakan Linear</em></h1>
+  <p>15 soalan merangkumi jarak vs sesaran, laju vs halaju, pita detik (jenis gerakan), graf sesaran-masa, graf halaju-masa (kecerunan=pecutan, luas=sesaran), jatuh bebas (vakum), gerakan antigraviti, inersia & jisim, aplikasi inersia (beg udara, tali pinggang), dan pengiraan numerikal.</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 15 soalan</div>
+</div>
+<div class="quiz-section" id="quiz-section">
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 15</div>
+    <div class="q-text">Apakah perbezaan utama antara jarak dengan sesaran bagi suatu objek yang bergerak?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Jarak mengambil kira arah gerakan, manakala sesaran tidak mengambil kira arah gerakan.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Jarak ialah jumlah panjang lintasan, manakala sesaran ialah jarak lintasan terpendek dalam arah tertentu.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Jarak diukur dalam unit kilometer sahaja, manakala sesaran diukur dalam unit meter sahaja.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Jarak sentiasa bernilai negatif, manakala sesaran sentiasa bernilai positif.</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>Jarak ditakrifkan sebagai jumlah panjang lintasan gerakan, manakala sesaran ialah jarak lintasan terpendek yang menyambungkan dua lokasi dalam arah tertentu.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.1 Gerakan Linear - Jarak dan Sesaran</span></div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="2">
+    <div class="q-number">Soalan 2 daripada 15</div>
+    <div class="q-text">Antara pernyataan berikut, yang manakah benar tentang inersia?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Inersia ialah kuantiti fizik yang diukur dalam unit kilogram (kg).</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Inersia bertambah apabila jisim sesuatu objek berkurang.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Inersia bukan kuantiti fizik dan tidak mempunyai nilai atau unit.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Inersia hanya wujud pada objek yang sedang bergerak sahaja.</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: C</strong><br>Inersia merupakan sifat semula jadi objek dan bukan kuantiti fizik, maka ia tidak boleh diukur, tiada nilai dan tiada unit.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.4 Jisim dan Inersia - Inersia</span></div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="3">
+    <div class="q-number">Soalan 3 daripada 15</div>
+    <div class="q-text">Bilakah sesuatu objek dikatakan mengalami keadaan jatuh bebas?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Apabila objek jatuh di bawah tindakan daya graviti sahaja tanpa rintangan udara.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Apabila objek jatuh dengan kelajuan malar di atmosfera Bumi.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Apabila jisim objek adalah sangat ringan seperti sehelai bulu ayam.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Apabila daya geseran udara adalah lebih besar daripada daya graviti.</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: A</strong><br>Jatuh bebas berlaku apabila sesuatu objek jatuh di bawah tindakan daya graviti sahaja, iaitu berlaku dalam keadaan vakum.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.3 Pecutan Graviti dan Jatuh Bebas</span></div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="4">
+    <div class="q-number">Soalan 4 daripada 15</div>
+    <div class="q-text">Sebuah kereta bergerak ke arah timur dengan halaju +2 m/s. Apakah yang diwakili oleh nilai halaju -2 m/s bagi kereta yang sama?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Kereta itu telah berhenti bergerak sepenuhnya.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kereta itu bergerak ke arah barat dengan kelajuan yang sama.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Kereta itu mengalami pecutan seragam ke arah timur.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Jarak yang dilalui oleh kereta menjadi semakin berkurang.</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: B</strong><br>Tanda positif dan negatif pada nilai halaju mewakili arah gerakan; jika arah timur bernilai positif, maka tanda negatif menunjukkan gerakan ke arah bertentangan (barat).<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.1 Gerakan Linear - Halaju</span></div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="5">
+    <div class="q-number">Soalan 5 daripada 15</div>
+    <div class="q-text">Sekeping pita detik menunjukkan jarak antara dua titik berturutan bertambah secara seragam. Apakah jenis gerakan yang ditunjukkan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Halaju seragam</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Nyahpecutan seragam</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Objek berada dalam keadaan pegun</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Pecutan seragam</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: D</strong><br>Apabila jarak antara dua titik berturutan pada pita detik bertambah secara seragam, halaju objek bertambah secara seragam yang menunjukkan pecutan seragam.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.1 Gerakan Linear - Jenis Gerakan Linear</span></div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="6">
+    <div class="q-number">Soalan 6 daripada 15</div>
+    <div class="q-text">Dalam satu graf sesaran melawan masa, bahagian garis lurus menunjukkan kecerunan yang negatif dan seragam. Apakah tafsiran bagi gerakan objek tersebut?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Objek bergerak berpatah balik ke titik permulaan dengan halaju seragam.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Objek berada dalam keadaan rehat atau pegun.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Objek mengalami pecutan yang bertambah secara seragam.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Objek bergerak menjauhi titik permulaan dengan halaju semakin meningkat.</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: A</strong><br>Kecerunan negatif pada graf sesaran-masa menunjukkan halaju bernilai negatif, iaitu objek bergerak dalam arah bertentangan (berpatah balik ke titik permulaan).<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.2 Graf Gerakan Linear - Graf sesaran-masa</span></div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="7">
+    <div class="q-number">Soalan 7 daripada 15</div>
+    <div class="q-text">Seorang murid ingin menentukan pecutan dan sesaran sebuah motosikal daripada graf halaju-masa. Bagaimanakah maklumat tersebut diperoleh?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Pecutan diperoleh daripada luas di bawah graf, manakala sesaran diperoleh daripada kecerunan graf.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Pecutan dan sesaran kedua-duanya diperoleh daripada luas di bawah graf.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Pecutan diperoleh daripada kecerunan graf, manakala sesaran diperoleh daripada luas di bawah graf.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Pecutan diperoleh daripada nilai paksi-y, manakala sesaran diperoleh daripada nilai paksi-x.</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: C</strong><br>Pada graf halaju-masa, kecerunan graf mewakili pecutan manakala luas di bawah graf mewakili sesaran.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.2 Graf Gerakan Linear - Graf halaju-masa</span></div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="8">
+    <div class="q-number">Soalan 8 daripada 15</div>
+    <div class="q-text">Dalam Eksperimen 11.2, sehelai kertas dan duit syiling dijatuhkan serentak dalam tiub silinder vakum. Mengapakah kedua-dua objek sampai ke dasar tiub pada masa yang sama?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Daya graviti bertindak hanya ke atas duit syiling.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Tiada rintangan udara yang menghalang gerakan kedua-dua objek.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Jisim kertas bertambah menjadi sama dengan jisim duit syiling.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Udara di dalam tiub menolak kedua-dua objek ke bawah dengan daya yang sama.</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: B</strong><br>Di dalam kebuk vakum, tiada rintangan udara yang wujud, membolehkan semua objek mengalami pecutan graviti yang sama dan mendarat pada masa yang sama tanpa mengira jisim.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.3 Pecutan Graviti dan Jatuh Bebas - Eksperimen 11.2</span></div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="9">
+    <div class="q-number">Soalan 9 daripada 15</div>
+    <div class="q-text">Apakah yang berlaku kepada halaju dan sesaran sebuah bola apabila dilontarkan menegak ke atas sehingga mencapai ketinggian maksimum?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Halaju bertambah secara seragam dan sesaran menjadi sifar pada titik tertinggi.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Halaju menjadi sifar pada ketinggian maksimum manakala sesarannya adalah maksimum.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Halaju dan sesaran kedua-duanya bernilai sifar sepanjang gerakan ke atas.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Halaju kekal malar manakala sesaran berkurang secara seragam.</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: B</strong><br>Apabila objek dilontar ke atas dan mencapai ketinggian (sesaran) maksimum, halajunya berkurang menjadi sifar sebelum berhenti seketika dan jatuh semula.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.3 Pecutan Graviti dan Jatuh Bebas - Graf Gerakan Antigraviti</span></div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="10">
+    <div class="q-number">Soalan 10 daripada 15</div>
+    <div class="q-text">Apabila pemegang tukul yang longgar dihentakkan pada permukaan keras, kepala tukul menjadi ketat. Penerangan yang betul berdasarkan konsep sains ialah?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Daya geseran menolak kepala tukul ke atas secara tiba-tiba.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Jisim kepala tukul berkurang apabila dihentakkan pada permukaan keras.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Inersia kepala tukul mengekalkan gerakannya ke bawah apabila pemegang berhenti.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Daya graviti Bumi menarik pemegang tukul tetapi tidak menarik kepala tukul.</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: C</strong><br>Hentakan laju menyebabkan kepala tukul bergerak ke bawah; apabila pemegang berhenti, inersia kepala tukul mengekalkan keadaan asalnya yang sedang bergerak ke bawah sehingga ia ketat pada pemegang.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.4 Jisim dan Inersia - Kesan Positif Inersia</span></div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="11">
+    <div class="q-number">Soalan 11 daripada 15</div>
+    <div class="q-text">Mengapakah sebuah troli pasar raya yang sarat dengan barang lebih sukar untuk dimulakan gerakannya berbanding troli yang kosong?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Troli yang sarat mempunyai jisim yang lebih besar, maka inersianya lebih besar untuk menentang perubahan keadaan pegun.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Troli yang kosong mempunyai inersia yang lebih besar kerana tiada beban di dalamnya.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Troli yang sarat mempunyai nilai pecutan graviti yang lebih tinggi berbanding troli kosong.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Troli yang kosong tidak dipengaruhi oleh Hukum Gerakan Newton Pertama.</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: A</strong><br>Semakin besar jisim sesuatu objek, semakin besar inersia objek tersebut. Jisim troli yang penuh barang adalah lebih besar, maka inersianya lebih besar dan sukar digerakkan dari keadaan pegun.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.4 Jisim dan Inersia - Hubungan antara Jisim dengan Inersia</span></div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="12">
+    <div class="q-number">Soalan 12 daripada 15</div>
+    <div class="q-text">Apakah tujuan utama pemasangan beg udara dan penggunaan tali pinggang keselamatan dalam kenderaan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Menambah jisim kenderaan supaya inersianya menjadi lebih kecil.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Menghilangkan daya graviti yang bertindak ke atas pemandu semasa kemalangan.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Memastikan kenderaan dapat memecut dengan lebih laju di jalan raya.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Mengurangkan kesan inersia yang boleh menyebabkan kecederaan semasa kenderaan berhenti mendadak.</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: D</strong><br>Beg udara, penyandar kepala, dan tali pinggang keselamatan direka untuk mengurangkan kesan inersia yang boleh menyebabkan kecederaan kepada pemandu atau penumpang apabila kenderaan berhenti secara tiba-tiba.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.4 Jisim dan Inersia - Kesan Negatif Inersia</span></div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="13">
+    <div class="q-number">Soalan 13 daripada 15</div>
+    <div class="q-text">Syafiq berlari dari titik R ke S (100 m utara), kemudian ke T (150 m timur), dan seterusnya ke U (100 m selatan) dalam tempoh masa 60 saat. Berapakah laju purata larian Syafiq?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>2.50 m/s</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>4.17 m/s</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>5.83 m/s</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>7.95 m/s</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: C</strong><br>Jumlah jarak = 100 m + 150 m + 100 m = 350 m. Laju purata = 350 m / 60 s = 5.83 m/s.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.1 Gerakan Linear - Menyelesaikan Masalah Linear</span></div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="14">
+    <div class="q-number">Soalan 14 daripada 15</div>
+    <div class="q-text">Satu keratan pita detik yang mengandungi 5 detik mempunyai panjang 10 cm. Jika jangka masa detik bergetar dengan frekuensi 50 Hz (1 detik = 0.02 s), berapakah halaju bagi keratan pita detik tersebut?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>100 cm/s</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>50 cm/s</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>10 cm/s</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>200 cm/s</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: A</strong><br>Masa untuk 5 detik = 5 × 0.02 s = 0.1 s. Halaju = Sesaran / Masa = 10 cm / 0.1 s = 100 cm/s.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.1 Gerakan Linear - Mengukur Halaju dengan Jangka Masa Detik</span></div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="15">
+    <div class="q-number">Soalan 15 daripada 15</div>
+    <div class="q-text">Berdasarkan graf halaju-masa, halaju sebuah objek berkurang daripada 3 m/s pada masa t = 8 saat kepada 0 m/s pada masa t = 12 saat. Berapakah nilai pecutan objek tersebut?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>0.75 m/s²</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>-0.25 m/s²</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>1.25 m/s²</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>-0.75 m/s²</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: D</strong><br>Pecutan = (Halaju akhir - Halaju awal) / Masa = (0 - 3) / (12 - 8) = -3 / 4 = -0.75 m/s².<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 11.2 Graf Gerakan Linear - Menyelesaikan Masalah Numerikal</span></div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring"><span class="score-number" id="score-display">0/15</span></div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <a href="Kuiz_Sains_T4B12_Tenaga_Nuklear.html" class="btn-next-bab"><div><span class="next-label">Bab Seterusnya →</span><span class="next-title">T4 Bab 12: Tenaga Nuklear</span></div><span class="next-arrow">→</span></a>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt-result">▶ Tonton Video di YouTube – EasySejarah</a>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Sains T4 &amp; T5</p>
+    <div class="bab-chips">
+      <a href="Kuiz_Sains_T4B1_Keselamatan.html" class="chip">T4 B1 ✓</a>
+      <a href="Kuiz_Sains_T4B2_Bantuan_Kecemasan.html" class="chip">T4 B2 ✓</a>
+      <a href="Kuiz_Sains_T4B3_Teknik_Mengukur.html" class="chip">T4 B3 ✓</a>
+      <a href="Kuiz_Sains_T4B4_Teknologi_Hijau.html" class="chip">T4 B4 ✓</a>
+      <a href="Kuiz_Sains_T4B5_Genetik.html" class="chip">T4 B5 ✓</a>
+      <a href="Kuiz_Sains_T4B6_Sokongan_Pergerakan.html" class="chip">T4 B6 ✓</a>
+      <a href="Kuiz_Sains_T4B7_Koordinasi.html" class="chip">T4 B7 ✓</a>
+      <a href="Kuiz_Sains_T4B8_Unsur_Bahan.html" class="chip">T4 B8 ✓</a>
+      <a href="Kuiz_Sains_T4B9_Kimia_Industri.html" class="chip">T4 B9 ✓</a>
+      <a href="Kuiz_Sains_T4B10_Kimia_Perubatan.html" class="chip">T4 B10 ✓</a>
+      <span class="chip active">T4 B11 ✓</span>
+      <a href="Kuiz_Sains_T4B12_Tenaga_Nuklear.html" class="chip">T4 B12 ✓</a>
+      <a href="Kuiz_Sains_T5B1.html" class="chip">T5 B1 ✓</a>
+      <a href="Kuiz_Sains_T5B2_Nutrisi_Makanan.html" class="chip">T5 B2 ✓</a>
+      <a href="Kuiz_Sains_T5B3_Kelestarian.html" class="chip">T5 B3 ✓</a>
+      <a href="Kuiz_Sains_T5B4_Kadar_TindakBalas.html" class="chip">T5 B4 ✓</a>
+      <a href="Kuiz_Sains_T5B5_Sebatian_Karbon.html" class="chip">T5 B5 ✓</a>
+    </div>
+  </div>
+</div>
+<footer>© 2025 EasySejarah · Soalan berdasarkan buku teks SPM Sains Tingkatan 4 (KPM)</footer>
+<script>
+  const CORRECT={1:1,2:2,3:0,4:1,5:3,6:0,7:2,8:1,9:1,10:2,11:0,12:3,13:2,14:0,15:3};const TOTAL=15;let score=0,answered=0;
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');const q=parseInt(card.dataset.q);
+      const chosen=parseInt(this.dataset.ans);const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(parseInt(b.dataset.ans)===correct)b.classList.add('correct');});}
+      answered++;updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+  function nextQ(c){document.querySelector('[data-q="'+c+'"]').classList.remove('active');const n=document.querySelector('[data-q="'+(c+1)+'"]');if(n){n.classList.add('active');n.scrollIntoView({behavior:'smooth',block:'start'});}}
+  function updateProgress(){const p=(answered/TOTAL)*100;document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';}
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');rs.classList.add('show');rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;document.getElementById('stat-salah').textContent=TOTAL-score;document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai bab ini sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula soalan yang salah dan cuba sekali lagi.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Cuba semak semula konsep utama bab ini dan ulangi kuiz.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota bab ini, kemudian cuba kuiz sekali lagi.';}
+    document.getElementById('result-title').textContent=title;document.getElementById('result-subtitle').textContent=sub;
+  }
+  function retryQuiz(){
+    score=0;answered=0;updateProgress();
+    document.getElementById('result-section').classList.remove('show');document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>

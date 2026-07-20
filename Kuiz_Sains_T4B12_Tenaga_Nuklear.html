@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Sains T4 Bab 12 | EasySejarah</title>
+<meta name="description" content="Kuiz Sains Sains T4 Bab 12 — 15 soalan MCQ dengan jawapan dan huraian lengkap. Percuma untuk pelajar SPM Malaysia.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Kuiz Sains T4 Bab 12","educationalLevel":"SPM","provider":{"@type":"Organization","name":"EasySejarah","url":"https://www.easysejarah.com"}}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root{--kuning:#F7B731;--hitam:#1A1A2E;--hijau:#2D9E5F;--merah:#D62828;--kad:#252538;--ungu:#7c5cbf;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans',sans-serif;background:var(--hitam);color:#fff;min-height:100vh;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:2px solid rgba(124,92,191,0.3);position:sticky;top:0;background:var(--hitam);z-index:99;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;}.logo span{color:var(--ungu);}
+  .badge-topik{background:rgba(124,92,191,0.15);border:1px solid var(--ungu);color:var(--ungu);font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;}
+  .hero{text-align:center;padding:48px 24px 32px;max-width:640px;margin:0 auto;}
+  .hero-eyebrow{color:var(--ungu);font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+  .hero h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.6rem,5.5vw,2.5rem);line-height:1.15;margin-bottom:12px;}
+  .hero h1 em{font-style:normal;color:var(--kuning);}
+  .hero p{color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.6;margin-bottom:24px;}
+  .progress-wrap{background:rgba(255,255,255,0.1);border-radius:999px;height:6px;margin-bottom:6px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--ungu);border-radius:999px;transition:width 0.4s ease;width:0%;}
+  .progress-label{font-size:0.76rem;color:rgba(255,255,255,0.4);text-align:right;}
+  .quiz-section{max-width:680px;margin:0 auto;padding:0 20px 80px;}
+  .question-card{background:var(--kad);border-radius:16px;padding:28px 24px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.06);display:none;animation:fadeUp 0.3s ease;}
+  .question-card.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .q-number{font-family:'Poppins',sans-serif;font-size:0.7rem;font-weight:700;color:var(--ungu);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .q-text{font-family:'Poppins',sans-serif;font-size:clamp(0.92rem,3vw,1.05rem);font-weight:600;line-height:1.5;margin-bottom:22px;color:#fff;}
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .option-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;cursor:pointer;text-align:left;font-family:'Noto Sans',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.82);transition:border-color 0.15s,background 0.15s;width:100%;}
+  .option-btn:hover:not(:disabled){border-color:var(--ungu);background:rgba(124,92,191,0.1);}
+  .option-btn:disabled{cursor:default;}
+  .option-letter{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.1);font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .option-btn.correct{border-color:var(--hijau);background:rgba(45,158,95,0.14);}
+  .option-btn.correct .option-letter{background:var(--hijau);color:#fff;}
+  .option-btn.wrong{border-color:var(--merah);background:rgba(214,40,40,0.12);}
+  .option-btn.wrong .option-letter{background:var(--merah);color:#fff;}
+  .explanation{display:none;margin-top:18px;padding:14px 16px;background:rgba(124,92,191,0.09);border-left:3px solid var(--ungu);border-radius:0 8px 8px 0;font-size:0.85rem;line-height:1.65;color:rgba(255,255,255,0.78);}
+  .explanation.show{display:block;}
+  .explanation strong{color:var(--kuning);}
+  .btn-next{display:none;margin-top:18px;width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:opacity 0.2s;}
+  .btn-next:hover{opacity:0.88;}.btn-next.show{display:block;}
+  #result-section{display:none;max-width:580px;margin:0 auto;padding:0 20px 80px;text-align:center;}
+  #result-section.show{display:block;}
+  .result-card{background:var(--kad);border-radius:20px;padding:40px 28px;border:1px solid rgba(255,255,255,0.08);}
+  .score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--ungu) var(--pct,0%),rgba(255,255,255,0.08) 0%);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;}
+  .score-ring::after{content:'';position:absolute;width:88px;height:88px;background:var(--kad);border-radius:50%;}
+  .score-number{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.8rem;color:var(--ungu);position:relative;z-index:1;}
+  .result-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;margin-bottom:8px;}
+  .result-subtitle{color:rgba(255,255,255,0.5);font-size:0.88rem;line-height:1.6;margin-bottom:28px;}
+  .stat-row{display:flex;justify-content:center;gap:18px;margin-bottom:28px;}
+  .stat-box{background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 20px;min-width:82px;}
+  .stat-val{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;color:var(--ungu);display:block;}
+  .stat-lbl{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.5px;}
+  .btn-retry{width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;margin-bottom:12px;}
+  .btn-retry:hover{opacity:0.88;}
+  .btn-yt-result{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;text-decoration:none;padding:13px 22px;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.92rem;transition:opacity 0.2s;width:100%;justify-content:center;margin-top:12px;}
+  .btn-yt-result:hover{opacity:0.85;}
+  .btn-next-bab{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#7c5cbf,#5a3d9a);color:#fff;text-decoration:none;padding:16px 22px;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:12px;transition:opacity 0.2s;gap:12px;box-shadow:0 4px 14px rgba(124,92,191,0.35);}
+  .btn-next-bab:hover{opacity:0.88;}
+  .btn-next-bab .next-label{font-size:0.7rem;font-weight:600;opacity:0.8;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px;}
+  .btn-next-bab .next-title{display:block;}.btn-next-bab .next-arrow{font-size:1.4rem;flex-shrink:0;}
+  .bab-nav{margin-top:32px;text-align:center;}
+  .bab-nav p{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+  .bab-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .chip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.55);border-radius:999px;padding:6px 14px;font-size:0.78rem;text-decoration:none;}
+  .chip.active{border-color:var(--ungu);color:var(--ungu);}.chip.coming{opacity:0.3;cursor:default;}
+  footer{text-align:center;padding:24px 20px;font-size:0.75rem;color:rgba(255,255,255,0.18);border-top:1px solid rgba(255,255,255,0.06);margin-top:20px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#7c5cbf'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a>
+  <div class="badge-topik">Sains T4 Bab 12</div>
+</header>
+<div class="hero">
+  <div class="hero-eyebrow">Sains · Sains T4 Bab 12</div>
+  <h1>T4 Bab 12<br><em>Tenaga Nuklear</em></h1>
+  <p>15 soalan merangkumi Agensi Nuklear Malaysia (torium, RTP 1 MW), pembelahan vs pelakuran nukleus, rod pengawal boron, urutan tenaga nuklear→haba→kinetik→elektrik, pelakuran di Matahari (isotop hidrogen), kelebihan nuklear vs fosil, Slovakia (eksport elektrik), aruhan elektromagnet, plutonium (bom atom), faktor geografi (punca air), kesan somatik vs genetik, ujian nuklear bawah tanah, dan Hiroshima/Nagasaki 1945.</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 15 soalan</div>
+</div>
+<div class="quiz-section" id="quiz-section">
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 15</div>
+    <div class="q-text">Apakah unsur alternatif yang sedang dikaji oleh Agensi Nuklear Malaysia bagi menggantikan uranium sebagai bahan api nuklear?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Torium</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Plutonium</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Deuterium</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Tritium</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: A</strong><br>Agensi Nuklear Malaysia menjalankan penyelidikan mengenai torium sebagai bahan api nuklear alternatif untuk menggantikan uranium dalam reaktor penyelidikan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.1 Penggunaan Tenaga Nuklear (Rencana Sains)</span></div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="2">
+    <div class="q-number">Soalan 2 daripada 15</div>
+    <div class="q-text">Berapakah kapasiti kuasa reaktor TRIGA PUSPATI (RTP) di Malaysia dan apakah kegunaan utamanya?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>1000 MegaWatt untuk penjanaan elektrik komersial</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>100 MegaWatt untuk pembentukan bahan api plutonium</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>10 MegaWatt untuk pembersihan sisa radioaktif</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>1 MegaWatt untuk latihan, penyelidikan dan penghasilan radioisotop</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: D</strong><br>Reaktor TRIGA PUSPATI berkuasa 1 MegaWatt dan direka hanya untuk tujuan latihan, penyelidikan dan penghasilan radioisotop sahaja.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.2 Penghasilan Tenaga Nuklear (Negaraku)</span></div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="3">
+    <div class="q-number">Soalan 3 daripada 15</div>
+    <div class="q-text">Antara kesan penyebaran radiasi berikut, yang manakah dikategori sebagai kesan somatik akibat pendedahan radiasi?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Mutasi sel</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kecacatan pada bayi</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Keguguran rambut</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Kanser</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: C</strong><br>Keguguran rambut, keletihan, loya, katarak dan leukemia merupakan kesan somatik akibat radiasi nuklear, manakala kecacatan bayi, mutasi sel dan kanser ialah kesan genetik.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.3 Impak Penggunaan Tenaga Nuklear (Rajah 12.6)</span></div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="4">
+    <div class="q-number">Soalan 4 daripada 15</div>
+    <div class="q-text">Antara pernyataan berikut, yang manakah membandingkan proses pembelahan nukleus dan pelakuran nukleus dengan betul?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Pembelahan nukleus membebaskan lebih banyak tenaga berbanding pelakuran nukleus.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Pembelahan nukleus menggabungkan dua nukleus ringan, manakala pelakuran nukleus memecahkan nukleus berat.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Pelakuran nukleus berlaku dalam reaktor nuklear biasa, manakala pembelahan nukleus hanya berlaku di Matahari.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Pelakuran nukleus memerlukan suhu yang amat tinggi untuk berlaku, manakala pembelahan nukleus bermula dengan bedilan neutron perlahan.</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: D</strong><br>Pelakuran nukleus memerlukan suhu yang amat tinggi untuk menggabungkan nukleus ringan, manakala pembelahan nukleus berlaku apabila satu neutron perlahan membedil nukleus berat.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.2 Penghasilan Tenaga Nuklear</span></div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="5">
+    <div class="q-number">Soalan 5 daripada 15</div>
+    <div class="q-text">Sekiranya kadar tindak balas pembelahan nukleus di dalam reaktor menjadi terlalu pantas, apakah tindakan mekanikal yang berlaku untuk mengawalnya?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Rod pengawal boron diturunkan untuk menyerap neutron yang berlebihan.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Moderator grafit ditambah untuk mempercepatkan pergerakan neutron.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Pam agen penyejuk dihentikan supaya teras reaktor menjadi dingin.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Perisai konkrit dibuka untuk membebaskan gas panas berlebihan.</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: A</strong><br>Rod pengawal boron berfungsi mengawal kadar tindak balas pembelahan nukleus dengan menyerap neutron yang berlebihan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.2 Penghasilan Tenaga Nuklear (Rajah 12.5)</span></div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="6">
+    <div class="q-number">Soalan 6 daripada 15</div>
+    <div class="q-text">Apakah urutan perubahan bentuk tenaga yang betul dalam proses penjanaan tenaga elektrik di stesen jana kuasa nuklear?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Tenaga nuklear → Tenaga elektrik → Tenaga haba → Tenaga kinetik</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Tenaga nuklear → Tenaga haba → Tenaga kinetik → Tenaga elektrik</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Tenaga haba → Tenaga nuklear → Tenaga kinetik → Tenaga elektrik</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Tenaga kinetik → Tenaga haba → Tenaga nuklear → Tenaga elektrik</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: B</strong><br>Tindak balas nuklear membebaskan tenaga haba untuk memanaskan gas/stim, stim memutarkan turbin (tenaga kinetik), dan penjana memutarkan magnet untuk menghasilkan tenaga elektrik.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.2 Penghasilan Tenaga Nuklear</span></div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="7">
+    <div class="q-number">Soalan 7 daripada 15</div>
+    <div class="q-text">Mengapakah tindak balas pelakuran nukleus boleh berlaku secara berterusan di Matahari?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Matahari mengandungi unsur uranium-235 yang berkepekatan tinggi.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Matahari tidak mempunyai atmosfera yang boleh menghalang tindak balas berantai.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Matahari diselaputi perisai konkrit semula jadi yang memerangkap tenaga.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Matahari mempunyai isotop-isotop hidrogen dan suhu yang amat tinggi.</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: D</strong><br>Pelakuran nukleus berlaku secara berterusan di Matahari kerana Matahari mempunyai isotop-isotop hidrogen dan suhu yang amat tinggi.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.2 Penghasilan Tenaga Nuklear (Galeri Sains)</span></div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="8">
+    <div class="q-number">Soalan 8 daripada 15</div>
+    <div class="q-text">Apakah kelebihan utama penggunaan tenaga nuklear berbanding sumber bahan api fosil seperti arang batu dan petroleum?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Tenaga nuklear langsung tidak menghasilkan sebarang sisa radioaktif.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kos pembinaan stesen jana kuasa nuklear adalah jauh lebih murah.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Tenaga nuklear membebaskan jumlah gas rumah hijau yang sedikit dan menghasilkan tenaga yang lebih besar.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Stesen jana kuasa nuklear tidak memerlukan sumber air untuk proses penyejukan.</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: C</strong><br>Tenaga nuklear membebaskan jumlah gas rumah hijau yang sedikit dan menghasilkan tenaga yang lebih besar serta efisien berbanding sumber bahan api fosil.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.1 Penggunaan Tenaga Nuklear</span></div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="9">
+    <div class="q-number">Soalan 9 daripada 15</div>
+    <div class="q-text">Bagaimanakah negara Slovakia dapat menjadikan tenaga nuklear sebagai sumber pendapatan negara?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Reaktor nuklear Slovakia menghasilkan tenaga elektrik melebihi keperluan negaranya lalu membekalkannya kepada negara jiran.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Slovakia menjual bahan api uranium terpakai kepada negara-negara jiran.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Slovakia menyewakan Makmal Nasional Argonne kepada penyelidik luar negara.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Slovakia mengeksport teknologi perisai konkrit reaktor ke seluruh dunia.</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: A</strong><br>Reaktor nuklear di Slovakia mampu menghasilkan tenaga elektrik yang melebihi keperluan negaranya dan membekalkannya kepada negara jiran untuk mendapat keuntungan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.2 Penghasilan Tenaga Nuklear</span></div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="10">
+    <div class="q-number">Soalan 10 daripada 15</div>
+    <div class="q-text">Apakah prinsip sains yang digunakan oleh penjana elektrik di stesen jana kuasa nuklear untuk menghasilkan arus elektrik?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Pembelahan berantai neutron dalam cecair pendingin.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Aruhan elektromagnet apabila magnet diputarkan oleh turbin di dalam suatu gegelung.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Pemanasan gas argon secara terus oleh rod bahan api uranium.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Penyerapan sinaran mengion oleh perisai konkrit.</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: B</strong><br>Penjana elektrik menjanakan arus elektrik melalui proses aruhan elektromagnet apabila magnet berputar dalam suatu gegelung.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.2 Penghasilan Tenaga Nuklear (Rajah 12.5)</span></div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="11">
+    <div class="q-number">Soalan 11 daripada 15</div>
+    <div class="q-text">Apakah bahan sampingan daripada proses pembelahan nukleus di dalam reaktor yang boleh disalahgunakan untuk membuat bom atom?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Deuterium</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Torium</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Plutonium</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Helium</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: C</strong><br>Plutonium merupakan hasil sampingan daripada pembelahan nukleus di dalam reaktor nuklear yang boleh digunakan untuk membuat bom atom.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.3 Impak Penggunaan Tenaga Nuklear</span></div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="12">
+    <div class="q-number">Soalan 12 daripada 15</div>
+    <div class="q-text">Apakah faktor geografi utama yang perlu diambil kira semasa menentukan lokasi pembinaan stesen jana kuasa nuklear?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Berada di kawasan tanah tinggi bersuhu rendah.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Berada di kawasan pusat bandar yang padat penduduk.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Berada di kawasan pedalaman yang jauh dari jalan raya.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Berada berhampiran dengan punca air bagi memudahkan proses penyejukan.</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: D</strong><br>Kawasan bagi membangunkan stesen jana kuasa nuklear mestilah sangat strategik iaitu berhampiran dengan punca air bagi memudahkan proses penyejukan berlaku.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.4 Tenaga Nuklear di Malaysia</span></div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="13">
+    <div class="q-number">Soalan 13 daripada 15</div>
+    <div class="q-text">Apakah impak khusus yang berlaku terhadap alam sekitar sekiranya ujian nuklear dijalankan di bawah tanah?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Kesan radiasi terhadap tanah dan sumber air.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kemusnahan hidupan marin dan pencemaran lautan.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Peningkatan gas rumah hijau secara mendadak.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Terputusnya sistem komunikasi radio secara global.</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: A</strong><br>Ujian nuklear di bawah tanah akan menyebabkan kesan radiasi terhadap tanah dan sumber air.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.3 Impak Penggunaan Tenaga Nuklear (Impak Ujian Nuklear)</span></div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="14">
+    <div class="q-number">Soalan 14 daripada 15</div>
+    <div class="q-text">Malaysia kini menjana kira-kira 70% tenaga elektrik daripada gas asli dan mempunyai reaktor penyelidikan RTP (1 MW). Sekiranya Malaysia ingin membina stesen jana kuasa nuklear untuk penjanaan elektrik, apakah syarat kapasiti reaktor minimum yang mesti dibina?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Menggunakan semula reaktor RTP Bangi tanpa penambahan kapasiti.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Membina reaktor baharu yang mampu menghasilkan sekurang-kurangnya 1000 MegaWatt tenaga.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Membina 100 buah reaktor kecil berkuasa 10 MegaWatt di kawasan perindustrian.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Mengimport 70% tenaga elektrik dari reaktor BORAX-III di Amerika Syarikat.</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: B</strong><br>Malaysia perlu membina sebuah reaktor nuklear yang mampu menghasilkan tenaga 1000 MegaWatt jika mahu menjalankan penjanaan elektrik bersumberkan tenaga nuklear.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.2 Penghasilan Tenaga Nuklear (Negaraku)</span></div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="15">
+    <div class="q-number">Soalan 15 daripada 15</div>
+    <div class="q-text">Semasa peristiwa pengeboman atom di Hiroshima dan Nagasaki pada tahun 1945, apakah punca utama yang menyebabkan struktur besi mencair dan mengorbankan kira-kira 70,000 nyawa secara serta-merta?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Penceparan sisa radioaktif pepejal di kawasan perumahan.</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kebocoran cecair penyejuk teras reaktor ke dalam sistem bekalan air.</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Gelombang letupan dan keadaan seluruh bandar raya menjadi amat panas akibat letusan tenaga nuklear.</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Tindak balas berantai hidrogen yang menyerap seluruh gas oksigen di atmosfera.</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: C</strong><br>Letusan tenaga nuklear oleh bom atom menghasilkan gelombang letupan yang amat kuat mengorbankan kira-kira 70,000 nyawa serta-merta dan menyebabkan keadaan seluruh bandar raya menjadi amat panas sehingga mencairkan struktur besi.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 12.3 Impak Penggunaan Tenaga Nuklear</span></div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring"><span class="score-number" id="score-display">0/15</span></div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <a href="index.html" class="btn-next-bab" style="background:linear-gradient(135deg,#2db87a,#1e8a5a);box-shadow:0 4px 14px rgba(45,184,122,0.35);"><div><span class="next-label">🎉 Tamat! Kembali ke</span><span class="next-title">🏠 Laman Utama</span></div><span class="next-arrow">✓</span></a>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt-result">▶ Tonton Video di YouTube – EasySejarah</a>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Sains T4 &amp; T5</p>
+    <div class="bab-chips">
+      <a href="Kuiz_Sains_T4B1_Keselamatan.html" class="chip">T4 B1 ✓</a>
+      <a href="Kuiz_Sains_T4B2_Bantuan_Kecemasan.html" class="chip">T4 B2 ✓</a>
+      <a href="Kuiz_Sains_T4B3_Teknik_Mengukur.html" class="chip">T4 B3 ✓</a>
+      <a href="Kuiz_Sains_T4B4_Teknologi_Hijau.html" class="chip">T4 B4 ✓</a>
+      <a href="Kuiz_Sains_T4B5_Genetik.html" class="chip">T4 B5 ✓</a>
+      <a href="Kuiz_Sains_T4B6_Sokongan_Pergerakan.html" class="chip">T4 B6 ✓</a>
+      <a href="Kuiz_Sains_T4B7_Koordinasi.html" class="chip">T4 B7 ✓</a>
+      <a href="Kuiz_Sains_T4B8_Unsur_Bahan.html" class="chip">T4 B8 ✓</a>
+      <a href="Kuiz_Sains_T4B9_Kimia_Industri.html" class="chip">T4 B9 ✓</a>
+      <a href="Kuiz_Sains_T4B10_Kimia_Perubatan.html" class="chip">T4 B10 ✓</a>
+      <a href="Kuiz_Sains_T4B11_Gerakan_Linear.html" class="chip">T4 B11 ✓</a>
+      <span class="chip active">T4 B12 ✓</span>
+      <a href="Kuiz_Sains_T5B1.html" class="chip">T5 B1 ✓</a>
+      <a href="Kuiz_Sains_T5B2_Nutrisi_Makanan.html" class="chip">T5 B2 ✓</a>
+      <a href="Kuiz_Sains_T5B3_Kelestarian.html" class="chip">T5 B3 ✓</a>
+      <a href="Kuiz_Sains_T5B4_Kadar_TindakBalas.html" class="chip">T5 B4 ✓</a>
+      <a href="Kuiz_Sains_T5B5_Sebatian_Karbon.html" class="chip">T5 B5 ✓</a>
+    </div>
+  </div>
+</div>
+<footer>© 2025 EasySejarah · Soalan berdasarkan buku teks SPM Sains Tingkatan 4 (KPM)</footer>
+<script>
+  const CORRECT={1:0,2:3,3:2,4:3,5:0,6:1,7:3,8:2,9:0,10:1,11:2,12:3,13:0,14:1,15:2};const TOTAL=15;let score=0,answered=0;
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');const q=parseInt(card.dataset.q);
+      const chosen=parseInt(this.dataset.ans);const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(parseInt(b.dataset.ans)===correct)b.classList.add('correct');});}
+      answered++;updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+  function nextQ(c){document.querySelector('[data-q="'+c+'"]').classList.remove('active');const n=document.querySelector('[data-q="'+(c+1)+'"]');if(n){n.classList.add('active');n.scrollIntoView({behavior:'smooth',block:'start'});}}
+  function updateProgress(){const p=(answered/TOTAL)*100;document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';}
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');rs.classList.add('show');rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;document.getElementById('stat-salah').textContent=TOTAL-score;document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai bab ini sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula soalan yang salah dan cuba sekali lagi.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Cuba semak semula konsep utama bab ini dan ulangi kuiz.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota bab ini, kemudian cuba kuiz sekali lagi.';}
+    document.getElementById('result-title').textContent=title;document.getElementById('result-subtitle').textContent=sub;
+  }
+  function retryQuiz(){
+    score=0;answered=0;updateProgress();
+    document.getElementById('result-section').classList.remove('show');document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
