@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Sains T4 Bab 10 | EasySejarah</title>
+<meta name="description" content="Kuiz Sains Sains T4 Bab 10 — 15 soalan MCQ dengan jawapan dan huraian lengkap. Percuma untuk pelajar SPM Malaysia.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Kuiz Sains T4 Bab 10","educationalLevel":"SPM","provider":{"@type":"Organization","name":"EasySejarah","url":"https://www.easysejarah.com"}}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root{--kuning:#F7B731;--hitam:#1A1A2E;--hijau:#2D9E5F;--merah:#D62828;--kad:#252538;--ungu:#7c5cbf;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans',sans-serif;background:var(--hitam);color:#fff;min-height:100vh;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:2px solid rgba(124,92,191,0.3);position:sticky;top:0;background:var(--hitam);z-index:99;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;}
+  .logo span{color:var(--ungu);}
+  .badge-topik{background:rgba(124,92,191,0.15);border:1px solid var(--ungu);color:var(--ungu);font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;}
+  .hero{text-align:center;padding:48px 24px 32px;max-width:640px;margin:0 auto;}
+  .hero-eyebrow{color:var(--ungu);font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+  .hero h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.6rem,5.5vw,2.5rem);line-height:1.15;margin-bottom:12px;}
+  .hero h1 em{font-style:normal;color:var(--kuning);}
+  .hero p{color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.6;margin-bottom:24px;}
+  .progress-wrap{background:rgba(255,255,255,0.1);border-radius:999px;height:6px;margin-bottom:6px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--ungu);border-radius:999px;transition:width 0.4s ease;width:0%;}
+  .progress-label{font-size:0.76rem;color:rgba(255,255,255,0.4);text-align:right;}
+  .quiz-section{max-width:680px;margin:0 auto;padding:0 20px 80px;}
+  .question-card{background:var(--kad);border-radius:16px;padding:28px 24px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.06);display:none;animation:fadeUp 0.3s ease;}
+  .question-card.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .q-number{font-family:'Poppins',sans-serif;font-size:0.7rem;font-weight:700;color:var(--ungu);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .q-text{font-family:'Poppins',sans-serif;font-size:clamp(0.92rem,3vw,1.05rem);font-weight:600;line-height:1.5;margin-bottom:22px;color:#fff;}
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .option-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;cursor:pointer;text-align:left;font-family:'Noto Sans',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.82);transition:border-color 0.15s,background 0.15s;width:100%;}
+  .option-btn:hover:not(:disabled){border-color:var(--ungu);background:rgba(124,92,191,0.1);}
+  .option-btn:disabled{cursor:default;}
+  .option-letter{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.1);font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .option-btn.correct{border-color:var(--hijau);background:rgba(45,158,95,0.14);}
+  .option-btn.correct .option-letter{background:var(--hijau);color:#fff;}
+  .option-btn.wrong{border-color:var(--merah);background:rgba(214,40,40,0.12);}
+  .option-btn.wrong .option-letter{background:var(--merah);color:#fff;}
+  .explanation{display:none;margin-top:18px;padding:14px 16px;background:rgba(124,92,191,0.09);border-left:3px solid var(--ungu);border-radius:0 8px 8px 0;font-size:0.85rem;line-height:1.65;color:rgba(255,255,255,0.78);}
+  .explanation.show{display:block;}
+  .explanation strong{color:var(--kuning);}
+  .btn-next{display:none;margin-top:18px;width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:opacity 0.2s;}
+  .btn-next:hover{opacity:0.88;}
+  .btn-next.show{display:block;}
+  #result-section{display:none;max-width:580px;margin:0 auto;padding:0 20px 80px;text-align:center;}
+  #result-section.show{display:block;}
+  .result-card{background:var(--kad);border-radius:20px;padding:40px 28px;border:1px solid rgba(255,255,255,0.08);}
+  .score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--ungu) var(--pct,0%),rgba(255,255,255,0.08) 0%);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;}
+  .score-ring::after{content:'';position:absolute;width:88px;height:88px;background:var(--kad);border-radius:50%;}
+  .score-number{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.8rem;color:var(--ungu);position:relative;z-index:1;}
+  .result-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;margin-bottom:8px;}
+  .result-subtitle{color:rgba(255,255,255,0.5);font-size:0.88rem;line-height:1.6;margin-bottom:28px;}
+  .stat-row{display:flex;justify-content:center;gap:18px;margin-bottom:28px;}
+  .stat-box{background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 20px;min-width:82px;}
+  .stat-val{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;color:var(--ungu);display:block;}
+  .stat-lbl{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.5px;}
+  .btn-retry{width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;margin-bottom:12px;}
+  .btn-retry:hover{opacity:0.88;}
+  .btn-yt-result{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;text-decoration:none;padding:13px 22px;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.92rem;transition:opacity 0.2s;width:100%;justify-content:center;margin-top:12px;}
+  .btn-yt-result:hover{opacity:0.85;}
+  .btn-next-bab{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#7c5cbf,#5a3d9a);color:#fff;text-decoration:none;padding:16px 22px;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:12px;transition:opacity 0.2s;gap:12px;box-shadow:0 4px 14px rgba(124,92,191,0.35);}
+  .btn-next-bab:hover{opacity:0.88;}
+  .btn-next-bab .next-label{font-size:0.7rem;font-weight:600;opacity:0.8;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px;}
+  .btn-next-bab .next-title{display:block;}
+  .btn-next-bab .next-arrow{font-size:1.4rem;flex-shrink:0;}
+  .bab-nav{margin-top:32px;text-align:center;}
+  .bab-nav p{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+  .bab-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .chip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.55);border-radius:999px;padding:6px 14px;font-size:0.78rem;text-decoration:none;}
+  .chip.active{border-color:var(--ungu);color:var(--ungu);}
+  .chip.coming{opacity:0.3;cursor:default;}
+  footer{text-align:center;padding:24px 20px;font-size:0.75rem;color:rgba(255,255,255,0.18);border-top:1px solid rgba(255,255,255,0.06);margin-top:20px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#7c5cbf'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a>
+  <div class="badge-topik">Sains T4 Bab 10</div>
+</header>
+<div class="hero">
+  <div class="hero-eyebrow">Sains · Sains T4 Bab 10</div>
+  <h1>T4 Bab 10<br><em>Kimia dalam Perubatan & Kesihatan</em></h1>
+  <p>15 soalan merangkumi analgesik opioid vs bukan opioid (morfin, aspirin-COX), antibiotik spektrum luas vs sempit, AMR (rintangan antibiotik), bahan pengawet (asid benzoat), vaksin aktif vs pasif, steroid kortikosteroid, glukometer (glukosa oksidase), terapi kanser bertarget, vitamin C & E, ELISA, estrogen & kanser ER+, dan paten farmaseutikal vs ubat generik.</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 15 soalan</div>
+</div>
+<div class="quiz-section" id="quiz-section">
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 15</div>
+    <div class="q-text">Apakah mekanisme tindakan ubat analgesik jenis opioid (seperti morfin) yang membezakannya daripada analgesik bukan opioid (seperti aspirin)?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Morfin bekerja dengan meningkatkan kepekatan ion natrium di dalam sel saraf, menghalang penghantaran impuls elektrik saraf</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Morfin bekerja di peringkat sistem saraf pusat dengan mengikat reseptor opioid di dalam otak dan saraf tunjang, menghalang isyarat sakit sampai ke otak</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Morfin bekerja dengan menyebabkan vasodilatasi yang mengurangkan keradangan dan tekanan pada saraf</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Morfin bekerja di peringkat periferi dengan menghalang enzim COX daripada menghasilkan prostaglandin di tapak kecederaan</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>Morfin bekerja di sistem saraf pusat (CNS) dengan mengikat reseptor opioid khas di dalam otak dan saraf tunjang, menghalang isyarat sakit daripada sampai ke otak. Ini berbeza dengan aspirin yang bekerja di periferi dengan menghalang enzim COX.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.1.1 Jenis-jenis Analgesik dan Mekanisme Tindakannya</span></div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="2">
+    <div class="q-number">Soalan 2 daripada 15</div>
+    <div class="q-text">Apakah perbezaan antara antibiotik spektrum luas dengan antibiotik spektrum sempit dalam rawatan jangkitan bakteria?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Antibiotik spektrum luas hanya digunakan untuk jangkitan virus; antibiotik spektrum sempit digunakan khas untuk jangkitan bakteria</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Antibiotik spektrum luas mengandungi dos yang lebih tinggi berbanding spektrum sempit, menjadikannya lebih berkesan untuk jangkitan teruk</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Antibiotik spektrum luas hanya berkesan terhadap satu spesies bakteria tertentu; antibiotik spektrum sempit berkesan terhadap pelbagai spesies bakteria</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Antibiotik spektrum luas berkesan terhadap pelbagai jenis bakteria; antibiotik spektrum sempit hanya berkesan terhadap satu atau beberapa jenis bakteria tertentu</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: D</strong><br>Antibiotik spektrum luas berkesan terhadap pelbagai jenis bakteria (gram-positif dan gram-negatif), sesuai apabila patogen belum dikenal pasti. Antibiotik spektrum sempit lebih spesifik, hanya berkesan terhadap satu atau beberapa spesies.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.2.1 Antibiotik Spektrum Luas dan Spektrum Sempit</span></div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="3">
+    <div class="q-number">Soalan 3 daripada 15</div>
+    <div class="q-text">Mengapakah penggunaan antibiotik yang tidak lengkap (berhenti awal sebelum kursus tamat) boleh membawa kepada masalah kesihatan awam yang serius?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Berhenti awal membolehkan bakteria yang lebih kuat bertahan hidup dan membiak, menghasilkan populasi bakteria yang tahan antibiotik</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Berhenti awal menyebabkan dos antibiotik yang tidak diserap terkumpul di dalam ginjal dan menyebabkan kegagalan ginjal</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Berhenti awal mengurangkan kepekatan ubat dalam darah sehingga antibiotik bertukar menjadi bahan toksik dalam badan</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Berhenti awal menyebabkan sistem imun badan menjadi terlalu aktif dan menyerang sel badan sendiri</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: A</strong><br>Apabila pesakit berhenti awal, bakteria yang mempunyai sedikit rintangan masih hidup, membiak dan mewarisi sifat rintangan. Lama-kelamaan, populasi bakteria tahan antibiotik (AMR) berkembang, menjadikan rawatan lebih sukar.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.2.3 Rintangan Antibiotik</span></div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="4">
+    <div class="q-number">Soalan 4 daripada 15</div>
+    <div class="q-text">Bahan pengawet makanan seperti asid benzoat digunakan dalam industri makanan. Apakah mekanisme tindakan kimianya dalam mengawet makanan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Asid benzoat dalam keadaan tidak berion dapat menembusi membran sel mikroorganisma dan mengganggu proses metabolisme sel, menghalang pertumbuhan kulat dan yis</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Asid benzoat bertindak sebagai antioksidan dengan menghalang tindak balas pengoksidaan lemak dalam makanan</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Asid benzoat bertindak dengan meningkatkan pH makanan menjadi sangat beralkali untuk membunuh semua mikroorganisma</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Asid benzoat bertindak dengan mengekstrak kelembapan daripada sel mikroorganisma melalui proses osmosis</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: A</strong><br>Dalam keadaan berasid (pH rendah), asid benzoat wujud dalam bentuk tidak berion yang lipofilik, membolehkannya menembusi membran sel lipid mikroorganisma dan mengganggu metabolisme serta pengangkutan nutrien sel.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.3.1 Bahan Pengawet Makanan</span></div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="5">
+    <div class="q-number">Soalan 5 daripada 15</div>
+    <div class="q-text">Apakah perbezaan antara vaksin aktif dengan vaksin pasif (imunoglobulin) dari segi mekanisme perlindungan dan tempoh perlindungan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Vaksin aktif merangsang sistem imun untuk menghasilkan antibodi dan sel memori sendiri (perlindungan jangka panjang); vaksin pasif memberikan antibodi siap sedia untuk perlindungan segera tetapi sementara</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Kedua-dua vaksin aktif dan pasif bekerja dengan merangsang sistem imun tetapi vaksin pasif memerlukan masa lebih lama</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Vaksin aktif hanya berkesan untuk jangkitan virus manakala vaksin pasif hanya berkesan untuk jangkitan bakteria</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Vaksin aktif mengandungi antibodi siap sedia yang memberikan perlindungan segera tetapi sementara; vaksin pasif merangsang sistem imun untuk menghasilkan antibodi sendiri</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: A</strong><br>Vaksin aktif merangsang sistem imun menghasilkan antibodi dan sel memori B, memberikan imuniti jangka panjang. Vaksin pasif mengandungi antibodi siap sedia memberikan perlindungan segera tetapi sementara kerana antibodi ini akhirnya diuraikan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.4.1 Imunisasi Aktif dan Pasif</span></div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="6">
+    <div class="q-number">Soalan 6 daripada 15</div>
+    <div class="q-text">Mengapakah ubat steroid (kortikosteroid) tidak boleh dihentikan secara tiba-tiba selepas penggunaan jangka panjang?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Steroid bersifat sangat tidak stabil dan akan meledak secara kimia apabila disimpan lebih daripada tempoh tertentu dalam badan</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Steroid meningkatkan tekanan darah secara mendadak dan penghentian tiba-tiba menyebabkan tekanan darah menjadi sangat rendah</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Ubat steroid sangat mahal dan berhenti mendadak akan menyebabkan kesan balik kewangan yang serius kepada pesakit</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Penggunaan jangka panjang steroid menyebabkan tubuh badan bergantung kepada steroid tersebut; penghentian tiba-tiba boleh menyebabkan kekurangan kortisol yang mengancam nyawa</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: D</strong><br>Penggunaan kortikosteroid jangka panjang menyebabkan kelenjar adrenal mengurangkan pengeluaran kortisol semula jadi. Penghentian tiba-tiba menyebabkan kekurangan kortisol yang diperlukan untuk fungsi penting — keadaan ini boleh mengancam nyawa (krisis adrenal).<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.5.1 Kesan Sampingan Steroid</span></div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="7">
+    <div class="q-number">Soalan 7 daripada 15</div>
+    <div class="q-text">Dalam konteks kimia analitik perubatan, apakah prinsip asas di sebalik ujian darah untuk mengesan tahap glukosa menggunakan glukometer?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Glukometer menggunakan tindak balas kepekatan asid-bes, di mana glukosa bertindak balas dengan penunjuk pH untuk menghasilkan warna tertentu</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Glukometer menggunakan prinsip pembiasan cahaya untuk mengukur kepekatan glukosa berdasarkan perubahan indeks pembiasan darah</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Glukometer menggunakan tindak balas kimia di mana glukosa dioksidakan oleh enzim glukosa oksidase, menghasilkan arus elektrik yang berkadar dengan kepekatan glukosa</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Glukometer menggunakan prinsip frekuensi gelombang inframerah yang diserap secara unik oleh molekul glukosa dalam darah</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: C</strong><br>Glukometer menggunakan biosensor elektrokimia. Enzim glukosa oksidase mengoksidakan glukosa dan menghasilkan elektron yang mengalir sebagai arus elektrik kecil. Intensiti arus berkadar dengan kepekatan glukosa, memberikan bacaan nilai glukosa darah.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.6.1 Kimia Analitik dalam Ujian Diagnostik</span></div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="8">
+    <div class="q-number">Soalan 8 daripada 15</div>
+    <div class="q-text">Apakah komponen aktif utama dalam aspirin (asid asetilsalisilat) dan bagaimanakah ia melegakan demam, sakit dan radang melalui mekanisme kimia?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Komponen aktif: kumpulan asetil dan asetilsalisilat; mekanisme: mengasetilasi dan menghalang enzim siklooksigenase (COX) secara tidak boleh balik, mengurangkan sintesis prostaglandin</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Komponen aktif: asid asetik; mekanisme: menyekat saluran ion kalsium dalam sel saraf, menghalang penghantaran isyarat sakit</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Komponen aktif: asetaminofen; mekanisme: meningkatkan ambang sakit di otak tanpa menghalang prostaglandin</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Komponen aktif: salisilat; mekanisme: meningkatkan kepekatan dopamin dan serotonin di otak untuk mengurangkan persepsi kesakitan</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: A</strong><br>Aspirin mengasetilasi enzim siklooksigenase (COX-1 dan COX-2) secara tidak boleh balik. Penghalangan COX mengurangkan sintesis prostaglandin — bahan yang menyebabkan keradangan, demam dan kesakitan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.1.2 Mekanisme Tindakan Aspirin</span></div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="9">
+    <div class="q-number">Soalan 9 daripada 15</div>
+    <div class="q-text">Apakah kelebihan utama terapi bertarget berbanding kemoterapi konvensional dalam rawatan kanser?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Terapi bertarget menggunakan dos ubat yang lebih tinggi untuk membunuh sel kanser dengan lebih cepat berbanding kemoterapi</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Terapi bertarget menggantikan sel kanser dengan sel stem yang sihat melalui pemindahan sumsum tulang</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Terapi bertarget menyerang sasaran molekular spesifik dalam sel kanser sahaja, menyebabkan lebih sedikit kerosakan kepada sel sihat berbanding kemoterapi yang membunuh semua sel yang membahagi dengan cepat</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Terapi bertarget menggunakan sinaran radioaktif yang diarahkan tepat pada tumor tanpa menjejaskan tisu sekeliling</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: C</strong><br>Terapi bertarget menyerang sasaran molekular spesifik yang hanya terdapat atau terlebih nyata dalam sel kanser, lebih selektif dan menyebabkan lebih sedikit kerosakan kepada sel sihat berbanding kemoterapi konvensional.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.7.1 Terapi Kanser: Kemoterapi vs Terapi Bertarget</span></div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="10">
+    <div class="q-number">Soalan 10 daripada 15</div>
+    <div class="q-text">Mengapakah pengambilan suplemen vitamin C dalam dos yang sangat tinggi (megadose) tidak disyorkan walaupun vitamin C penting untuk kesihatan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Vitamin C dalam dos tinggi merangsang penghasilan histamin yang berlebihan, menyebabkan reaksi alergi serius</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Vitamin C dalam dos tinggi menghalang penyerapan zat besi daripada makanan, menyebabkan anemia</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Vitamin C dalam dos tinggi bertindak sebagai prodan yang bertukar kepada bahan toksik dalam badan</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Vitamin C larut dalam air dan tidak tersimpan dalam badan; dos berlebihan dibuang melalui air kencing, namun boleh menyebabkan batu karang ginjal (daripada oksalat) dan gangguan sistem pencernaan</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: D</strong><br>Vitamin C (asid askorbik) ialah vitamin larut air. Dos berlebihan diekskresi melalui air kencing tetapi pengambilan megadose boleh menyebabkan pembentukan batu karang ginjal (metabolit oksalat), mulas, cirit-birit. Pengambilan melebihi 2000 mg/hari tidak disyorkan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.8.1 Vitamin Larut Air: Vitamin C</span></div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="11">
+    <div class="q-number">Soalan 11 daripada 15</div>
+    <div class="q-text">Dalam ujian air kencing untuk mengesan penggunaan dadah terlarang, apakah prinsip kimia immunoassay (seperti ELISA) yang digunakan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>ELISA menggunakan prinsip elektroforesis untuk mengasingkan molekul dadah mengikut saiz dan cas elektriknya</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>ELISA menggunakan antibodi khusus yang akan mengikat antigen (molekul dadah atau metabolitnya) dalam sampel; ikatan antibodi-antigen dikesan melalui tindak balas enzim yang menghasilkan perubahan warna</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>ELISA menggunakan spektroskopi serapan atom untuk mengenal pasti unsur logam berat yang terdapat dalam dadah terlarang</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>ELISA menggunakan penunjuk pH yang berubah warna apabila molekul dadah hadir dalam kepekatan melebihi ambang tertentu</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: B</strong><br>ELISA menggunakan antibodi spesifik yang mengikat molekul dadah atau metabolitnya sebagai antigen. Enzim yang terpaut pada antibodi mengkatalisis tindak balas yang menghasilkan perubahan warna yang dapat diukur secara kuantitatif.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.9.1 Ujian Immunoassay dalam Pengesanan Dadah</span></div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="12">
+    <div class="q-number">Soalan 12 daripada 15</div>
+    <div class="q-text">Apakah peranan antioksidan larut lemak (seperti vitamin E) dalam melindungi sel badan dan bagaimanakah ia berbeza daripada vitamin C?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Antioksidan larut lemak membunuh bakteria secara langsung melalui tindak balas pengoksidaan manakala vitamin C menghalang replikasi virus</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Antioksidan larut lemak menyimpan tenaga kimia di dalam sel lemak badan manakala vitamin C mengawal kadar metabolisme basal</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Antioksidan larut lemak menghalang sintesis prostaglandin manakala vitamin C merangsang penghasilan sel imun</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Antioksidan larut lemak seperti vitamin E melindungi membran sel (yang kaya lemak) daripada pengoksidaan radikal bebas, melengkapi perlindungan vitamin C di bahagian larut air sel</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: D</strong><br>Antioksidan larut lemak seperti vitamin E beroperasi terutamanya dalam persekitaran lipid membran sel, melindungi asid lemak tak tepu daripada peroksidasi oleh radikal bebas. Vitamin C pula beroperasi dalam persekitaran larut air di sitoplasma sel.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.8.2 Antioksidan Larut Lemak vs Larut Air</span></div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="13">
+    <div class="q-number">Soalan 13 daripada 15</div>
+    <div class="q-text">Mengapakah ubat yang mengandungi estrogen tidak sesuai diberikan kepada wanita yang mempunyai riwayat kanser payudara?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Estrogen menyebabkan pengekalan cecair dan pembengkakan yang boleh menyebarkan sel kanser melalui sistem limfa</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Sesetengah jenis kanser payudara adalah sensitif terhadap estrogen (ER+); kehadiran estrogen tambahan boleh merangsang pertumbuhan sel kanser tersebut</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Estrogen menyebabkan penurunan sistem imun yang mendadak, mengurangkan keupayaan badan untuk melawan sel kanser</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Estrogen bertindak balas dengan ubat kemoterapi kanser, menyebabkan kedua-dua ubat tidak berkesan</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: B</strong><br>Kira-kira 70% kanser payudara adalah reseptor estrogen positif (ER+). Memberikan ubat mengandungi estrogen kepada pesakit ER+ boleh merangsang pertumbuhan dan percambahan sel kanser dengan lebih pesat.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.5.2 Kontraindikasi Estrogen dalam Kanser Payudara ER+</span></div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="14">
+    <div class="q-number">Soalan 14 daripada 15</div>
+    <div class="q-text">Apakah kepentingan paten farmaseutikal dan apakah yang berlaku setelah paten tamat?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Paten farmaseutikal hanya melindungi nama jenama ubat; formula kimia dan proses pengeluarannya boleh digunakan secara bebas</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Paten farmaseutikal tidak berkaitan dengan harga ubat; harga ditentukan oleh Kementerian Kesihatan semata-mata</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Paten farmaseutikal memberikan hak eksklusif kepada syarikat penggubalan selama tempoh tertentu (biasanya 20 tahun); setelah paten tamat, syarikat lain boleh menghasilkan ubat generik yang lebih murah dengan bahan aktif yang sama</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Paten farmaseutikal menghalang semua syarikat lain daripada menghasilkan ubat serupa selama-lamanya, memastikan kualiti ubat tersebut dikawal oleh syarikat asal</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: C</strong><br>Paten farmaseutikal memberikan hak eksklusif kepada syarikat penemu (biasanya 20 tahun dari tarikh pemfailan), membolehkan pemulihan kos R&D yang tinggi. Apabila paten tamat, syarikat generik boleh menghasilkan ubat setara dengan harga lebih rendah.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.10.1 Paten Farmaseutikal dan Ubat Generik</span></div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="15">
+    <div class="q-number">Soalan 15 daripada 15</div>
+    <div class="q-text">Seorang pesakit didiagnosis dengan jangkitan kulat (fungal infection) pada kulit. Mengapakah doktor tidak boleh menetapkan antibiotik dan apakah kelas ubat yang sesuai?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Antibiotik tidak boleh ditetapkan kerana kulat terlalu besar untuk dipengaruhi oleh antibiotik; ubat antiviral seperti asiklovir lebih sesuai</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Antibiotik tidak berkesan terhadap kulat kerana kulat ialah organisma eukariot yang tidak mempunyai struktur sel bakteria (seperti dinding sel peptidoglikan) yang disasarkan oleh antibiotik; ubat antifungal seperti klotrimazol atau flukonazol yang sesuai</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Antibiotik seperti penisilin boleh digunakan untuk merawat kulat kerana kedua-duanya adalah mikroorganisma yang bertindak balas terhadap ubat yang sama</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Antibiotik perlu digandakan dosnya untuk merawat jangkitan kulat; ubat antifungal hanya digunakan untuk jangkitan virus</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: B</strong><br>Antibiotik menyasarkan struktur unik sel bakteria (prokariot) seperti dinding sel peptidoglikan. Kulat adalah eukariot dengan dinding sel ergosterol (bukannya peptidoglikan). Ubat antifungal (azol, polien) menyasarkan ergosterol yang hanya terdapat dalam sel kulat.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 10.2.4 Antibiotik vs Antifungal</span></div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring"><span class="score-number" id="score-display">0/15</span></div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <a href="Kuiz_Sains_T5B1.html" class="btn-next-bab"><div><span class="next-label">Bab Seterusnya →</span><span class="next-title">T5 Bab 1: Mikroorganisma</span></div><span class="next-arrow">→</span></a>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt-result">▶ Tonton Video di YouTube – EasySejarah</a>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Sains T4 &amp; T5</p>
+    <div class="bab-chips">
+      <a href="Kuiz_Sains_T4B1_Keselamatan.html" class="chip">T4 B1 ✓</a>
+      <a href="Kuiz_Sains_T4B2_Bantuan_Kecemasan.html" class="chip">T4 B2 ✓</a>
+      <a href="Kuiz_Sains_T4B3_Teknik_Mengukur.html" class="chip">T4 B3 ✓</a>
+      <a href="Kuiz_Sains_T4B4_Teknologi_Hijau.html" class="chip">T4 B4 ✓</a>
+      <a href="Kuiz_Sains_T4B5_Genetik.html" class="chip">T4 B5 ✓</a>
+      <a href="Kuiz_Sains_T4B6_Sokongan_Pergerakan.html" class="chip">T4 B6 ✓</a>
+      <a href="Kuiz_Sains_T4B7_Koordinasi.html" class="chip">T4 B7 ✓</a>
+      <a href="Kuiz_Sains_T4B8_Unsur_Bahan.html" class="chip">T4 B8 ✓</a>
+      <a href="Kuiz_Sains_T4B9_Kimia_Industri.html" class="chip">T4 B9 ✓</a>
+      <span class="chip active">T4 B10 ✓</span>
+      <a href="Kuiz_Sains_T5B1.html" class="chip">T5 B1 ✓</a>
+      <a href="Kuiz_Sains_T5B2_Nutrisi_Makanan.html" class="chip">T5 B2 ✓</a>
+      <a href="Kuiz_Sains_T5B3_Kelestarian.html" class="chip">T5 B3 ✓</a>
+      <a href="Kuiz_Sains_T5B4_Kadar_TindakBalas.html" class="chip">T5 B4 ✓</a>
+      <a href="Kuiz_Sains_T5B5_Sebatian_Karbon.html" class="chip">T5 B5 ✓</a>
+    </div>
+  </div>
+</div>
+<footer>© 2025 EasySejarah · Soalan berdasarkan buku teks SPM Sains Tingkatan 4 (KPM)</footer>
+<script>
+  const CORRECT = {1:1,2:3,3:0,4:0,5:0,6:3,7:2,8:0,9:2,10:3,11:1,12:3,13:1,14:2,15:1};
+  const TOTAL = 15;
+  let score=0, answered=0;
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');
+      const q=parseInt(card.dataset.q);
+      const chosen=parseInt(this.dataset.ans);
+      const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(parseInt(b.dataset.ans)===correct)b.classList.add('correct');});}
+      answered++;
+      updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+  function nextQ(current){
+    document.querySelector('[data-q="'+current+'"]').classList.remove('active');
+    const next=document.querySelector('[data-q="'+(current+1)+'"]');
+    if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  function updateProgress(){
+    const pct=(answered/TOTAL)*100;
+    document.getElementById('progress-fill').style.width=pct+'%';
+    document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';
+  }
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;
+    document.getElementById('stat-salah').textContent=TOTAL-score;
+    document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai bab ini sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula soalan yang salah dan cuba sekali lagi.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Cuba semak semula konsep utama bab ini dan ulangi kuiz.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota bab ini, kemudian cuba kuiz sekali lagi.';}
+    document.getElementById('result-title').textContent=title;
+    document.getElementById('result-subtitle').textContent=sub;
+  }
+  function retryQuiz(){
+    score=0;answered=0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Sains T4 Bab 9 | EasySejarah</title>
+<meta name="description" content="Kuiz Sains Sains T4 Bab 9 — 15 soalan MCQ dengan jawapan dan huraian lengkap. Percuma untuk pelajar SPM Malaysia.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Kuiz Sains T4 Bab 9","educationalLevel":"SPM","provider":{"@type":"Organization","name":"EasySejarah","url":"https://www.easysejarah.com"}}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+  :root{--kuning:#F7B731;--hitam:#1A1A2E;--hijau:#2D9E5F;--merah:#D62828;--kad:#252538;--ungu:#7c5cbf;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans',sans-serif;background:var(--hitam);color:#fff;min-height:100vh;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:2px solid rgba(124,92,191,0.3);position:sticky;top:0;background:var(--hitam);z-index:99;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;}
+  .logo span{color:var(--ungu);}
+  .badge-topik{background:rgba(124,92,191,0.15);border:1px solid var(--ungu);color:var(--ungu);font-size:0.72rem;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;}
+  .hero{text-align:center;padding:48px 24px 32px;max-width:640px;margin:0 auto;}
+  .hero-eyebrow{color:var(--ungu);font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+  .hero h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.6rem,5.5vw,2.5rem);line-height:1.15;margin-bottom:12px;}
+  .hero h1 em{font-style:normal;color:var(--kuning);}
+  .hero p{color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.6;margin-bottom:24px;}
+  .progress-wrap{background:rgba(255,255,255,0.1);border-radius:999px;height:6px;margin-bottom:6px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--ungu);border-radius:999px;transition:width 0.4s ease;width:0%;}
+  .progress-label{font-size:0.76rem;color:rgba(255,255,255,0.4);text-align:right;}
+  .quiz-section{max-width:680px;margin:0 auto;padding:0 20px 80px;}
+  .question-card{background:var(--kad);border-radius:16px;padding:28px 24px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.06);display:none;animation:fadeUp 0.3s ease;}
+  .question-card.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .q-number{font-family:'Poppins',sans-serif;font-size:0.7rem;font-weight:700;color:var(--ungu);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .q-text{font-family:'Poppins',sans-serif;font-size:clamp(0.92rem,3vw,1.05rem);font-weight:600;line-height:1.5;margin-bottom:22px;color:#fff;}
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .option-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;cursor:pointer;text-align:left;font-family:'Noto Sans',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.82);transition:border-color 0.15s,background 0.15s;width:100%;}
+  .option-btn:hover:not(:disabled){border-color:var(--ungu);background:rgba(124,92,191,0.1);}
+  .option-btn:disabled{cursor:default;}
+  .option-letter{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.1);font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .option-btn.correct{border-color:var(--hijau);background:rgba(45,158,95,0.14);}
+  .option-btn.correct .option-letter{background:var(--hijau);color:#fff;}
+  .option-btn.wrong{border-color:var(--merah);background:rgba(214,40,40,0.12);}
+  .option-btn.wrong .option-letter{background:var(--merah);color:#fff;}
+  .explanation{display:none;margin-top:18px;padding:14px 16px;background:rgba(124,92,191,0.09);border-left:3px solid var(--ungu);border-radius:0 8px 8px 0;font-size:0.85rem;line-height:1.65;color:rgba(255,255,255,0.78);}
+  .explanation.show{display:block;}
+  .explanation strong{color:var(--kuning);}
+  .btn-next{display:none;margin-top:18px;width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:opacity 0.2s;}
+  .btn-next:hover{opacity:0.88;}
+  .btn-next.show{display:block;}
+  #result-section{display:none;max-width:580px;margin:0 auto;padding:0 20px 80px;text-align:center;}
+  #result-section.show{display:block;}
+  .result-card{background:var(--kad);border-radius:20px;padding:40px 28px;border:1px solid rgba(255,255,255,0.08);}
+  .score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--ungu) var(--pct,0%),rgba(255,255,255,0.08) 0%);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;}
+  .score-ring::after{content:'';position:absolute;width:88px;height:88px;background:var(--kad);border-radius:50%;}
+  .score-number{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.8rem;color:var(--ungu);position:relative;z-index:1;}
+  .result-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.5rem;margin-bottom:8px;}
+  .result-subtitle{color:rgba(255,255,255,0.5);font-size:0.88rem;line-height:1.6;margin-bottom:28px;}
+  .stat-row{display:flex;justify-content:center;gap:18px;margin-bottom:28px;}
+  .stat-box{background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 20px;min-width:82px;}
+  .stat-val{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;color:var(--ungu);display:block;}
+  .stat-lbl{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.5px;}
+  .btn-retry{width:100%;padding:14px;background:var(--ungu);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;margin-bottom:12px;}
+  .btn-retry:hover{opacity:0.88;}
+  .btn-yt-result{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;text-decoration:none;padding:13px 22px;border-radius:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.92rem;transition:opacity 0.2s;width:100%;justify-content:center;margin-top:12px;}
+  .btn-yt-result:hover{opacity:0.85;}
+  .btn-next-bab{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#7c5cbf,#5a3d9a);color:#fff;text-decoration:none;padding:16px 22px;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:12px;transition:opacity 0.2s;gap:12px;box-shadow:0 4px 14px rgba(124,92,191,0.35);}
+  .btn-next-bab:hover{opacity:0.88;}
+  .btn-next-bab .next-label{font-size:0.7rem;font-weight:600;opacity:0.8;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px;}
+  .btn-next-bab .next-title{display:block;}
+  .btn-next-bab .next-arrow{font-size:1.4rem;flex-shrink:0;}
+  .bab-nav{margin-top:32px;text-align:center;}
+  .bab-nav p{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+  .bab-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .chip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.55);border-radius:999px;padding:6px 14px;font-size:0.78rem;text-decoration:none;}
+  .chip.active{border-color:var(--ungu);color:var(--ungu);}
+  .chip.coming{opacity:0.3;cursor:default;}
+  footer{text-align:center;padding:24px 20px;font-size:0.75rem;color:rgba(255,255,255,0.18);border-top:1px solid rgba(255,255,255,0.06);margin-top:20px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#7c5cbf'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">← Laman Utama</a>
+  <div class="badge-topik">Sains T4 Bab 9</div>
+</header>
+<div class="hero">
+  <div class="hero-eyebrow">Sains · Sains T4 Bab 9</div>
+  <h1>T4 Bab 9<br><em>Kimia Industri</em></h1>
+  <p>15 soalan merangkumi Proses Haber (mangkin ferum, tekanan 200 atm, suhu 450°C, Prinsip Le Chatelier), Proses Sentuh (V₂O₅, SO₃, oleum), industri chlor-alkali, saponifikasi (NaOH vs KOH), perengkahan petroleum, Proses Solvay, peranan Petronas, baja organik vs kimia, dan impak alam sekitar.</p>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 15 soalan</div>
+</div>
+<div class="quiz-section" id="quiz-section">
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 15</div>
+    <div class="q-text">Apakah kegunaan utama ammonia yang dihasilkan daripada Proses Haber dalam industri pertanian?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Ammonia digunakan sebagai pelarut industri untuk mengekstrak mineral berharga daripada tanah</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Ammonia digunakan sebagai bahan mentah untuk menghasilkan baja nitrogen seperti urea dan ammonium sulfat</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Ammonia digunakan sebagai bahan api alternatif untuk mesin pertanian moden</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Ammonia digunakan terus sebagai racun serangga sistemik untuk tanaman padi</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: B</strong><br>Ammonia (NH₃) daripada Proses Haber merupakan bahan mentah utama untuk menghasilkan baja nitrogen seperti urea [CO(NH₂)₂] dan ammonium sulfat [(NH₄)₂SO₄], digunakan meluas dalam pertanian.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.1.1 Aplikasi Proses Haber dalam Industri Pertanian</span></div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="2">
+    <div class="q-number">Soalan 2 daripada 15</div>
+    <div class="q-text">Dalam Proses Sentuh untuk menghasilkan asid sulfurik, pada peringkat manakah sulfur trioksida (SO₃) dihasilkan dan apakah mangkin yang digunakan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>SO₃ dihasilkan semasa peringkat pengenceran asid sulfurik oleum, menggunakan mangan dioksida sebagai mangkin</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>SO₃ dihasilkan semasa penyerapan SO₃ dalam asid oleum, menggunakan ferum(III) oksida sebagai mangkin</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>SO₃ dihasilkan semasa pengoksidaan SO₂ di dalam menukar, menggunakan vanadium(V) oksida sebagai mangkin</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>SO₃ dihasilkan semasa pembakaran sulfur, menggunakan platina sebagai mangkin utama</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: C</strong><br>Dalam Proses Sentuh, SO₂ dioksidakan kepada SO₃ dalam menukar (converter) menggunakan mangkin vanadium(V) oksida (V₂O₅) pada suhu 450°C: 2SO₂ + O₂ ⇌ 2SO₃.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.2.1 Proses Sentuh (Peringkat 3)</span></div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="3">
+    <div class="q-number">Soalan 3 daripada 15</div>
+    <div class="q-text">Mengapakah SO₃ dalam Proses Sentuh tidak boleh diserap terus ke dalam air untuk menghasilkan asid sulfurik?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Penyerapan SO₃ terus ke dalam air menghasilkan asid sulfuros yang lemah, bukannya asid sulfurik yang diperlukan</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>SO₃ hanya boleh bertindak balas dengan asid, bukan air, kerana perbezaan polariti molekul</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Penyerapan SO₃ terus ke dalam air menghasilkan kabus asid sulfurik yang sangat berbahaya dan sukar dikumpulkan</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>SO₃ tidak boleh bertindak balas dengan air; ia perlu diserap ke dalam asid sulfurik pekat terlebih dahulu</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: C</strong><br>SO₃ tidak boleh diserap terus ke dalam air kerana tindak balas sangat eksotermik ini menghasilkan kabus asid sulfurik (titisan halus dalam udara) yang berbahaya dan sukar dikumpulkan. SO₃ diserap ke dalam asid sulfurik pekat membentuk oleum dahulu.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.2.1 Proses Sentuh (Peringkat 4)</span></div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="4">
+    <div class="q-number">Soalan 4 daripada 15</div>
+    <div class="q-text">Dalam Proses Haber, mengapakah tekanan tinggi (sekitar 200 atm) digunakan walaupun memerlukan kos peralatan yang sangat mahal?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Berdasarkan Prinsip Le Chatelier, tekanan tinggi mengalihkan keseimbangan ke kanan untuk menghasilkan lebih banyak ammonia kerana terdapat lebih sedikit mol gas di sebelah kanan persamaan</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Tekanan tinggi diperlukan untuk mengaktifkan mangkin ferum supaya ia dapat berfungsi pada suhu rendah</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Tekanan tinggi diperlukan untuk mencegah ammonia yang terhasil daripada bertindak balas semula dengan mangkin ferum</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Tekanan tinggi mempercepatkan pemisahan ammonia daripada campuran gas nitrogen dan hidrogen</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: A</strong><br>N₂ + 3H₂ ⇌ 2NH₃: sebelah kiri 4 mol gas; kanan 2 mol gas. Prinsip Le Chatelier: tekanan tinggi mengalihkan keseimbangan ke arah yang menghasilkan bilangan mol gas lebih sedikit (kanan), menghasilkan lebih banyak ammonia.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.1.1 Proses Haber (Kesan Tekanan)</span></div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="5">
+    <div class="q-number">Soalan 5 daripada 15</div>
+    <div class="q-text">Mengapakah suhu optimum Proses Haber ialah 450°C dan bukan suhu yang lebih rendah walaupun tindak balas penghasilan ammonia adalah eksotermik?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Pada suhu lebih rendah, keseimbangan memihak kepada penghasilan ammonia tetapi kadar tindak balas terlalu perlahan untuk menjadi ekonomik</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Pada suhu tinggi, mangkin ferum mengalami perubahan struktur fizikal yang meningkatkan luas permukaan aktifnya</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Suhu 450°C diperlukan untuk menguraikan molekul N₂ kepada atom N yang boleh bertindak balas dengan H₂</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Suhu rendah menghalang mangkin ferum daripada berfungsi; 450°C ialah suhu minimum untuk mengaktifkan mangkin sepenuhnya</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: A</strong><br>Walaupun suhu rendah menghasilkan lebih banyak NH₃, kadar tindak balas menjadi terlalu perlahan. Suhu 450°C merupakan kompromi optimum: cukup panas untuk kadar tindak balas yang mencukupi, namun cukup rendah untuk hasil NH₃ yang memuaskan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.1.1 Proses Haber (Kompromi Suhu)</span></div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="6">
+    <div class="q-number">Soalan 6 daripada 15</div>
+    <div class="q-text">Selain daripada pembuatan baja, apakah lagi DUA kegunaan utama asid sulfurik yang dinyatakan dalam teks?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Pembuatan detergen (surfaktan) dan rawatan bijih logam dalam metalurgi</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Pembuatan soda kaustik (NaOH) dan pemprosesan kayu balak untuk kertas</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Pembuatan getah sintetik dan penghasilan gas metana untuk industri tenaga</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Pembuatan simen Portland dan penghasilan klorin untuk rawatan air</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: A</strong><br>Selain baja super fosfat, asid sulfurik digunakan dalam: (1) pembuatan detergen (surfaktan berasaskan sulfonat), dan (2) metalurgi — merawat permukaan bijih logam sebelum diproses.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.2.2 Kegunaan Asid Sulfurik</span></div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="7">
+    <div class="q-number">Soalan 7 daripada 15</div>
+    <div class="q-text">Industri chlor-alkali menggunakan elektrolisis larutan natrium klorida untuk menghasilkan tiga produk. Apakah tiga produk tersebut dan di manakah ia dihasilkan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Gas oksigen (anod), gas klorin (katod) dan larutan natrium klorida (sel)</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Gas klorin (anod), gas hidrogen (katod) dan larutan natrium hidroksida (sel)</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Gas klorin (katod), gas hidrogen (anod) dan larutan natrium hidroksida (antara elektrod)</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Gas hidrogen (anod), gas oksigen (katod) dan larutan natrium sulfat (sel)</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: B</strong><br>Anod (+): 2Cl⁻ → Cl₂ + 2e⁻ (gas klorin). Katod (-): 2H₂O + 2e⁻ → H₂ + 2OH⁻ (gas hidrogen). Ion Na⁺ dan OH⁻ membentuk larutan natrium hidroksida (NaOH) dalam sel.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.3.1 Industri Chlor-Alkali</span></div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="8">
+    <div class="q-number">Soalan 8 daripada 15</div>
+    <div class="q-text">Encik Kamal ingin membuat sabun menggunakan minyak kelapa sawit dan natrium hidroksida. Apakah proses kimia yang terlibat dan apakah produk sampingan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Proses saponifikasi (hidrolisis bes); produk sampingan ialah gliserol</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Proses fermentasi; produk sampingan ialah karbon dioksida</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Proses polimerisasi kondensasi; produk sampingan ialah metanol</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Proses pensterikan; produk sampingan ialah asid etanoik</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: A</strong><br>Pembuatan sabun melibatkan proses saponifikasi — hidrolisis bes di mana lemak/minyak (trigliserida) bertindak balas dengan NaOH. Produk: sabun (garam natrium asid lemak) dan gliserol sebagai produk sampingan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.4.1 Industri Sabun (Proses Saponifikasi)</span></div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="9">
+    <div class="q-number">Soalan 9 daripada 15</div>
+    <div class="q-text">Dalam industri petrokimia, apakah yang dimaksudkan dengan proses 'perengkahan' (cracking) dan mengapakah ia penting?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Perengkahan ialah proses memurnikan minyak petroleum mentah melalui penyulingan berperingkat untuk mengasingkan komponen mengikut takat didih</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Perengkahan ialah proses menggabungkan molekul alkena kecil menjadi polimer plastik yang berguna seperti polietilena</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Perengkahan ialah proses memecahkan molekul hidrokarbon rantai panjang kepada molekul yang lebih kecil dan berguna, terutamanya untuk menghasilkan alkena seperti etilena</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Perengkahan ialah proses menghilangkan kandungan sulfur dalam minyak petroleum untuk menghasilkan bahan api yang lebih bersih</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: C</strong><br>Perengkahan ialah proses memecahkan molekul hidrokarbon rantai panjang kepada molekul lebih kecil termasuk alkena seperti etilena (C₂H₄) dan propilena (C₃H₆), bahan mentah penting untuk industri petrokimia dan plastik.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.5.1 Industri Petrokimia (Proses Perengkahan)</span></div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="10">
+    <div class="q-number">Soalan 10 daripada 15</div>
+    <div class="q-text">Apakah perbezaan antara baja organik (baja semula jadi) dengan baja bukan organik (baja kimia sintesis)?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Baja organik mengandungi asid amino sintetik yang diformulasikan khas; baja kimia diperbuat daripada bahan semula jadi yang tidak diproses</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Baja organik meningkatkan pH tanah secara mendadak; baja kimia menurunkan pH tanah secara mendadak</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Baja organik mengandungi nitrogen dalam bentuk ion ammonium yang segera diserap tumbuhan; baja kimia perlahan-lahan diuraikan oleh bakteria tanah</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Baja organik ialah bahan pereputan semula jadi yang melepaskan nutrien perlahan-lahan; baja kimia mengandungi nutrien terlarut yang boleh diserap tumbuhan dengan cepat</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: D</strong><br>Baja organik (kompos, najis haiwan) melepaskan nutrien perlahan-lahan apabila diuraikan oleh mikroorganisma. Baja kimia sintesis (urea, ammonium nitrat) mengandungi nutrien terlarut yang diserap terus oleh akar tumbuhan dengan lebih cepat.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.1.3 Perbandingan Baja Organik dan Baja Kimia</span></div>
+    <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="11">
+    <div class="q-number">Soalan 11 daripada 15</div>
+    <div class="q-text">Dalam Proses Solvay, apakah bahan mentah utama yang diperlukan dan apakah produk akhir yang dihasilkan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Bahan mentah: bauksit dan natrium hidroksida; produk: aluminium oksida tulen</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Bahan mentah: batu kapur (CaCO₃) dan garam (NaCl); produk utama: natrium karbonat (Na₂CO₃)</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Bahan mentah: silika dan kalsium oksida; produk: kalsium silikat</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Bahan mentah: ammonia dan asid sulfurik; produk: ammonium sulfat</button>
+    </div>
+    <div class="explanation" id="exp-11"><strong>✓ Jawapan: B</strong><br>Dalam Proses Solvay, bahan mentah utama ialah batu kapur (CaCO₃, menghasilkan CO₂) dan garam (NaCl dalam larutan ammonia). Produk akhir utama ialah natrium karbonat (Na₂CO₃, soda abu) digunakan dalam pembuatan kaca, detergen dan kertas.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.6.1 Proses Solvay</span></div>
+    <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="12">
+    <div class="q-number">Soalan 12 daripada 15</div>
+    <div class="q-text">Berdasarkan rajah alir Proses Sentuh, nyatakan suhu operasi bagi peringkat pengoksidaan SO₂ kepada SO₃ dan jelaskan mengapa suhu ini dipilih.</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>800°C dipilih kerana memastikan semua SO₂ ditukar kepada SO₃ secara lengkap</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>600°C dipilih kerana mangkin vanadium(V) oksida hanya aktif pada suhu melebihi 550°C</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>450°C dipilih kerana memberikan kompromi antara hasil SO₃ yang memuaskan (~98%) dengan kadar tindak balas yang cepat menggunakan mangkin V₂O₅</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>250°C dipilih kerana memberikan hasil SO₃ maksimum (99%) dan kadar tindak balas yang cukup pantas</button>
+    </div>
+    <div class="explanation" id="exp-12"><strong>✓ Jawapan: C</strong><br>Suhu 450°C dipilih sebagai kompromi: mangkin V₂O₅ aktif dan memberikan kadar penukaran SO₃ tinggi (~98%). Suhu lebih rendah memberikan hasil lebih tinggi tetapi kadar perlahan; suhu lebih tinggi memberikan kadar lebih cepat tetapi hasil SO₃ berkurang.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.2.1 Proses Sentuh (Suhu Optimum)</span></div>
+    <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="13">
+    <div class="q-number">Soalan 13 daripada 15</div>
+    <div class="q-text">Apakah peranan Petronas dalam industri petrokimia negara dan apakah impaknya terhadap pendapatan negara?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Petronas hanya menguruskan pengagihan bahan api domestik tanpa penglibatan dalam industri petrokimia antarabangsa</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Petronas mengurus eksplorasi, pengeluaran dan pemasaran petroleum dan gas asli, menyumbang kepada lebih 20% hasil kerajaan persekutuan dan membangunkan industri petrokimia di Malaysia</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Petronas memfokuskan kepada penghasilan simen dan keluli sahaja untuk memenuhi keperluan pembinaan dalam negeri</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Petronas bertanggungjawab mengimport teknologi hijau untuk menggantikan industri petroleum yang mencemar alam</button>
+    </div>
+    <div class="explanation" id="exp-13"><strong>✓ Jawapan: B</strong><br>Petronas mengurus eksplorasi, pengeluaran, penapisan dan pemasaran petroleum dan gas asli Malaysia, menyumbang lebih 20% pendapatan kerajaan persekutuan dan membangunkan industri petrokimia bersepadu di Kerteh dan Gebeng.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.5.2 Peranan Petronas</span></div>
+    <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="14">
+    <div class="q-number">Soalan 14 daripada 15</div>
+    <div class="q-text">Apakah risiko alam sekitar utama yang dikaitkan dengan penggunaan baja kimia nitrogen secara berlebihan dan apakah langkah mitigasinya?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Baja nitrogen berlebihan meningkatkan kandungan oksigen dalam tanah sehingga memusnahkan akar tumbuhan; mitigasi: kurangkan penyiraman selepas penggunaan baja</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Baja nitrogen berlebihan bertindak balas dengan aluminium dalam tanah untuk membentuk gas beracun; mitigasi: guna baja organik sepenuhnya</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Baja nitrogen berlebihan yang larut ke dalam sumber air menyebabkan eutrofikasi dan pencemaran air bawah tanah dengan nitrat; mitigasi: kawal penggunaan baja, guna baja kawalan terbitan perlahan</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Baja nitrogen berlebihan menyebabkan keasidan tanah menurun secara mendadak hingga menjadi bersifat bes kuat; mitigasi: tambah asid ke dalam tanah</button>
+    </div>
+    <div class="explanation" id="exp-14"><strong>✓ Jawapan: C</strong><br>Baja nitrogen berlebihan larut ke dalam sungai, tasik dan air bawah tanah menyebabkan eutrofikasi dan pencemaran nitrat dalam air minuman. Mitigasi: kawal dos dan masa penggunaan baja, guna baja kawalan terbitan perlahan.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.1.4 Impak Alam Sekitar Baja Nitrogen</span></div>
+    <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya →</button>
+  </div>
+  <div class="question-card " data-q="15">
+    <div class="q-number">Soalan 15 daripada 15</div>
+    <div class="q-text">Encik Rashid ingin memilih antara NaOH atau KOH sebagai alkali dalam proses saponifikasi untuk membuat sabun. Apakah perbezaan ketara antara produk yang dihasilkan?</div>
+    <div class="options">
+      <button class="option-btn" data-ans="0"><span class="option-letter">A</span>Sabun berasaskan NaOH adalah cecair dan digunakan untuk sabun mandi cair; sabun berasaskan KOH adalah pepejal</button>
+      <button class="option-btn" data-ans="1"><span class="option-letter">B</span>Sabun berasaskan NaOH adalah pepejal (sabun keras) digunakan untuk sabun mandi batang dan detergen; sabun berasaskan KOH adalah lembut atau cecair digunakan untuk sabun pencuci tangan cair</button>
+      <button class="option-btn" data-ans="2"><span class="option-letter">C</span>Kedua-dua sabun menghasilkan produk yang sama dan tiada perbezaan ketara dalam tekstur atau penggunaannya</button>
+      <button class="option-btn" data-ans="3"><span class="option-letter">D</span>Sabun berasaskan NaOH menghasilkan sabun berasid untuk kulit sensitif; sabun berasaskan KOH menghasilkan sabun beralkali untuk cucian industri</button>
+    </div>
+    <div class="explanation" id="exp-15"><strong>✓ Jawapan: B</strong><br>Saponifikasi dengan NaOH menghasilkan sabun natrium yang pepejal (sabun keras) — sabun mandi batang dan detergen pepejal. Saponifikasi dengan KOH menghasilkan sabun kalium yang lembut atau cecair — sabun pencuci tangan cair dan sabun krim.<br><span style="font-size:0.78rem;opacity:0.6;margin-top:4px;display:block;">📖 9.4.2 Perbezaan Sabun Keras dan Sabun Lembut</span></div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring"><span class="score-number" id="score-display">0/15</span></div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val" id="stat-betul">0</span><span class="stat-lbl">Betul</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-salah">0</span><span class="stat-lbl">Salah</span></div>
+      <div class="stat-box"><span class="stat-val" id="stat-pct">0%</span><span class="stat-lbl">Markah</span></div>
+    </div>
+    <a href="Kuiz_Sains_T4B10_Kimia_Perubatan.html" class="btn-next-bab"><div><span class="next-label">Bab Seterusnya →</span><span class="next-title">T4 Bab 10: Kimia dalam Perubatan & Kesihatan</span></div><span class="next-arrow">→</span></a>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt-result">▶ Tonton Video di YouTube – EasySejarah</a>
+  </div>
+  <div class="bab-nav">
+    <p>Bab Lain — Sains T4 &amp; T5</p>
+    <div class="bab-chips">
+      <a href="Kuiz_Sains_T4B1_Keselamatan.html" class="chip">T4 B1 ✓</a>
+      <a href="Kuiz_Sains_T4B2_Bantuan_Kecemasan.html" class="chip">T4 B2 ✓</a>
+      <a href="Kuiz_Sains_T4B3_Teknik_Mengukur.html" class="chip">T4 B3 ✓</a>
+      <a href="Kuiz_Sains_T4B4_Teknologi_Hijau.html" class="chip">T4 B4 ✓</a>
+      <a href="Kuiz_Sains_T4B5_Genetik.html" class="chip">T4 B5 ✓</a>
+      <a href="Kuiz_Sains_T4B6_Sokongan_Pergerakan.html" class="chip">T4 B6 ✓</a>
+      <a href="Kuiz_Sains_T4B7_Koordinasi.html" class="chip">T4 B7 ✓</a>
+      <a href="Kuiz_Sains_T4B8_Unsur_Bahan.html" class="chip">T4 B8 ✓</a>
+      <span class="chip active">T4 B9 ✓</span>
+      <a href="Kuiz_Sains_T4B10_Kimia_Perubatan.html" class="chip">T4 B10 ✓</a>
+      <a href="Kuiz_Sains_T5B1.html" class="chip">T5 B1 ✓</a>
+      <a href="Kuiz_Sains_T5B2_Nutrisi_Makanan.html" class="chip">T5 B2 ✓</a>
+      <a href="Kuiz_Sains_T5B3_Kelestarian.html" class="chip">T5 B3 ✓</a>
+      <a href="Kuiz_Sains_T5B4_Kadar_TindakBalas.html" class="chip">T5 B4 ✓</a>
+      <a href="Kuiz_Sains_T5B5_Sebatian_Karbon.html" class="chip">T5 B5 ✓</a>
+    </div>
+  </div>
+</div>
+<footer>© 2025 EasySejarah · Soalan berdasarkan buku teks SPM Sains Tingkatan 4 (KPM)</footer>
+<script>
+  const CORRECT = {1:1,2:2,3:2,4:0,5:0,6:0,7:1,8:0,9:2,10:3,11:1,12:2,13:1,14:2,15:1};
+  const TOTAL = 15;
+  let score=0, answered=0;
+  document.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const card=this.closest('.question-card');
+      const q=parseInt(card.dataset.q);
+      const chosen=parseInt(this.dataset.ans);
+      const correct=CORRECT[q];
+      card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+      if(chosen===correct){this.classList.add('correct');score++;}
+      else{this.classList.add('wrong');card.querySelectorAll('.option-btn').forEach(b=>{if(parseInt(b.dataset.ans)===correct)b.classList.add('correct');});}
+      answered++;
+      updateProgress();
+      document.getElementById('exp-'+q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+  function nextQ(current){
+    document.querySelector('[data-q="'+current+'"]').classList.remove('active');
+    const next=document.querySelector('[data-q="'+(current+1)+'"]');
+    if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  function updateProgress(){
+    const pct=(answered/TOTAL)*100;
+    document.getElementById('progress-fill').style.width=pct+'%';
+    document.getElementById('progress-label').textContent=answered+' / '+TOTAL+' soalan';
+  }
+  function showResult(){
+    document.getElementById('quiz-section').style.display='none';
+    const rs=document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({behavior:'smooth',block:'start'});
+    const pct=Math.round((score/TOTAL)*100);
+    document.getElementById('score-display').textContent=score+'/'+TOTAL;
+    document.getElementById('stat-betul').textContent=score;
+    document.getElementById('stat-salah').textContent=TOTAL-score;
+    document.getElementById('stat-pct').textContent=pct+'%';
+    document.getElementById('score-ring').style.setProperty('--pct',pct+'%');
+    let title='',sub='';
+    if(pct===100){title='Cemerlang! 🏆';sub='Markah penuh! Anda menguasai bab ini sepenuhnya!';}
+    else if(pct>=80){title='Bagus! 🎉';sub='Hampir sempurna! Semak semula soalan yang salah dan cuba sekali lagi.';}
+    else if(pct>=60){title='Boleh Lagi! 💪';sub='Cuba semak semula konsep utama bab ini dan ulangi kuiz.';}
+    else{title='Jangan Putus Asa! 📚';sub='Baca semula nota bab ini, kemudian cuba kuiz sekali lagi.';}
+    document.getElementById('result-title').textContent=title;
+    document.getElementById('result-subtitle').textContent=sub;
+  }
+  function retryQuiz(){
+    score=0;answered=0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display='block';
+    document.querySelectorAll('.question-card').forEach((card,i)=>{
+      card.classList.toggle('active',i===0);
+      card.querySelectorAll('.option-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+      card.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('show'));
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
