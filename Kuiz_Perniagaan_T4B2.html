@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Perniagaan Persekitaran Perniagaan | EasySejarah</title>
+<meta name="description" content="Kuiz interaktif SPM Perniagaan Tingkatan 4 - Persekitaran Perniagaan. 15 soalan aneka pilihan lengkap dengan penjelasan jawapan.">
+<meta property="og:title" content="Kuiz SPM Perniagaan Persekitaran Perniagaan | EasySejarah">
+<meta property="og:description" content="Uji kefahaman anda dengan 15 soalan Perniagaan SPM - Persekitaran Perniagaan.">
+<meta property="og:type" content="website">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+    :root{
+      --hijau:#2db87a; --hijau-gelap:#1a7a4a; --hijau-terang:#3fd695;
+      --kad:#17301f; --bg:#0e1f14; --putih:#f5fdf9; --abu:#9db8ab;
+      --merah:#e5484d; --kuning:#F7B731;
+    }
+    *{box-sizing:border-box; margin:0; padding:0;}
+    body{font-family:'Segoe UI',Roboto,Arial,sans-serif; background:var(--bg); color:var(--putih); line-height:1.55;}
+    a{text-decoration:none; color:inherit;}
+    header{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; background:#0a1610; border-bottom:1px solid rgba(45,184,122,.2); position:sticky; top:0; z-index:50;}
+    .logo{font-weight:800; font-size:1.15rem; color:var(--hijau-terang);}
+    .home-link{font-size:.9rem; color:var(--abu); padding:6px 14px; border:1px solid rgba(45,184,122,.35); border-radius:20px; transition:.2s;}
+    .home-link:hover{background:rgba(45,184,122,.12); color:var(--putih);}
+    .topic-badge{font-size:.78rem; background:rgba(45,184,122,.15); color:var(--hijau-terang); padding:5px 12px; border-radius:16px; border:1px solid rgba(45,184,122,.3); font-weight:600;}
+    .hero{text-align:center; padding:38px 20px 26px; max-width:760px; margin:0 auto;}
+    .eyebrow{font-size:.78rem; letter-spacing:1.5px; color:var(--hijau-terang); font-weight:700; margin-bottom:10px;}
+    .hero h1{font-size:1.7rem; font-weight:800; margin-bottom:10px; color:var(--putih);}
+    .hero p{color:var(--abu); font-size:.95rem; margin-bottom:22px;}
+    .progress-wrap{background:rgba(255,255,255,.06); border-radius:20px; height:10px; overflow:hidden; max-width:420px; margin:0 auto 8px;}
+    #progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--hijau),var(--hijau-terang)); transition:width .35s ease;}
+    #progress-label{font-size:.82rem; color:var(--abu);}
+    .quiz-section{max-width:680px; margin:0 auto; padding:0 20px 60px;}
+    .question-card{display:none; background:var(--kad); border:1px solid rgba(45,184,122,.18); border-radius:18px; padding:26px 22px; margin-bottom:18px; animation:fadeIn .35s ease;}
+    .question-card.active{display:block;}
+    @keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+    .q-num{font-size:.78rem; color:var(--hijau-terang); font-weight:700; margin-bottom:8px; letter-spacing:.5px;}
+    .q-text{font-size:1.05rem; font-weight:600; margin-bottom:18px; color:var(--putih);}
+    .option-btn{display:block; width:100%; text-align:left; background:rgba(255,255,255,.04); border:1.5px solid rgba(255,255,255,.1); color:var(--putih); padding:13px 16px; border-radius:12px; margin-bottom:10px; font-size:.93rem; cursor:pointer; transition:.18s;}
+    .option-btn:hover:not(:disabled){border-color:var(--hijau); background:rgba(45,184,122,.1);}
+    .option-btn:disabled{cursor:default;}
+    .option-btn.correct{background:rgba(45,184,122,.22); border-color:var(--hijau); color:var(--hijau-terang); font-weight:700;}
+    .option-btn.wrong{background:rgba(229,72,77,.18); border-color:var(--merah); color:#ff9b9e; font-weight:700;}
+    .explain-box{display:none; background:rgba(45,184,122,.08); border-left:3px solid var(--hijau); border-radius:0 10px 10px 0; padding:14px 16px; margin-top:14px; font-size:.88rem; color:var(--abu);}
+    .explain-box.show{display:block;}
+    .explain-box b{color:var(--hijau-terang);}
+    .ref-tag{display:block; margin-top:8px; font-size:.76rem; color:#6b8a78; font-style:italic;}
+    .btn-next{display:none; margin-top:16px; width:100%; padding:12px; background:var(--hijau); color:#0a1610; font-weight:700; border:none; border-radius:12px; cursor:pointer; font-size:.92rem; transition:.2s;}
+    .btn-next.show{display:block;}
+    .btn-next:hover{background:var(--hijau-terang);}
+    #result-section{display:none; max-width:520px; margin:0 auto; padding:20px 20px 70px; text-align:center;}
+    #result-section.show{display:block;}
+    .score-ring{width:170px; height:170px; border-radius:50%; margin:10px auto 20px; display:flex; align-items:center; justify-content:center; background:conic-gradient(var(--hijau) var(--pct,0%), rgba(255,255,255,.08) 0); position:relative;}
+    .score-ring::before{content:''; position:absolute; width:138px; height:138px; background:var(--bg); border-radius:50%;}
+    .score-ring-inner{position:relative; z-index:1;}
+    .score-num{font-size:2.1rem; font-weight:800; color:var(--hijau-terang);}
+    .score-total{font-size:.85rem; color:var(--abu);}
+    .result-title{font-size:1.3rem; font-weight:800; margin-bottom:8px;}
+    .result-sub{color:var(--abu); font-size:.9rem; margin-bottom:26px;}
+    .btn-next-bab{display:flex; align-items:center; justify-content:space-between; background:linear-gradient(135deg,var(--hijau),var(--hijau-gelap)); border-radius:16px; padding:16px 20px; margin-bottom:14px; color:#fff; transition:.2s;}
+    .btn-next-bab:hover{transform:translateY(-2px);}
+    .next-label{display:block; font-size:.76rem; opacity:.85;}
+    .next-title{display:block; font-size:1.02rem; font-weight:700;}
+    .next-arrow{font-size:1.4rem;}
+    .btn-retry{display:block; width:100%; padding:13px; background:transparent; border:1.5px solid rgba(255,255,255,.15); color:var(--putih); border-radius:14px; font-weight:600; cursor:pointer; margin-bottom:14px; font-size:.92rem; transition:.2s;}
+    .btn-retry:hover{border-color:var(--hijau); color:var(--hijau-terang);}
+    .btn-yt{display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:13px; background:rgba(255,0,0,.12); border:1.5px solid rgba(255,0,0,.3); color:#ff8a8a; border-radius:14px; font-weight:600; margin-bottom:22px; font-size:.9rem;}
+    .bab-chips{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
+    .bab-chip{font-size:.82rem; padding:7px 16px; border-radius:20px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); color:var(--abu); transition:.2s;}
+    .bab-chip:hover{border-color:var(--hijau); color:var(--putih);}
+    .bab-chip.active{background:var(--hijau); border-color:var(--hijau); color:#0a1610; font-weight:700;}
+    footer{text-align:center; padding:24px; color:#5a7568; font-size:.8rem; border-top:1px solid rgba(255,255,255,.06);}
+</style>
+</head>
+<body>
+  <header>
+    <span class="logo">📘 EasySejarah</span>
+    <a href="index.html" class="home-link">&larr; Laman Utama</a>
+    <span class="topic-badge">Perniagaan T4 · Bab 2</span>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">PERNIAGAAN TINGKATAN 4 · BAB 2</div>
+    <h1>Persekitaran Perniagaan</h1>
+    <p>Uji kefahaman anda dengan 15 soalan aneka pilihan berdasarkan sukatan SPM Perniagaan Tingkatan 4.</p>
+    <div class="progress-wrap"><div id="progress-fill"></div></div>
+    <div id="progress-label">0 / 15 soalan</div>
+  </div>
+
+  <div class="quiz-section">
+        <div class="question-card active" data-q="1">
+          <div class="q-num">SOALAN 1 / 15</div>
+          <div class="q-text">Syarikat Syaza Sdn. Bhd. baru menyertai program promosi yang dianjurkan oleh kerajaan dan diberikan pengecualian pembayaran cukai selama lima tahun. Apakah jenis pelepasan cukai yang dinikmati oleh syarikat ini?</div>
+          <button class="option-btn" data-ans="0">Taraf perintis</button>
+          <button class="option-btn" data-ans="1">Elaun cukai pelaburan</button>
+          <button class="option-btn" data-ans="2">Potongan cukai</button>
+          <button class="option-btn" data-ans="3">Elaun pelaburan semula</button>
+          <div class="explain-box" id="exp-1"><b>Penjelasan:</b> Taraf perintis diberikan kepada syarikat yang menyertai promosi kerajaan dengan pengecualian cukai selama lima tahun.
+            <span class="ref-tag">Rujukan: 2.1.1 Peranan Kerajaan Pusat (Pelepasan Cukai)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="2">
+          <div class="q-num">SOALAN 2 / 15</div>
+          <div class="q-text">Bagaimanakah Perbadanan Pembangunan Perdagangan Luar Malaysia (MATRADE) membantu peniaga tempatan mengembangkan perniagaan ke peringkat antarabangsa?</div>
+          <button class="option-btn" data-ans="0">Menyelidik dan menetapkan piawaian kualiti barang keluaran tempatan</button>
+          <button class="option-btn" data-ans="1">Menemukan pengeksport Malaysia dengan pengimport dari luar negara</button>
+          <button class="option-btn" data-ans="2">Menyediakan pinjaman modal kerja kepada usahawan Bumiputera</button>
+          <button class="option-btn" data-ans="3">Menggubal undang-undang berkaitan perdagangan dan persaingan antarabangsa</button>
+          <div class="explain-box" id="exp-2"><b>Penjelasan:</b> Salah satu peranan utama MATRADE ialah menemukan pengeksport Malaysia dengan pengimport dari luar negara.
+            <span class="ref-tag">Rujukan: 2.1.1 Peranan Kerajaan Pusat (Aktiviti Promosi MATRADE)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="3">
+          <div class="q-num">SOALAN 3 / 15</div>
+          <div class="q-text">Sesebuah kilang automotif telah menggantikan 70% tenaga kerja manusia di barisan pengeluaran dengan robot pembuat kereta. Apakah jenis pengangguran yang wujud akibat tindakan ini dan bagaimana cara mengatasinya?</div>
+          <button class="option-btn" data-ans="0">Pengangguran kitaran; diatasi dengan menurunkan kadar faedah bank pusat</button>
+          <button class="option-btn" data-ans="1">Pengangguran struktur; diatasi dengan memberikan subsidi pembungkusan keluaran</button>
+          <button class="option-btn" data-ans="2">Pengangguran teknologi; diatasi dengan mengehadkan penggunaan mesin untuk proses tertentu sahaja</button>
+          <button class="option-btn" data-ans="3">Pengangguran bermusim; diatasi dengan pemberian pengecualian cukai gaji</button>
+          <div class="explain-box" id="exp-3"><b>Penjelasan:</b> Pengangguran teknologi berlaku akibat penggunaan teknologi menggantikan pekerja, dan diatasi dengan menggunakan mesin moden untuk proses tertentu sahaja.
+            <span class="ref-tag">Rujukan: 2.1.3 Peranan Kerajaan dari Aspek Guna Tenaga</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="4">
+          <div class="q-num">SOALAN 4 / 15</div>
+          <div class="q-text">Kerajaan mengambil keputusan untuk menurunkan kadar cukai pendapatan boleh guna dan menurunkan kadar faedah simpanan bank. Apakah matlamat utama langkah kerajaan tersebut?</div>
+          <button class="option-btn" data-ans="0">Mengurangkan kadar inflasi tolakan kos yang membebankan pengeluar</button>
+          <button class="option-btn" data-ans="1">Menggalakkan penduduk menyimpan wang di bank tempatan</button>
+          <button class="option-btn" data-ans="2">Mengurangkan persaingan antara barang tempatan dengan barang import</button>
+          <button class="option-btn" data-ans="3">Mengatasi masalah deflasi dengan merangsang perbelanjaan pengguna</button>
+          <div class="explain-box" id="exp-4"><b>Penjelasan:</b> Menurunkan kadar cukai dan kadar faedah bertujuan meningkatkan pendapatan boleh guna dan menggalakkan perbelanjaan pengguna bagi mengatasi deflasi.
+            <span class="ref-tag">Rujukan: 2.1.4 Peranan Kerajaan dari Aspek Ekonomi (Deflasi)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="5">
+          <div class="q-num">SOALAN 5 / 15</div>
+          <div class="q-text">Syarikat Pembekal Makanan Ria mendapati jualan produk sosnya tidak lagi menunjukkan sebarang peningkatan atau penurunan ekoran pasaran telah tepu. Apakah langkah paling berkesan yang patut diambil oleh peniaga tersebut?</div>
+          <button class="option-btn" data-ans="0">Membuat penambahbaikan pada produk sedia ada atau mencari pasaran baharu</button>
+          <button class="option-btn" data-ans="1">Mengurangkan bilangan pekerja bagi mengurangkan kos operasi</button>
+          <button class="option-btn" data-ans="2">Memohon pengecualian cukai taraf perintis daripada kerajaan pusat</button>
+          <button class="option-btn" data-ans="3">Mengubah entiti perniagaan daripada milikan tunggal kepada syarikat berhad</button>
+          <div class="explain-box" id="exp-5"><b>Penjelasan:</b> Apabila pasaran tepu pada trend mendatar, peniaga perlu membuat penambahbaikan pada produk sedia ada, mengeluarkan produk baharu, atau mencari pasaran baharu.
+            <span class="ref-tag">Rujukan: 2.2.3 Trend Mendatar</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="6">
+          <div class="q-num">SOALAN 6 / 15</div>
+          <div class="q-text">Apakah perbezaan utama bagi trend guna tenaga antara negara maju dengan negara sedang membangun mengikut kandungan teks?</div>
+          <button class="option-btn" data-ans="0">Negara maju bergantung kepada pekerja sektor utama manakala negara membangun bergantung kepada sektor perkhidmatan</button>
+          <button class="option-btn" data-ans="1">Negara maju mengutamakan penggunaan modal dan teknologi manakala negara membangun lebih mengutamakan tenaga pekerja manusia</button>
+          <button class="option-btn" data-ans="2">Negara maju membayar kadar upah yang lebih rendah berbanding negara membangun</button>
+          <button class="option-btn" data-ans="3">Negara maju menghadapi kadar pengangguran struktur yang lebih tinggi berbanding negara membangun</button>
+          <div class="explain-box" id="exp-6"><b>Penjelasan:</b> Negara maju mengutamakan modal dan teknologi seperti mesin dan robot, manakala pembangunan negara lebih mengutamakan penggunaan tenaga pekerja manusia.
+            <span class="ref-tag">Rujukan: 2.2.5 Trend Guna Tenaga, Pendapatan dan Pertumbuhan Ekonomi</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="7">
+          <div class="q-num">SOALAN 7 / 15</div>
+          <div class="q-text">Semasa perniagaan berada dalam Fasa Melambung pada kitaran ekonomi, apakah tindakan biasa yang diambil oleh organisasi perniagaan?</div>
+          <button class="option-btn" data-ans="0">Menolak tawaran pelaburan di luar negara bagi mengelakkan risiko kewangan</button>
+          <button class="option-btn" data-ans="1">Mengurangkan bilangan pekerja bagi mengekalkan tahap produktiviti</button>
+          <button class="option-btn" data-ans="2">Menambah pengeluaran produk serta menawarkan gaji dan upah yang tinggi bagi menarik pekerja</button>
+          <button class="option-btn" data-ans="3">Meminta bantuan kewangan daripada agensi kerajaan seperti TEKUN Nasional</button>
+          <div class="explain-box" id="exp-7"><b>Penjelasan:</b> Pada Fasa Melambung, perniagaan menambah pengeluaran produk, memerlukan pekerja yang ramai, serta mampu membayar gaji dan upah yang tinggi.
+            <span class="ref-tag">Rujukan: 2.2.5 Pertumbuhan Ekonomi (Kitaran Ekonomi)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="8">
+          <div class="q-num">SOALAN 8 / 15</div>
+          <div class="q-text">Seorang pengurus mengamalkan Gaya Pengurusan Autokratik (9,1) berdasarkan Grid Pengurusan. Apakah ciri utama gaya pengurusan ini?</div>
+          <button class="option-btn" data-ans="0">Pengurus memberi kebebasan penuh kepada pekerja untuk membuat keputusan</button>
+          <button class="option-btn" data-ans="1">Pengurus memfokuskan hubungan baik tetapi kurang memberikan dorongan kerja</button>
+          <button class="option-btn" data-ans="2">Pengurus bertoleransi dan menjalinkan hubungan dua hala yang seimbang dalam semua aspek</button>
+          <button class="option-btn" data-ans="3">Pengurus sangat tegas dalam memastikan matlamat pengeluaran dicapai tetapi berpotensi menimbulkan ketidakpuasan hati pekerja</button>
+          <div class="explain-box" id="exp-8"><b>Penjelasan:</b> Gaya pengurusan autokratik menunjukkan majikan yang tegas dalam mencapai matlamat tetapi berpotensi menimbulkan ketidakpuasan hati pekerja.
+            <span class="ref-tag">Rujukan: 2.3.1 Faktor Dalaman (Gaya Pengurusan)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="9">
+          <div class="q-num">SOALAN 9 / 15</div>
+          <div class="q-text">Apakah kelebihan utama yang diperoleh sesebuah syarikat apabila mengambil pekerja baharu daripada sumber manusia luaran berbanding sumber dalaman?</div>
+          <button class="option-btn" data-ans="0">Melahirkan idea baharu dan membawa kemahiran baharu yang terkini</button>
+          <button class="option-btn" data-ans="1">Mengurangkan kos merekrut dan kos latihan induksi</button>
+          <button class="option-btn" data-ans="2">Pekerja sudah sedia memahami budaya dan persekitaran kerja organisasi</button>
+          <button class="option-btn" data-ans="3">Memastikan tiada kekosongan jawatan yang ditinggalkan di peringkat bawahan</button>
+          <div class="explain-box" id="exp-9"><b>Penjelasan:</b> Pengambilan sumber manusia luaran membolehkan organisasi melahirkan idea baharu serta memperoleh kemahiran baharu dan terkini.
+            <span class="ref-tag">Rujukan: 2.3.1 Faktor Dalaman (Sumber Manusia)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="10">
+          <div class="q-num">SOALAN 10 / 15</div>
+          <div class="q-text">Syarikat Megah Holding mempunyai sumber kewangan yang amat kukuh (Kekuatan) dan mahu memanfaatkannya untuk menembusi pasaran eksport baharu di Asia Tenggara yang sedang berkembang pesat (Peluang). Apakah kombinasi strategi SWOT yang digunakan oleh syarikat ini?</div>
+          <button class="option-btn" data-ans="0">Strategi Kelemahan-Peluang (WO)</button>
+          <button class="option-btn" data-ans="1">Strategi Kekuatan-Peluang (SO)</button>
+          <button class="option-btn" data-ans="2">Strategi Kekuatan-Ancaman (ST)</button>
+          <button class="option-btn" data-ans="3">Strategi Kelemahan-Ancaman (WT)</button>
+          <div class="explain-box" id="exp-10"><b>Penjelasan:</b> Strategi SO menggunakan keunikan kekuatan faktor dalaman untuk merebut peluang yang wujud daripada faktor luaran.
+            <span class="ref-tag">Rujukan: 2.3.3 Analisis Faktor Dalaman dan Faktor Luaran (Matriks SWOT)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="11">
+          <div class="q-num">SOALAN 11 / 15</div>
+          <div class="q-text">Bagaimanakah perkembangan teknologi maklumat seperti platform penstriman muzik digital memberi kesan kepada pasaran pengeluar cakera padat (CD)?</div>
+          <button class="option-btn" data-ans="0">Menyebabkan penutupan serta-merta seluruh premis perniagaan CD</button>
+          <button class="option-btn" data-ans="1">Meningkatkan kos pengeluaran CD akibat kekurangan bahan mentah</button>
+          <button class="option-btn" data-ans="2">Mengecilkan saiz pasaran CD kepada kumpulan individu yang gemar mengumpul CD sahaja</button>
+          <button class="option-btn" data-ans="3">Memaksa pengeluar CD membayar duti eksport yang lebih tinggi kepada kerajaan</button>
+          <div class="explain-box" id="exp-11"><b>Penjelasan:</b> Perubahan teknologi muat turun/penstriman menyebabkan pasaran CD mengecil dan tertumpu kepada individu yang gemar mengumpul CD sahaja.
+            <span class="ref-tag">Rujukan: 2.4.1 Kesan Perubahan dari Aspek Pasaran</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="12">
+          <div class="q-num">SOALAN 12 / 15</div>
+          <div class="q-text">Sebuah syarikat konglomerat antarabangsa menjual barangan di pasaran tempatan pada harga yang lebih rendah daripada kos pengeluarannya semata-mata untuk mematikan pesaing kecil. Apakah nama strategi persaingan tidak sihat ini dan akta manakah yang melindunginya?</div>
+          <button class="option-btn" data-ans="0">Dasar monopoli; dilindungi bawah Akta Syarikat 1965</button>
+          <button class="option-btn" data-ans="1">Dasar penembusan harga; dilindungi bawah Akta Perihal Dagangan 1972</button>
+          <button class="option-btn" data-ans="2">Dasar pencatutan; dilindungi bawah Akta Kawalan Harga 1946</button>
+          <button class="option-btn" data-ans="3">Dasar lambakan; dilindungi bawah Akta Persaingan 2010</button>
+          <div class="explain-box" id="exp-12"><b>Penjelasan:</b> Dasar lambakan ialah menjual produk di bawah kos untuk menyingkirkan peniaga kecil, dan ditangani di bawah Akta Persaingan 2010.
+            <span class="ref-tag">Rujukan: 2.4.3 Kesan Perubahan dari Aspek Undang-undang (Akta Persaingan 2010)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="13">
+          <div class="q-num">SOALAN 13 / 15</div>
+          <div class="q-text">Menurut Akta Kontrak 1950, apakah yang menyebabkan sesuatu kontrak perniagaan menjadi batal sekiranya salah satu pihak tidak memperoleh apa-apa faedah daripada urus niaga tersebut?</div>
+          <button class="option-btn" data-ans="0">Ketiadaan unsur balasan antara pihak yang berkontrak</button>
+          <button class="option-btn" data-ans="1">Ketiadaan pendaftaran di Suruhanjaya Syarikat Malaysia (SSM)</button>
+          <button class="option-btn" data-ans="2">Ketiadaan kelulusan daripada Pihak Berkuasa Tempatan (PBT)</button>
+          <button class="option-btn" data-ans="3">Ketiadaan jaminan mutu barang daripada SIRIM</button>
+          <div class="explain-box" id="exp-13"><b>Penjelasan:</b> Akta Kontrak 1950 menetapkan perlu wujud balasan (faedah), dan jika gagal mendapat balasan, sesuatu kontrak akan batal.
+            <span class="ref-tag">Rujukan: 2.4.3 Kesan Perubahan dari Aspek Undang-undang (Akta Kontrak 1950)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="14">
+          <div class="q-num">SOALAN 14 / 15</div>
+          <div class="q-text">Encik Azman merupakan pemilik sebuah kilang perabot tempatan. Semasa berlaku kemelesetan ekonomi negara, jualan perabot beliau merosot tajam sehingga kilangnya berisiko terpaksa memberhentikan sebahagian pekerja. Apakah kombinasi tindakan kerajaan yang paling tepat untuk membantu peniaga seperti Encik Azman bertahan dan mengelakkan pengangguran kitaran?</div>
+          <button class="option-btn" data-ans="0">Meningkatkan kadar faedah pinjaman bank pusat dan menaikkan tarif cukai jualan tempatan</button>
+          <button class="option-btn" data-ans="1">Menikmati elaun eksport dan menurunkan kadar cukai keuntungan syarikat melalui dasar fiskal</button>
+          <button class="option-btn" data-ans="2">Menguatkuasakan Akta Hak Cipta 1987 dan memindahkan premis perniagaan ke kawasan PBT baharu</button>
+          <button class="option-btn" data-ans="3">Memaksa kilang menggunakan 100% teknologi automatik dan membatalkan lesen penjaja tempatan</button>
+          <div class="explain-box" id="exp-14"><b>Penjelasan:</b> Kerajaan merangsang ekonomi semasa kemelesetan (pengangguran kitaran) melalui dasar fiskal (penurunan cukai) dan elaun eksport untuk membolehkan perniagaan terus beroperasi.
+            <span class="ref-tag">Rujukan: 2.1.1 &amp; 2.1.3 Peranan Kerajaan dalam Menangani Kemelesetan dan Pengangguran Kitaran</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="15">
+          <div class="q-num">SOALAN 15 / 15</div>
+          <div class="q-text">Syarikat Restoran Rasa Indah mempunyai resipi masakan warisan yang sangat disukai ramai (Kekuatan) serta modal yang mencukupi. Walau bagaimanapun, pekerja restoran sering merungut kerana pengurus premis mengamalkan Gaya Pengurusan Laissez-faire (1,1) yang menyebabkan disiplin dan operasi dapur menjadi kucar-kacir (Kelemahan). Apakah cadangan penambahbaikan faktor dalaman yang paling tepat untuk restoran ini?</div>
+          <button class="option-btn" data-ans="0">Menukar gaya pengurusan kepada Gaya Pengurusan Sokongan (1,9) dan mengurangkan harga jualan makanan</button>
+          <button class="option-btn" data-ans="1">Memohon pengecualian cukai Elaun Cukai Pelaburan daripada Kerajaan Negeri bagi membeli peralatan dapur moden</button>
+          <button class="option-btn" data-ans="2">Menukar gaya pengurusan kepada Gaya Pengurusan Demokratik (9,9) atau Sederhana (5,5) untuk meningkatkan kawalan disiplin dan motivasi pekerja</button>
+          <button class="option-btn" data-ans="3">Mengambil tindakan undang-undang di bawah Akta Persaingan 2010 terhadap restoran pesaing berdekatan</button>
+          <div class="explain-box" id="exp-15"><b>Penjelasan:</b> Gaya pengurusan Laissez-faire membiarkan tingkah laku pekerja sukar dikawal, maka beralih kepada gaya Demokratik atau Sederhana dapat membaiki hubungan dan disiplin pekerja.
+            <span class="ref-tag">Rujukan: 2.3.1 Faktor Dalaman (Gaya Pengurusan)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(15)">Soalan Seterusnya &rarr;</button>
+        </div>
+  </div>
+
+  <div id="result-section">
+    <div class="score-ring" id="score-ring">
+      <div class="score-ring-inner">
+        <div class="score-num" id="score-num">0</div>
+        <div class="score-total">/ 15</div>
+      </div>
+    </div>
+    <div class="result-title" id="result-title">Kuiz Selesai!</div>
+    <div class="result-sub" id="result-sub">Lihat prestasi anda di bawah.</div>
+    <a href="Kuiz_Perniagaan_T4B3.html" class="btn-next-bab">
+            <div><span class="next-label">Bab Seterusnya &rarr;</span>
+                 <span class="next-title">Bab 3</span></div>
+            <span class="next-arrow">&rarr;</span>
+          </a>
+    <button class="btn-retry" onclick="retryQuiz()">&#8635; Cuba Lagi</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt">&#9654; Tonton Video Ulang Kaji di YouTube</a>
+    <div class="bab-chips">
+            <a href="Kuiz_Perniagaan_T4B1.html" class="bab-chip">Bab 1</a>
+            <a href="Kuiz_Perniagaan_T4B2.html" class="bab-chip active">Bab 2</a>
+            <a href="Kuiz_Perniagaan_T4B3.html" class="bab-chip">Bab 3</a>
+            <a href="Kuiz_Perniagaan_T4B4.html" class="bab-chip">Bab 4</a>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 EasySejarah. Semua hak terpelihara.</footer>
+
+<script>
+const CORRECT = {1:0, 2:1, 3:2, 4:3, 5:0, 6:1, 7:2, 8:3, 9:0, 10:1, 11:2, 12:3, 13:0, 14:1, 15:2};
+const TOTAL = 15;
+let score = 0, answered = 0;
+
+document.querySelectorAll('.option-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.question-card');
+    const q = parseInt(card.dataset.q);
+    const chosen = parseInt(this.dataset.ans);
+    const correct = CORRECT[q];
+    card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+    if (chosen === correct) {
+      this.classList.add('correct');
+      score++;
+    } else {
+      this.classList.add('wrong');
+      card.querySelectorAll('.option-btn').forEach(b => {
+        if (parseInt(b.dataset.ans) === correct) b.classList.add('correct');
+      });
+    }
+    answered++;
+    updateProgress();
+    document.getElementById('exp-' + q).classList.add('show');
+    const nextBtn = card.querySelector('.btn-next');
+    if (q === TOTAL) {
+      nextBtn.textContent = 'Lihat Keputusan &rarr;';
+      nextBtn.setAttribute('onclick', 'showResult()');
+    }
+    nextBtn.classList.add('show');
+  });
+});
+
+function nextQ(current) {
+  document.querySelector('[data-q="' + current + '"]').classList.remove('active');
+  const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+  if (next) {
+    next.classList.add('active');
+    next.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+
+function updateProgress() {
+  const pct = (answered / TOTAL) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+}
+
+function showResult() {
+  document.querySelector('.quiz-section').style.display = 'none';
+  const result = document.getElementById('result-section');
+  result.classList.add('show');
+  const pct = Math.round((score / TOTAL) * 100);
+  document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+  document.getElementById('score-num').textContent = score;
+  let title, sub;
+  if (pct >= 80) { title = '🏆 Cemerlang!'; sub = 'Anda benar-benar menguasai bab ini.'; }
+  else if (pct >= 60) { title = '👍 Bagus!'; sub = 'Sedikit lagi ulang kaji untuk cemerlang.'; }
+  else { title = '💪 Teruskan Usaha!'; sub = 'Ulang kaji semula dan cuba lagi.'; }
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-sub').textContent = sub;
+  result.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function retryQuiz() {
+  score = 0; answered = 0;
+  document.querySelectorAll('.option-btn').forEach(b => {
+    b.disabled = false; b.classList.remove('correct','wrong');
+  });
+  document.querySelectorAll('.explain-box').forEach(e => e.classList.remove('show'));
+  document.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+  document.querySelector('[data-q="1"]').classList.add('active');
+  document.getElementById('result-section').classList.remove('show');
+  document.querySelector('.quiz-section').style.display = 'block';
+  updateProgress();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+</body>
+</html>

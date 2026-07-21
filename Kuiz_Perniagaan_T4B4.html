@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Perniagaan Struktur Organisasi Perniagaan | EasySejarah</title>
+<meta name="description" content="Kuiz interaktif SPM Perniagaan Tingkatan 4 - Struktur Organisasi Perniagaan. 15 soalan aneka pilihan lengkap dengan penjelasan jawapan.">
+<meta property="og:title" content="Kuiz SPM Perniagaan Struktur Organisasi Perniagaan | EasySejarah">
+<meta property="og:description" content="Uji kefahaman anda dengan 15 soalan Perniagaan SPM - Struktur Organisasi Perniagaan.">
+<meta property="og:type" content="website">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+    :root{
+      --hijau:#2db87a; --hijau-gelap:#1a7a4a; --hijau-terang:#3fd695;
+      --kad:#17301f; --bg:#0e1f14; --putih:#f5fdf9; --abu:#9db8ab;
+      --merah:#e5484d; --kuning:#F7B731;
+    }
+    *{box-sizing:border-box; margin:0; padding:0;}
+    body{font-family:'Segoe UI',Roboto,Arial,sans-serif; background:var(--bg); color:var(--putih); line-height:1.55;}
+    a{text-decoration:none; color:inherit;}
+    header{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; background:#0a1610; border-bottom:1px solid rgba(45,184,122,.2); position:sticky; top:0; z-index:50;}
+    .logo{font-weight:800; font-size:1.15rem; color:var(--hijau-terang);}
+    .home-link{font-size:.9rem; color:var(--abu); padding:6px 14px; border:1px solid rgba(45,184,122,.35); border-radius:20px; transition:.2s;}
+    .home-link:hover{background:rgba(45,184,122,.12); color:var(--putih);}
+    .topic-badge{font-size:.78rem; background:rgba(45,184,122,.15); color:var(--hijau-terang); padding:5px 12px; border-radius:16px; border:1px solid rgba(45,184,122,.3); font-weight:600;}
+    .hero{text-align:center; padding:38px 20px 26px; max-width:760px; margin:0 auto;}
+    .eyebrow{font-size:.78rem; letter-spacing:1.5px; color:var(--hijau-terang); font-weight:700; margin-bottom:10px;}
+    .hero h1{font-size:1.7rem; font-weight:800; margin-bottom:10px; color:var(--putih);}
+    .hero p{color:var(--abu); font-size:.95rem; margin-bottom:22px;}
+    .progress-wrap{background:rgba(255,255,255,.06); border-radius:20px; height:10px; overflow:hidden; max-width:420px; margin:0 auto 8px;}
+    #progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--hijau),var(--hijau-terang)); transition:width .35s ease;}
+    #progress-label{font-size:.82rem; color:var(--abu);}
+    .quiz-section{max-width:680px; margin:0 auto; padding:0 20px 60px;}
+    .question-card{display:none; background:var(--kad); border:1px solid rgba(45,184,122,.18); border-radius:18px; padding:26px 22px; margin-bottom:18px; animation:fadeIn .35s ease;}
+    .question-card.active{display:block;}
+    @keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+    .q-num{font-size:.78rem; color:var(--hijau-terang); font-weight:700; margin-bottom:8px; letter-spacing:.5px;}
+    .q-text{font-size:1.05rem; font-weight:600; margin-bottom:18px; color:var(--putih);}
+    .option-btn{display:block; width:100%; text-align:left; background:rgba(255,255,255,.04); border:1.5px solid rgba(255,255,255,.1); color:var(--putih); padding:13px 16px; border-radius:12px; margin-bottom:10px; font-size:.93rem; cursor:pointer; transition:.18s;}
+    .option-btn:hover:not(:disabled){border-color:var(--hijau); background:rgba(45,184,122,.1);}
+    .option-btn:disabled{cursor:default;}
+    .option-btn.correct{background:rgba(45,184,122,.22); border-color:var(--hijau); color:var(--hijau-terang); font-weight:700;}
+    .option-btn.wrong{background:rgba(229,72,77,.18); border-color:var(--merah); color:#ff9b9e; font-weight:700;}
+    .explain-box{display:none; background:rgba(45,184,122,.08); border-left:3px solid var(--hijau); border-radius:0 10px 10px 0; padding:14px 16px; margin-top:14px; font-size:.88rem; color:var(--abu);}
+    .explain-box.show{display:block;}
+    .explain-box b{color:var(--hijau-terang);}
+    .ref-tag{display:block; margin-top:8px; font-size:.76rem; color:#6b8a78; font-style:italic;}
+    .btn-next{display:none; margin-top:16px; width:100%; padding:12px; background:var(--hijau); color:#0a1610; font-weight:700; border:none; border-radius:12px; cursor:pointer; font-size:.92rem; transition:.2s;}
+    .btn-next.show{display:block;}
+    .btn-next:hover{background:var(--hijau-terang);}
+    #result-section{display:none; max-width:520px; margin:0 auto; padding:20px 20px 70px; text-align:center;}
+    #result-section.show{display:block;}
+    .score-ring{width:170px; height:170px; border-radius:50%; margin:10px auto 20px; display:flex; align-items:center; justify-content:center; background:conic-gradient(var(--hijau) var(--pct,0%), rgba(255,255,255,.08) 0); position:relative;}
+    .score-ring::before{content:''; position:absolute; width:138px; height:138px; background:var(--bg); border-radius:50%;}
+    .score-ring-inner{position:relative; z-index:1;}
+    .score-num{font-size:2.1rem; font-weight:800; color:var(--hijau-terang);}
+    .score-total{font-size:.85rem; color:var(--abu);}
+    .result-title{font-size:1.3rem; font-weight:800; margin-bottom:8px;}
+    .result-sub{color:var(--abu); font-size:.9rem; margin-bottom:26px;}
+    .btn-next-bab{display:flex; align-items:center; justify-content:space-between; background:linear-gradient(135deg,var(--hijau),var(--hijau-gelap)); border-radius:16px; padding:16px 20px; margin-bottom:14px; color:#fff; transition:.2s;}
+    .btn-next-bab:hover{transform:translateY(-2px);}
+    .next-label{display:block; font-size:.76rem; opacity:.85;}
+    .next-title{display:block; font-size:1.02rem; font-weight:700;}
+    .next-arrow{font-size:1.4rem;}
+    .btn-retry{display:block; width:100%; padding:13px; background:transparent; border:1.5px solid rgba(255,255,255,.15); color:var(--putih); border-radius:14px; font-weight:600; cursor:pointer; margin-bottom:14px; font-size:.92rem; transition:.2s;}
+    .btn-retry:hover{border-color:var(--hijau); color:var(--hijau-terang);}
+    .btn-yt{display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:13px; background:rgba(255,0,0,.12); border:1.5px solid rgba(255,0,0,.3); color:#ff8a8a; border-radius:14px; font-weight:600; margin-bottom:22px; font-size:.9rem;}
+    .bab-chips{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
+    .bab-chip{font-size:.82rem; padding:7px 16px; border-radius:20px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); color:var(--abu); transition:.2s;}
+    .bab-chip:hover{border-color:var(--hijau); color:var(--putih);}
+    .bab-chip.active{background:var(--hijau); border-color:var(--hijau); color:#0a1610; font-weight:700;}
+    footer{text-align:center; padding:24px; color:#5a7568; font-size:.8rem; border-top:1px solid rgba(255,255,255,.06);}
+</style>
+</head>
+<body>
+  <header>
+    <span class="logo">📘 EasySejarah</span>
+    <a href="index.html" class="home-link">&larr; Laman Utama</a>
+    <span class="topic-badge">Perniagaan T4 · Bab 4</span>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">PERNIAGAAN TINGKATAN 4 · BAB 4</div>
+    <h1>Struktur Organisasi Perniagaan</h1>
+    <p>Uji kefahaman anda dengan 15 soalan aneka pilihan berdasarkan sukatan SPM Perniagaan Tingkatan 4.</p>
+    <div class="progress-wrap"><div id="progress-fill"></div></div>
+    <div id="progress-label">0 / 15 soalan</div>
+  </div>
+
+  <div class="quiz-section">
+        <div class="question-card active" data-q="1">
+          <div class="q-num">SOALAN 1 / 15</div>
+          <div class="q-text">Mengapakah sesebuah organisasi perniagaan membahagikan struktur organisasinya mengikut bahagian fungsian?</div>
+          <button class="option-btn" data-ans="0">Supaya setiap anggota organisasi mengetahui dengan jelas tentang tanggungjawab, kedudukan, dan spesifikasi tugas.</button>
+          <button class="option-btn" data-ans="1">Untuk memastikan perniagaan dapat mengurangkan bilangan pekerja di peringkat pengurusan bawahan.</button>
+          <button class="option-btn" data-ans="2">Supaya semua urusan kewangan dan pembayaran cukai dapat diselesaikan tanpa melantik pegawai khas.</button>
+          <button class="option-btn" data-ans="3">Untuk membolehkan pengurusan atasan menyerahkan keseluruhan kawalan operasi kepada penyelia kilang.</button>
+          <div class="explain-box" id="exp-1"><b>Penjelasan:</b> Menurut teks subtajuk 4.1.1, tujuan struktur organisasi dibahagikan mengikut bahagian fungsian adalah supaya setiap anggota dalam bahagian tersebut mengetahui dengan jelas tentang tanggungjawab, kedudukan, dan spesifikasi tugas.
+            <span class="ref-tag">Rujukan: 4.1.1 Struktur Organisasi</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="2">
+          <div class="q-num">SOALAN 2 / 15</div>
+          <div class="q-text">Antara tugas berikut, yang manakah dilaksanakan khusus oleh bahagian fungsian pentadbiran dan bukannya bahagian fungsian pengurusan sumber manusia?</div>
+          <button class="option-btn" data-ans="0">Membentuk sistem tindakan yang berkaitan dengan disiplin pekerja.</button>
+          <button class="option-btn" data-ans="1">Melaksanakan program induksi dan latihan kemahiran untuk pekerja baharu.</button>
+          <button class="option-btn" data-ans="2">Menyediakan kemudahan kaunseling dan pengangkutan untuk kebajikan pekerja.</button>
+          <button class="option-btn" data-ans="3">Mengurus, menyimpan, dan menerima rekod serta menyediakan dokumen syarikat.</button>
+          <div class="explain-box" id="exp-2"><b>Penjelasan:</b> Menurut teks 4.2.1(b), bahagian pentadbiran berperanan menjalankan urusan dalaman seperti mengurus, menyimpan, dan menerima rekod serta menyediakan dokumen syarikat.
+            <span class="ref-tag">Rujukan: 4.2.1 Pentadbiran &amp; 4.2.2 Pengurusan Sumber Manusia</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="3">
+          <div class="q-num">SOALAN 3 / 15</div>
+          <div class="q-text">Mengapakah barang seperti sayur-sayuran segar dan perkhidmatan guaman paling sesuai diagihkan menggunakan Saluran 1 (Pengeluar → Pengguna)?</div>
+          <button class="option-btn" data-ans="0">Kerana barang tersebut memerlukan pemecahan pukal oleh pemborong terlebih dahulu.</button>
+          <button class="option-btn" data-ans="1">Kerana peruncit tidak mempunyai kemampuan kewangan untuk membeli secara terus daripada pengeluar.</button>
+          <button class="option-btn" data-ans="2">Kerana barang tersebut tidak tahan lama dan perkhidmatan profesional tidak memerlukan pengantara atau orang tengah.</button>
+          <button class="option-btn" data-ans="3">Kerana saluran ini membolehkan ejen menentukan harga jualan mengikut perubahan pasaran semasa.</button>
+          <div class="explain-box" id="exp-3"><b>Penjelasan:</b> Menurut teks 4.2.9(i), Saluran 1 dikenali sebagai saluran pemasaran langsung tanpa orang tengah dan sesuai untuk barang yang tidak tahan lama (seperti barang pertanian) serta perkhidmatan profesional.
+            <span class="ref-tag">Rujukan: 4.2.9 Bahagian Fungsian Pengagihan</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="4">
+          <div class="q-num">SOALAN 4 / 15</div>
+          <div class="q-text">Pengurus pengeluaran sebuah kilang pakaian membuat pemeriksaan ke atas kerosakan mesin jahit dan menyelia kecekapan pekerja semasa proses menjahit dijalankan. Tindakan pengurus ini merujuk kepada aspek kawalan yang mana?</div>
+          <button class="option-btn" data-ans="0">Kawalan awalan</button>
+          <button class="option-btn" data-ans="1">Kawalan selepas</button>
+          <button class="option-btn" data-ans="2">Kawalan kualiti akhir</button>
+          <button class="option-btn" data-ans="3">Kawalan semasa</button>
+          <div class="explain-box" id="exp-4"><b>Penjelasan:</b> Menurut teks 4.2.7(b), kawalan semasa merangkumi kawalan pengeluaran, kawalan utiliti mesin (membaiki kerosakan mesin dengan segera dan menyelia mesin), serta kawalan staf semasa aktiviti pengeluaran berlangsung.
+            <span class="ref-tag">Rujukan: 4.2.7 Bahagian Fungsian Pengeluaran</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="5">
+          <div class="q-num">SOALAN 5 / 15</div>
+          <div class="q-text">Bahagian fungsian pembelian telah menerima sebut harga daripada beberapa syarikat pembekal bahan mentah. Apakah langkah seterusnya yang perlu dilaksanakan mengikut tatacara pembelian yang betul?</div>
+          <button class="option-btn" data-ans="0">Membuat pesanan pembelian serta-merta kepada pembekal dengan harga terendah.</button>
+          <button class="option-btn" data-ans="1">Menilai pembekal-pembekal berdasarkan sebut harga dan kriteria yang ditetapkan.</button>
+          <button class="option-btn" data-ans="2">Mengeluarkan invois bayaran kepada pembekal sebelum penerimaan barang.</button>
+          <button class="option-btn" data-ans="3">Menerima tempahan belian baharu daripada pengurus jualan.</button>
+          <div class="explain-box" id="exp-5"><b>Penjelasan:</b> Berdasarkan Rajah 4.6 (Tatacara pembelian), selepas menerima sebut harga daripada pembekal-pembekal, langkah berikutnya ialah menilai pembekal-pembekal tersebut sebelum membuat pesanan pembelian.
+            <span class="ref-tag">Rujukan: 4.2.6 Bahagian Fungsian Pembelian</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="6">
+          <div class="q-num">SOALAN 6 / 15</div>
+          <div class="q-text">Syarikat Mesra telah menghasilkan sebuah prototaip pembersih vakum robotik dan mengujinya ke atas sekumpulan pengguna sasaran untuk mengenal pasti penerimaan mereka. Apakah peringkat pembangunan produk baharu yang sedang dilalui oleh syarikat tersebut?</div>
+          <button class="option-btn" data-ans="0">Penyaringan idea</button>
+          <button class="option-btn" data-ans="1">Analisis perniagaan</button>
+          <button class="option-btn" data-ans="2">Ujian pemasaran</button>
+          <button class="option-btn" data-ans="3">Komersialisasi</button>
+          <div class="explain-box" id="exp-6"><b>Penjelasan:</b> Menurut teks 4.3.1(g), ujian pemasaran melibatkan ujian ke atas produk prototaip untuk mengenal pasti penerimaan pengguna terhadap produk yang dibangunkan.
+            <span class="ref-tag">Rujukan: 4.3.1 Langkah-langkah Pembangunan Produk Baharu</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="7">
+          <div class="q-num">SOALAN 7 / 15</div>
+          <div class="q-text">Bagaimanakah aplikasi e-dagang dapat memberi faedah secara langsung terhadap peningkatan hasil jualan sesebuah perniagaan?</div>
+          <button class="option-btn" data-ans="0">Memudahkan urusan tempahan, pembelian, dan pembayaran dilakukan secara dalam talian berterusan tanpa henti.</button>
+          <button class="option-btn" data-ans="1">Membolehkan syarikat mengurangkan kadar bayaran cukai pendapatan syarikat melalui e-Filing.</button>
+          <button class="option-btn" data-ans="2">Memastikan maklumat pekerja dan rekod kewangan syarikat disimpan dalam pangkalan data sulit.</button>
+          <button class="option-btn" data-ans="3">Membolehkan pengurus sumber manusia menilai prestasi kerja staf secara maya.</button>
+          <div class="explain-box" id="exp-7"><b>Penjelasan:</b> Menurut teks 4.4(b)(ii), e-dagang ialah sistem urusan tempahan, pembelian, dan pembayaran secara dalam talian yang meningkatkan hasil jualan kerana memenuhi kehendak pelanggan dengan segera dan berterusan tanpa henti.
+            <span class="ref-tag">Rujukan: 4.4 Aplikasi Teknologi Maklumat dalam Perniagaan</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="8">
+          <div class="q-num">SOALAN 8 / 15</div>
+          <div class="q-text">Dalam proses komunikasi dan aliran maklumat perniagaan, pengurus pemasaran mengolah idea strateginya ke dalam bentuk tayangan video dan slaid grafik. Apakah langkah proses komunikasi yang diwakili oleh tindakan ini?</div>
+          <button class="option-btn" data-ans="0">Saluran</button>
+          <button class="option-btn" data-ans="1">Enkod</button>
+          <button class="option-btn" data-ans="2">Dekod</button>
+          <button class="option-btn" data-ans="3">Maklum balas</button>
+          <div class="explain-box" id="exp-8"><b>Penjelasan:</b> Menurut teks 4.5.2(b), enkod ialah proses pengolahan terhadap sesuatu idea sedia ada seperti dalam bentuk tulisan, gambar, dan pertuturan agar mudah difahami oleh penerima maklumat.
+            <span class="ref-tag">Rujukan: 4.5.2 Aliran Maklumat</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="9">
+          <div class="q-num">SOALAN 9 / 15</div>
+          <div class="q-text">Berdasarkan aliran barang dan perkhidmatan dalam sesebuah perniagaan, bahagian manakah yang saling bekerjasama untuk menyedia dan menetapkan jadual pengeluaran selepas pesanan diterima daripada pengguna?</div>
+          <button class="option-btn" data-ans="0">Bahagian fungsian pentadbiran dan bahagian fungsian kewangan</button>
+          <button class="option-btn" data-ans="1">Bahagian fungsian pembelian dan bahagian fungsian kewangan</button>
+          <button class="option-btn" data-ans="2">Bahagian fungsian jualan dan bahagian fungsian pengeluaran</button>
+          <button class="option-btn" data-ans="3">Bahagian fungsian pengagihan dan bahagian fungsian khidmat pelanggan</button>
+          <div class="explain-box" id="exp-9"><b>Penjelasan:</b> Menurut Rajah 4.11 dan teks 4.5.3(c), jadual pengeluaran yang dipersetujui melibatkan kerjasama antara bahagian fungsian jualan dan bahagian fungsian pengeluaran.
+            <span class="ref-tag">Rujukan: 4.5.3 Aliran Barang dan Perkhidmatan</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="10">
+          <div class="q-num">SOALAN 10 / 15</div>
+          <div class="q-text">Apakah perbezaan interaksi bahagian fungsian jualan antara perniagaan kecil dengan perniagaan besar?</div>
+          <button class="option-btn" data-ans="0">Dalam perniagaan kecil, bahagian jualan wajib melalui bahagian pengeluaran sebelum berhubung dengan pelanggan.</button>
+          <button class="option-btn" data-ans="1">Dalam perniagaan besar, bahagian jualan beroperasi tanpa perlu mengetahui jadual pengeluaran kilang.</button>
+          <button class="option-btn" data-ans="2">Dalam perniagaan besar, bahagian jualan menguruskan sendiri urusan pembayaran gaji dan bonus staf jualan.</button>
+          <button class="option-btn" data-ans="3">Dalam perniagaan kecil, bahagian jualan berhubung terus dengan pelanggan dan boleh melaksanakan fungsi bahagian pembelian mengikut permintaan.</button>
+          <div class="explain-box" id="exp-10"><b>Penjelasan:</b> Berdasarkan Jadual 4.1, bagi perniagaan kecil, Bahagian Jualan berhubung terus dengan pelanggan tanpa melalui bahagian pengeluaran serta melaksanakan fungsi Bahagian Pembelian mengikut jumlah permintaan pelanggan.
+            <span class="ref-tag">Rujukan: 4.6.1 Interaksi antara Perniagaan</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="11">
+          <div class="q-num">SOALAN 11 / 15</div>
+          <div class="q-text">Sebuah kilang biskut membuat keputusan untuk memberikan diskaun sebanyak 15% bagi pembelian secara pukal serta menetapkan terma kredit 30 hari kepada pembeli. Elemen campuran pemasaran yang manakah terlibat dalam keputusan ini?</div>
+          <button class="option-btn" data-ans="0">Produk</button>
+          <button class="option-btn" data-ans="1">Promosi</button>
+          <button class="option-btn" data-ans="2">Harga</button>
+          <button class="option-btn" data-ans="3">Pengedaran</button>
+          <div class="explain-box" id="exp-11"><b>Penjelasan:</b> Menurut teks 4.2.8(a)(ii), elemen &#x27;Harga&#x27; merangkumi penentuan nilai produk, penetapan harga, polisi harga, serta pembentukan strategi harga termasuk pelbagai diskaun.
+            <span class="ref-tag">Rujukan: 4.2.8 Bahagian Fungsian Pemasaran</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="12">
+          <div class="q-num">SOALAN 12 / 15</div>
+          <div class="q-text">Antara peranan bahagian fungsian kewangan berikut, tugas manakah yang dilaksanakan secara khusus oleh seorang Pegawai Kredit?</div>
+          <button class="option-btn" data-ans="0">Menyediakan laporan prestasi kewangan untuk tujuan percukaian syarikat.</button>
+          <button class="option-btn" data-ans="1">Membantu akauntan dalam menyelia rekod-rekod kewangan dan mengurus semua bentuk hutang.</button>
+          <button class="option-btn" data-ans="2">Menganalisis maklumat kewangan harian dan menyediakan unjuran jualan tunai.</button>
+          <button class="option-btn" data-ans="3">Memastikan bajet tahunan diluluskan oleh pengurusan tertinggi syarikat.</button>
+          <div class="explain-box" id="exp-12"><b>Penjelasan:</b> Berdasarkan Rajah 4.4 (Contoh Fungsian Kewangan), Pegawai Kredit berperanan membantu akauntan dalam menyelia rekod-rekod kewangan dan mengurus semua bentuk hutang.
+            <span class="ref-tag">Rujukan: 4.2.3 Bahagian Fungsian Kewangan</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="13">
+          <div class="q-num">SOALAN 13 / 15</div>
+          <div class="q-text">Bagaimanakah sesebuah perniagaan tempatan dapat meluaskan pasaran baharu di peringkat domestik?</div>
+          <button class="option-btn" data-ans="0">Menyertai ekspo atau pameran perniagaan di kawasan atau wilayah yang belum diterokai.</button>
+          <button class="option-btn" data-ans="1">Mengadakan rundingan aktif melalui hubungan dua hala dan usaha sama dengan syarikat antarabangsa.</button>
+          <button class="option-btn" data-ans="2">Menukar keseluruhan barisan produk sedia ada kepada produk berasaskan teknologi tinggi.</button>
+          <button class="option-btn" data-ans="3">Menjalankan promosi pengiklanan agresif di media massa antarabangsa sahaja.</button>
+          <div class="explain-box" id="exp-13"><b>Penjelasan:</b> Menurut teks 4.3.2(a)(i), strategi meluaskan pasaran baharu domestik dilakukan dengan mencari pasaran ke kawasan yang belum diterokai melalui penyertaan ekspo atau pameran perniagaan.
+            <span class="ref-tag">Rujukan: 4.3.2 Pasaran Baharu</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="14">
+          <div class="q-num">SOALAN 14 / 15</div>
+          <div class="q-text">Syarikat Maju Bhd menerima maklumat daripada Bahagian Khidmat Pelanggan bahawa ramai pengguna mengadu tentang masalah kerosakan skrin pada model telefon pintar terbaharunya. Bahagian Khidmat Pelanggan segera menyalurkan maklumat ini kepada Bahagian R&amp;D dan Bahagian Pengeluaran. Apakah kepentingan interaksi dan aliran maklumat ini kepada syarikat?</div>
+          <button class="option-btn" data-ans="0">Membolehkan Bahagian Kewangan membatalkan semua pembayaran invois pembekal secara automatik.</button>
+          <button class="option-btn" data-ans="1">Membolehkan syarikat merancang penambahbaikan kualiti produk sedia ada serta mengekalkan kesetiaan pelanggan.</button>
+          <button class="option-btn" data-ans="2">Membolehkan Bahagian Jualan menukar saluran agihan daripada Saluran 2 kepada Saluran 1.</button>
+          <button class="option-btn" data-ans="3">Membolehkan Bahagian Pentadbiran mengurangkan bilangan pekerja di unit pengeluaran secara serta-merta.</button>
+          <div class="explain-box" id="exp-14"><b>Penjelasan:</b> Menurut teks 4.2.5, 4.2.11 dan Jadual 4.1, khidmat pelanggan yang menghantar maklum balas pelanggan kepada R&amp;D/Pengeluaran membolehkan penambahbaikan produk sedia ada dilakukan bagi mengekalkan kepuasan pelanggan dan menyokong perkembangan jualan masa hadapan.
+            <span class="ref-tag">Rujukan: 4.2.5, 4.2.11 &amp; 4.6 Interaksi Bahagian Fungsian</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="15">
+          <div class="q-num">SOALAN 15 / 15</div>
+          <div class="q-text">Perniagaan Sri Murni menerima tempahan khas jersi sukan daripada sebuah sekolah. Walau bagaimanapun, Bahagian Pembelian terlewat memesan kain daripada pembekal, menyebabkan Bahagian Pengeluaran tidak dapat menyiapkan tempahan mengikut jadual yang dipersetujui. Apakah tindakan penambahbaikan aliran barang yang paling tepat bagi mengelakkan masalah ini daripada berulang?</div>
+          <button class="option-btn" data-ans="0">Bahagian Jualan perlu membuat bayaran penuh kepada pembekal sebelum katalog dikeluarkan.</button>
+          <button class="option-btn" data-ans="1">Bahagian Kewangan perlu menghantar invois kepada pembeli sebelum tempahan bahan mentah dibuat.</button>
+          <button class="option-btn" data-ans="2">Bahagian Pentadbiran hendaklah mengambil alih tugas menyedia dan mengedar katalog produk.</button>
+          <button class="option-btn" data-ans="3">Bahagian Pembelian hendaklah membuat pesanan bahan mentah mengikut jadual pengeluaran yang telah diselaraskan bersama Bahagian Jualan dan Pengeluaran.</button>
+          <div class="explain-box" id="exp-15"><b>Penjelasan:</b> Berdasarkan aliran barang dan perkhidmatan (subtajuk 4.5.3), selepas pesanan diterima dan jadual pengeluaran dipersetujui, unit pembelian mestilah membuat pesanan bahan mentah yang mencukupi mengikut jadual bagi membolehkan proses pengeluaran dan pengedaran berjalan lancar tanpa penangguhan.
+            <span class="ref-tag">Rujukan: 4.5.3 Aliran Barang dan Perkhidmatan</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(15)">Soalan Seterusnya &rarr;</button>
+        </div>
+  </div>
+
+  <div id="result-section">
+    <div class="score-ring" id="score-ring">
+      <div class="score-ring-inner">
+        <div class="score-num" id="score-num">0</div>
+        <div class="score-total">/ 15</div>
+      </div>
+    </div>
+    <div class="result-title" id="result-title">Kuiz Selesai!</div>
+    <div class="result-sub" id="result-sub">Lihat prestasi anda di bawah.</div>
+    <a href="index.html" class="btn-next-bab" style="background:linear-gradient(135deg,#2db87a,#1e8a5a);">
+            <div><span class="next-label">🎉 Tamat! Kembali ke</span>
+                 <span class="next-title">🏠 Laman Utama</span></div>
+            <span class="next-arrow">&#10003;</span>
+          </a>
+    <button class="btn-retry" onclick="retryQuiz()">&#8635; Cuba Lagi</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt">&#9654; Tonton Video Ulang Kaji di YouTube</a>
+    <div class="bab-chips">
+            <a href="Kuiz_Perniagaan_T4B1.html" class="bab-chip">Bab 1</a>
+            <a href="Kuiz_Perniagaan_T4B2.html" class="bab-chip">Bab 2</a>
+            <a href="Kuiz_Perniagaan_T4B3.html" class="bab-chip">Bab 3</a>
+            <a href="Kuiz_Perniagaan_T4B4.html" class="bab-chip active">Bab 4</a>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 EasySejarah. Semua hak terpelihara.</footer>
+
+<script>
+const CORRECT = {1:0, 2:3, 3:2, 4:3, 5:1, 6:2, 7:0, 8:1, 9:2, 10:3, 11:2, 12:1, 13:0, 14:1, 15:3};
+const TOTAL = 15;
+let score = 0, answered = 0;
+
+document.querySelectorAll('.option-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.question-card');
+    const q = parseInt(card.dataset.q);
+    const chosen = parseInt(this.dataset.ans);
+    const correct = CORRECT[q];
+    card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+    if (chosen === correct) {
+      this.classList.add('correct');
+      score++;
+    } else {
+      this.classList.add('wrong');
+      card.querySelectorAll('.option-btn').forEach(b => {
+        if (parseInt(b.dataset.ans) === correct) b.classList.add('correct');
+      });
+    }
+    answered++;
+    updateProgress();
+    document.getElementById('exp-' + q).classList.add('show');
+    const nextBtn = card.querySelector('.btn-next');
+    if (q === TOTAL) {
+      nextBtn.textContent = 'Lihat Keputusan &rarr;';
+      nextBtn.setAttribute('onclick', 'showResult()');
+    }
+    nextBtn.classList.add('show');
+  });
+});
+
+function nextQ(current) {
+  document.querySelector('[data-q="' + current + '"]').classList.remove('active');
+  const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+  if (next) {
+    next.classList.add('active');
+    next.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+
+function updateProgress() {
+  const pct = (answered / TOTAL) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+}
+
+function showResult() {
+  document.querySelector('.quiz-section').style.display = 'none';
+  const result = document.getElementById('result-section');
+  result.classList.add('show');
+  const pct = Math.round((score / TOTAL) * 100);
+  document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+  document.getElementById('score-num').textContent = score;
+  let title, sub;
+  if (pct >= 80) { title = '🏆 Cemerlang!'; sub = 'Anda benar-benar menguasai bab ini.'; }
+  else if (pct >= 60) { title = '👍 Bagus!'; sub = 'Sedikit lagi ulang kaji untuk cemerlang.'; }
+  else { title = '💪 Teruskan Usaha!'; sub = 'Ulang kaji semula dan cuba lagi.'; }
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-sub').textContent = sub;
+  result.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function retryQuiz() {
+  score = 0; answered = 0;
+  document.querySelectorAll('.option-btn').forEach(b => {
+    b.disabled = false; b.classList.remove('correct','wrong');
+  });
+  document.querySelectorAll('.explain-box').forEach(e => e.classList.remove('show'));
+  document.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+  document.querySelector('[data-q="1"]').classList.add('active');
+  document.getElementById('result-section').classList.remove('show');
+  document.querySelector('.quiz-section').style.display = 'block';
+  updateProgress();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+</body>
+</html>

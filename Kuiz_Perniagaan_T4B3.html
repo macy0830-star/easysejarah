@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Perniagaan Visi, Misi dan Objektif Perniagaan | EasySejarah</title>
+<meta name="description" content="Kuiz interaktif SPM Perniagaan Tingkatan 4 - Visi, Misi dan Objektif Perniagaan. 15 soalan aneka pilihan lengkap dengan penjelasan jawapan.">
+<meta property="og:title" content="Kuiz SPM Perniagaan Visi, Misi dan Objektif Perniagaan | EasySejarah">
+<meta property="og:description" content="Uji kefahaman anda dengan 15 soalan Perniagaan SPM - Visi, Misi dan Objektif Perniagaan.">
+<meta property="og:type" content="website">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<style>
+    :root{
+      --hijau:#2db87a; --hijau-gelap:#1a7a4a; --hijau-terang:#3fd695;
+      --kad:#17301f; --bg:#0e1f14; --putih:#f5fdf9; --abu:#9db8ab;
+      --merah:#e5484d; --kuning:#F7B731;
+    }
+    *{box-sizing:border-box; margin:0; padding:0;}
+    body{font-family:'Segoe UI',Roboto,Arial,sans-serif; background:var(--bg); color:var(--putih); line-height:1.55;}
+    a{text-decoration:none; color:inherit;}
+    header{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; background:#0a1610; border-bottom:1px solid rgba(45,184,122,.2); position:sticky; top:0; z-index:50;}
+    .logo{font-weight:800; font-size:1.15rem; color:var(--hijau-terang);}
+    .home-link{font-size:.9rem; color:var(--abu); padding:6px 14px; border:1px solid rgba(45,184,122,.35); border-radius:20px; transition:.2s;}
+    .home-link:hover{background:rgba(45,184,122,.12); color:var(--putih);}
+    .topic-badge{font-size:.78rem; background:rgba(45,184,122,.15); color:var(--hijau-terang); padding:5px 12px; border-radius:16px; border:1px solid rgba(45,184,122,.3); font-weight:600;}
+    .hero{text-align:center; padding:38px 20px 26px; max-width:760px; margin:0 auto;}
+    .eyebrow{font-size:.78rem; letter-spacing:1.5px; color:var(--hijau-terang); font-weight:700; margin-bottom:10px;}
+    .hero h1{font-size:1.7rem; font-weight:800; margin-bottom:10px; color:var(--putih);}
+    .hero p{color:var(--abu); font-size:.95rem; margin-bottom:22px;}
+    .progress-wrap{background:rgba(255,255,255,.06); border-radius:20px; height:10px; overflow:hidden; max-width:420px; margin:0 auto 8px;}
+    #progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--hijau),var(--hijau-terang)); transition:width .35s ease;}
+    #progress-label{font-size:.82rem; color:var(--abu);}
+    .quiz-section{max-width:680px; margin:0 auto; padding:0 20px 60px;}
+    .question-card{display:none; background:var(--kad); border:1px solid rgba(45,184,122,.18); border-radius:18px; padding:26px 22px; margin-bottom:18px; animation:fadeIn .35s ease;}
+    .question-card.active{display:block;}
+    @keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+    .q-num{font-size:.78rem; color:var(--hijau-terang); font-weight:700; margin-bottom:8px; letter-spacing:.5px;}
+    .q-text{font-size:1.05rem; font-weight:600; margin-bottom:18px; color:var(--putih);}
+    .option-btn{display:block; width:100%; text-align:left; background:rgba(255,255,255,.04); border:1.5px solid rgba(255,255,255,.1); color:var(--putih); padding:13px 16px; border-radius:12px; margin-bottom:10px; font-size:.93rem; cursor:pointer; transition:.18s;}
+    .option-btn:hover:not(:disabled){border-color:var(--hijau); background:rgba(45,184,122,.1);}
+    .option-btn:disabled{cursor:default;}
+    .option-btn.correct{background:rgba(45,184,122,.22); border-color:var(--hijau); color:var(--hijau-terang); font-weight:700;}
+    .option-btn.wrong{background:rgba(229,72,77,.18); border-color:var(--merah); color:#ff9b9e; font-weight:700;}
+    .explain-box{display:none; background:rgba(45,184,122,.08); border-left:3px solid var(--hijau); border-radius:0 10px 10px 0; padding:14px 16px; margin-top:14px; font-size:.88rem; color:var(--abu);}
+    .explain-box.show{display:block;}
+    .explain-box b{color:var(--hijau-terang);}
+    .ref-tag{display:block; margin-top:8px; font-size:.76rem; color:#6b8a78; font-style:italic;}
+    .btn-next{display:none; margin-top:16px; width:100%; padding:12px; background:var(--hijau); color:#0a1610; font-weight:700; border:none; border-radius:12px; cursor:pointer; font-size:.92rem; transition:.2s;}
+    .btn-next.show{display:block;}
+    .btn-next:hover{background:var(--hijau-terang);}
+    #result-section{display:none; max-width:520px; margin:0 auto; padding:20px 20px 70px; text-align:center;}
+    #result-section.show{display:block;}
+    .score-ring{width:170px; height:170px; border-radius:50%; margin:10px auto 20px; display:flex; align-items:center; justify-content:center; background:conic-gradient(var(--hijau) var(--pct,0%), rgba(255,255,255,.08) 0); position:relative;}
+    .score-ring::before{content:''; position:absolute; width:138px; height:138px; background:var(--bg); border-radius:50%;}
+    .score-ring-inner{position:relative; z-index:1;}
+    .score-num{font-size:2.1rem; font-weight:800; color:var(--hijau-terang);}
+    .score-total{font-size:.85rem; color:var(--abu);}
+    .result-title{font-size:1.3rem; font-weight:800; margin-bottom:8px;}
+    .result-sub{color:var(--abu); font-size:.9rem; margin-bottom:26px;}
+    .btn-next-bab{display:flex; align-items:center; justify-content:space-between; background:linear-gradient(135deg,var(--hijau),var(--hijau-gelap)); border-radius:16px; padding:16px 20px; margin-bottom:14px; color:#fff; transition:.2s;}
+    .btn-next-bab:hover{transform:translateY(-2px);}
+    .next-label{display:block; font-size:.76rem; opacity:.85;}
+    .next-title{display:block; font-size:1.02rem; font-weight:700;}
+    .next-arrow{font-size:1.4rem;}
+    .btn-retry{display:block; width:100%; padding:13px; background:transparent; border:1.5px solid rgba(255,255,255,.15); color:var(--putih); border-radius:14px; font-weight:600; cursor:pointer; margin-bottom:14px; font-size:.92rem; transition:.2s;}
+    .btn-retry:hover{border-color:var(--hijau); color:var(--hijau-terang);}
+    .btn-yt{display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:13px; background:rgba(255,0,0,.12); border:1.5px solid rgba(255,0,0,.3); color:#ff8a8a; border-radius:14px; font-weight:600; margin-bottom:22px; font-size:.9rem;}
+    .bab-chips{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
+    .bab-chip{font-size:.82rem; padding:7px 16px; border-radius:20px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); color:var(--abu); transition:.2s;}
+    .bab-chip:hover{border-color:var(--hijau); color:var(--putih);}
+    .bab-chip.active{background:var(--hijau); border-color:var(--hijau); color:#0a1610; font-weight:700;}
+    footer{text-align:center; padding:24px; color:#5a7568; font-size:.8rem; border-top:1px solid rgba(255,255,255,.06);}
+</style>
+</head>
+<body>
+  <header>
+    <span class="logo">📘 EasySejarah</span>
+    <a href="index.html" class="home-link">&larr; Laman Utama</a>
+    <span class="topic-badge">Perniagaan T4 · Bab 3</span>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">PERNIAGAAN TINGKATAN 4 · BAB 3</div>
+    <h1>Visi, Misi dan Objektif Perniagaan</h1>
+    <p>Uji kefahaman anda dengan 15 soalan aneka pilihan berdasarkan sukatan SPM Perniagaan Tingkatan 4.</p>
+    <div class="progress-wrap"><div id="progress-fill"></div></div>
+    <div id="progress-label">0 / 15 soalan</div>
+  </div>
+
+  <div class="quiz-section">
+        <div class="question-card active" data-q="1">
+          <div class="q-num">SOALAN 1 / 15</div>
+          <div class="q-text">Apakah peranan utama pernyataan misi dalam sesebuah organisasi perniagaan?</div>
+          <button class="option-btn" data-ans="0">Menjelaskan tujuan utama kewujudan perniagaan dan aktiviti yang dijalankan pada masa ini.</button>
+          <button class="option-btn" data-ans="1">Menentukan wawasan jangka masa panjang melebihi tempoh lima tahun.</button>
+          <button class="option-btn" data-ans="2">Menyediakan sasaran khusus dalam bentuk angka yang boleh dihitung secara kuantitatif.</button>
+          <button class="option-btn" data-ans="3">Menyusun carta organisasi dan struktur jawatan pengurusan bawahan.</button>
+          <div class="explain-box" id="exp-1"><b>Penjelasan:</b> Misi merupakan pernyataan ringkas yang menjelaskan tujuan utama kewujudan perniagaan serta aktiviti yang dijalankan pada masa ini.
+            <span class="ref-tag">Rujukan: 3.1 Maksud Visi, Misi dan Objektif Perniagaan</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="2">
+          <div class="q-num">SOALAN 2 / 15</div>
+          <div class="q-text">Antara yang berikut, manakah pembeza utama dari aspek pendaftaran undang-undang antara Organisasi Bermotifkan Untung (OBU) dengan Organisasi Bukan Bermotifkan Untung (OBBU)?</div>
+          <button class="option-btn" data-ans="0">OBU perlu mendaftar di bawah Pejabat Pendaftar Pertubuhan Belia (ROY).</button>
+          <button class="option-btn" data-ans="1">OBBU didaftarkan di bawah Jabatan Pendaftaran Pertubuhan Malaysia (ROS) atau Pejabat Pendaftar Pertubuhan Belia (ROY).</button>
+          <button class="option-btn" data-ans="2">OBU dan OBBU kedua-duanya mesti didaftarkan di bawah Suruhanjaya Syarikat Malaysia (SSM).</button>
+          <button class="option-btn" data-ans="3">OBBU didaftarkan di bawah Pendaftar Perniagaan untuk mendapat lesen perdagangan swasta.</button>
+          <div class="explain-box" id="exp-2"><b>Penjelasan:</b> OBBU berbentuk persatuan/pertubuhan perlu didaftarkan di bawah ROS atau ROY, manakala OBU didaftarkan di bawah Pendaftar Perniagaan dan SSM.
+            <span class="ref-tag">Rujukan: 3.2 Perbandingan Visi, Misi dan Objektif Beberapa Perniagaan yang Berbeza</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="3">
+          <div class="q-num">SOALAN 3 / 15</div>
+          <div class="q-text">Sebuah syarikat pengeluar perabot menyasarkan peningkatan tahap kepuasan pelanggan terhadap reka bentuk kerusi pejabat baharunya. Apakah jenis pengukuran objektif yang digunakan oleh syarikat ini?</div>
+          <button class="option-btn" data-ans="0">Pengukuran kuantitatif berasaskan nilai jualan wang.</button>
+          <button class="option-btn" data-ans="1">Pengukuran kuantitatif berasaskan unit perabot yang dikeluarkan.</button>
+          <button class="option-btn" data-ans="2">Pengukuran kualitatif berasaskan tahap kepuasan dan persepsi pengguna.</button>
+          <button class="option-btn" data-ans="3">Pengukuran kualitatif berasaskan tempoh masa pengeluaran perabot.</button>
+          <div class="explain-box" id="exp-3"><b>Penjelasan:</b> Pengukuran kualitatif diukur dalam bentuk kualiti, iaitu kepuasan pengguna apabila menggunakan barang atau perkhidmatan.
+            <span class="ref-tag">Rujukan: 3.3.2 M - Measurable (Boleh Diukur)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="4">
+          <div class="q-num">SOALAN 4 / 15</div>
+          <div class="q-text">Mengapakah sesebuah perniagaan perlu menilai inventori kemahiran pekerja sebelum menetapkan objektif perniagaan yang baharu?</div>
+          <button class="option-btn" data-ans="0">Bagi memastikan objektif memenuhi syarat tempoh masa kurang daripada lima tahun.</button>
+          <button class="option-btn" data-ans="1">Bagi memastikan perniagaan tidak perlu membayar kos operasi dan kos berubah seunit.</button>
+          <button class="option-btn" data-ans="2">Bagi memastikan penetapan objektif adalah tepat mengikut jadual Carta Gantt pembinaan.</button>
+          <button class="option-btn" data-ans="3">Bagi menentukan kemampuan perniagaan dari aspek sumber manusia agar objektif yang ditetapkan bersifat munasabah (Realistic).</button>
+          <div class="explain-box" id="exp-4"><b>Penjelasan:</b> Penetapan objektif yang munasabah mengambil kira faktor kemampuan syarikat dari aspek sumber manusia seperti pengalaman, kemahiran, dan pengetahuan pekerja melalui inventori kemahiran.
+            <span class="ref-tag">Rujukan: 3.3.4 R - Realistic (Munasabah)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="5">
+          <div class="q-num">SOALAN 5 / 15</div>
+          <div class="q-text">Bagaimanakah penyampaian visi secara berkesan dilaksanakan dalam sesebuah organisasi perniagaan mengikut struktur carta organisasi?</div>
+          <button class="option-btn" data-ans="0">Ketua Pegawai Eksekutif menyampaikan visi kepada pengurus bahagian, seterusnya pengurus menyampaikan visi tersebut kepada pekerja di bawah kawalan mereka.</button>
+          <button class="option-btn" data-ans="1">Pengurus kewangan menetapkan visi baharu lalu menyampaikan terus kepada Ketua Pegawai Eksekutif.</button>
+          <button class="option-btn" data-ans="2">Pekerja bawahan merangka visi syarikat dan menyampaikannya kepada penyelia jualan untuk diluluskan.</button>
+          <button class="option-btn" data-ans="3">Pengurus pemasaran menyampaikan visi secara terus kepada pelanggan tanpa melibatkan pengurus pengeluaran.</button>
+          <div class="explain-box" id="exp-5"><b>Penjelasan:</b> Carta organisasi penyampaian visi menunjukkan Ketua Pegawai Eksekutif menerangkan visi kepada pengurus (pemasaran/pengeluaran), lalu pengurus menyampaikan kepada pekerja masing-masing.
+            <span class="ref-tag">Rujukan: 3.4.1 Tujuan Penetapan Visi</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="6">
+          <div class="q-num">SOALAN 6 / 15</div>
+          <div class="q-text">Apakah kesan utama sekiranya sesebuah perniagaan menetapkan pernyataan misi secara spesifik dan jelas?</div>
+          <button class="option-btn" data-ans="0">Perniagaan secara automatik dapat menguasai 100% syer pasaran tempatan.</button>
+          <button class="option-btn" data-ans="1">Pengagihan sumber manusia dan sumber fizikal dapat dibuat secara tepat dan digunakan secara cekap.</button>
+          <button class="option-btn" data-ans="2">Kos tetap perniagaan akan berkurang menjadi sifar pada setiap hujung tahun kewangan.</button>
+          <button class="option-btn" data-ans="3">Perniagaan tidak lagi tertakluk pada undang-undang dan kadar cukai tempatan.</button>
+          <div class="explain-box" id="exp-6"><b>Penjelasan:</b> Pernyataan misi secara spesifik memudahkan pengagihan sumber berkaitan unit/bahagian secara tepat serta menggunakannya secara cekap dan berkesan.
+            <span class="ref-tag">Rujukan: 3.4.2 Tujuan Penetapan Misi</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="7">
+          <div class="q-num">SOALAN 7 / 15</div>
+          <div class="q-text">Syarikat Kek Lezat menanggung kos tetap sebanyak RM120,000. Harga jualan sebiji kek ialah RM50 dan kos berubah seunit ialah RM20. Berapakah kuantiti kek yang perlu dijual untuk mencapai Titik Pulang Modal (TPM)?</div>
+          <button class="option-btn" data-ans="0">2,400 biji kek</button>
+          <button class="option-btn" data-ans="1">6,000 biji kek</button>
+          <button class="option-btn" data-ans="2">4,000 biji kek</button>
+          <button class="option-btn" data-ans="3">1,600 biji kek</button>
+          <div class="explain-box" id="exp-7"><b>Penjelasan:</b> Formula TPM = Kos Tetap / (Harga - Kos Berubah seunit). Maka, TPM = RM120,000 / (RM50 - RM20) = RM120,000 / RM30 = 4,000 biji kek.
+            <span class="ref-tag">Rujukan: 3.5.1 Titik Pulang Modal</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="8">
+          <div class="q-num">SOALAN 8 / 15</div>
+          <div class="q-text">Mengapakah sesebuah perniagaan baharu sukar untuk memaksimumkan keuntungan dalam perancangan jangka masa pendek?</div>
+          <button class="option-btn" data-ans="0">Kerana perniagaan baharu dilarang menjual barang secara dalam talian.</button>
+          <button class="option-btn" data-ans="1">Kerana kos tetap bertukar menjadi kos berubah mengikut perubahan kuantiti jualan.</button>
+          <button class="option-btn" data-ans="2">Kerana perniagaan baharu mesti membayar dividen yang tinggi kepada pemegang saham.</button>
+          <button class="option-btn" data-ans="3">Kerana perniagaan belum dapat beroperasi dengan cekap, menyebabkan kos pengeluaran seunit produk masih tinggi.</button>
+          <div class="explain-box" id="exp-8"><b>Penjelasan:</b> Dalam jangka pendek, perniagaan tidak semestinya mendapat untung maksimum disebabkan perniagaan tidak dapat beroperasi secara cekap lagi (mengeluarkan produk dalam kuantiti banyak), yang menaikkan kos pengeluaran seunit.
+            <span class="ref-tag">Rujukan: 3.5.3 Memaksimumkan Keuntungan</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="9">
+          <div class="q-num">SOALAN 9 / 15</div>
+          <div class="q-text">Apakah kelebihan yang diperoleh oleh sesebuah perniagaan yang berjaya menguasai syer pasaran terbesar dalam sesuatu industri?</div>
+          <button class="option-btn" data-ans="0">Menjadi pemimpin dalam pasaran dan berupaya mempengaruhi tindakan pesaing lain.</button>
+          <button class="option-btn" data-ans="1">Diberikan pengecualian cukai pendapatan korporat secara kekal oleh kerajaan.</button>
+          <button class="option-btn" data-ans="2">Bebas daripada sebarang risiko kerugian akibat kegawatan ekonomi dunia.</button>
+          <button class="option-btn" data-ans="3">Mampu menghapuskan semua kos berubah dalam proses pengeluaran kilang.</button>
+          <div class="explain-box" id="exp-9"><b>Penjelasan:</b> Perniagaan yang menguasai syer pasaran terbesar lazimnya menjadi pemimpin dalam pasaran, di mana tindakan pemasarannya akan diikuti dan mempengaruhi tindakan pesaing lain.
+            <span class="ref-tag">Rujukan: 3.5.5 Syer Pasaran</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="10">
+          <div class="q-num">SOALAN 10 / 15</div>
+          <div class="q-text">Syarikat Minuman Sehat memberikan botol minuman bersaiz kecil secara percuma kepada pengunjung pusat membeli-belah. Apakah strategi promosi jualan yang digunakan dan tujuannya?</div>
+          <button class="option-btn" data-ans="0">Diskaun harga, untuk mengurangkan kos berubah perniagaan.</button>
+          <button class="option-btn" data-ans="1">Sampel, untuk membolehkan pengguna mencuba produk dan mempengaruhi keputusan membeli.</button>
+          <button class="option-btn" data-ans="2">Peraduan, untuk menggalakkan pembeli mengumpul kupon cabutan bertuah.</button>
+          <button class="option-btn" data-ans="3">Jualan murah, untuk menghabiskan stok barangan bersempena musim perayaan.</button>
+          <div class="explain-box" id="exp-10"><b>Penjelasan:</b> Sampel ialah pemberian contoh produk secara percuma supaya pengguna boleh mencuba dengan harapan dapat mempengaruhi pengguna untuk membeli produk tersebut.
+            <span class="ref-tag">Rujukan: 3.5.6 Jualan</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(10)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="11">
+          <div class="q-num">SOALAN 11 / 15</div>
+          <div class="q-text">Apakah kesan terhadap perniagaan daripada pihak bank atau pembiaya kewangan sekiranya imej perniagaan terjejas akibat kegagalan memperoleh keuntungan?</div>
+          <button class="option-btn" data-ans="0">Pembiaya akan meluluskan pinjaman baharu tanpa sebarang cagaran.</button>
+          <button class="option-btn" data-ans="1">Pembiaya akan menukar status perniagaan menjadi Organisasi Bukan Bermotifkan Untung (OBBU).</button>
+          <button class="option-btn" data-ans="2">Pembiaya mengenakan syarat yang ketat untuk memberi kemudahan pinjaman kewangan.</button>
+          <button class="option-btn" data-ans="3">Pembiaya akan mengambil alih keseluruhan pengurusan bawahan perniagaan tersebut.</button>
+          <div class="explain-box" id="exp-11"><b>Penjelasan:</b> Apabila imej perniagaan terjejas akibat gagal mendapat keuntungan, pihak pembiaya seperti bank akan mengenakan syarat ketat untuk memberi kemudahan pinjaman kerana bimbang perniagaan tidak mampu membayar balik.
+            <span class="ref-tag">Rujukan: 3.6.4 Imej Perniagaan Terjejas</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(11)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="12">
+          <div class="q-num">SOALAN 12 / 15</div>
+          <div class="q-text">Syarikat Telekom Bina mempunyai 40,000 pekerja berstatus tetap yang berkemahiran tinggi serta mendapat suntikan modal pelaburan baharu yang besar. Berdasarkan analisis faktor dalaman, apakah tindakan strategik yang paling tepat diambil oleh pihak pengurusan atasan?</div>
+          <button class="option-btn" data-ans="0">Mengubah visi dan misi syarikat ke arah sasaran pencapaian yang lebih tinggi seperti meluaskan operasi ke peringkat antarabangsa.</button>
+          <button class="option-btn" data-ans="1">Menurunkan kualiti perkhidmatan bagi menjimatkan kos latihan sumber manusia.</button>
+          <button class="option-btn" data-ans="2">Mendaftar semula syarikat di bawah Jabatan Pendaftaran Pertubuhan Malaysia (ROS).</button>
+          <button class="option-btn" data-ans="3">Menghentikan aktiviti Penyelidikan dan Pembangunan (R&amp;D) untuk mengelakkan risiko kewangan.</button>
+          <div class="explain-box" id="exp-12"><b>Penjelasan:</b> Apabila sesebuah perniagaan mempunyai kekuatan faktor dalaman (sumber manusia berkemahiran tinggi dan kewangan yang kukuh), pihak pengurusan perlu mengubah visi, misi dan objektif dengan meningkatkan sasaran pencapaian.
+            <span class="ref-tag">Rujukan: 3.7.1 Faktor Dalaman &amp; Kes Voice Berhad</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(12)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="13">
+          <div class="q-num">SOALAN 13 / 15</div>
+          <div class="q-text">Apabila ekonomi negara berada dalam peringkat kemelesetan (recession), permintaan pasaran merosot dan jualan syarikat menurun. Bagaimanakah perniagaan harus menyesuaikan visi, misi dan objektifnya?</div>
+          <button class="option-btn" data-ans="0">Mengekalkan sasaran keuntungan jangka panjang tanpa sebarang perubahan pada objektif operasi.</button>
+          <button class="option-btn" data-ans="1">Mengubah suai visi, misi dan objektif supaya bersesuaian dengan kemampuan dan realiti operasi perniagaan semasa.</button>
+          <button class="option-btn" data-ans="2">Meningkatkan kadar cukai jualan ke atas produk bagi menampung kejatuhan hasil.</button>
+          <button class="option-btn" data-ans="3">Meningkatkan harga jualan produk sebanyak dua kali ganda bagi menampung pengurangan kuantiti jualan.</button>
+          <div class="explain-box" id="exp-13"><b>Penjelasan:</b> Pada tahap kemelesetan ekonomi, permintaan jatuh dan hasil merosot. Oleh itu, visi, misi dan objektif terdahulu perlu diubah suai semula mengikut kemampuan operasi perniagaan.
+            <span class="ref-tag">Rujukan: 3.7.2 Faktor Luaran (Ekonomi)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(13)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="14">
+          <div class="q-num">SOALAN 14 / 15</div>
+          <div class="q-text">Bagaimanakah pelaburan dalam teknologi moden dan ICT dapat membantu sesebuah syarikat pengeluaran mencatatkan keuntungan yang lebih tinggi?</div>
+          <button class="option-btn" data-ans="0">Teknologi menghapuskan keperluan mematuhi undang-undang kadar cukai perniagaan.</button>
+          <button class="option-btn" data-ans="1">Teknologi membolehkan perniagaan beroperasi tanpa memerlukan sebarang sumber kewangan.</button>
+          <button class="option-btn" data-ans="2">Teknologi membolehkan pengeluaran dilakukan secara lebih cepat, cekap, dan mengurangkan kos operasi perniagaan.</button>
+          <button class="option-btn" data-ans="3">Teknologi menjamin syarikat tidak akan menghadapi sebarang pesaing baharu dalam pasaran.</button>
+          <div class="explain-box" id="exp-14"><b>Penjelasan:</b> Teknologi canggih dan terkini membolehkan perniagaan menjadi lebih cekap, kos operasi perniagaan menjadi lebih murah, dan daya pengeluaran dapat ditingkatkan.
+            <span class="ref-tag">Rujukan: 3.7.2 Faktor Luaran (Teknologi)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(14)">Soalan Seterusnya &rarr;</button>
+        </div>
+        <div class="question-card" data-q="15">
+          <div class="q-num">SOALAN 15 / 15</div>
+          <div class="q-text">Berdasarkan kriteria penilaian pencapaian objektif sesebuah organisasi perniagaan, bilakah sesebuah syarikat pengeluar makanan dianggap mula mendapat keuntungan daripada aktiviti jualannya?</div>
+          <button class="option-btn" data-ans="0">Apabila jumlah hasil jualan adalah tepat sama dengan jumlah kos yang ditanggung.</button>
+          <button class="option-btn" data-ans="1">Apabila kuantiti keluaran yang berjaya dijual tidak lagi dikenakan sebarang kos berubah seunit.</button>
+          <button class="option-btn" data-ans="2">Apabila syarikat berjaya mengeksport seluruh produknya ke pasaran luar negara sahaja.</button>
+          <button class="option-btn" data-ans="3">Apabila kuantiti jualan keluaran berjaya melebihi paras Titik Pulang Modal (TPM).</button>
+          <div class="explain-box" id="exp-15"><b>Penjelasan:</b> Dalam penilaian pencapaian objektif perniagaan melalui TPM, keuntungan diperoleh apabila perniagaan berjaya menjual kuantiti keluaran melebihi Titik Pulang Modal.
+            <span class="ref-tag">Rujukan: 3.8.3 Pencapaian Objektif Perniagaan (Titik Pulang Modal)</span>
+          </div>
+          <button class="btn-next" onclick="nextQ(15)">Soalan Seterusnya &rarr;</button>
+        </div>
+  </div>
+
+  <div id="result-section">
+    <div class="score-ring" id="score-ring">
+      <div class="score-ring-inner">
+        <div class="score-num" id="score-num">0</div>
+        <div class="score-total">/ 15</div>
+      </div>
+    </div>
+    <div class="result-title" id="result-title">Kuiz Selesai!</div>
+    <div class="result-sub" id="result-sub">Lihat prestasi anda di bawah.</div>
+    <a href="Kuiz_Perniagaan_T4B4.html" class="btn-next-bab">
+            <div><span class="next-label">Bab Seterusnya &rarr;</span>
+                 <span class="next-title">Bab 4</span></div>
+            <span class="next-arrow">&rarr;</span>
+          </a>
+    <button class="btn-retry" onclick="retryQuiz()">&#8635; Cuba Lagi</button>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt">&#9654; Tonton Video Ulang Kaji di YouTube</a>
+    <div class="bab-chips">
+            <a href="Kuiz_Perniagaan_T4B1.html" class="bab-chip">Bab 1</a>
+            <a href="Kuiz_Perniagaan_T4B2.html" class="bab-chip">Bab 2</a>
+            <a href="Kuiz_Perniagaan_T4B3.html" class="bab-chip active">Bab 3</a>
+            <a href="Kuiz_Perniagaan_T4B4.html" class="bab-chip">Bab 4</a>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 EasySejarah. Semua hak terpelihara.</footer>
+
+<script>
+const CORRECT = {1:0, 2:1, 3:2, 4:3, 5:0, 6:1, 7:2, 8:3, 9:0, 10:1, 11:2, 12:0, 13:1, 14:2, 15:3};
+const TOTAL = 15;
+let score = 0, answered = 0;
+
+document.querySelectorAll('.option-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.question-card');
+    const q = parseInt(card.dataset.q);
+    const chosen = parseInt(this.dataset.ans);
+    const correct = CORRECT[q];
+    card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+    if (chosen === correct) {
+      this.classList.add('correct');
+      score++;
+    } else {
+      this.classList.add('wrong');
+      card.querySelectorAll('.option-btn').forEach(b => {
+        if (parseInt(b.dataset.ans) === correct) b.classList.add('correct');
+      });
+    }
+    answered++;
+    updateProgress();
+    document.getElementById('exp-' + q).classList.add('show');
+    const nextBtn = card.querySelector('.btn-next');
+    if (q === TOTAL) {
+      nextBtn.textContent = 'Lihat Keputusan &rarr;';
+      nextBtn.setAttribute('onclick', 'showResult()');
+    }
+    nextBtn.classList.add('show');
+  });
+});
+
+function nextQ(current) {
+  document.querySelector('[data-q="' + current + '"]').classList.remove('active');
+  const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+  if (next) {
+    next.classList.add('active');
+    next.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+
+function updateProgress() {
+  const pct = (answered / TOTAL) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+}
+
+function showResult() {
+  document.querySelector('.quiz-section').style.display = 'none';
+  const result = document.getElementById('result-section');
+  result.classList.add('show');
+  const pct = Math.round((score / TOTAL) * 100);
+  document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+  document.getElementById('score-num').textContent = score;
+  let title, sub;
+  if (pct >= 80) { title = '🏆 Cemerlang!'; sub = 'Anda benar-benar menguasai bab ini.'; }
+  else if (pct >= 60) { title = '👍 Bagus!'; sub = 'Sedikit lagi ulang kaji untuk cemerlang.'; }
+  else { title = '💪 Teruskan Usaha!'; sub = 'Ulang kaji semula dan cuba lagi.'; }
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-sub').textContent = sub;
+  result.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function retryQuiz() {
+  score = 0; answered = 0;
+  document.querySelectorAll('.option-btn').forEach(b => {
+    b.disabled = false; b.classList.remove('correct','wrong');
+  });
+  document.querySelectorAll('.explain-box').forEach(e => e.classList.remove('show'));
+  document.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+  document.querySelector('[data-q="1"]').classList.add('active');
+  document.getElementById('result-section').classList.remove('show');
+  document.querySelector('.quiz-section').style.display = 'block';
+  updateProgress();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
