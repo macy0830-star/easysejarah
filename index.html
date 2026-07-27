@@ -293,6 +293,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
     <hr class="sb-divider">
     <div class="sb-section">
       <div class="sb-subject">Sains</div>
+      <button class="sb-btn" onclick="show('sains3')" id="btn-sains3"><span class="sb-icon">🧪</span><span class="sb-label">Tingkatan 3</span><span class="sb-badge">10</span></button>
       <button class="sb-btn" onclick="show('sains4')" id="btn-sains4"><span class="sb-icon">🔬</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge">12</span></button>
       <button class="sb-btn" onclick="show('sains5')" id="btn-sains5"><span class="sb-icon">🧬</span><span class="sb-label">Tingkatan 5</span><span class="sb-badge">9</span></button>
     </div>
@@ -366,6 +367,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         <div class="qcard" onclick="show('t4')"><div class="qcard-icon">📘</div><div class="qcard-name">Sejarah T4</div><div class="qcard-count">12 bab · SPM</div></div>
         <div class="qcard" onclick="show('t5')"><div class="qcard-icon">📕</div><div class="qcard-name">Sejarah T5</div><div class="qcard-count">12 bab · SPM</div></div>
         <div class="qcard sains" onclick="show('sains4')"><div class="qcard-icon">🔬</div><div class="qcard-name">Sains T4</div><div class="qcard-count">12 bab · SPM</div></div>
+        <div class="qcard sains" onclick="show('sains3')" style="border-color:rgba(124,92,191,0.2);"><div class="qcard-icon">🧪</div><div class="qcard-name" style="color:#7c5cbf;">Sains F3</div><div class="qcard-count">10 bab · PT3 · Baharu!</div></div>
         <div class="qcard sains" onclick="show('sains5')"><div class="qcard-icon">🧬</div><div class="qcard-name">Sains T5</div><div class="qcard-count">9 bab · SPM</div></div>
         <div class="qcard" onclick="show('blog')" style="border-color:#f59e0b20;"><div class="qcard-icon">📝</div><div class="qcard-name" style="color:#d97706;">Blog</div><div class="qcard-count">Tips belajar SPM</div></div>
         <div class="qcard" onclick="show('niaga4')" style="border-color:rgba(26,122,74,0.3);"><div class="qcard-icon">💼</div><div class="qcard-name" style="color:#2db87a;">Perniagaan T4</div><div class="qcard-count">4 bab · SPM · Baharu!</div></div>
@@ -418,6 +420,26 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         <a href="t5b8-membina-kemakmuran-negara.html" class="bab-card ready"><div class="bab-type-label bab-type-kuiz">✏️ KUIZ</div><div class="bab-num">Bab 8</div><div class="bab-title">Membina Kemakmuran Negara</div><div class="bab-meta"><span class="dot"></span><span class="bab-info">20 soalan · Sedia</span></div></a>
         <a href="t5b9-dasar-luar-malaysia.html" class="bab-card ready"><div class="bab-type-label bab-type-kuiz">✏️ KUIZ</div><div class="bab-num">Bab 9</div><div class="bab-title">Dasar Luar Malaysia</div><div class="bab-meta"><span class="dot"></span><span class="bab-info">20 soalan · Sedia</span></div></a>
         <a href="t5b10-kecemerlangan-malaysia.html" class="bab-card ready"><div class="bab-type-label bab-type-kuiz">✏️ KUIZ</div><div class="bab-num">Bab 10</div><div class="bab-title">Kecemerlangan Malaysia di Persada Dunia</div><div class="bab-meta"><span class="dot"></span><span class="bab-info">20 soalan · Sedia</span></div></a>
+      </div>
+    </div>
+
+    <!-- SAINS F3 -->
+    <div class="section" id="section-sains3">
+      <div class="sec-header">
+        <div class="sec-title">Sains Tingkatan 3</div>
+        <span class="sec-badge b-new">PT3 · Baharu!</span>
+      </div>
+      <div class="bab-grid">
+        <a href="Kuiz_Sains_F3B1_RangsangandanGerakBalas.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 1</div><div class="bab-title">Rangsangan dan Gerak Balas</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
+        <a href="Kuiz_Sains_F3B2_Respirasi.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 2</div><div class="bab-title">Respirasi</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
+        <a href="Kuiz_Sains_F3B3_Pengangkutan.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 3</div><div class="bab-title">Pengangkutan</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
+        <a href="Kuiz_Sains_F3B4_KereaktifanLogam.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 4</div><div class="bab-title">Kereaktifan Logam</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
+        <a href="Kuiz_Sains_F3B5_Termokimia.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 5</div><div class="bab-title">Termokimia</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
+        <a href="Kuiz_Sains_F3B6_ElektrikdanKemagnetan.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 6</div><div class="bab-title">Elektrik dan Kemagnetan</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
+        <a href="Kuiz_Sains_F3B7_TenagadanKuasa.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 7</div><div class="bab-title">Tenaga dan Kuasa</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
+        <a href="Kuiz_Sains_F3B8_Keradioaktifan.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 8</div><div class="bab-title">Keradioaktifan</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
+        <a href="Kuiz_Sains_F3B9_CuacaAngkasaLepas.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 9</div><div class="bab-title">Cuaca Angkasa Lepas</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
+        <a href="Kuiz_Sains_F3B10_PenerokaanAngkasaLepas.html" class="bab-card ready sains-card"><div class="bab-type-label bab-type-kuiz sains">✏️ KUIZ</div><div class="bab-num">Bab 10</div><div class="bab-title">Penerokaan Angkasa Lepas</div><div class="bab-meta"><span class="dot" style="background:var(--ungu)"></span><span class="bab-info">15 soalan · Sedia</span></div></a>
       </div>
     </div>
 
@@ -577,7 +599,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   if(localStorage.getItem('cookieOK')) document.getElementById('cookie-banner').style.display='none';
   function acceptCookie(){ localStorage.setItem('cookieOK','1'); document.getElementById('cookie-banner').style.display='none'; }
 
-  const SECTIONS = ['home','t3','t4','t5','sains4','sains5','niaga4','blog','animasi','about'];
+  const SECTIONS = ['home','t3','t4','t5','sains3','sains4','sains5','niaga4','blog','animasi','about'];
   function show(id){
     SECTIONS.forEach(s=>{
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
