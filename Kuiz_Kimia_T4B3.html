@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuiz SPM Kimia Konsep Mol, Formula dan Persamaan | EasySejarah</title>
+  <meta name="description" content="Kuiz SPM Kimia Tingkatan 4 Bab 3: Konsep Mol, Formula dan Persamaan. Uji kefahaman anda dengan 15 soalan aneka pilihan lengkap dengan penjelasan.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6FLLFJJNPP');
+  </script>
+
+  <style>
+    :root {
+      --teal:#17b8a6; --tealdark:#0f8f81; --hitam:#1A1A2E; --kad:#132d2b;
+      --merah:#D62828; --hijau:#2D9E5F; --putih:#ffffff;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family:'Segoe UI', Roboto, Arial, sans-serif;
+      background:var(--hitam);
+      color:rgba(255,255,255,0.9);
+      line-height:1.6;
+    }
+    a { color:inherit; }
+    header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 24px; background:rgba(19,45,43,0.6);
+      border-bottom:1px solid rgba(23,184,166,0.2);
+      position:sticky; top:0; z-index:50; backdrop-filter:blur(6px);
+    }
+    .logo { font-weight:700; font-size:1.1rem; color:var(--teal); text-decoration:none; }
+    .home-link { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.9rem; }
+    .home-link:hover { color:var(--teal); }
+    .topic-badge {
+      background:rgba(23,184,166,0.15); color:var(--teal);
+      border:1px solid rgba(23,184,166,0.4);
+      padding:4px 12px; border-radius:999px; font-size:0.78rem; font-weight:600;
+    }
+    .header-right { display:flex; align-items:center; gap:16px; }
+    .hero { text-align:center; padding:40px 20px 24px; max-width:720px; margin:0 auto; }
+    .hero-eyebrow {
+      color:var(--teal); text-transform:uppercase; letter-spacing:1px;
+      font-size:0.8rem; font-weight:700; margin-bottom:8px;
+    }
+    .hero h1 { font-size:1.8rem; margin-bottom:10px; }
+    .hero p { color:rgba(255,255,255,0.6); font-size:0.95rem; margin-bottom:20px; }
+    .progress-bar {
+      width:100%; max-width:480px; margin:0 auto; height:8px;
+      background:rgba(255,255,255,0.08); border-radius:999px; overflow:hidden;
+    }
+    .progress-fill { height:100%; width:0%; background:var(--teal); transition:width 0.35s ease; }
+    .progress-label { margin-top:8px; font-size:0.8rem; color:rgba(255,255,255,0.5); }
+    .quiz-section { max-width:640px; margin:0 auto; padding:20px 20px 60px; }
+    .question-card {
+      display:none; background:var(--kad); border-radius:16px; padding:24px;
+      margin-bottom:20px; border:1px solid rgba(23,184,166,0.15);
+    }
+    .question-card.active { display:block; animation:fadeIn 0.4s ease; }
+    @keyframes fadeIn { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+    .q-meta { font-size:0.75rem; color:var(--teal); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; }
+    .q-text { font-size:1.05rem; font-weight:600; margin-bottom:18px; }
+    .options { display:flex; flex-direction:column; gap:10px; }
+    .option-btn {
+      display:flex; align-items:center; gap:12px; text-align:left;
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12);
+      color:rgba(255,255,255,0.9); padding:12px 16px; border-radius:10px;
+      cursor:pointer; font-size:0.92rem; transition:all 0.2s ease;
+    }
+    .option-btn:hover:not(:disabled) { border-color:var(--teal); background:rgba(23,184,166,0.08); }
+    .option-btn:disabled { cursor:default; }
+    .opt-letter {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,0.08);
+      font-weight:700; font-size:0.8rem; flex-shrink:0;
+    }
+    .option-btn.correct { border-color:var(--hijau); background:rgba(45,158,95,0.15); }
+    .option-btn.correct .opt-letter { background:var(--hijau); color:#fff; }
+    .option-btn.wrong { border-color:var(--merah); background:rgba(214,40,40,0.15); }
+    .option-btn.wrong .opt-letter { background:var(--merah); color:#fff; }
+    .explain {
+      display:none; margin-top:16px; padding:14px 16px; background:rgba(23,184,166,0.08);
+      border-left:3px solid var(--teal); border-radius:8px; font-size:0.88rem; color:rgba(255,255,255,0.8);
+    }
+    .explain.show { display:block; animation:fadeIn 0.4s ease; }
+    .btn-next {
+      display:none; margin-top:18px; background:var(--teal); color:#08211d;
+      border:none; padding:12px 20px; border-radius:10px; font-weight:700;
+      font-size:0.9rem; cursor:pointer; width:100%;
+    }
+    .btn-next.show { display:block; }
+    .btn-next:hover { background:var(--tealdark); }
+    #result-section { display:none; max-width:560px; margin:0 auto; padding:20px 20px 60px; text-align:center; }
+    #result-section.show { display:block; }
+    .result-card { background:var(--kad); border-radius:20px; padding:36px 28px; border:1px solid rgba(23,184,166,0.2); }
+    .score-ring {
+      width:150px; height:150px; border-radius:50%; margin:0 auto 20px;
+      background:conic-gradient(var(--teal) var(--pct,0%), rgba(255,255,255,0.08) 0);
+      display:flex; align-items:center; justify-content:center; position:relative;
+    }
+    .score-ring::before {
+      content:''; position:absolute; width:120px; height:120px; border-radius:50%; background:var(--kad);
+    }
+    .score-ring span { position:relative; font-size:1.7rem; font-weight:800; z-index:1; }
+    .result-title { font-size:1.3rem; font-weight:700; margin-bottom:8px; }
+    .result-sub { color:rgba(255,255,255,0.6); font-size:0.9rem; margin-bottom:28px; }
+    .btn-next-bab {
+      display:flex; align-items:center; justify-content:space-between;
+      background:linear-gradient(135deg,var(--teal),var(--tealdark));
+      color:#08211d; text-decoration:none; padding:16px 20px; border-radius:14px;
+      margin-bottom:14px; font-weight:700;
+    }
+    .next-label { display:block; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.5px; opacity:0.85; }
+    .next-title { display:block; font-size:1rem; margin-top:2px; }
+    .next-arrow { font-size:1.4rem; }
+    .btn-retry {
+      display:inline-block; background:transparent; border:1px solid rgba(255,255,255,0.2);
+      color:rgba(255,255,255,0.8); padding:12px 24px; border-radius:10px; cursor:pointer;
+      font-size:0.9rem; margin-bottom:8px; width:100%;
+    }
+    .btn-retry:hover { border-color:var(--teal); color:var(--teal); }
+    .bab-nav { margin-top:32px; text-align:center; }
+    .bab-nav p { font-size:0.75rem; color:rgba(255,255,255,0.3); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .bab-chips { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+    .chip {
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12);
+      color:rgba(255,255,255,0.55); border-radius:999px; padding:6px 14px;
+      font-size:0.78rem; text-decoration:none;
+    }
+    .chip.active { border-color:var(--teal); color:var(--teal); }
+    .chip.coming { opacity:0.3; cursor:default; }
+    footer { text-align:center; padding:24px; color:rgba(255,255,255,0.3); font-size:0.8rem; }
+    @media (max-width:480px) {
+      .hero h1 { font-size:1.4rem; }
+      .question-card { padding:18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">EasySejarah</a>
+    <div class="header-right">
+      <a href="index.html" class="home-link">&larr; Laman Utama</a>
+      <span class="topic-badge">Kimia T4 &middot; Bab 3</span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Kuiz SPM &middot; Kimia Tingkatan 4</div>
+    <h1>Bab 3: Konsep Mol, Formula dan Persamaan</h1>
+    <p>Jawab 15 soalan aneka pilihan berikut untuk menguji kefahaman anda tentang topik ini.</p>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-label" id="progress-label">0 / 15 soalan</div>
+  </div>
+
+  <div class="quiz-section">
+      <div class="question-card active" data-q="1">
+        <div class="q-meta">Soalan 1 / 15 &middot; 3.1 Jisim Atom Relatif dan Jisim Molekul Relatif</div>
+        <div class="q-text">Sejak tahun 1961, jisim atom relatif sesuatu unsur ditakrifkan berdasarkan perbandingan dengan jisim atom yang manakah?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">Karbon-12</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">Hidrogen</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">Oksigen</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">Helium</span></button>
+        </div>
+        <div class="explain" id="exp-1">
+          <strong>Penjelasan:</strong> Pada tahun 1961, ahli kimia bersetuju menjadikan atom karbon-12 sebagai atom piawai untuk menakrifkan jisim atom relatif.
+        </div>
+        <button class="btn-next" onclick="nextQ(1)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="2">
+        <div class="q-meta">Soalan 2 / 15 &middot; 3.1 Jisim Atom Relatif dan Jisim Molekul Relatif</div>
+        <div class="q-text">Mengapakah karbon-12 dipilih sebagai piawai untuk menentukan jisim atom relatif?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">Kerana ia berbentuk gas pada suhu bilik</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">Kerana ia pepejal pada suhu bilik, mudah bergabung dengan unsur lain dan mempunyai kelimpahan isotop utama 99%</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">Kerana ia merupakan unsur paling ringan</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">Kerana ia bersifat radioaktif</span></button>
+        </div>
+        <div class="explain" id="exp-2">
+          <strong>Penjelasan:</strong> Karbon-12 dipilih sebagai piawai kerana mudah dikendalikan sebagai pepejal pada suhu bilik, mudah bergabung dengan unsur lain, dan karbon-12 ialah isotop utama dengan kelimpahan 99%.
+        </div>
+        <button class="btn-next" onclick="nextQ(2)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="3">
+        <div class="q-meta">Soalan 3 / 15 &middot; 3.1 Jisim Atom Relatif dan Jisim Molekul Relatif</div>
+        <div class="q-text">Hitungkan jisim molekul relatif bagi glukosa, C6H12O6. [Jisim atom relatif: H = 1, C = 12, O = 16]</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">162</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">174</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">180</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">192</span></button>
+        </div>
+        <div class="explain" id="exp-3">
+          <strong>Penjelasan:</strong> JMR glukosa = 6(12) + 12(1) + 6(16) = 72 + 12 + 96 = 180.
+        </div>
+        <button class="btn-next" onclick="nextQ(3)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="4">
+        <div class="q-meta">Soalan 4 / 15 &middot; 3.1 Jisim Atom Relatif dan Jisim Molekul Relatif</div>
+        <div class="q-text">Hitungkan jisim formula relatif bagi zink klorida, ZnCl2. [Jisim atom relatif: Zn = 65, Cl = 35.5]</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">100.5</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">121.0</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">130.5</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">136.0</span></button>
+        </div>
+        <div class="explain" id="exp-4">
+          <strong>Penjelasan:</strong> JFR ZnCl2 = JAR Zn + 2(JAR Cl) = 65 + 2(35.5) = 136.
+        </div>
+        <button class="btn-next" onclick="nextQ(4)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="5">
+        <div class="q-meta">Soalan 5 / 15 &middot; 3.2 Konsep Mol</div>
+        <div class="q-text">Menurut IUPAC, mol ialah unit SI untuk kuantiti bahan yang mengandungi?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">6.02 x 10 pangkat 23 entiti asas bahan tersebut</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">22.4 dm3 gas pada STP</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">12 unit jisim atom karbon-12</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">1 gram bahan tersebut</span></button>
+        </div>
+        <div class="explain" id="exp-5">
+          <strong>Penjelasan:</strong> Satu mol bahan mengandungi 6.02214076 x 10 pangkat 23 entiti asas bahan tersebut, iaitu nilai yang dipanggil pemalar Avogadro.
+        </div>
+        <button class="btn-next" onclick="nextQ(5)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="6">
+        <div class="q-meta">Soalan 6 / 15 &middot; 3.2 Konsep Mol</div>
+        <div class="q-text">Pemalar Avogadro dinamakan sempena seorang ahli sains yang berbangsa apakah?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">Perancis</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">Itali</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">British</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">Jerman</span></button>
+        </div>
+        <div class="explain" id="exp-6">
+          <strong>Penjelasan:</strong> Pemalar Avogadro dinamakan sempena Amedeo Avogadro, seorang ahli sains terkenal berbangsa Itali.
+        </div>
+        <button class="btn-next" onclick="nextQ(6)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="7">
+        <div class="q-meta">Soalan 7 / 15 &middot; 3.2 Konsep Mol</div>
+        <div class="q-text">Isi padu molar bagi 1 mol sebarang gas pada STP ialah?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">24 dm3 mol-1</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">6.02 x 10 pangkat 23 dm3 mol-1</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">22.4 dm3 mol-1</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">1 dm3 mol-1</span></button>
+        </div>
+        <div class="explain" id="exp-7">
+          <strong>Penjelasan:</strong> Isi padu molar sebarang gas pada STP ialah 22.4 dm3 mol-1, manakala pada keadaan bilik ialah 24 dm3 mol-1.
+        </div>
+        <button class="btn-next" onclick="nextQ(7)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="8">
+        <div class="q-meta">Soalan 8 / 15 &middot; 3.2 Konsep Mol</div>
+        <div class="q-text">Berapakah bilangan mol molekul yang terdapat di dalam 32 g gas sulfur dioksida, SO2? [Jisim atom relatif: O = 16, S = 32]</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">2.0 mol</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">1.0 mol</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">0.25 mol</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">0.5 mol</span></button>
+        </div>
+        <div class="explain" id="exp-8">
+          <strong>Penjelasan:</strong> JMR SO2 = 32 + 2(16) = 64, jadi bilangan mol = 32 g / 64 g mol-1 = 0.5 mol.
+        </div>
+        <button class="btn-next" onclick="nextQ(8)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="9">
+        <div class="q-meta">Soalan 9 / 15 &middot; 3.3 Formula Kimia</div>
+        <div class="q-text">Formula empirik sesuatu sebatian menunjukkan?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">Nisbah paling ringkas bilangan atom setiap unsur dalam sebatian</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">Bilangan sebenar atom setiap unsur dalam satu molekul sebatian</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">Jisim molar sebatian tersebut</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">Bilangan mol sebatian tersebut</span></button>
+        </div>
+        <div class="explain" id="exp-9">
+          <strong>Penjelasan:</strong> Formula empirik ialah formula kimia yang menunjukkan nisbah paling ringkas bagi bilangan atom setiap jenis unsur dalam sesuatu sebatian.
+        </div>
+        <button class="btn-next" onclick="nextQ(9)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="10">
+        <div class="q-meta">Soalan 10 / 15 &middot; 3.3 Formula Kimia</div>
+        <div class="q-text">Glukosa mempunyai formula molekul C6H12O6. Apakah formula empiriknya?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">C3H6O3</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">CH2O</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">C2H4O2</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">C6H12O6</span></button>
+        </div>
+        <div class="explain" id="exp-10">
+          <strong>Penjelasan:</strong> Nisbah paling ringkas atom C:H:O dalam C6H12O6 ialah 1:2:1, jadi formula empiriknya ialah CH2O.
+        </div>
+        <button class="btn-next" onclick="nextQ(10)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="11">
+        <div class="q-meta">Soalan 11 / 15 &middot; 3.3 Formula Kimia</div>
+        <div class="q-text">1.35 g aluminium berpadu dengan 1.2 g oksigen untuk menghasilkan aluminium oksida. Apakah formula empirik aluminium oksida? [Jisim atom relatif: Al = 27, O = 16]</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">AlO</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">Al3O2</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">Al2O3</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">AlO3</span></button>
+        </div>
+        <div class="explain" id="exp-11">
+          <strong>Penjelasan:</strong> Bilangan mol Al = 1.35/27 = 0.05, bilangan mol O = 1.2/16 = 0.075. Nisbah paling ringkas ialah 2:3, jadi formula empirik ialah Al2O3.
+        </div>
+        <button class="btn-next" onclick="nextQ(11)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="12">
+        <div class="q-meta">Soalan 12 / 15 &middot; 3.3 Formula Kimia</div>
+        <div class="q-text">Dalam penamaan sebatian molekul ringkas seperti SO3, awalan Yunani 'tri' menunjukkan bilangan atom sebanyak?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">Satu atom</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">Dua atom</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">Empat atom</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">Tiga atom</span></button>
+        </div>
+        <div class="explain" id="exp-12">
+          <strong>Penjelasan:</strong> Awalan Yunani 'tri' digunakan untuk mewakili tiga atom bagi unsur tersebut dalam sebatian molekul, seperti dalam sulfur trioksida, SO3.
+        </div>
+        <button class="btn-next" onclick="nextQ(12)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="13">
+        <div class="q-meta">Soalan 13 / 15 &middot; 3.4 Persamaan Kimia</div>
+        <div class="q-text">Persamaan kimia perlu ditulis dalam keadaan seimbang berdasarkan hukum yang manakah?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">Hukum keabadian jisim</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">Hukum nisbah tetap</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">Hukum gabungan gas</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">Hukum Avogadro</span></button>
+        </div>
+        <div class="explain" id="exp-13">
+          <strong>Penjelasan:</strong> Persamaan kimia mesti seimbang berdasarkan hukum keabadian jisim, iaitu jirim tidak boleh dicipta atau dimusnahkan, jadi bilangan atom setiap unsur di kedua-dua belah persamaan mestilah sama.
+        </div>
+        <button class="btn-next" onclick="nextQ(13)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="14">
+        <div class="q-meta">Soalan 14 / 15 &middot; 3.4 Persamaan Kimia</div>
+        <div class="q-text">Simbol delta di bawah anak panah dalam sesuatu persamaan kimia menunjukkan?</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">Tindak balas berlaku secara spontan tanpa sebarang keadaan</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">Pemanasan diperlukan dalam tindak balas kimia tersebut</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">Tekanan yang tinggi diperlukan untuk tindak balas</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">Bahan tindak balas berada dalam keadaan pekat</span></button>
+        </div>
+        <div class="explain" id="exp-14">
+          <strong>Penjelasan:</strong> Huruf Yunani delta di bawah anak panah dalam persamaan kimia menunjukkan bahawa pemanasan diperlukan dalam tindak balas kimia tersebut.
+        </div>
+        <button class="btn-next" onclick="nextQ(14)">
+          Soalan Seterusnya →
+        </button>
+      </div>
+      <div class="question-card" data-q="15">
+        <div class="q-meta">Soalan 15 / 15 &middot; 3.4 Persamaan Kimia</div>
+        <div class="q-text">Berdasarkan persamaan 4Al(p) + 3O2(g) menghasilkan 2Al2O3(p), berapakah jisim aluminium oksida yang terhasil apabila 5.4 g aluminium dibakar lengkap? [Jisim atom relatif: Al = 27, O = 16]</div>
+        <div class="options">
+          <button class="option-btn" data-ans="0"><span class="opt-letter">A</span><span class="opt-text">5.4 g</span></button>
+          <button class="option-btn" data-ans="1"><span class="opt-letter">B</span><span class="opt-text">8.4 g</span></button>
+          <button class="option-btn" data-ans="2"><span class="opt-letter">C</span><span class="opt-text">10.2 g</span></button>
+          <button class="option-btn" data-ans="3"><span class="opt-letter">D</span><span class="opt-text">20.4 g</span></button>
+        </div>
+        <div class="explain" id="exp-15">
+          <strong>Penjelasan:</strong> Bilangan mol Al = 5.4/27 = 0.2 mol; berdasarkan nisbah mol persamaan, mol Al2O3 = 0.1 mol; jisim Al2O3 = 0.1 x 102 g mol-1 = 10.2 g.
+        </div>
+        <button class="btn-next" onclick="nextQ(15)">
+          Lihat Keputusan →
+        </button>
+      </div>
+  </div>
+
+  <div id="result-section">
+    <div class="result-card">
+      <div class="score-ring" id="score-ring"><span id="score-text">0/15</span></div>
+      <div class="result-title" id="result-title">Keputusan Kuiz</div>
+      <div class="result-sub" id="result-sub">Anda telah menjawab semua soalan.</div>
+
+          <a href="index.html" class="btn-next-bab" style="background:linear-gradient(135deg,#2db87a,#1e8a5a);">
+            <div><span class="next-label">&#127881; Tamat! Kembali ke</span>
+                 <span class="next-title">&#127968; Laman Utama</span></div>
+            <span class="next-arrow">&#10003;</span>
+          </a>
+
+      <button class="btn-retry" onclick="retryQuiz()">&#8635; Cuba Lagi</button>
+
+      <div class="bab-nav">
+        <p>Bab Lain &mdash; Kimia T4</p>
+        <div class="bab-chips">
+      <a href="Kuiz_Kimia_T4B1.html" class="chip">Kimia T4 B1 ✓</a>
+      <a href="Kuiz_Kimia_T4B2.html" class="chip">Kimia T4 B2 ✓</a>
+      <span class="chip active">Kimia T4 B3 ✓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>&copy; 2025 EasySejarah</footer>
+
+  <script>
+    const CORRECT = {1:0, 2:1, 3:2, 4:3, 5:0, 6:1, 7:2, 8:3, 9:0, 10:1, 11:2, 12:3, 13:0, 14:1, 15:2};
+    const TOTAL = 15;
+    let score = 0, answered = 0;
+
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.question-card');
+        const q = parseInt(card.dataset.q);
+        const chosen = parseInt(this.dataset.ans);
+        const correct = CORRECT[q];
+        card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+        if (chosen === correct) {
+          this.classList.add('correct');
+          score++;
+        } else {
+          this.classList.add('wrong');
+          card.querySelectorAll('.option-btn').forEach(b => {
+            if (parseInt(b.dataset.ans) === correct) b.classList.add('correct');
+          });
+        }
+        answered++;
+        updateProgress();
+        document.getElementById('exp-' + q).classList.add('show');
+        card.querySelector('.btn-next').classList.add('show');
+      });
+    });
+
+    function nextQ(current) {
+      const currentCard = document.querySelector('[data-q="' + current + '"]');
+      currentCard.classList.remove('active');
+      const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+      if (next) {
+        next.classList.add('active');
+        next.scrollIntoView({behavior:'smooth', block:'start'});
+      } else {
+        showResult();
+      }
+    }
+
+    function updateProgress() {
+      const pct = (answered / TOTAL) * 100;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+    }
+
+    function showResult() {
+      document.querySelector('.quiz-section').style.display = 'none';
+      const resultSection = document.getElementById('result-section');
+      resultSection.classList.add('show');
+      const pct = Math.round((score / TOTAL) * 100);
+      document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+      document.getElementById('score-text').textContent = score + '/' + TOTAL;
+      let title, sub;
+      if (pct >= 80) { title = '🎉 Cemerlang!'; sub = 'Anda benar-benar menguasai topik ini.'; }
+      else if (pct >= 50) { title = '👍 Bagus!'; sub = 'Teruskan usaha, ulang kaji bahagian yang tersilap.'; }
+      else { title = '📚 Perlu Ulang Kaji'; sub = 'Baca semula nota dan cuba kuiz ini sekali lagi.'; }
+      document.getElementById('result-title').textContent = title;
+      document.getElementById('result-sub').textContent = sub;
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    function retryQuiz() {
+      score = 0; answered = 0;
+      document.querySelectorAll('.question-card').forEach((card, idx) => {
+        card.classList.remove('active');
+        if (idx === 0) card.classList.add('active');
+        card.querySelectorAll('.option-btn').forEach(b => {
+          b.disabled = false;
+          b.classList.remove('correct', 'wrong');
+        });
+        const exp = card.querySelector('.explain');
+        if (exp) exp.classList.remove('show');
+        const nb = card.querySelector('.btn-next');
+        if (nb) nb.classList.remove('show');
+      });
+      document.querySelector('.quiz-section').style.display = 'block';
+      document.getElementById('result-section').classList.remove('show');
+      updateProgress();
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>
