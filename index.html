@@ -231,6 +231,9 @@ header { display:flex; align-items:center; justify-content:space-between; paddin
 .bab-card.kimia-card.ready:hover { border-color:#17b8a6; }
 .bab-card.kimia-card .bab-num { color:#17b8a6; }
 .bab-type-kimia { background:#e6faf7; color:#0d8a7d; border:1px solid rgba(23,184,166,0.3); }
+.bab-card.ekonomi-card.ready:hover { border-color:#f1c40f; }
+.bab-card.ekonomi-card .bab-num { color:#b7950b; }
+.bab-type-ekonomi { background:#fff9e0; color:#b7950b; border:1px solid rgba(241,196,15,0.4); }
 
 /* BLOG GRID */
 .blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
@@ -312,6 +315,11 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
     </div>
     <hr class="sb-divider">
     <div class="sb-section">
+      <div class="sb-subject">Ekonomi</div>
+      <button class="sb-btn" onclick="show('ekonomi4')" id="btn-ekonomi4"><span class="sb-icon">📊</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge" style="background:#b7950b;">2</span></button>
+    </div>
+    <hr class="sb-divider">
+    <div class="sb-section">
       <div class="sb-subject">Lain-lain</div>
       <button class="sb-btn" onclick="show('blog')" id="btn-blog"><span class="sb-icon">📝</span><span class="sb-label">Blog</span><span class="sb-badge" style="background:#f59e0b;">Baru</span></button>
       <button class="sb-btn" onclick="show('animasi')" id="btn-animasi"><span class="sb-icon">🎬</span><span class="sb-label">Animasi</span></button>
@@ -380,6 +388,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         <div class="qcard" onclick="show('blog')" style="border-color:#f59e0b20;"><div class="qcard-icon">📝</div><div class="qcard-name" style="color:#d97706;">Blog</div><div class="qcard-count">Tips belajar SPM</div></div>
         <div class="qcard" onclick="show('niaga4')" style="border-color:rgba(26,122,74,0.3);"><div class="qcard-icon">💼</div><div class="qcard-name" style="color:#2db87a;">Perniagaan T4</div><div class="qcard-count">4 bab · SPM · Baharu!</div></div>
         <div class="qcard" onclick="show('kimia4')" style="border-color:rgba(23,184,166,0.3);"><div class="qcard-icon">⚗️</div><div class="qcard-name" style="color:#17b8a6;">Kimia T4</div><div class="qcard-count">3 bab · SPM · Baharu!</div></div>
+        <div class="qcard" onclick="show('ekonomi4')" style="border-color:rgba(241,196,15,0.4);"><div class="qcard-icon">📊</div><div class="qcard-name" style="color:#b7950b;">Ekonomi T4</div><div class="qcard-count">2 bab · SPM · Baharu!</div></div>
       </div>
     </div>
 
@@ -562,6 +571,28 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       </div>
     </div>
 
+    <!-- EKONOMI T4 -->
+    <div class="section" id="section-ekonomi4">
+      <div class="sec-header">
+        <div class="sec-title">Ekonomi Tingkatan 4</div>
+        <span class="sec-badge" style="background:#fff9e0;color:#b7950b;border:1px solid rgba(241,196,15,0.4);">SPM · Baharu!</span>
+      </div>
+      <div class="bab-grid">
+        <a href="Kuiz_Ekonomi_T4B1.html" class="bab-card ready ekonomi-card">
+          <div class="bab-type-label bab-type-ekonomi">✏️ KUIZ</div>
+          <div class="bab-num">Bab 1</div>
+          <div class="bab-title">Pengenalan kepada Ekonomi</div>
+          <div class="bab-meta"><span class="dot" style="background:#f1c40f"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+        <a href="Kuiz_Ekonomi_T4B2.html" class="bab-card ready ekonomi-card">
+          <div class="bab-type-label bab-type-ekonomi">✏️ KUIZ</div>
+          <div class="bab-num">Bab 2</div>
+          <div class="bab-title">Pasaran</div>
+          <div class="bab-meta"><span class="dot" style="background:#f1c40f"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+      </div>
+    </div>
+
     <!-- BLOG -->
     <div class="section" id="section-blog">
       <div class="sec-header">
@@ -636,7 +667,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   if(localStorage.getItem('cookieOK')) document.getElementById('cookie-banner').style.display='none';
   function acceptCookie(){ localStorage.setItem('cookieOK','1'); document.getElementById('cookie-banner').style.display='none'; }
 
-  const SECTIONS = ['home','t3','t4','t5','sains3','sains4','sains5','niaga4','kimia4','blog','animasi','about'];
+  const SECTIONS = ['home','t3','t4','t5','sains3','sains4','sains5','niaga4','kimia4','ekonomi4','blog','animasi','about'];
   function show(id){
     SECTIONS.forEach(s=>{
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
