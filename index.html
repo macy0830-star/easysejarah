@@ -343,6 +343,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
     <div class="sb-section">
       <div class="sb-subject">Perniagaan</div>
       <button class="sb-btn" onclick="show('niaga4')" id="btn-niaga4"><span class="sb-icon">💼</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge" style="background:#1a7a4a;">4</span></button>
+      <button class="sb-btn" onclick="show('niaga5')" id="btn-niaga5"><span class="sb-icon">💼</span><span class="sb-label">Tingkatan 5</span><span class="sb-badge" style="background:#1a7a4a;">3</span></button>
     </div>
     <hr class="sb-divider">
     <div class="sb-section">
@@ -406,7 +407,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         </div>
         <div class="qcard" onclick="show('hub-t3')"><div class="qcard-icon">📗</div><div class="qcard-name">Tingkatan 3</div><div class="qcard-count">Sejarah · Sains · PT3</div></div>
         <div class="qcard" onclick="show('hub-t4')"><div class="qcard-icon">📘</div><div class="qcard-name">Tingkatan 4</div><div class="qcard-count">5 subjek · SPM</div></div>
-        <div class="qcard" onclick="show('hub-t5')"><div class="qcard-icon">📕</div><div class="qcard-name">Tingkatan 5</div><div class="qcard-count">Sejarah · Sains · SPM</div></div>
+        <div class="qcard" onclick="show('hub-t5')"><div class="qcard-icon">📕</div><div class="qcard-name">Tingkatan 5</div><div class="qcard-count">Sejarah · Sains · Perniagaan · SPM</div></div>
       </div>
 
       <!-- GAME -- downplayed featured strip (was a large hero banner) -->
@@ -447,6 +448,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       <div class="quick-nav">
         <div class="qcard" onclick="show('t5')"><div class="qcard-icon">📕</div><div class="qcard-name">Sejarah</div><div class="qcard-count">12 bab · SPM</div></div>
         <div class="qcard sains" onclick="show('sains5')"><div class="qcard-icon">🧬</div><div class="qcard-name">Sains</div><div class="qcard-count">9 bab · SPM</div></div>
+        <div class="qcard" onclick="show('niaga5')" style="border-color:rgba(26,122,74,0.3);"><div class="qcard-icon">💼</div><div class="qcard-name" style="color:#2db87a;">Perniagaan</div><div class="qcard-count">3 bab · SPM · Baharu!</div></div>
         <div class="qcard" onclick="show('kimia5')" style="border-color:rgba(23,184,166,0.3);"><div class="qcard-icon">⚗️</div><div class="qcard-name" style="color:#17b8a6;">Kimia</div><div class="qcard-count">3 bab · SPM · Baharu!</div></div>
       </div>
     </div>
@@ -597,6 +599,34 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
           <div class="bab-type-label bab-type-niaga">✏️ KUIZ</div>
           <div class="bab-num">Bab 4</div>
           <div class="bab-title">Struktur Organisasi Perniagaan</div>
+          <div class="bab-meta"><span class="dot" style="background:#2db87a"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- PERNIAGAAN T5 -->
+    <div class="section" id="section-niaga5">
+      <div class="sec-header">
+        <div class="sec-title">Perniagaan Tingkatan 5</div>
+        <span class="sec-badge" style="background:#e8f7ef;color:#1a7a4a;border:1px solid rgba(26,122,74,0.3);">SPM · Baharu!</span>
+      </div>
+      <div class="bab-grid">
+        <a href="Kuiz_PER_T5B1.html" class="bab-card ready niaga-card">
+          <div class="bab-type-label bab-type-niaga">✏️ KUIZ</div>
+          <div class="bab-num">Bab 1</div>
+          <div class="bab-title">Pengurusan Sumber Manusia</div>
+          <div class="bab-meta"><span class="dot" style="background:#2db87a"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+        <a href="Kuiz_PER_T5B2.html" class="bab-card ready niaga-card">
+          <div class="bab-type-label bab-type-niaga">✏️ KUIZ</div>
+          <div class="bab-num">Bab 2</div>
+          <div class="bab-title">Pengurusan Sumber Fizikal dan Teknologi</div>
+          <div class="bab-meta"><span class="dot" style="background:#2db87a"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+        <a href="Kuiz_PER_T5B3.html" class="bab-card ready niaga-card">
+          <div class="bab-type-label bab-type-niaga">✏️ KUIZ</div>
+          <div class="bab-num">Bab 3</div>
+          <div class="bab-title">Sumber Pembiayaan Perniagaan</div>
           <div class="bab-meta"><span class="dot" style="background:#2db87a"></span><span class="bab-info">15 soalan · Sedia</span></div>
         </a>
       </div>
@@ -754,7 +784,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   if(localStorage.getItem('cookieOK')) document.getElementById('cookie-banner').style.display='none';
   function acceptCookie(){ localStorage.setItem('cookieOK','1'); document.getElementById('cookie-banner').style.display='none'; }
 
-  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','t3','t4','t5','sains3','sains4','sains5','niaga4','kimia4','kimia5','ekonomi4','blog','animasi','about'];
+  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','t3','t4','t5','sains3','sains4','sains5','niaga4','niaga5','kimia4','kimia5','ekonomi4','blog','animasi','about'];
   function show(id){
     SECTIONS.forEach(s=>{
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
