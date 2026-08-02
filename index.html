@@ -157,6 +157,7 @@ header { display:flex; align-items:center; justify-content:space-between; paddin
 .bab-card.kimia-card.ready::after { color:#17b8a6; }
 .bab-card.ekonomi-card.ready::after { color:#b7950b; }
 .bab-card.biologi-card.ready::after { color:#3498db; }
+.bab-card.pkn-card.ready::after { color:#5c85d6; }
 
 /* TINGKATAN SUB-LABEL */
 .tingkatan-label { font-family:'Poppins',sans-serif; font-weight:700; font-size:0.8rem; color:var(--ungu); margin:20px 0 10px; padding-bottom:6px; border-bottom:2px solid #f0ebff; }
@@ -272,6 +273,11 @@ header { display:flex; align-items:center; justify-content:space-between; paddin
 .bab-card.biologi-card .bab-num { color:#3498db; }
 .bab-type-biologi { background:#e8f4fd; color:#1a6fa0; border:1px solid rgba(52,152,219,0.3); }
 
+
+/* PERAKAUNAN CARD */
+.bab-card.pkn-card.ready:hover { border-color:#5c85d6; }
+.bab-card.pkn-card .bab-num { color:#5c85d6; }
+.bab-type-pkn { background:#eef2ff; color:#3d65b5; border:1px solid rgba(92,133,214,0.3); }
 /* BLOG GRID */
 .blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
 .blog-card { background:var(--card); border:1.5px solid var(--border); border-radius:16px; text-decoration:none; color:inherit; overflow:hidden; transition:all 0.18s; box-shadow:var(--shadow); display:flex; flex-direction:column; }
@@ -365,6 +371,11 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       <button class="sb-btn" onclick="show('biologi4')" id="btn-biologi4"><span class="sb-icon">🧬</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge" style="background:#3498db;">3</span></button>
     </div>
     <hr class="sb-divider">
+    <hr class="sb-divider">
+    <div class="sb-section">
+      <div class="sb-subject">Perakaunan</div>
+      <button class="sb-btn" onclick="show('perakaunan4')" id="btn-perakaunan4"><span class="sb-icon">🧾</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge" style="background:#3d65b5;">2</span></button>
+    </div>
     <div class="sb-section">
       <div class="sb-subject">Lain-lain</div>
       <button class="sb-btn" onclick="show('blog')" id="btn-blog"><span class="sb-icon">📝</span><span class="sb-label">Tips Belajar</span><span class="sb-badge" style="background:#f59e0b;">Baru</span></button>
@@ -448,6 +459,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         <div class="qcard" onclick="show('kimia4')" style="border-color:rgba(23,184,166,0.3);"><div class="qcard-icon">⚗️</div><div class="qcard-name" style="color:#17b8a6;">Kimia</div><div class="qcard-count">3 bab · SPM · Baharu!</div></div>
         <div class="qcard" onclick="show('ekonomi4')" style="border-color:rgba(241,196,15,0.4);"><div class="qcard-icon">📊</div><div class="qcard-name" style="color:#b7950b;">Ekonomi</div><div class="qcard-count">2 bab · SPM · Baharu!</div></div>
         <div class="qcard" onclick="show('biologi4')" style="border-color:rgba(52,152,219,0.3);"><div class="qcard-icon">🧬</div><div class="qcard-name" style="color:#3498db;">Biologi</div><div class="qcard-count">3 bab · SPM · Baharu!</div></div>
+        <div class="qcard" onclick="show('perakaunan4')" style="border-color:rgba(92,133,214,0.3);"><div class="qcard-icon">🧾</div><div class="qcard-name" style="color:#5c85d6;">Perakaunan</div><div class="qcard-count">2 bab · SPM · Baharu!</div></div>
       </div>
     </div>
 
@@ -747,6 +759,29 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       </div>
     </div>
 
+
+    <!-- PERAKAUNAN T4 -->
+    <div class="section" id="section-perakaunan4">
+      <div class="sec-header">
+        <div class="sec-title">Perakaunan Tingkatan 4</div>
+        <span class="sec-badge" style="background:#eef2ff;color:#3d65b5;border:1px solid rgba(92,133,214,0.3);">SPM · Baharu!</span>
+      </div>
+      <div class="bab-grid">
+        <a href="Kuiz_PKN_T4B1.html" class="bab-card ready pkn-card">
+          <div class="bab-type-label bab-type-pkn">✏️ KUIZ</div>
+          <div class="bab-num">Bab 1</div>
+          <div class="bab-title">Pengenalan Kepada Perakaunan</div>
+          <div class="bab-meta"><span class="dot" style="background:#5c85d6"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+        <a href="Kuiz_PKN_T4B2.html" class="bab-card ready pkn-card">
+          <div class="bab-type-label bab-type-pkn">✏️ KUIZ</div>
+          <div class="bab-num">Bab 2</div>
+          <div class="bab-title">Klasifikasi Akaun dan Persamaan Perakaunan</div>
+          <div class="bab-meta"><span class="dot" style="background:#5c85d6"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+      </div>
+    </div>
+
     <!-- BLOG -->
     <div class="section" id="section-blog">
       <div class="sec-header">
@@ -821,7 +856,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   if(localStorage.getItem('cookieOK')) document.getElementById('cookie-banner').style.display='none';
   function acceptCookie(){ localStorage.setItem('cookieOK','1'); document.getElementById('cookie-banner').style.display='none'; }
 
-  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','t3','t4','t5','sains3','sains4','sains5','niaga4','niaga5','kimia4','kimia5','ekonomi4','biologi4','blog','animasi','about'];
+  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','t3','t4','t5','sains3','sains4','sains5','niaga4','niaga5','kimia4','kimia5','ekonomi4','biologi4','perakaunan4','blog','animasi','about'];
   function show(id){
     SECTIONS.forEach(s=>{
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
