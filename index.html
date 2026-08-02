@@ -156,6 +156,7 @@ header { display:flex; align-items:center; justify-content:space-between; paddin
 .bab-card.niaga-card.ready::after { color:#2db87a; }
 .bab-card.kimia-card.ready::after { color:#17b8a6; }
 .bab-card.ekonomi-card.ready::after { color:#b7950b; }
+.bab-card.biologi-card.ready::after { color:#3498db; }
 
 /* TINGKATAN SUB-LABEL */
 .tingkatan-label { font-family:'Poppins',sans-serif; font-weight:700; font-size:0.8rem; color:var(--ungu); margin:20px 0 10px; padding-bottom:6px; border-bottom:2px solid #f0ebff; }
@@ -267,6 +268,9 @@ header { display:flex; align-items:center; justify-content:space-between; paddin
 .bab-card.ekonomi-card.ready:hover { border-color:#f1c40f; }
 .bab-card.ekonomi-card .bab-num { color:#b7950b; }
 .bab-type-ekonomi { background:#fff9e0; color:#b7950b; border:1px solid rgba(241,196,15,0.4); }
+.bab-card.biologi-card.ready:hover { border-color:#3498db; }
+.bab-card.biologi-card .bab-num { color:#3498db; }
+.bab-type-biologi { background:#e8f4fd; color:#1a6fa0; border:1px solid rgba(52,152,219,0.3); }
 
 /* BLOG GRID */
 .blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
@@ -356,6 +360,10 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       <div class="sb-subject">Ekonomi</div>
       <button class="sb-btn" onclick="show('ekonomi4')" id="btn-ekonomi4"><span class="sb-icon">📊</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge" style="background:#b7950b;">2</span></button>
     </div>
+    <div class="sb-section">
+      <div class="sb-subject">Biologi</div>
+      <button class="sb-btn" onclick="show('biologi4')" id="btn-biologi4"><span class="sb-icon">🧬</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge" style="background:#3498db;">3</span></button>
+    </div>
     <hr class="sb-divider">
     <div class="sb-section">
       <div class="sb-subject">Lain-lain</div>
@@ -383,7 +391,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         <a href="#subjek-picker" class="hero-cta hero-cta-kuiz">
           <span class="hero-cta-icon">📚</span>
           <span class="hero-cta-label">Buat Kuiz</span>
-          <span class="hero-cta-sub">Sejarah · Sains · Perniagaan · Kimia · Ekonomi</span>
+          <span class="hero-cta-sub">Sejarah · Sains · Perniagaan · Kimia · Ekonomi · Biologi</span>
         </a>
         <a href="spm_warrior_master.html" class="hero-cta hero-cta-game">
           <span class="hero-cta-icon">⚔️</span>
@@ -406,7 +414,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
           <div class="qcard-count" style="color:rgba(255,255,255,0.45);">RPG · 20 Bab T4&amp;T5</div>
         </div>
         <div class="qcard" onclick="show('hub-t3')"><div class="qcard-icon">📗</div><div class="qcard-name">Tingkatan 3</div><div class="qcard-count">Sejarah · Sains · PT3</div></div>
-        <div class="qcard" onclick="show('hub-t4')"><div class="qcard-icon">📘</div><div class="qcard-name">Tingkatan 4</div><div class="qcard-count">5 subjek · SPM</div></div>
+        <div class="qcard" onclick="show('hub-t4')"><div class="qcard-icon">📘</div><div class="qcard-name">Tingkatan 4</div><div class="qcard-count">6 subjek · SPM</div></div>
         <div class="qcard" onclick="show('hub-t5')"><div class="qcard-icon">📕</div><div class="qcard-name">Tingkatan 5</div><div class="qcard-count">Sejarah · Sains · Perniagaan · SPM</div></div>
       </div>
 
@@ -439,6 +447,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         <div class="qcard" onclick="show('niaga4')" style="border-color:rgba(26,122,74,0.3);"><div class="qcard-icon">💼</div><div class="qcard-name" style="color:#2db87a;">Perniagaan</div><div class="qcard-count">4 bab · SPM · Baharu!</div></div>
         <div class="qcard" onclick="show('kimia4')" style="border-color:rgba(23,184,166,0.3);"><div class="qcard-icon">⚗️</div><div class="qcard-name" style="color:#17b8a6;">Kimia</div><div class="qcard-count">3 bab · SPM · Baharu!</div></div>
         <div class="qcard" onclick="show('ekonomi4')" style="border-color:rgba(241,196,15,0.4);"><div class="qcard-icon">📊</div><div class="qcard-name" style="color:#b7950b;">Ekonomi</div><div class="qcard-count">2 bab · SPM · Baharu!</div></div>
+        <div class="qcard" onclick="show('biologi4')" style="border-color:rgba(52,152,219,0.3);"><div class="qcard-icon">🧬</div><div class="qcard-name" style="color:#3498db;">Biologi</div><div class="qcard-count">3 bab · SPM · Baharu!</div></div>
       </div>
     </div>
 
@@ -710,6 +719,34 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       </div>
     </div>
 
+    <!-- BIOLOGI T4 -->
+    <div class="section" id="section-biologi4">
+      <div class="sec-header">
+        <div class="sec-title">Biologi Tingkatan 4</div>
+        <span class="sec-badge" style="background:#e8f4fd;color:#1a6fa0;border:1px solid rgba(52,152,219,0.3);">SPM · Baharu!</span>
+      </div>
+      <div class="bab-grid">
+        <a href="Kuiz_BIO_T4B1.html" class="bab-card ready biologi-card">
+          <div class="bab-type-label bab-type-biologi">✏️ KUIZ</div>
+          <div class="bab-num">Bab 1</div>
+          <div class="bab-title">Pengenalan kepada Biologi dan Peraturan Makmal</div>
+          <div class="bab-meta"><span class="dot" style="background:#3498db"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+        <a href="Kuiz_BIO_T4B2.html" class="bab-card ready biologi-card">
+          <div class="bab-type-label bab-type-biologi">✏️ KUIZ</div>
+          <div class="bab-num">Bab 2</div>
+          <div class="bab-title">Biologi Sel dan Organisasi Sel</div>
+          <div class="bab-meta"><span class="dot" style="background:#3498db"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+        <a href="Kuiz_BIO_T4B3.html" class="bab-card ready biologi-card">
+          <div class="bab-type-label bab-type-biologi">✏️ KUIZ</div>
+          <div class="bab-num">Bab 3</div>
+          <div class="bab-title">Pergerakan Bahan Merentasi Membran Plasma</div>
+          <div class="bab-meta"><span class="dot" style="background:#3498db"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+      </div>
+    </div>
+
     <!-- BLOG -->
     <div class="section" id="section-blog">
       <div class="sec-header">
@@ -784,7 +821,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   if(localStorage.getItem('cookieOK')) document.getElementById('cookie-banner').style.display='none';
   function acceptCookie(){ localStorage.setItem('cookieOK','1'); document.getElementById('cookie-banner').style.display='none'; }
 
-  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','t3','t4','t5','sains3','sains4','sains5','niaga4','niaga5','kimia4','kimia5','ekonomi4','blog','animasi','about'];
+  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','t3','t4','t5','sains3','sains4','sains5','niaga4','niaga5','kimia4','kimia5','ekonomi4','biologi4','blog','animasi','about'];
   function show(id){
     SECTIONS.forEach(s=>{
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
