@@ -375,6 +375,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
     <div class="sb-section">
       <div class="sb-subject">Perakaunan</div>
       <button class="sb-btn" onclick="show('perakaunan4')" id="btn-perakaunan4"><span class="sb-icon">🧾</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge" style="background:#3d65b5;">2</span></button>
+      <button class="sb-btn" onclick="show('perakaunan5')" id="btn-perakaunan5"><span class="sb-icon">🧾</span><span class="sb-label">Tingkatan 5</span><span class="sb-badge" style="background:#3d65b5;">2</span></button>
     </div>
     <div class="sb-section">
       <div class="sb-subject">Lain-lain</div>
@@ -471,6 +472,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
         <div class="qcard sains" onclick="show('sains5')"><div class="qcard-icon">🧬</div><div class="qcard-name">Sains</div><div class="qcard-count">9 bab · SPM</div></div>
         <div class="qcard" onclick="show('niaga5')" style="border-color:rgba(26,122,74,0.3);"><div class="qcard-icon">💼</div><div class="qcard-name" style="color:#2db87a;">Perniagaan</div><div class="qcard-count">3 bab · SPM · Baharu!</div></div>
         <div class="qcard" onclick="show('kimia5')" style="border-color:rgba(23,184,166,0.3);"><div class="qcard-icon">⚗️</div><div class="qcard-name" style="color:#17b8a6;">Kimia</div><div class="qcard-count">3 bab · SPM · Baharu!</div></div>
+        <div class="qcard" onclick="show('perakaunan5')" style="border-color:rgba(92,133,214,0.3);"><div class="qcard-icon">🧾</div><div class="qcard-name" style="color:#5c85d6;">Perakaunan</div><div class="qcard-count">2 bab · SPM · Baharu!</div></div>
       </div>
     </div>
 
@@ -782,6 +784,28 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       </div>
     </div>
 
+    <!-- PERAKAUNAN T5 -->
+    <div class="section" id="section-perakaunan5">
+      <div class="sec-header">
+        <div class="sec-title">Perakaunan Tingkatan 5</div>
+        <span class="sec-badge" style="background:#eef2ff;color:#3d65b5;border:1px solid rgba(92,133,214,0.3);">SPM · Baharu!</span>
+      </div>
+      <div class="bab-grid">
+        <a href="Kuiz_PKN_T5B1.html" class="bab-card ready pkn-card">
+          <div class="bab-type-label bab-type-pkn">✏️ KUIZ</div>
+          <div class="bab-num">Bab 1</div>
+          <div class="bab-title">Analisis Penyata Kewangan dan Perbandingan Prestasi</div>
+          <div class="bab-meta"><span class="dot" style="background:#5c85d6"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+        <a href="Kuiz_PKN_T5B2.html" class="bab-card ready pkn-card">
+          <div class="bab-type-label bab-type-pkn">✏️ KUIZ</div>
+          <div class="bab-num">Bab 2</div>
+          <div class="bab-title">Rekod Tak Lengkap</div>
+          <div class="bab-meta"><span class="dot" style="background:#5c85d6"></span><span class="bab-info">15 soalan · Sedia</span></div>
+        </a>
+      </div>
+    </div>
+
     <!-- BLOG -->
     <div class="section" id="section-blog">
       <div class="sec-header">
@@ -856,7 +880,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   if(localStorage.getItem('cookieOK')) document.getElementById('cookie-banner').style.display='none';
   function acceptCookie(){ localStorage.setItem('cookieOK','1'); document.getElementById('cookie-banner').style.display='none'; }
 
-  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','t3','t4','t5','sains3','sains4','sains5','niaga4','niaga5','kimia4','kimia5','ekonomi4','biologi4','perakaunan4','blog','animasi','about'];
+  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','t3','t4','t5','sains3','sains4','sains5','niaga4','niaga5','kimia4','kimia5','ekonomi4','biologi4','perakaunan4','perakaunan5','blog','animasi','about'];
   function show(id){
     SECTIONS.forEach(s=>{
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
