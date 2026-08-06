@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f0f4ff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>VocabCat 🐱 Form 5 BI – Unit 3</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date()); gtag('config','G-6FLLFJJNPP');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+button{touch-action:manipulation;-webkit-appearance:none;}
+:root{
+  --bg:#f0f4ff;--card:#ffffff;--border:rgba(14,165,233,0.18);
+  --accent:#0ea5e9;--accent2:#0284c7;
+  --text:#1e293b;--muted:#64748b;--light:#94a3b8;
+  --green:#16a34a;--gbg:#f0fdf4;--gbd:#86efac;--gtx:#15803d;
+  --red:#dc2626;--rbg:#fef2f2;--rbd:#fca5a5;--rtx:#b91c1c;
+  --gold:#d97706;--gbg2:#fffbeb;--gbd2:#fde68a;
+  --sh:0 2px 20px rgba(14,165,233,0.10);--sh2:0 1px 8px rgba(14,165,233,0.07);
+}
+body{font-family:'Nunito',sans-serif;background:var(--bg);
+  background-image:radial-gradient(ellipse at 15% 20%,rgba(14,165,233,0.07) 0%,transparent 55%),
+                   radial-gradient(ellipse at 85% 80%,rgba(56,189,248,0.05) 0%,transparent 55%);
+  color:var(--text);min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  padding:max(1.2rem,env(safe-area-inset-top)) max(1rem,env(safe-area-inset-right))
+          max(1.2rem,env(safe-area-inset-bottom)) max(1rem,env(safe-area-inset-left));
+  overscroll-behavior-y:none;}
+@media(min-height:760px){body{justify-content:center;}}
+.screen{display:none;width:100%;max-width:520px;}
+.screen.active{display:flex;flex-direction:column;align-items:center;}
+.bolt{font-size:3.5rem;margin-bottom:.2rem;animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.gtitle{font-size:2.5rem;font-weight:900;color:var(--accent);letter-spacing:-1px;line-height:1;}
+.ctag{background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.25);
+  color:var(--accent2);border-radius:50px;padding:.3rem 1rem;
+  font-size:.8rem;font-weight:700;margin:.6rem 0 .4rem;text-align:center;}
+.tagline{color:var(--muted);font-size:.88rem;margin-bottom:1.5rem;text-align:center;line-height:1.4;}
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;width:100%;margin-bottom:1.5rem;}
+.icard{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:.75rem .85rem;box-shadow:var(--sh2);display:flex;align-items:center;gap:.55rem;}
+.iico{font-size:1.2rem;flex-shrink:0;}
+.icpy{font-size:.76rem;color:var(--muted);line-height:1.3;}
+.icpy strong{display:block;color:var(--text);font-size:.84rem;font-weight:800;}
+.btn-go{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;border:none;border-radius:16px;padding:1rem;min-height:52px;
+  font-size:1.1rem;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;
+  box-shadow:0 4px 20px rgba(14,165,233,0.3);transition:box-shadow .2s;touch-action:manipulation;}
+.btn-go:active{box-shadow:0 2px 10px rgba(14,165,233,0.2);}
+.best-row{margin-top:1rem;font-size:.86rem;color:var(--muted);text-align:center;}
+.bval{color:var(--gold);font-weight:800;}
+.topbar{width:100%;display:flex;align-items:center;justify-content:space-between;
+  gap:.4rem;margin-bottom:.85rem;}
+.lives{font-size:1.05rem;letter-spacing:.05rem;flex-shrink:0;}
+.pts{background:var(--card);border:1px solid var(--border);border-radius:50px;
+  padding:.25rem .75rem;font-size:.9rem;font-weight:800;color:var(--accent2);
+  box-shadow:var(--sh2);white-space:nowrap;}
+.stk{background:var(--gbg2);border:1px solid var(--gbd2);border-radius:50px;
+  padding:.25rem .75rem;font-size:.85rem;font-weight:800;color:var(--gold);
+  transition:all .3s;white-space:nowrap;}
+.stk.hot{background:#fef3c7;border-color:#f59e0b;box-shadow:0 0 10px rgba(245,158,11,.2);}
+.mute{background:var(--card);border:1px solid var(--border);border-radius:50%;
+  width:34px;height:34px;font-size:.9rem;cursor:pointer;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;box-shadow:var(--sh2);touch-action:manipulation;}
+.mute:active{background:#f1f5f9;}
+.twrap{width:100%;background:#e2e8f0;border-radius:50px;height:7px;margin-bottom:.85rem;overflow:hidden;}
+.tfill{height:100%;border-radius:50px;
+  background:linear-gradient(90deg,var(--accent2),var(--accent));transition:width .95s linear;}
+.tfill.urg{background:linear-gradient(90deg,var(--red),#f97316);}
+.mrow{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:.75rem;}
+.cat{font-size:.68rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  color:var(--accent2);background:rgba(14,165,233,0.08);border-radius:6px;padding:.2rem .5rem;}
+.qnum{font-size:.8rem;color:var(--muted);font-weight:600;}
+.qcard{background:var(--card);border:1px solid var(--border);border-radius:18px;
+  padding:1.3rem 1.2rem;width:100%;min-height:80px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:.85rem;box-shadow:var(--sh);user-select:none;}
+.qtxt{font-size:1rem;font-weight:700;line-height:1.55;text-align:center;color:var(--text);}
+.opts{display:grid;grid-template-columns:1fr;gap:.55rem;width:100%;}
+@media(min-width:480px){.opts{grid-template-columns:1fr 1fr;}}
+.opt{background:var(--card);border:1.5px solid #e2e8f0;border-radius:13px;
+  padding:.8rem .75rem;min-height:48px;color:var(--text);font-family:'Nunito',sans-serif;
+  font-size:.9rem;font-weight:600;cursor:pointer;transition:border-color .15s,background .15s;
+  text-align:left;line-height:1.35;display:flex;align-items:flex-start;gap:.55rem;
+  box-shadow:var(--sh2);touch-action:manipulation;-webkit-user-select:none;user-select:none;}
+.opt:active:not(:disabled){background:rgba(14,165,233,.06);border-color:var(--accent);}
+@media(pointer:fine){
+  .opt:hover:not(:disabled){border-color:var(--accent);background:rgba(14,165,233,.04);
+    transform:translateY(-1px);box-shadow:0 4px 14px rgba(14,165,233,.12);}
+}
+.ltr{background:rgba(14,165,233,.1);color:var(--accent2);font-weight:900;font-size:.75rem;
+  min-width:22px;height:22px;border-radius:6px;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;margin-top:2px;}
+.opt.ok{background:var(--gbg);border-color:var(--gbd);color:var(--gtx);}
+.opt.ok .ltr{background:#dcfce7;color:var(--green);}
+.opt.er{background:var(--rbg);border-color:var(--rbd);color:var(--rtx);}
+.opt.er .ltr{background:#fee2e2;color:var(--red);}
+.opt:disabled{cursor:default;}
+.fb{width:100%;border-radius:13px;padding:.8rem .95rem;margin-top:.7rem;font-size:.83rem;line-height:1.45;display:none;}
+.fb.show{display:block;}
+.fb.ok{background:var(--gbg);border:1px solid var(--gbd);color:var(--gtx);}
+.fb.er{background:var(--rbg);border:1px solid var(--rbd);color:var(--rtx);}
+.fbt{font-weight:900;margin-bottom:.2rem;font-size:.86rem;}
+.eico{font-size:4.5rem;margin-bottom:.25rem;}
+.etit{font-size:1.8rem;font-weight:900;text-align:center;color:var(--text);}
+.stars{font-size:1.9rem;margin:.4rem 0 1rem;letter-spacing:.05rem;}
+.scard{background:var(--card);border:1px solid var(--border);border-radius:20px;
+  padding:1.4rem;width:100%;text-align:center;box-shadow:var(--sh);margin-bottom:1.3rem;}
+.slbl{font-size:.76rem;color:var(--muted);}
+.sbig{font-size:3.4rem;font-weight:900;color:var(--accent);line-height:1.05;}
+.nbest{display:none;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;
+  border-radius:50px;padding:.2rem .8rem;font-size:.74rem;font-weight:800;margin-top:.3rem;}
+.nbest.show{display:inline-block;}
+.srow{display:flex;justify-content:center;gap:2rem;margin-top:1rem;
+  padding-top:1rem;border-top:1px solid #f1f5f9;}
+.stat{text-align:center;}
+.sn{font-size:1.5rem;font-weight:900;}
+.sl{font-size:.68rem;color:var(--muted);margin-top:.1rem;}
+.btn-ret{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;border:none;border-radius:16px;padding:1rem;min-height:52px;
+  font-size:1.05rem;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;
+  box-shadow:0 4px 20px rgba(14,165,233,.25);transition:box-shadow .2s;touch-action:manipulation;}
+.btn-ret:active{box-shadow:0 2px 10px rgba(14,165,233,.15);}
+.btn-gh{width:100%;background:transparent;color:var(--muted);border:1.5px solid #e2e8f0;
+  border-radius:14px;padding:.8rem;min-height:48px;font-size:.92rem;font-weight:700;
+  font-family:'Nunito',sans-serif;cursor:pointer;transition:border-color .15s;
+  margin-top:.55rem;touch-action:manipulation;}
+.btn-gh:active{border-color:var(--light);color:var(--text);}
+.msg-toast{position:fixed;top:36%;left:50%;transform:translate(-50%,-50%) scale(0.65);
+  background:#fff;border-radius:22px;padding:.65rem 1.3rem;font-size:1.05rem;font-weight:800;
+  font-family:'Nunito',sans-serif;box-shadow:0 10px 36px rgba(0,0,0,0.13),0 2px 8px rgba(0,0,0,0.07);
+  z-index:996;opacity:0;white-space:nowrap;
+  transition:all .32s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;border:2.5px solid transparent;}
+.msg-toast.visible{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.msg-toast.praise{border-color:#86efac;color:#15803d;background:#f0fdf4;}
+.msg-toast.cheer{border-color:#bae6fd;color:#0284c7;background:#f0f9ff;}
+.fxp{position:fixed;font-size:1.5rem;font-weight:900;color:var(--green);
+  pointer-events:none;z-index:999;animation:fxUp .85s ease-out forwards;}
+@keyframes fxUp{0%{opacity:1;transform:translateY(0) scale(.9);}
+  30%{transform:translateY(-12px) scale(1.2);}
+  100%{opacity:0;transform:translateY(-65px) scale(1);}}
+.fxc{position:fixed;top:45%;left:50%;transform:translate(-50%,-50%);
+  font-size:2rem;font-weight:900;pointer-events:none;z-index:999;
+  animation:fxCo .65s ease-out forwards;text-align:center;white-space:nowrap;}
+@keyframes fxCo{0%{opacity:1;transform:translate(-50%,-50%) scale(.4);}
+  50%{transform:translate(-50%,-50%) scale(1.2);}
+  100%{opacity:0;transform:translate(-50%,-68%) scale(1);}}
+@keyframes shake{0%,100%{transform:translateX(0);}
+  20%{transform:translateX(-8px);}40%{transform:translateX(8px);}
+  60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}
+.shake{animation:shake .38s ease;}
+</style>
+</head>
+<body>
+<div id="sStart" class="screen active">
+  <div class="bolt">⚡</div>
+  <div class="gtitle">Vocab Cat</div>
+  <div class="ctag">Form 5 BI · Unit 3: The World of Sport</div>
+  <p class="tagline">15 soalan rawak · vocab, grammar &amp; expressions</p>
+  <div class="igrid">
+    <div class="icard"><span class="iico">❤️</span><div class="icpy"><strong>6 Nyawa</strong>6 silap = tamat!</div></div>
+    <div class="icard"><span class="iico">⏱️</span><div class="icpy"><strong>20 Saat</strong>setiap soalan</div></div>
+    <div class="icard"><span class="iico">🔥</span><div class="icpy"><strong>Streak Bonus</strong>jawab berturut!</div></div>
+    <div class="icard"><span class="iico">🔊</span><div class="icpy"><strong>Ada Bunyi</strong>betul &amp; salah</div></div>
+  </div>
+  <button class="btn-go" onclick="startGame()">⚡ Mula Sekarang!</button>
+
+  <a href="VocabCat_BI_Hub.html" style="display:block;margin-top:.8rem;font-size:.82rem;color:#64748b;text-decoration:none;font-family:Nunito,sans-serif;font-weight:700;">🗺️ Kembali ke Peta Unit</a>
+  <div class="best-row">🏆 Rekod terbaik: <span class="bval" id="bestDisp">—</span></div>
+</div>
+<div id="sGame" class="screen">
+  <div class="topbar">
+    <div class="lives" id="livesEl">❤️❤️❤️❤️❤️❤️</div>
+    <div class="pts" id="ptsEl">0 pts</div>
+    <div class="stk" id="stkEl">🔥 0</div>
+    <button class="mute" id="muteBtn" onclick="toggleMute()" aria-label="Toggle sound">🔊</button>
+  </div>
+  <div class="twrap"><div class="tfill" id="tfill"></div></div>
+  <div class="mrow">
+    <div class="cat" id="catEl">VOCABULARY</div>
+    <div class="qnum" id="qnumEl">1 / 15</div>
+  </div>
+  <div class="qcard" id="qcard"><div class="qtxt" id="qtxt">Memuatkan...</div></div>
+  <div class="opts" id="optsEl"></div>
+  <div class="fb" id="fbEl"><div class="fbt" id="fbt"></div><div id="fbb"></div></div>
+</div>
+<div id="sEnd" class="screen">
+  <div class="eico" id="eico">🏆</div>
+  <div class="etit" id="etit">Tamat!</div>
+  <div class="stars" id="starsEl"></div>
+  <div class="scard">
+    <div class="slbl">Markah Akhir</div>
+    <div class="sbig" id="finalPts">0</div>
+    <div class="nbest" id="nbest">🌟 Rekod Baharu!</div>
+    <div class="srow">
+      <div class="stat"><div class="sn" style="color:#16a34a" id="sc">0</div><div class="sl">Betul ✅</div></div>
+      <div class="stat"><div class="sn" style="color:#dc2626" id="sw">0</div><div class="sl">Salah ❌</div></div>
+      <div class="stat"><div class="sn" style="color:#d97706" id="sb">0</div><div class="sl">Best 🔥</div></div>
+    </div>
+  </div>
+  <button class="btn-ret" onclick="startGame()">⚡ Cuba Lagi</button>
+  <button class="btn-gh" onclick="showStart()">🏠 Skrin Utama</button>
+  <button class="btn-gh" onclick="window.location.href='VocabCat_BI_F5B4.html'" style="background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;border:none;margin-top:.6rem;">Unit Seterusnya ➜ Unit 4</button>
+  <button class="btn-gh" onclick="window.location.href='VocabCat_BI_Hub.html'" style="margin-top:.6rem;">🗺️ Peta Unit</button>
+</div>
+<script>
+const QBank=[{"q": "What is a 'sponsorship deal' in sport?", "opts": ["Money paid by one club to another for a player", "Money for promoting a company's products or wearing their logo", "Money earned by winning a tournament or competition", "A fixed regular payment for playing in a team"], "ans": 1, "tip": "A sponsorship deal is when a company pays an athlete to use or wear their products and promote their brand.", "cat": "SPORTS VOCAB"}, {"q": "What is a 'transfer fee'?", "opts": ["Money paid by one club to another to buy a player", "Money earned by winning a tournament", "A fixed salary paid every month", "Payment for appearing in an advertisement"], "ans": 0, "tip": "A transfer fee is money paid by one sports team to another to secure a player's move between clubs.", "cat": "SPORTS VOCAB"}, {"q": "What is 'prize money'?", "opts": ["A monthly salary for professional players", "Payment from a sponsor for wearing their brand", "Money paid to runners-up and winners in sports events", "A fee paid simply for appearing in an event"], "ans": 2, "tip": "Prize money is earned by winning (or finishing highly) in competitions and tournaments.", "cat": "SPORTS VOCAB"}, {"q": "What is an 'appearance fee'?", "opts": ["Money paid to a club when a player is transferred", "Money paid to an athlete just for participating in an event", "Money a company pays for wearing their logo", "Money a player earns from winning prizes"], "ans": 1, "tip": "An appearance fee is paid to a famous athlete simply for taking part in an event — making it more popular.", "cat": "SPORTS VOCAB"}, {"q": "What is a 'salary' in professional sport?", "opts": ["Money earned when winning competitions", "Money paid for endorsing products", "A fixed regular payment for being part of a team", "Money paid by one club to another for a player"], "ans": 2, "tip": "A salary is the regular fixed payment an athlete receives for playing for their team.", "cat": "SPORTS VOCAB"}, {"q": "Ronaldo moved from Manchester United to Real Madrid for over €90 million. This payment is called a...", "opts": ["Salary", "Sponsorship deal", "Appearance fee", "Transfer fee"], "ans": 3, "tip": "A transfer fee is paid between clubs when a professional player moves from one team to another.", "cat": "SPORTS VOCAB"}, {"q": "Which venue is correct for tennis and badminton?", "opts": ["Tennis/badminton pitch", "Tennis/badminton court", "Tennis/badminton rink", "Tennis/badminton arena"], "ans": 1, "tip": "Tennis and badminton are played on a 'court' — a flat surface marked with lines and a net.", "cat": "SPORTS VOCAB"}, {"q": "Where do ice skaters and ice hockey players compete?", "opts": ["An ice-hockey arena", "An ice-hockey pitch", "An ice-hockey rink", "An ice-hockey court"], "ans": 2, "tip": "Ice hockey and ice skating take place on a 'rink' — an enclosed area of ice.", "cat": "SPORTS VOCAB"}, {"q": "Golfers play on a...", "opts": ["Golf course", "Golf court", "Golf track", "Golf arena"], "ans": 0, "tip": "A 'golf course' is the large outdoor area where golf is played, featuring multiple holes.", "cat": "SPORTS VOCAB"}, {"q": "Boxers and wrestlers compete in a...", "opts": ["A wrestling/boxing court", "A boxing/wrestling pitch", "A boxing/wrestling ring", "A boxing/wrestling arena"], "ans": 2, "tip": "Boxing and wrestling take place in a 'ring' — a square platform surrounded by ropes.", "cat": "SPORTS VOCAB"}, {"q": "Football, rugby and cricket are played on a...", "opts": ["Court", "Pitch", "Rink", "Track"], "ans": 1, "tip": "Football, rugby and cricket are played on a 'pitch' — a large grass playing field.", "cat": "SPORTS VOCAB"}, {"q": "Runners and athletes compete on a...", "opts": ["Running pitch", "Athletics court", "Race/athletics track", "Running rink"], "ans": 2, "tip": "Running and athletics events take place on a 'track' — an oval circuit used for racing.", "cat": "SPORTS VOCAB"}, {"q": "To 'exhale' means to...", "opts": ["Take air into your body", "Let air out of your body", "Stay balanced without falling", "Extend your limbs fully"], "ans": 1, "tip": "To exhale means to breathe OUT — to release air from your lungs.", "cat": "VOCABULARY"}, {"q": "To 'inhale' means to...", "opts": ["Let air out of your body", "Straighten your body fully", "Take air into your body", "Push something away with force"], "ans": 2, "tip": "To inhale means to breathe IN — to take air into your lungs.", "cat": "VOCABULARY"}, {"q": "To 'stretch' means to...", "opts": ["Take a deep breath of air into your lungs", "Curve or bend a part of your body inward", "Straighten your body or limbs to their full length", "Stay in one place without falling to a side"], "ans": 2, "tip": "To stretch means to extend your body, arms or legs to their full length.", "cat": "VOCABULARY"}, {"q": "To 'balance' means to...", "opts": ["Use force to push something away from you", "Use force to pull something toward you", "Take air slowly into your lungs", "Stay stable without falling to either side"], "ans": 3, "tip": "To balance means to remain stable and upright without falling to one side.", "cat": "VOCABULARY"}, {"q": "To 'pull' means to...", "opts": ["Make something move away from you", "Use force to move something towards you", "Extend your body to full length", "Let air out of your lungs"], "ans": 1, "tip": "To pull means to use force to move something towards you — the opposite of push.", "cat": "VOCABULARY"}, {"q": "To 'bend' means to...", "opts": ["Take a deep breath of air into your lungs", "Stay upright and balanced without falling", "Move a part of your body so it is not straight", "Let air slowly out of your body"], "ans": 2, "tip": "To bend means to make your body, arm or leg curve — no longer keeping it in a straight line.", "cat": "VOCABULARY"}, {"q": "The noun form of the verb 'pay' is...", "opts": ["Paying", "Payance", "Payment", "Paytion"], "ans": 2, "tip": "The suffix '-ment' is added to 'pay' to form 'payment', meaning the act or process of paying.", "cat": "WORD FORMATION"}, {"q": "The noun form of 'appear' is...", "opts": ["Appearance", "Appearment", "Appeartion", "Appearing"], "ans": 0, "tip": "The suffix '-ance' is added to 'appear' to form 'appearance', meaning the act of appearing.", "cat": "WORD FORMATION"}, {"q": "The noun form of 'contribute' is...", "opts": ["Contributment", "Contribution", "Contribuship", "Contributance"], "ans": 1, "tip": "The suffix '-tion' forms 'contribution', meaning something given or done to help a cause.", "cat": "WORD FORMATION"}, {"q": "The noun from 'sponsor' is...", "opts": ["Sponsorment", "Sponsorance", "Sponsorship", "Sponsortion"], "ans": 2, "tip": "The suffix '-ship' forms 'sponsorship', meaning the arrangement between a sponsor and the person they support.", "cat": "WORD FORMATION"}, {"q": "The noun from 'appreciate' is...", "opts": ["Appreciment", "Appreciship", "Appreciation", "Appreciance"], "ans": 2, "tip": "The suffix '-tion' forms 'appreciation', meaning gratitude or recognition of value.", "cat": "WORD FORMATION"}, {"q": "The noun from 'estimate' is...", "opts": ["Estimament", "Estimation", "Estimance", "Estimaship"], "ans": 1, "tip": "The suffix '-tion' forms 'estimation', meaning a calculated guess or judgment about something.", "cat": "WORD FORMATION"}, {"q": "The noun from 'indicate' is...", "opts": ["Indicament", "Indicance", "Indicaship", "Indication"], "ans": 3, "tip": "The suffix '-tion' forms 'indication', meaning a sign or signal that something is true.", "cat": "WORD FORMATION"}, {"q": "A 'devoted fan' is someone who...", "opts": ["Occasionally watches a sport", "Is deeply committed and loyal to a team or athlete", "Participates professionally in a sport", "Just started following a sport recently"], "ans": 1, "tip": "A 'devoted fan' is extremely loyal and committed — they follow their team or athlete passionately.", "cat": "VOCABULARY"}, {"q": "A 'promising player' is someone who...", "opts": ["Has already achieved great success", "Is no longer good at the sport", "Shows great potential for future success", "Plays sport just for fun, not seriously"], "ans": 2, "tip": "A 'promising player' shows great potential — they are expected to be very successful in the future.", "cat": "VOCABULARY"}, {"q": "'Team sports' are those where...", "opts": ["Individual performance only matters", "People compete entirely alone", "Players work together in groups to win", "Prizes are divided equally among everyone"], "ans": 2, "tip": "Team sports require players to cooperate together as a group, like football, rugby and basketball.", "cat": "VOCABULARY"}, {"q": "An 'extreme sport' is one that...", "opts": ["Is always played indoors in a stadium", "Is very gentle and usually slow-paced", "Involves significant danger or physical challenge", "Is only ever played by paid professionals"], "ans": 2, "tip": "Extreme sports involve danger, high speed or intense physical challenge — like skateboarding, rock climbing or obstacle races.", "cat": "VOCABULARY"}, {"q": "A 'professional player' is one who...", "opts": ["Plays sport purely for fun with no payment", "Earns money as their main career from playing sport", "Only plays sport occasionally on weekends", "Has just started learning a sport"], "ans": 1, "tip": "A professional player earns their living from sport — it is their main job and source of income.", "cat": "VOCABULARY"}, {"q": "To 'pass up' an opportunity means to...", "opts": ["Take full advantage of the chance", "Share the opportunity with others", "Miss or decline an opportunity", "Create a new opportunity for someone"], "ans": 2, "tip": "To 'pass up' means to miss or decline an opportunity — to not take advantage of a chance offered.", "cat": "PHRASAL VERBS"}, {"q": "'Come to' (a total) means to...", "opts": ["Arrive at a place", "Add up to a total amount", "Start liking something", "Represent an idea or value"], "ans": 1, "tip": "To 'come to' means to add up to a total — 'his earnings come to €1 million' means that is the total amount.", "cat": "PHRASAL VERBS"}, {"q": "To 'stand up for' someone means to...", "opts": ["Ask them to stand while speaking", "Beat them in a competition", "Defend or support them", "Challenge them to a match"], "ans": 2, "tip": "To 'stand up for' means to defend or support someone — to speak in their favour no matter what.", "cat": "PHRASAL VERBS"}, {"q": "To 'pull through' means to...", "opts": ["Drag or pull a heavy object across a floor", "Pull out of or withdraw from a competition", "Survive or recover from a very dangerous situation", "Win a match by a very large margin"], "ans": 2, "tip": "To 'pull through' means to survive or recover from something dangerous or extremely difficult.", "cat": "PHRASAL VERBS"}, {"q": "To 'take off' your sports kit means to...", "opts": ["Put on your sports clothes", "Start running very fast", "Remove your sports clothing", "Travel somewhere for a competition"], "ans": 2, "tip": "To 'take off' clothing means to remove it — the opposite of putting it on.", "cat": "PHRASAL VERBS"}, {"q": "To 'take to' a sport means to...", "opts": ["Quickly remove your sports clothing", "Start liking or enjoying something naturally", "Represent or stand for a sport or idea", "Pull out of or withdraw from a competition"], "ans": 1, "tip": "To 'take to' something means to start liking it — to develop a natural enjoyment of it quickly.", "cat": "PHRASAL VERBS"}, {"q": "To 'pass out' means to...", "opts": ["Give something to all team members", "Avoid participating in a game", "Miss or decline an opportunity", "Faint; lose consciousness suddenly"], "ans": 3, "tip": "To 'pass out' means to faint — to suddenly lose consciousness, often from shock or exhaustion.", "cat": "PHRASAL VERBS"}, {"q": "Which tense focuses on the RESULT of a completed action?", "opts": ["Past continuous", "Present perfect simple", "Present perfect continuous", "Past simple"], "ans": 1, "tip": "Present perfect simple focuses on the result: 'He has broken his leg' — the result is he can't play now.", "cat": "GRAMMAR"}, {"q": "'She's tired because she ___ jogging.' — shows cause of present state. Which form?", "opts": ["She has jogged exactly once before.", "She jogged earlier this morning.", "She has been jogging all morning.", "She jogs briefly every morning."], "ans": 2, "tip": "Present perfect continuous shows a recently finished action with a present result. She jogged → she's tired NOW.", "cat": "GRAMMAR"}, {"q": "'We ___ basketball for years.' — emphasising ongoing duration. Which is correct?", "opts": ["We have taught basketball for many years.", "We have been teaching basketball for years.", "We taught basketball for many long years.", "We are teaching basketball for many years."], "ans": 1, "tip": "Present perfect continuous emphasises HOW LONG an action has been in progress.", "cat": "GRAMMAR"}, {"q": "'We've just scored a goal!' — what does this show?", "opts": ["An action started long ago", "An experience from the distant past", "A continuous action still in progress", "An action that has just been completed"], "ans": 3, "tip": "Present perfect simple with 'just' shows an action that has JUST finished — very recently completed.", "cat": "GRAMMAR"}, {"q": "'Mona has been to Canada' vs 'Mona has gone to Canada' — what's the difference?", "opts": ["No difference — both mean the same", "'Has been to' = visited and returned; 'has gone to' = still there", "'Has gone to' = visited and returned; 'has been to' = still there", "Both mean she has never been to Canada"], "ans": 1, "tip": "'Has BEEN to' = visited and came back. 'Has GONE to' = went there and is still there (hasn't returned).", "cat": "GRAMMAR"}, {"q": "'Our cricket club ___ lots of prizes recently.' — experiences. Which form?", "opts": ["won", "has been winning", "has won", "was winning"], "ans": 2, "tip": "Present perfect simple is used for experiences and achievements — things that have happened up to now.", "cat": "GRAMMAR"}, {"q": "'He's been having tennis lessons since he was five.' — What does this show?", "opts": ["A fully completed action from long ago", "An ongoing action that began in the past", "Something that happened at one specific time", "A sudden and entirely new recent event"], "ans": 1, "tip": "Present perfect continuous with 'since' shows an action that started in the past and is STILL in progress.", "cat": "GRAMMAR"}, {"q": "'Carol has played squash once.' — what does the present perfect simple focus on here?", "opts": ["How long she has been playing", "How many times she has done it", "The fact that she's still playing", "The cause of a present result"], "ans": 1, "tip": "Present perfect simple focuses on the NUMBER OF TIMES something has happened (once, twice, etc.).", "cat": "GRAMMAR"}, {"q": "'Steven ___ his leg, so he isn't playing this week.' — present result. Which is correct?", "opts": ["broke", "was breaking", "has broken", "has been breaking"], "ans": 2, "tip": "Present perfect simple shows a past action with a present result: broke his leg (past) → can't play now (present result).", "cat": "GRAMMAR"}, {"q": "Which time expression signals the PRESENT PERFECT rather than the past simple?", "opts": ["Two days ago", "In 2005", "Last week", "So far"], "ans": 3, "tip": "'So far' signals present perfect. 'Ago', 'in [year]' and 'last week' are specific past times — they signal past simple.", "cat": "GRAMMAR"}, {"q": "When do we use the PAST SIMPLE?", "opts": ["For actions at an unspecified time with present relevance", "For actions with a result in the present", "For completed actions at a SPECIFIC time in the past", "For experiences still relevant now"], "ans": 2, "tip": "Past simple is used for completed actions at a SPECIFIC time in the past — 'I went in 2011', 'She left yesterday'.", "cat": "GRAMMAR"}, {"q": "'I ___ to Spain to see Barcelona play in 2011.' — Which tense?", "opts": ["have gone", "have been going", "went", "was going"], "ans": 2, "tip": "'In 2011' is a specific time — past simple is required: 'went'.", "cat": "GRAMMAR"}, {"q": "Which time expression signals the PRESENT PERFECT?", "opts": ["The other day", "In 1990", "Two years ago", "Already"], "ans": 3, "tip": "'Already' is a present perfect signal. 'The other day', 'in 1990' and 'two years ago' signal past simple.", "cat": "GRAMMAR"}, {"q": "'___ they spend their holiday hiking in Greece last summer?' — Which question?", "opts": ["Have", "Did", "Were", "Had"], "ans": 1, "tip": "'Last summer' is a specific time — past simple is needed: 'Did they spend their holiday...?'", "cat": "GRAMMAR"}, {"q": "'Theo ___ tennis lessons in 2005.' — Which is correct?", "opts": ["has taken", "has been taking", "took", "takes"], "ans": 2, "tip": "'In 2005' is a specific past time — use past simple: 'took'.", "cat": "GRAMMAR"}, {"q": "'Have you ___ seen a rugby game?' — Which word fits?", "opts": ["yet", "ago", "ever", "last week"], "ans": 2, "tip": "'Ever' is used with present perfect for life experiences: 'Have you ever seen...?' means 'at any point in your life'.", "cat": "GRAMMAR"}, {"q": "'I ___ an ice hockey game so far.' (negative) — Which is correct?", "opts": ["didn't watch", "haven't watched", "wasn't watching", "hadn't watched"], "ans": 1, "tip": "'So far' signals present perfect. The negative is formed with 'haven't': 'I haven't watched'.", "cat": "GRAMMAR"}, {"q": "'A: I've seen Barcelona play. B: When ___ you see them?' — Which form for B?", "opts": ["have", "had", "were", "did"], "ans": 3, "tip": "Present perfect gives NEW information; then past simple continues the conversation. B asks 'When did you see them?'", "cat": "GRAMMAR"}, {"q": "'He ___ his arm yesterday, so he won't play on Saturday.' — Which is correct?", "opts": ["has broken", "broke", "has been breaking", "was breaking"], "ans": 1, "tip": "'Yesterday' is a specific time — past simple is needed: 'broke'. (The result 'won't play' uses future simple.)", "cat": "GRAMMAR"}, {"q": "'I ___ two goals at the weekend.' 'Wow, that's amazing!' — Which is correct?", "opts": ["have scored", "have been scoring", "scored", "just scored"], "ans": 2, "tip": "'At the weekend' is a specific past time — past simple is needed: 'scored'.", "cat": "GRAMMAR"}];
+const TOTAL_Q=15,TOTAL_TIME=20;
+let G={lives:6,score:0,streak:0,bestStreak:0,correct:0,wrong:0,qIdx:0,
+       questions:[],timer:null,timerVal:TOTAL_TIME,answered:false,bestScore:0};
+const PRAISE=["Are you a GENIUS?! 🧠","Absolutely brilliant! ✨","You're on FIRE! 🔥","Wow, just WOW! 😮","Pure genius right here! 💡","You nailed it! 🎯","So proud of you! 🥹","Unstoppable! 💪","Outstanding! 👏","You make it look easy! 😎"];
+const ENCOURAGE=["Don't give up! 💪","You've got this! 🙌","Keep going, champ! 🌟","Every expert was a beginner! 📚","Shake it off! 🎵","Believe in yourself! 🤗","One mistake won't stop you! 💫","Stay strong! 💎","The comeback starts NOW! 🔥","Focus and try again! 👊"];
+let pIdx=0,eIdx=0,ctx=null,muted=false;
+function initAudio(){if(ctx)return;try{ctx=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}}
+function playOK(){if(muted||!ctx)return;[[523.25,0],[659.25,0.11],[783.99,0.22]].forEach(([hz,d])=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.connect(g);g.connect(ctx.destination);o.frequency.value=hz;const t=ctx.currentTime+d;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.22,t+.02);g.gain.exponentialRampToValueAtTime(0.001,t+.32);o.start(t);o.stop(t+.35);});}
+function playErr(){if(muted||!ctx)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type='sawtooth';o.connect(g);g.connect(ctx.destination);o.frequency.setValueAtTime(260,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(120,ctx.currentTime+.28);g.gain.setValueAtTime(.16,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+.3);o.start(ctx.currentTime);o.stop(ctx.currentTime+.32);}
+function playCelebration(){if(muted||!ctx)return;if(ctx.state==='suspended')ctx.resume();[[523,.0,.18],[523,.13,.18],[523,.26,.18],[659,.39,.28],[784,.56,.42],[1047,.85,.65]].forEach(([hz,d,dur])=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';o.connect(g);g.connect(ctx.destination);o.frequency.value=hz;const t=ctx.currentTime+d;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.2,t+.03);g.gain.setValueAtTime(.2,t+dur-.05);g.gain.exponentialRampToValueAtTime(0.001,t+dur);o.start(t);o.stop(t+dur+.1);});[523,659,784,1047].forEach((hz,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.connect(g);g.connect(ctx.destination);o.frequency.value=hz;const t=ctx.currentTime+.9+i*.04;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.13,t+.05);g.gain.exponentialRampToValueAtTime(0.001,t+1.3);o.start(t);o.stop(t+1.4);});}
+function toggleMute(){muted=!muted;document.getElementById('muteBtn').textContent=muted?'🔇':'🔊';}
+function showPraise(ok){const msg=ok?PRAISE[pIdx++%PRAISE.length]:ENCOURAGE[eIdx++%ENCOURAGE.length];const el=document.createElement('div');el.className='msg-toast '+(ok?'praise':'cheer');el.textContent=msg;document.body.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('visible')));setTimeout(()=>{el.classList.remove('visible');setTimeout(()=>el.remove(),380);},1400);}
+function launchConfetti(){
+  try{
+    var cv=document.createElement('canvas');
+    cv.style.cssText='position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:99999;display:block;';
+    (document.documentElement||document.body).appendChild(cv);
+    var W=window.innerWidth||320, H=window.innerHeight||568;
+    cv.width=W; cv.height=H;
+    var c=cv.getContext('2d');
+    var cols=['#0ea5e9','#22c55e','#f59e0b','#ef4444','#8b5cf6','#ec4899','#14b8a6','#f97316','#facc15','#a855f7'];
+    var pts=[];
+    for(var ii=0;ii<180;ii++){
+      pts.push({x:Math.random()*W, y:ii<90?Math.random()*H*.35:-10-Math.random()*180,
+        w:8+Math.random()*12, h:5+Math.random()*8,
+        col:cols[Math.floor(Math.random()*cols.length)],
+        vx:(Math.random()-.5)*5, vy:1+Math.random()*4,
+        rot:Math.random()*360, rV:(Math.random()-.5)*12,
+        circ:Math.random()<.3, al:1});
+    }
+    var FRAMES=360, f=0;
+    function draw(){
+      c.clearRect(0,0,W,H);
+      for(var pi=0;pi<pts.length;pi++){
+        var p=pts[pi];
+        p.x+=p.vx+Math.sin(f*.04+p.x*.01)*.5;
+        p.y+=p.vy; p.vy+=.08; p.rot+=p.rV;
+        if(f>FRAMES*.6) p.al=Math.max(0,p.al-1/(FRAMES*.4));
+        c.save(); c.globalAlpha=p.al; c.fillStyle=p.col;
+        c.translate(p.x,p.y); c.rotate(p.rot*Math.PI/180);
+        if(p.circ){c.beginPath();c.arc(0,0,p.w/2,0,Math.PI*2);c.fill();}
+        else c.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+        c.restore();
+      }
+      if(++f<FRAMES) requestAnimationFrame(draw); else{ try{cv.parentNode.removeChild(cv);}catch(e){} }
+    }
+    requestAnimationFrame(draw);
+  }catch(e){ console.error('Confetti error:',e); }
+}
+window.onload=()=>{const b=localStorage.getItem('vb_bi_f5b3_best');if(b){G.bestScore=+b;document.getElementById('bestDisp').textContent=b+' pts';}};
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+function showStart(){const b=localStorage.getItem('vb_bi_f5b3_best');document.getElementById('bestDisp').textContent=b?b+' pts':'—';show('sStart');}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function startGame(){initAudio();G={lives:6,score:0,streak:0,bestStreak:0,correct:0,wrong:0,qIdx:0,questions:shuffle([...QBank]).slice(0,TOTAL_Q),timer:null,timerVal:TOTAL_TIME,answered:false,bestScore:+(localStorage.getItem('vb_bi_f5b3_best')||0)};show('sGame');updateHUD();renderQ();}
+function renderQ(){const q=G.questions[G.qIdx];G.answered=false;document.getElementById('catEl').textContent=q.cat;document.getElementById('qnumEl').textContent=`${G.qIdx+1} / ${TOTAL_Q}`;document.getElementById('qtxt').textContent=q.q;document.getElementById('fbEl').className='fb';const order=shuffle([0,1,2,3]),ltrs=['A','B','C','D'];const grid=document.getElementById('optsEl');grid.innerHTML='';order.forEach((oi,di)=>{const btn=document.createElement('button');btn.className='opt';btn.dataset.orig=oi;btn.innerHTML=`<span class="ltr">${ltrs[di]}</span><span>${q.opts[oi]}</span>`;btn.onclick=()=>pick(oi,btn,q);grid.appendChild(btn);});startTimer();}
+function startTimer(){clearInterval(G.timer);G.timerVal=TOTAL_TIME;const f=document.getElementById('tfill');f.style.transition='none';f.style.width='100%';f.className='tfill';setTimeout(()=>{f.style.transition='width .95s linear';},50);G.timer=setInterval(()=>{G.timerVal--;f.style.width=((G.timerVal/TOTAL_TIME)*100)+'%';if(G.timerVal<=6)f.classList.add('urg');if(G.timerVal<=0){clearInterval(G.timer);if(!G.answered)timeUp();}},1000);}
+function timeUp(){G.answered=true;const q=G.questions[G.qIdx];markBtns(q,null);showFB(false,q,true);playErr();showPraise(false);G.streak=0;G.wrong++;G.lives--;updateHUD();schedNext();}
+function pick(oi,btn,q){if(G.answered)return;G.answered=true;clearInterval(G.timer);const ok=oi===q.ans;markBtns(q,ok?null:btn);if(ok){G.streak++;G.correct++;if(G.streak>G.bestStreak)G.bestStreak=G.streak;const pts=G.streak>=10?20:G.streak>=5?15:10;const bonus=G.timerVal;G.score+=pts+bonus;spawnPts(`+${pts+bonus}`,btn);playOK();showPraise(true);if(G.streak===5)spawnCombo('🔥 x5 STREAK!','#d97706');else if(G.streak===10)spawnCombo('💥 x10 LEGENDARY!','#d97706');}else{G.streak=0;G.wrong++;G.lives--;playErr();showPraise(false);const c=document.getElementById('qcard');c.classList.add('shake');setTimeout(()=>c.classList.remove('shake'),400);}showFB(ok,q,false);updateHUD();schedNext();}
+function markBtns(q,wrongBtn){document.querySelectorAll('.opt').forEach(b=>{b.disabled=true;if(+b.dataset.orig===q.ans)b.classList.add('ok');else if(b===wrongBtn)b.classList.add('er');});}
+function showFB(ok,q,tout){const bar=document.getElementById('fbEl');const t=document.getElementById('fbt'),b=document.getElementById('fbb');if(tout){bar.className='fb er show';t.textContent='⏱️ Masa tamat!';b.textContent=`Jawapan: "${q.opts[q.ans]}". ${q.tip}`;}else if(ok){bar.className='fb ok show';t.textContent='✅ Betul!';b.textContent=q.tip;}else{bar.className='fb er show';t.textContent='❌ Salah!';b.textContent=`Jawapan betul: "${q.opts[q.ans]}". ${q.tip}`;}}
+function updateHUD(){document.getElementById('livesEl').textContent='❤️'.repeat(G.lives)+'🖤'.repeat(6-G.lives);document.getElementById('ptsEl').textContent=G.score+' pts';const s=document.getElementById('stkEl');if(G.streak>=5){s.textContent=`🔥 ${G.streak}`;s.className='stk hot';}else if(G.streak>0){s.textContent=`⚡ ${G.streak}`;s.className='stk';}else{s.textContent='🔥 0';s.className='stk';}}
+function schedNext(){setTimeout(()=>{if(G.lives<=0){endGame('dead');return;}G.qIdx++;if(G.qIdx>=TOTAL_Q)endGame('complete');else renderQ();},G.lives<=0?4800:5400);}
+function spawnPts(txt,ref){const el=document.createElement('div');el.className='fxp';el.textContent=txt;const r=ref.getBoundingClientRect();el.style.left=(r.left+r.width/2)+'px';el.style.top=(r.top+window.scrollY)+'px';document.body.appendChild(el);setTimeout(()=>el.remove(),900);}
+function spawnCombo(txt,color){const el=document.createElement('div');el.className='fxc';el.textContent=txt;el.style.color=color;document.body.appendChild(el);setTimeout(()=>el.remove(),700);}
+function endGame(reason){clearInterval(G.timer);const acc=G.correct/TOTAL_Q;const stars=acc>=.8?3:acc>=.6?2:1;const tier=acc>=.8?2:acc>=.6?1:0;const icons=['😅','😊','🎉'];const titles=['Cuba lagi! Teruskan berusaha!','Bagus! Hampir sempurna!','Cemerlang! Kamu kuasai Unit 3! ⭐'];document.getElementById('eico').textContent=icons[tier];document.getElementById('etit').textContent=titles[tier];document.getElementById('starsEl').textContent='⭐'.repeat(stars)+'☆'.repeat(3-stars);document.getElementById('finalPts').textContent=G.score;document.getElementById('sc').textContent=G.correct;document.getElementById('sw').textContent=G.wrong;document.getElementById('sb').textContent=G.bestStreak;const nb=document.getElementById('nbest');if(G.score>G.bestScore&&G.score>0){nb.className='nbest show';localStorage.setItem('vb_bi_f5b3_best',G.score);}else nb.className='nbest';try{gtag('event','game_complete',{event_category:'VocabCat',event_label:'BI_F5B3',value:G.score});}catch(e){}show('sEnd');if(reason==='complete'){setTimeout(()=>{launchConfetti();playCelebration();},120);}}
+</script>
+</body>
+</html>

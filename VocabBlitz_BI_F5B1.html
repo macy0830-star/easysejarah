@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f0f4ff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>VocabCat 🐱 Form 5 BI – Bab 1</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date()); gtag('config','G-6FLLFJJNPP');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── Reset + Touch Base ── */
+*{margin:0;padding:0;box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;}
+button{touch-action:manipulation; -webkit-appearance:none;}
+
+:root{
+  --bg:#f0f4ff; --card:#ffffff; --border:rgba(14,165,233,0.18);
+  --accent:#0ea5e9; --accent2:#0284c7;
+  --text:#1e293b; --muted:#64748b; --light:#94a3b8;
+  --green:#16a34a; --gbg:#f0fdf4; --gbd:#86efac; --gtx:#15803d;
+  --red:#dc2626; --rbg:#fef2f2; --rbd:#fca5a5; --rtx:#b91c1c;
+  --gold:#d97706; --gbg2:#fffbeb; --gbd2:#fde68a;
+  --sh:0 2px 20px rgba(14,165,233,0.10); --sh2:0 1px 8px rgba(14,165,233,0.07);
+}
+
+/* ── Body — mobile-first, safe area aware ── */
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--bg);
+  background-image:
+    radial-gradient(ellipse at 15% 20%,rgba(14,165,233,0.07) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 80%,rgba(56,189,248,0.05) 0%,transparent 55%);
+  color:var(--text);
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding:
+    max(1.2rem, env(safe-area-inset-top))
+    max(1rem, env(safe-area-inset-right))
+    max(1.2rem, env(safe-area-inset-bottom))
+    max(1rem, env(safe-area-inset-left));
+  overscroll-behavior-y:none;
+}
+/* Vertically centre only on tall screens */
+@media(min-height:760px){
+  body{ justify-content:center; }
+}
+
+/* ── Screens ── */
+.screen{display:none; width:100%; max-width:520px;}
+.screen.active{display:flex; flex-direction:column; align-items:center;}
+
+/* ══════════════════════════════
+   START SCREEN
+══════════════════════════════ */
+.bolt{font-size:3.5rem; margin-bottom:0.2rem;
+  animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+
+.gtitle{font-size:2.5rem; font-weight:900; color:var(--accent);
+  letter-spacing:-1px; line-height:1;}
+.ctag{background:rgba(14,165,233,0.1); border:1px solid rgba(14,165,233,0.25);
+  color:var(--accent2); border-radius:50px; padding:.3rem 1rem;
+  font-size:.8rem; font-weight:700; margin:.6rem 0 .4rem; text-align:center;}
+.tagline{color:var(--muted); font-size:.88rem; margin-bottom:1.5rem;
+  text-align:center; line-height:1.4;}
+
+/* Info grid: always 2-col on mobile, small cards */
+.igrid{display:grid; grid-template-columns:1fr 1fr;
+  gap:.55rem; width:100%; margin-bottom:1.5rem;}
+.icard{background:var(--card); border:1px solid var(--border);
+  border-radius:14px; padding:.75rem .85rem;
+  box-shadow:var(--sh2); display:flex; align-items:center; gap:.55rem;}
+.iico{font-size:1.2rem; flex-shrink:0;}
+.icpy{font-size:.76rem; color:var(--muted); line-height:1.3;}
+.icpy strong{display:block; color:var(--text); font-size:.84rem; font-weight:800;}
+
+.btn-go{
+  width:100%; background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff; border:none; border-radius:16px;
+  padding:1rem; min-height:52px;
+  font-size:1.1rem; font-weight:800; font-family:'Nunito',sans-serif;
+  cursor:pointer; box-shadow:0 4px 20px rgba(14,165,233,0.3);
+  transition:box-shadow .2s; letter-spacing:.3px;
+  touch-action:manipulation;
+}
+.btn-go:active{box-shadow:0 2px 10px rgba(14,165,233,0.2);}
+
+.best-row{margin-top:1rem; font-size:.86rem; color:var(--muted); text-align:center;}
+.bval{color:var(--gold); font-weight:800;}
+
+/* ══════════════════════════════
+   GAME SCREEN
+══════════════════════════════ */
+
+/* Topbar: lives | pts | streak | mute — all in one row */
+.topbar{
+  width:100%; display:flex; align-items:center;
+  justify-content:space-between; gap:.4rem;
+  margin-bottom:.85rem;
+}
+.lives{font-size:1.05rem; letter-spacing:.05rem; flex-shrink:0;}
+.pts{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:50px; padding:.25rem .75rem;
+  font-size:.9rem; font-weight:800; color:var(--accent2);
+  box-shadow:var(--sh2); white-space:nowrap;
+}
+.stk{
+  background:var(--gbg2); border:1px solid var(--gbd2);
+  border-radius:50px; padding:.25rem .75rem;
+  font-size:.85rem; font-weight:800; color:var(--gold);
+  transition:all .3s; white-space:nowrap;
+}
+.stk.hot{background:#fef3c7; border-color:#f59e0b;
+  box-shadow:0 0 10px rgba(245,158,11,.2);}
+
+/* Mute button — inside topbar, fixed size, no flex-shrink */
+.mute{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:50%; width:34px; height:34px;
+  font-size:.9rem; cursor:pointer; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--sh2); touch-action:manipulation;
+}
+.mute:active{background:#f1f5f9;}
+
+/* Timer bar */
+.twrap{
+  width:100%; background:#e2e8f0; border-radius:50px;
+  height:7px; margin-bottom:.85rem; overflow:hidden;
+}
+.tfill{
+  height:100%; border-radius:50px;
+  background:linear-gradient(90deg,var(--accent2),var(--accent));
+  transition:width .95s linear;
+}
+.tfill.urg{background:linear-gradient(90deg,var(--red),#f97316);}
+
+/* Meta row */
+.mrow{
+  display:flex; justify-content:space-between; align-items:center;
+  width:100%; margin-bottom:.75rem;
+}
+.cat{
+  font-size:.68rem; font-weight:800; letter-spacing:1px;
+  text-transform:uppercase; color:var(--accent2);
+  background:rgba(14,165,233,0.08); border-radius:6px;
+  padding:.2rem .5rem;
+}
+.qnum{font-size:.8rem; color:var(--muted); font-weight:600;}
+
+/* Question card */
+.qcard{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:18px; padding:1.3rem 1.2rem; width:100%;
+  min-height:80px; display:flex; align-items:center;
+  justify-content:center; margin-bottom:.85rem;
+  box-shadow:var(--sh); user-select:none;
+}
+.qtxt{
+  font-size:1rem; font-weight:700; line-height:1.55;
+  text-align:center; color:var(--text);
+}
+
+/* ── Options: 1-column on phones, 2-column on larger ── */
+.opts{display:grid; grid-template-columns:1fr; gap:.55rem; width:100%;}
+
+@media(min-width:480px){
+  .opts{grid-template-columns:1fr 1fr;}
+}
+
+.opt{
+  background:var(--card); border:1.5px solid #e2e8f0;
+  border-radius:13px; padding:.8rem .75rem;
+  min-height:48px; /* touch target */
+  color:var(--text); font-family:'Nunito',sans-serif;
+  font-size:.9rem; font-weight:600; cursor:pointer;
+  transition:border-color .15s, background .15s;
+  text-align:left; line-height:1.35;
+  display:flex; align-items:flex-start; gap:.55rem;
+  box-shadow:var(--sh2); touch-action:manipulation;
+  -webkit-user-select:none; user-select:none;
+}
+.opt:active:not(:disabled){
+  background:rgba(14,165,233,.06);
+  border-color:var(--accent);
+}
+/* Hover only on non-touch (pointer:fine = mouse) */
+@media(pointer:fine){
+  .opt:hover:not(:disabled){
+    border-color:var(--accent);
+    background:rgba(14,165,233,.04);
+    transform:translateY(-1px);
+    box-shadow:0 4px 14px rgba(14,165,233,.12);
+  }
+}
+.ltr{
+  background:rgba(14,165,233,.1); color:var(--accent2);
+  font-weight:900; font-size:.75rem;
+  min-width:22px; height:22px; border-radius:6px;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; margin-top:2px;
+}
+.opt.ok{background:var(--gbg); border-color:var(--gbd); color:var(--gtx);}
+.opt.ok .ltr{background:#dcfce7; color:var(--green);}
+.opt.er{background:var(--rbg); border-color:var(--rbd); color:var(--rtx);}
+.opt.er .ltr{background:#fee2e2; color:var(--red);}
+.opt:disabled{cursor:default;}
+
+/* Feedback */
+.fb{
+  width:100%; border-radius:13px; padding:.8rem .95rem;
+  margin-top:.7rem; font-size:.83rem; line-height:1.45; display:none;
+}
+.fb.show{display:block;}
+.fb.ok{background:var(--gbg); border:1px solid var(--gbd); color:var(--gtx);}
+.fb.er{background:var(--rbg); border:1px solid var(--rbd); color:var(--rtx);}
+.fbt{font-weight:900; margin-bottom:.2rem; font-size:.86rem;}
+
+/* ══════════════════════════════
+   END SCREEN
+══════════════════════════════ */
+.eico{font-size:4.5rem; margin-bottom:.25rem;}
+.etit{font-size:1.8rem; font-weight:900; text-align:center; color:var(--text);}
+.stars{font-size:1.9rem; margin:.4rem 0 1rem; letter-spacing:.05rem;}
+.scard{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:20px; padding:1.4rem; width:100%;
+  text-align:center; box-shadow:var(--sh); margin-bottom:1.3rem;
+}
+.slbl{font-size:.76rem; color:var(--muted);}
+.sbig{font-size:3.4rem; font-weight:900; color:var(--accent); line-height:1.05;}
+.nbest{
+  display:none; background:linear-gradient(135deg,#f59e0b,#d97706);
+  color:#fff; border-radius:50px; padding:.2rem .8rem;
+  font-size:.74rem; font-weight:800; margin-top:.3rem;
+}
+.nbest.show{display:inline-block;}
+.srow{
+  display:flex; justify-content:center; gap:2rem;
+  margin-top:1rem; padding-top:1rem; border-top:1px solid #f1f5f9;
+}
+.stat{text-align:center;}
+.sn{font-size:1.5rem; font-weight:900;}
+.sl{font-size:.68rem; color:var(--muted); margin-top:.1rem;}
+
+.btn-ret{
+  width:100%; background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff; border:none; border-radius:16px;
+  padding:1rem; min-height:52px; font-size:1.05rem;
+  font-weight:800; font-family:'Nunito',sans-serif; cursor:pointer;
+  box-shadow:0 4px 20px rgba(14,165,233,.25); transition:box-shadow .2s;
+  touch-action:manipulation;
+}
+.btn-ret:active{box-shadow:0 2px 10px rgba(14,165,233,.15);}
+.btn-gh{
+  width:100%; background:transparent; color:var(--muted);
+  border:1.5px solid #e2e8f0; border-radius:14px;
+  padding:.8rem; min-height:48px; font-size:.92rem; font-weight:700;
+  font-family:'Nunito',sans-serif; cursor:pointer;
+  transition:border-color .15s; margin-top:.55rem;
+  touch-action:manipulation;
+}
+.btn-gh:active{border-color:var(--light); color:var(--text);}
+
+/* ══════════════════════════════
+   VISUAL FX
+══════════════════════════════ */
+.fxp{
+  position:fixed; font-size:1.5rem; font-weight:900; color:var(--green);
+  pointer-events:none; z-index:999; animation:fxUp .85s ease-out forwards;
+}
+@keyframes fxUp{
+  0%{opacity:1;transform:translateY(0) scale(.9);}
+  30%{transform:translateY(-12px) scale(1.2);}
+  100%{opacity:0;transform:translateY(-65px) scale(1);}
+}
+.fxc{
+  position:fixed; top:45%; left:50%; transform:translate(-50%,-50%);
+  font-size:2rem; font-weight:900; pointer-events:none; z-index:999;
+  animation:fxCo .65s ease-out forwards; text-align:center; white-space:nowrap;
+}
+@keyframes fxCo{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(.4);}
+  50%{transform:translate(-50%,-50%) scale(1.2);}
+  100%{opacity:0;transform:translate(-50%,-68%) scale(1);}
+}
+@keyframes shake{
+  0%,100%{transform:translateX(0);}
+  20%{transform:translateX(-8px);}
+  40%{transform:translateX(8px);}
+  60%{transform:translateX(-5px);}
+  80%{transform:translateX(5px);}
+}
+.shake{animation:shake .38s ease;}
+
+/* ── Praise / Encourage Toast ── */
+.msg-toast{
+  position:fixed; top:36%; left:50%;
+  transform:translate(-50%,-50%) scale(0.65);
+  background:#fff; border-radius:22px;
+  padding:.65rem 1.3rem;
+  font-size:1.05rem; font-weight:800;
+  font-family:'Nunito',sans-serif;
+  box-shadow:0 10px 36px rgba(0,0,0,0.13),0 2px 8px rgba(0,0,0,0.07);
+  z-index:996; opacity:0; white-space:nowrap;
+  transition:all .32s cubic-bezier(0.34,1.56,0.64,1);
+  pointer-events:none; text-align:center;
+  border:2.5px solid transparent;
+}
+.msg-toast.visible{opacity:1; transform:translate(-50%,-50%) scale(1);}
+.msg-toast.praise{border-color:#86efac; color:#15803d; background:#f0fdf4;}
+.msg-toast.cheer{border-color:#bae6fd; color:#0284c7; background:#f0f9ff;}
+</style>
+</head>
+<body>
+
+<!-- ══ START ══ -->
+<div id="sStart" class="screen active">
+  <div class="bolt">⚡</div>
+  <div class="gtitle">Vocab Cat</div>
+  <div class="ctag">Form 5 BI · Bab 1: It's Personal!</div>
+  <p class="tagline">15 soalan rawak · vocab, phrasal verbs &amp; grammar</p>
+  <div class="igrid">
+    <div class="icard"><span class="iico">❤️</span><div class="icpy"><strong>6 Nyawa</strong>6 silap = tamat!</div></div>
+    <div class="icard"><span class="iico">⏱️</span><div class="icpy"><strong>20 Saat</strong>setiap soalan</div></div>
+    <div class="icard"><span class="iico">🔥</span><div class="icpy"><strong>Streak Bonus</strong>jawab berturut!</div></div>
+    <div class="icard"><span class="iico">🔊</span><div class="icpy"><strong>Ada Bunyi</strong>betul &amp; salah</div></div>
+  </div>
+  <button class="btn-go" onclick="startGame()">⚡ Mula Sekarang!</button>
+
+  <a href="VocabCat_BI_Hub.html" style="display:block;margin-top:.8rem;font-size:.82rem;color:#64748b;text-decoration:none;font-family:Nunito,sans-serif;font-weight:700;">🗺️ Kembali ke Peta Unit</a>
+  <div class="best-row">🏆 Rekod terbaik: <span class="bval" id="bestDisp">—</span></div>
+</div>
+
+<!-- ══ GAME ══ -->
+<div id="sGame" class="screen">
+  <!-- Mute button now INSIDE topbar -->
+  <div class="topbar">
+    <div class="lives" id="livesEl">❤️❤️❤️❤️❤️❤️</div>
+    <div class="pts" id="ptsEl">0 pts</div>
+    <div class="stk" id="stkEl">🔥 0</div>
+    <button class="mute" id="muteBtn" onclick="toggleMute()" aria-label="Toggle sound">🔊</button>
+  </div>
+  <div class="twrap"><div class="tfill" id="tfill"></div></div>
+  <div class="mrow">
+    <div class="cat" id="catEl">VOCABULARY</div>
+    <div class="qnum" id="qnumEl">1 / 15</div>
+  </div>
+  <div class="qcard" id="qcard"><div class="qtxt" id="qtxt">Memuatkan...</div></div>
+  <div class="opts" id="optsEl"></div>
+  <div class="fb" id="fbEl"><div class="fbt" id="fbt"></div><div id="fbb"></div></div>
+</div>
+
+<!-- ══ END ══ -->
+<div id="sEnd" class="screen">
+  <div class="eico" id="eico">🏆</div>
+  <div class="etit" id="etit">Tamat!</div>
+  <div class="stars" id="starsEl"></div>
+  <div class="scard">
+    <div class="slbl">Markah Akhir</div>
+    <div class="sbig" id="finalPts">0</div>
+    <div class="nbest" id="nbest">🌟 Rekod Baharu!</div>
+    <div class="srow">
+      <div class="stat"><div class="sn" style="color:#16a34a" id="sc">0</div><div class="sl">Betul ✅</div></div>
+      <div class="stat"><div class="sn" style="color:#dc2626" id="sw">0</div><div class="sl">Salah ❌</div></div>
+      <div class="stat"><div class="sn" style="color:#d97706" id="sb">0</div><div class="sl">Best 🔥</div></div>
+    </div>
+  </div>
+  <button class="btn-ret" onclick="startGame()">⚡ Cuba Lagi</button>
+  <button class="btn-gh" onclick="showStart()">🏠 Skrin Utama</button>
+  <button class="btn-gh" onclick="window.location.href='VocabCat_BI_F5B2.html'" style="background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;border:none;margin-top:.6rem;">Unit Seterusnya ➜ Unit 2</button>
+  <button class="btn-gh" onclick="window.location.href='VocabCat_BI_Hub.html'" style="margin-top:.6rem;">🗺️ Peta Unit</button>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// 71-QUESTION BANK — Form 5 BI Bab 1
+// ═══════════════════════════════════════════
+const QBank=[
+  // FAMILY VOCAB (4)
+  {q:"Which type of family has children raised by parents who are NOT their biological parents?",opts:["Traditional family","Blended family","Single-parent family","Adoptive family"],ans:3,tip:"Adoptive families are formed when parents legally adopt children who are not biologically theirs.",cat:"FAMILY VOCAB"},
+  {q:"An 'extended family' typically includes...",opts:["Only parents and children","Grandparents, aunts, uncles and cousins","Children from two different marriages","A parent living alone with children"],ans:1,tip:"Extended families go beyond the nuclear unit — they include multiple generations and relatives.",cat:"FAMILY VOCAB"},
+  {q:"A 'blended family' is formed when...",opts:["A couple adopts many children","Both parents come from different countries","A parent remarries and stepchildren live together","Three generations live under one roof"],ans:2,tip:"A blended family is created when a parent remarries, combining children from previous relationships.",cat:"FAMILY VOCAB"},
+  {q:"Zara lives with her mum only — her dad does not live with them. What type of family is this?",opts:["Extended family","Adoptive family","Blended family","Single-parent family"],ans:3,tip:"A single-parent family has only one parent at home raising the children.",cat:"FAMILY VOCAB"},
+  // PEOPLE VOCAB (9)
+  {q:"Your 'peers' are people who...",opts:["Are older and give you advice","Are the same age and in your social group","Work with you professionally","Are members of your family"],ans:1,tip:"Peers are your equals — people of the same age group or social circle.",cat:"VOCABULARY"},
+  {q:"A 'colleague' is someone you...",opts:["Go to school with","Are related to by blood","Work with at your job","Meet by accident"],ans:2,tip:"Colleagues are the people you work with professionally.",cat:"VOCABULARY"},
+  {q:"Which word describes someone who trains you in a sport or activity?",opts:["Colleague","Peer","Relative","Coach"],ans:3,tip:"A coach is someone who trains and develops your skills in a sport or activity.",cat:"VOCABULARY"},
+  {q:"To 'criticise' someone means to...",opts:["Praise them warmly","Give them an expensive gift","Point out their faults or mistakes","Ignore them completely"],ans:2,tip:"To criticise means to express disapproval or point out faults in someone or their work.",cat:"VOCABULARY"},
+  {q:"To 'advise' someone means to...",opts:["Criticise them harshly","Give them a helpful recommendation","Ignore their opinion","Argue with them"],ans:1,tip:"To advise means to give guidance or a recommendation to help someone make a decision.",cat:"VOCABULARY"},
+  {q:"'Relatives' are people who...",opts:["You work with professionally","You study with at school","Are members of your family","You play sports against"],ans:2,tip:"Relatives are family members — people related to you by blood or marriage.",cat:"VOCABULARY"},
+  {q:"To 'gossip' means to...",opts:["Argue loudly and angrily","Praise someone publicly","Talk about other people's private lives","Give helpful advice to friends"],ans:2,tip:"To gossip means to chat about other people's personal business, often in a nosy or negative way.",cat:"VOCABULARY"},
+  {q:"To 'accuse' someone means to...",opts:["Praise them for doing well","Give them helpful advice","Forgive them for a mistake","Blame them for doing something wrong"],ans:3,tip:"To accuse is to formally blame someone or claim they did something wrong.",cat:"VOCABULARY"},
+  {q:"Which word means to say kind things about someone's achievement?",opts:["Grumble","Accuse","Criticise","Praise"],ans:3,tip:"To praise means to express approval or admiration for someone's work or good behaviour.",cat:"VOCABULARY"},
+  // FEELINGS (8)
+  {q:"If you feel 'ashamed', you feel...",opts:["Extremely excited and happy","Embarrassed about something you did wrong","Angry at another person","Very proud of an achievement"],ans:1,tip:"'Ashamed' means feeling embarrassed or guilty because of your own behaviour.",cat:"FEELINGS"},
+  {q:"Which sentence uses 'cheerful' correctly?",opts:["She felt cheerful after failing her exam.","Uncle Joe is always cheerful — always laughing and smiling.","He was cheerful when he heard bad news.","I felt cheerful when stuck in traffic."],ans:1,tip:"'Cheerful' describes someone who is noticeably happy, lively and in good spirits.",cat:"FEELINGS"},
+  {q:"The word 'frustrated' best describes someone who feels...",opts:["Happy and fully satisfied","Calm and at peace","Annoyed because things are not working out","Confident and very brave"],ans:2,tip:"'Frustrated' means feeling upset or irritated because you cannot achieve what you want.",cat:"FEELINGS"},
+  {q:"If you feel 'guilty', you feel...",opts:["Proud because you helped others","Confused about a topic","Bad because you did something wrong","Excited about a new challenge"],ans:2,tip:"Guilt is the feeling you get when you believe you have done something wrong.",cat:"FEELINGS"},
+  {q:"To be 'respectful' towards someone means you treat them with...",opts:["Fear and anxiety","Admiration and politeness","Jealousy and competition","Confusion and misunderstanding"],ans:1,tip:"Being respectful means showing consideration, politeness and regard for others.",cat:"FEELINGS"},
+  {q:"If you feel 'miserable', you feel...",opts:["Extremely happy and content","Very calm and relaxed","Extremely unhappy and sad","Slightly bored but okay"],ans:2,tip:"'Miserable' means feeling very unhappy, often because of a difficult situation.",cat:"FEELINGS"},
+  {q:"If you feel 'proud' of someone, you feel...",opts:["Angry at their behaviour","Deep satisfaction in their achievement","Jealous of their success","Worried about their future"],ans:1,tip:"'Proud' means feeling pleasure and satisfaction because of someone's good achievement.",cat:"FEELINGS"},
+  {q:"Someone who is 'calm' is...",opts:["Extremely excited and hyper","Peaceful, relaxed and not easily upset","Very angry and loud","Confused and anxious"],ans:1,tip:"'Calm' describes someone who is quiet, peaceful and not showing worry or strong emotion.",cat:"FEELINGS"},
+  // EXPRESSIONS (8)
+  {q:"'Lend a hand' means to...",opts:["Borrow money from a friend","Give someone your belongings","Help someone with a task","Wave goodbye politely"],ans:2,tip:"'Lend a hand' is an idiom meaning to offer help or assistance to someone.",cat:"EXPRESSIONS"},
+  {q:"After a long day, Mum said: 'I need to put my feet up.' She wants to...",opts:["Exercise her legs","Stand on a high surface","Relax and have a rest","Go for a walk outside"],ans:2,tip:"'Put your feet up' means to rest and relax, usually after a tiring day.",cat:"EXPRESSIONS"},
+  {q:"To 'run errands' means to...",opts:["Go jogging in the park","Escape from a problem","Do small tasks outside, like going to the shop","Clean the house thoroughly"],ans:2,tip:"Running errands means completing small jobs outside the home, like posting letters or buying groceries.",cat:"EXPRESSIONS"},
+  {q:"If someone is 'sick and tired' of something, they are...",opts:["Physically ill from doing too much","Very excited to start something new","Very frustrated and fed up with it","Confused and cannot understand it"],ans:2,tip:"'Sick and tired' is an idiom meaning extremely annoyed or completely fed up with something.",cat:"EXPRESSIONS"},
+  {q:"'Do your fair share' means to...",opts:["Do more work than everyone else","Avoid all responsibilities","Contribute your equal portion of the work","Share your food at mealtimes"],ans:2,tip:"'Do your fair share' means to contribute equally to a shared task or responsibility.",cat:"EXPRESSIONS"},
+  {q:"To 'make time' for something means to...",opts:["Waste your time on it","Set aside time in your schedule for it","Arrive late for it","Rush through it quickly"],ans:1,tip:"'Make time' means to deliberately create a space in your busy schedule for something important.",cat:"EXPRESSIONS"},
+  {q:"To 'do the washing-up' means to...",opts:["Do the laundry in the washing machine","Wash dishes and utensils after a meal","Sweep and mop the floor","Clean the bathroom sink"],ans:1,tip:"'Do the washing-up' specifically means washing the dishes, pots and utensils after eating.",cat:"EXPRESSIONS"},
+  {q:"'Make trouble' means to...",opts:["Fix a difficult problem","Create problems or cause conflict","Be kind to others","Tidy up the house"],ans:1,tip:"'Make trouble' means to cause problems or create conflict between people.",cat:"EXPRESSIONS"},
+  // PHRASAL VERBS (11)
+  {q:"To 'get along' with someone means you...",opts:["Argue with them very often","Move away from where they live","Have a good and friendly relationship with them","Compete against them regularly"],ans:2,tip:"'Get along' means to have a harmonious, friendly relationship with someone.",cat:"PHRASAL VERBS"},
+  {q:"Nobody washed the dishes, so they started to 'pile up'. They...",opts:["Got washed by themselves","Broke into pieces","Fell into the drain","Accumulated into a large untidy amount"],ans:3,tip:"'Pile up' means to accumulate or grow into a large, messy amount over time.",cat:"PHRASAL VERBS"},
+  {q:"If two friends 'fall out' with each other, they...",opts:["Become even closer friends","Have a serious quarrel that damages their friendship","Accidentally bump into each other","Plan a holiday together"],ans:1,tip:"'Fall out' means to have a disagreement serious enough to damage or end a friendship.",cat:"PHRASAL VERBS"},
+  {q:"'Get back at' someone means to...",opts:["Return to someone's house","Help them solve a problem","Take revenge on them","Apologise sincerely to them"],ans:2,tip:"'Get back at' means to retaliate or take revenge against someone who wronged you.",cat:"PHRASAL VERBS"},
+  {q:"Which phrasal verb means 'to meet up and spend time together'?",opts:["Get along","Get by","Get together","Get back at"],ans:2,tip:"'Get together' means to gather and spend time with others.",cat:"PHRASAL VERBS"},
+  {q:"To 'go away' means to...",opts:["Leave a place permanently","Go on a holiday or short trip","Disappear without telling anyone","Walk away from an argument"],ans:1,tip:"'Go away' means to travel somewhere, usually for a holiday or short break.",cat:"PHRASAL VERBS"},
+  {q:"To 'get by' means to...",opts:["Visit someone at their home regularly","Meet up with a group of friends","Manage to live or cope with difficulty","Return to a place you were before"],ans:2,tip:"'Get by' means to have just enough of what you need to manage or survive.",cat:"PHRASAL VERBS"},
+  {q:"'Fall apart' means to...",opts:["Become very close to someone","Go on a trip together","Break into pieces or completely collapse","Argue loudly in public"],ans:2,tip:"'Fall apart' means to break up into pieces, or for something to stop working completely.",cat:"PHRASAL VERBS"},
+  {q:"To 'go out' (as a phrasal verb) means to...",opts:["Go to sleep early","Leave the house to go somewhere","Fall in love with someone","Stay at home all day"],ans:1,tip:"'Go out' means to leave the house to go somewhere, like a restaurant or park.",cat:"PHRASAL VERBS"},
+  {q:"Tom and his new stepmother ___ very well — they have no arguments at all.",opts:["fall out","get back at","get along","pile up"],ans:2,tip:"'Get along' means to have a friendly, harmonious relationship — always followed by 'with'.",cat:"PHRASAL VERBS"},
+  {q:"'Pile on' as a phrasal verb means to...",opts:["Accumulate gradually","Increase something to an extreme degree","Fall down suddenly","Break apart completely"],ans:1,tip:"'Pile on' means to add to or increase something dramatically, unlike 'pile up' which means to accumulate.",cat:"PHRASAL VERBS"},
+  // WORD FORMATION (8)
+  {q:"The adjective form of the noun 'biology' is...",opts:["Biologic","Biological","Biologized","Biologicful"],ans:1,tip:"The suffix '-al' forms 'biological'. The 'y' in 'biology' changes to 'ical'.",cat:"WORD FORMATION"},
+  {q:"The adjective from the noun 'fantasy' is...",opts:["Fantasied","Fantasy-like","Fantastical","Fantastic"],ans:3,tip:"'Fantastic' is the adjective from 'fantasy', meaning extraordinarily good or imaginative.",cat:"WORD FORMATION"},
+  {q:"Which adjective describes something that smells bad?",opts:["Smellful","Smellic","Odorous","Smelly"],ans:3,tip:"The suffix '-y' is added to 'smell' to form 'smelly', meaning having an unpleasant smell.",cat:"WORD FORMATION"},
+  {q:"The adjective from the noun 'person' is...",opts:["Personly","Personful","Personal","Personistic"],ans:2,tip:"The suffix '-al' is added to 'person' to form 'personal', meaning relating to an individual.",cat:"WORD FORMATION"},
+  {q:"The adjective from the noun 'dust' is...",opts:["Dustical","Dustful","Dusty","Dusted"],ans:2,tip:"The suffix '-y' is added to 'dust' to form 'dusty', meaning covered in dust.",cat:"WORD FORMATION"},
+  {q:"Which adjective is formed from the noun 'option'?",opts:["Optioning","Optional","Optionful","Optionistic"],ans:1,tip:"The suffix '-al' forms 'optional', meaning not compulsory.",cat:"WORD FORMATION"},
+  {q:"The adjective from the noun 'apology' is...",opts:["Apologetic","Apologous","Apologiful","Apologial"],ans:0,tip:"'Apologetic' means feeling sorry and showing regret. Formed from 'apology' with the suffix '-etic'.",cat:"WORD FORMATION"},
+  {q:"The adjective from 'filth' is...",opts:["Filthful","Filthic","Filthy","Filthsome"],ans:2,tip:"The suffix '-y' is added to 'filth' to form 'filthy', meaning extremely dirty.",cat:"WORD FORMATION"},
+  // GRAMMAR: PRESENT TENSES (13)
+  {q:"Which sentence uses the PRESENT CONTINUOUS correctly?",opts:["She is wanting more pocket money.","He is knowing the right answer.","They are cooking dinner right now.","My dad is owning a big car."],ans:2,tip:"'Cook' is an action verb — it CAN be continuous. 'Want', 'know' and 'own' are stative verbs. They CANNOT.",cat:"GRAMMAR"},
+  {q:"Stative verbs describe...",opts:["Physical movements and actions","Things that happened in the past","States or conditions: feelings, senses, possession","Activities happening right this moment"],ans:2,tip:"Stative verbs (know, love, want, own, believe) describe states — not actions. They are not used in continuous tenses.",cat:"GRAMMAR"},
+  {q:"'My coach is ALWAYS criticising me!' — Why is the present continuous used here?",opts:["To describe a fact that is always true","To express an annoying repeated habit","To talk about a future plan","To describe a past event"],ans:1,tip:"Present continuous + 'always' expresses a habit that the speaker finds annoying or irritating.",cat:"GRAMMAR"},
+  {q:"Which sentence is in the PRESENT SIMPLE for a routine?",opts:["My family is visiting New York right now.","My family was visiting New York last month.","My family visits New York every summer.","My family will visit New York next year."],ans:2,tip:"Present simple is used for habits and routines. 'Every summer' signals a regular, repeated event.",cat:"GRAMMAR"},
+  {q:"Which of these verbs is a STATIVE verb that CANNOT be used in the continuous tense?",opts:["Cook","Run","Believe","Write"],ans:2,tip:"'Believe' is a stative verb — it describes a mental state. We say 'I believe', NOT 'I am believing'.",cat:"GRAMMAR"},
+  {q:"'My sister ___ her room right now.' — Choose the correct form.",opts:["cleans","is cleaning","cleaned","has cleaned"],ans:1,tip:"'Right now' signals an action in progress at this moment — use the present continuous.",cat:"GRAMMAR"},
+  {q:"'Water ___ at 100°C.' — This uses the present simple to express...",opts:["A personal opinion","A general truth or law of nature","An annoying repeated habit","A future arrangement"],ans:1,tip:"Present simple is used for scientific facts and general truths that are always true.",cat:"GRAMMAR"},
+  {q:"'Dad ___ breakfast every morning before we wake up.' — Which form fits?",opts:["is making","was making","makes","has made"],ans:2,tip:"'Every morning' signals a daily routine — use the present simple.",cat:"GRAMMAR"},
+  {q:"Which sentence correctly uses the present continuous for a FUTURE ARRANGEMENT?",opts:["She cooks dinner tomorrow.","She is seeing her friends tomorrow at 3pm.","She was seeing her friends tomorrow.","She has seen her friends tomorrow."],ans:1,tip:"Present continuous can express confirmed future plans and arrangements.",cat:"GRAMMAR"},
+  {q:"Which verb can be used in BOTH simple and continuous with a DIFFERENT meaning?",opts:["Love","Know","Appear","Own"],ans:2,tip:"'Appear' can be stative (= seem): 'He appears tired' OR active (= perform): 'She is appearing in a play'.",cat:"GRAMMAR"},
+  {q:"'She is getting more and more frustrated.' — What does this present continuous show?",opts:["A permanent fact about her","A temporary or changing situation","An annoying repeated habit","A future plan"],ans:1,tip:"Present continuous is used for temporary or changing situations — things that are developing over time.",cat:"GRAMMAR"},
+  {q:"'The train ___ at 6pm.' (timetable) — Which form is correct?",opts:["is leaving","has left","was leaving","leaves"],ans:3,tip:"Present simple is used for timetables and schedules — fixed, planned events.",cat:"GRAMMAR"},
+  {q:"'Do you understand why teens think peers are important?' — Why is 'understand' in the simple form?",opts:["It describes a past event","It is a stative verb that cannot be continuous","It describes an annoying habit","It refers to a future plan"],ans:1,tip:"'Understand' is a stative verb describing a mental state. We say 'I understand', NOT 'I am understanding'.",cat:"GRAMMAR"},
+  // GRAMMAR: RELATIVE CLAUSES (10)
+  {q:"Choose the correct relative pronoun: 'That's the place ___ my parents first met.'",opts:["who","which","that","where"],ans:3,tip:"'Where' is used to refer to places in relative clauses.",cat:"GRAMMAR"},
+  {q:"Which sentence contains a NON-DEFINING relative clause?",opts:["The chore which I hate most is washing up.","Molly, who often gossips, doesn't get along with her peers.","The friend that I called is from Bristol.","This is the reason why I am angry."],ans:1,tip:"Non-defining relative clauses are separated by commas and give extra, non-essential information. 'That' cannot be used.",cat:"GRAMMAR"},
+  {q:"Choose the correct word: 'My colleague, ___ books about relationships sell very well, is famous.'",opts:["that","who","which","where"],ans:1,tip:"'Who' is used for people. 'That' cannot be used in non-defining (comma) relative clauses.",cat:"GRAMMAR"},
+  {q:"Complete: 'This is the reason ___ I never gossip.'",opts:["where","who","that","why"],ans:3,tip:"'Why' is used after 'reason' in relative clauses to explain cause.",cat:"GRAMMAR"},
+  {q:"In a DEFINING relative clause, when can the relative pronoun be omitted?",opts:["Always, in every defining clause","Never — it must always stay","When it is the OBJECT of the clause","When the clause refers to a place"],ans:2,tip:"When 'who', 'which' or 'that' is the OBJECT (not subject) of a defining relative clause, it can be omitted.",cat:"GRAMMAR"},
+  {q:"Which word CANNOT be used in a non-defining relative clause?",opts:["who","which","where","that"],ans:3,tip:"'That' can only be used in defining relative clauses — never in non-defining clauses (those with commas).",cat:"GRAMMAR"},
+  {q:"'This is the woman ___ daughter does our housework.' — Which word fits?",opts:["who","which","that","whose"],ans:3,tip:"'Whose' shows possession in relative clauses — 'the woman whose daughter' = 'the woman's daughter'.",cat:"GRAMMAR"},
+  {q:"Complete: 'The chore ___ I hate most is washing the dishes.'",opts:["who","whose","which","where"],ans:2,tip:"'Which' or 'that' is used for things (not people) in defining relative clauses.",cat:"GRAMMAR"},
+  {q:"'That was the time ___ I had an argument with my brother.' — Which word fits?",opts:["which","where","when","whose"],ans:2,tip:"'When' is used to refer to times in relative clauses.",cat:"GRAMMAR"},
+  {q:"Which sentence is INCORRECT?",opts:["The man who I spoke to was helpful.","Molly, that often gossips, is not popular.","The place where we met is gone.","She is the colleague whose work I admire."],ans:1,tip:"'That' cannot be used in non-defining relative clauses (with commas). It should be 'Molly, WHO often gossips...'",cat:"GRAMMAR"}
+];
+
+// ═══════════════════════
+// CONSTANTS & STATE
+// ═══════════════════════
+const TOTAL_Q=15, TOTAL_TIME=20;
+let G={lives:6,score:0,streak:0,bestStreak:0,correct:0,wrong:0,qIdx:0,
+       questions:[],timer:null,timerVal:TOTAL_TIME,answered:false,bestScore:0};
+
+// ═══════════════════════
+// AUDIO
+// ═══════════════════════
+let ctx=null, muted=false;
+function initAudio(){
+  if(ctx) return;
+  try{ctx=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}
+}
+function playOK(){
+  if(muted||!ctx) return;
+  [[523.25,0],[659.25,0.11],[783.99,0.22]].forEach(([hz,d])=>{
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.type='sine';o.connect(g);g.connect(ctx.destination);
+    o.frequency.value=hz;
+    const t=ctx.currentTime+d;
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(0.22,t+0.02);
+    g.gain.exponentialRampToValueAtTime(0.001,t+0.32);
+    o.start(t);o.stop(t+0.35);
+  });
+}
+function playErr(){
+  if(muted||!ctx) return;
+  const o=ctx.createOscillator(),g=ctx.createGain();
+  o.type='sawtooth';o.connect(g);g.connect(ctx.destination);
+  o.frequency.setValueAtTime(260,ctx.currentTime);
+  o.frequency.exponentialRampToValueAtTime(120,ctx.currentTime+0.28);
+  g.gain.setValueAtTime(0.16,ctx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.3);
+  o.start(ctx.currentTime);o.stop(ctx.currentTime+0.32);
+}
+function toggleMute(){
+  muted=!muted;
+  document.getElementById('muteBtn').textContent=muted?'🔇':'🔊';
+}
+
+// ═══════════════════════
+// PRAISE & ENCOURAGE
+// ═══════════════════════
+const PRAISE=[
+  "Are you a GENIUS?! 🧠",
+  "Absolutely brilliant! ✨",
+  "You're on FIRE! 🔥",
+  "Wow, just WOW! 😮",
+  "Pure genius right here! 💡",
+  "You nailed it! 🎯",
+  "So proud of you! 🥹",
+  "Unstoppable! 💪",
+  "Outstanding! 👏",
+  "You make it look easy! 😎"
+];
+const ENCOURAGE=[
+  "Don't give up! 💪",
+  "You've got this! 🙌",
+  "Keep going, champ! 🌟",
+  "Every expert was a beginner! 📚",
+  "Shake it off! 🎵",
+  "Believe in yourself! 🤗",
+  "One mistake won't stop you! 💫",
+  "Stay strong! 💎",
+  "The comeback starts NOW! 🔥",
+  "Focus and try again! 👊"
+];
+let pIdx=0, eIdx=0;
+
+function showPraise(ok){
+  const msg=ok?PRAISE[pIdx++%PRAISE.length]:ENCOURAGE[eIdx++%ENCOURAGE.length];
+  const el=document.createElement('div');
+  el.className='msg-toast '+(ok?'praise':'cheer');
+  el.textContent=msg;
+  document.body.appendChild(el);
+  // Double rAF ensures transition fires
+  requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('visible')));
+  setTimeout(()=>{
+    el.classList.remove('visible');
+    setTimeout(()=>el.remove(),380);
+  },1400);
+}
+
+// ═══════════════════════
+// CONFETTI
+// ═══════════════════════
+function launchConfetti(){
+  try{
+    var cv=document.createElement('canvas');
+    cv.style.cssText='position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:99999;display:block;';
+    (document.documentElement||document.body).appendChild(cv);
+    var W=window.innerWidth||320, H=window.innerHeight||568;
+    cv.width=W; cv.height=H;
+    var c=cv.getContext('2d');
+    var cols=['#0ea5e9','#22c55e','#f59e0b','#ef4444','#8b5cf6','#ec4899','#14b8a6','#f97316','#facc15','#a855f7'];
+    var pts=[];
+    for(var ii=0;ii<180;ii++){
+      pts.push({x:Math.random()*W, y:ii<90?Math.random()*H*.35:-10-Math.random()*180,
+        w:8+Math.random()*12, h:5+Math.random()*8,
+        col:cols[Math.floor(Math.random()*cols.length)],
+        vx:(Math.random()-.5)*5, vy:1+Math.random()*4,
+        rot:Math.random()*360, rV:(Math.random()-.5)*12,
+        circ:Math.random()<.3, al:1});
+    }
+    var FRAMES=360, f=0;
+    function draw(){
+      c.clearRect(0,0,W,H);
+      for(var pi=0;pi<pts.length;pi++){
+        var p=pts[pi];
+        p.x+=p.vx+Math.sin(f*.04+p.x*.01)*.5;
+        p.y+=p.vy; p.vy+=.08; p.rot+=p.rV;
+        if(f>FRAMES*.6) p.al=Math.max(0,p.al-1/(FRAMES*.4));
+        c.save(); c.globalAlpha=p.al; c.fillStyle=p.col;
+        c.translate(p.x,p.y); c.rotate(p.rot*Math.PI/180);
+        if(p.circ){c.beginPath();c.arc(0,0,p.w/2,0,Math.PI*2);c.fill();}
+        else c.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+        c.restore();
+      }
+      if(++f<FRAMES) requestAnimationFrame(draw); else{ try{cv.parentNode.removeChild(cv);}catch(e){} }
+    }
+    requestAnimationFrame(draw);
+  }catch(e){ console.error('Confetti error:',e); }
+}
+
+// ═══════════════════════
+// CELEBRATION SOUND
+// ═══════════════════════
+function playCelebration(){
+  if(muted||!ctx) return;
+  // Resume AudioContext if browser auto-suspended it (common after inactivity)
+  if(ctx.state==='suspended') ctx.resume();
+  // Triumphant ascending fanfare
+  [[523,.0,.18],[523,.13,.18],[523,.26,.18],
+   [659,.39,.28],[784,.56,.42],[1047,.85,.65]
+  ].forEach(([hz,d,dur])=>{
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.type='triangle'; o.connect(g); g.connect(ctx.destination);
+    o.frequency.value=hz;
+    const t=ctx.currentTime+d;
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(0.2,t+.03);
+    g.gain.setValueAtTime(0.2,t+dur-.05);
+    g.gain.exponentialRampToValueAtTime(0.001,t+dur);
+    o.start(t); o.stop(t+dur+.1);
+  });
+  // Final chord bloom
+  [523,659,784,1047].forEach((hz,i)=>{
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.type='sine'; o.connect(g); g.connect(ctx.destination);
+    o.frequency.value=hz;
+    const t=ctx.currentTime+.9+i*.04;
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(0.13,t+.05);
+    g.gain.exponentialRampToValueAtTime(0.001,t+1.3);
+    o.start(t); o.stop(t+1.4);
+  });
+}
+
+// ═══════════════════════
+// SCREENS
+// ═══════════════════════
+window.onload=()=>{
+  const b=localStorage.getItem('vb_bi_f5b1_best');
+  if(b){G.bestScore=+b;document.getElementById('bestDisp').textContent=b+' pts';}
+};
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function showStart(){
+  const b=localStorage.getItem('vb_bi_f5b1_best');
+  document.getElementById('bestDisp').textContent=b?b+' pts':'—';
+  show('sStart');
+}
+
+// ═══════════════════════
+// GAME
+// ═══════════════════════
+function shuffle(a){
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+function startGame(){
+  initAudio();
+  G={lives:6,score:0,streak:0,bestStreak:0,correct:0,wrong:0,qIdx:0,
+     questions:shuffle([...QBank]).slice(0,TOTAL_Q),
+     timer:null,timerVal:TOTAL_TIME,answered:false,
+     bestScore:+(localStorage.getItem('vb_bi_f5b1_best')||0)};
+  show('sGame');
+  updateHUD();
+  renderQ();
+}
+function renderQ(){
+  const q=G.questions[G.qIdx];
+  G.answered=false;
+  document.getElementById('catEl').textContent=q.cat;
+  document.getElementById('qnumEl').textContent=`${G.qIdx+1} / ${TOTAL_Q}`;
+  document.getElementById('qtxt').textContent=q.q;
+  document.getElementById('fbEl').className='fb';
+  const order=shuffle([0,1,2,3]),ltrs=['A','B','C','D'];
+  const grid=document.getElementById('optsEl');
+  grid.innerHTML='';
+  order.forEach((oi,di)=>{
+    const btn=document.createElement('button');
+    btn.className='opt';btn.dataset.orig=oi;
+    btn.innerHTML=`<span class="ltr">${ltrs[di]}</span><span>${q.opts[oi]}</span>`;
+    btn.onclick=()=>pick(oi,btn,q);
+    grid.appendChild(btn);
+  });
+  startTimer();
+}
+function startTimer(){
+  clearInterval(G.timer);
+  G.timerVal=TOTAL_TIME;
+  const f=document.getElementById('tfill');
+  f.style.transition='none';f.style.width='100%';f.className='tfill';
+  setTimeout(()=>{f.style.transition='width .95s linear';},50);
+  G.timer=setInterval(()=>{
+    G.timerVal--;
+    f.style.width=((G.timerVal/TOTAL_TIME)*100)+'%';
+    if(G.timerVal<=6)f.classList.add('urg');
+    if(G.timerVal<=0){clearInterval(G.timer);if(!G.answered)timeUp();}
+  },1000);
+}
+function timeUp(){
+  G.answered=true;
+  const q=G.questions[G.qIdx];
+  markBtns(q,null);showFB(false,q,true);playErr();
+  showPraise(false);
+  G.streak=0;G.wrong++;G.lives--;
+  updateHUD();schedNext();
+}
+function pick(oi,btn,q){
+  if(G.answered)return;
+  G.answered=true;
+  clearInterval(G.timer);
+  const ok=oi===q.ans;
+  markBtns(q,ok?null:btn);
+  if(ok){
+    G.streak++;G.correct++;
+    if(G.streak>G.bestStreak)G.bestStreak=G.streak;
+    const pts=G.streak>=10?20:G.streak>=5?15:10;
+    const bonus=G.timerVal;
+    G.score+=pts+bonus;
+    spawnPts(`+${pts+bonus}`,btn);playOK();
+    showPraise(true);
+    if(G.streak===5)spawnCombo('🔥 x5 STREAK!','#d97706');
+    else if(G.streak===10)spawnCombo('💥 x10 LEGENDARY!','#d97706');
+  }else{
+    G.streak=0;G.wrong++;G.lives--;playErr();
+    showPraise(false);
+    const c=document.getElementById('qcard');
+    c.classList.add('shake');setTimeout(()=>c.classList.remove('shake'),400);
+  }
+  showFB(ok,q,false);updateHUD();schedNext();
+}
+function markBtns(q,wrongBtn){
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.disabled=true;
+    if(+b.dataset.orig===q.ans)b.classList.add('ok');
+    else if(b===wrongBtn)b.classList.add('er');
+  });
+}
+function showFB(ok,q,tout){
+  const bar=document.getElementById('fbEl');
+  const t=document.getElementById('fbt'),b=document.getElementById('fbb');
+  if(tout){bar.className='fb er show';t.textContent='⏱️ Masa tamat!';b.textContent=`Jawapan: "${q.opts[q.ans]}". ${q.tip}`;}
+  else if(ok){bar.className='fb ok show';t.textContent='✅ Betul!';b.textContent=q.tip;}
+  else{bar.className='fb er show';t.textContent='❌ Salah!';b.textContent=`Jawapan betul: "${q.opts[q.ans]}". ${q.tip}`;}
+}
+function updateHUD(){
+  document.getElementById('livesEl').textContent='❤️'.repeat(G.lives)+'🖤'.repeat(6-G.lives);
+  document.getElementById('ptsEl').textContent=G.score+' pts';
+  const s=document.getElementById('stkEl');
+  if(G.streak>=5){s.textContent=`🔥 ${G.streak}`;s.className='stk hot';}
+  else if(G.streak>0){s.textContent=`⚡ ${G.streak}`;s.className='stk';}
+  else{s.textContent='🔥 0';s.className='stk';}
+}
+function schedNext(){
+  setTimeout(()=>{
+    if(G.lives<=0){endGame('dead');return;}
+    G.qIdx++;
+    if(G.qIdx>=TOTAL_Q)endGame('complete');else renderQ();
+  },G.lives<=0?4800:5400);
+}
+function spawnPts(txt,ref){
+  const el=document.createElement('div');
+  el.className='fxp';el.textContent=txt;
+  const r=ref.getBoundingClientRect();
+  el.style.left=(r.left+r.width/2)+'px';el.style.top=(r.top+window.scrollY)+'px';
+  document.body.appendChild(el);setTimeout(()=>el.remove(),900);
+}
+function spawnCombo(txt,color){
+  const el=document.createElement('div');
+  el.className='fxc';el.textContent=txt;el.style.color=color;
+  document.body.appendChild(el);setTimeout(()=>el.remove(),700);
+}
+function endGame(reason){
+  clearInterval(G.timer);
+  const acc=G.correct/TOTAL_Q;
+  const stars=acc>=0.8?3:acc>=0.6?2:1;
+  const tier=acc>=0.8?2:acc>=0.6?1:0;
+  const icons=['😅','😊','🎉'];
+  const titles=['Cuba lagi! Teruskan berusaha!','Bagus! Hampir sempurna!','Cemerlang! Kamu kuasai Bab 1! ⭐'];
+  document.getElementById('eico').textContent=icons[tier];
+  document.getElementById('etit').textContent=titles[tier];
+  document.getElementById('starsEl').textContent='⭐'.repeat(stars)+'☆'.repeat(3-stars);
+  document.getElementById('finalPts').textContent=G.score;
+  document.getElementById('sc').textContent=G.correct;
+  document.getElementById('sw').textContent=G.wrong;
+  document.getElementById('sb').textContent=G.bestStreak;
+  const nb=document.getElementById('nbest');
+  if(G.score>G.bestScore&&G.score>0){
+    nb.className='nbest show';
+    localStorage.setItem('vb_bi_f5b1_best',G.score);
+  }else nb.className='nbest';
+  try{gtag('event','game_complete',{event_category:'VocabCat',event_label:'BI_F5B1',value:G.score});}catch(e){}
+  show('sEnd');
+  // Confetti only when player finishes ALL 15 questions with lives remaining
+  if(reason==='complete'){
+    setTimeout(()=>{launchConfetti(); playCelebration();},120);
+  }
+}
+</script>
+</body>
+</html>
