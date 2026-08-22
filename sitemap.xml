@@ -895,6 +895,20 @@
 
   <!-- ── BLOG / TIPS BELAJAR ── -->
 
+  <url>
+    <loc>https://easysejarah.com/blog-teknik-belajar-sejarah-spm.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://easysejarah.com/artikel-kbat-hamburger.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 
   <!-- ── LAIN-LAIN ── -->
 
