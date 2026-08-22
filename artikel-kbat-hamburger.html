@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formula Hamburger FHCI – Cara Jawab KBAT Sejarah SPM | EasySejarah</title>
+<meta name="description" content="Belajar cara jawab soalan KBAT Sejarah SPM dengan Formula Hamburger FHCI. Teknik mudah untuk dapat 8 markah dalam Kertas 2!">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4490928206593094" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --kuning: #F7B731;
+    --merah: #e8447a;
+    --hijau: #2db87a;
+    --ungu: #7c5cbf;
+    --bg: #ffffff;
+    --bg2: #f8f9fc;
+    --teks: #1a1a2e;
+    --teks-redup: #5a5a7a;
+    --border: #e2e4ee;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: var(--bg);
+    color: var(--teks);
+    line-height: 1.8;
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 99;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .logo { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--teks); }
+  .logo span { color: var(--kuning); }
+  .nav-back { color: var(--teks-redup); font-size: 0.82rem; text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--merah); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: #fff5f8;
+  }
+  .hero-img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+  .hero-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(255,245,248,1) 0%, rgba(255,245,248,0.7) 60%, transparent 100%);
+    padding: 40px 32px 28px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--merah);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    line-height: 1.25;
+    color: var(--teks);
+  }
+  .hero-title span { color: var(--merah); }
+  .hero-meta { margin-top: 10px; font-size: 0.82rem; color: var(--teks-redup); }
+
+  /* ARTIKEL */
+  .artikel {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* INTRO */
+  .intro-box {
+    background: #fff8e1;
+    border-left: 4px solid var(--kuning);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+    font-size: 1rem;
+    color: var(--teks);
+  }
+
+  /* HEADINGS */
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--merah);
+    margin: 44px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  p { margin-bottom: 16px; font-size: 0.97rem; color: var(--teks); }
+
+  /* LIST */
+  ul.soalan-list {
+    margin: 4px 0 20px 24px;
+    color: var(--teks-redup);
+    font-size: 0.95rem;
+    line-height: 2.2;
+  }
+
+  /* INFOGRAFIK */
+  .infografik {
+    width: 100%;
+    border-radius: 16px;
+    margin: 24px 0 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    border: 1px solid var(--border);
+  }
+
+  /* FHCI CARDS */
+  .fhci-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0 28px;
+  }
+  @media (max-width: 560px) { .fhci-grid { grid-template-columns: 1fr; } }
+  .fhci-card {
+    background: var(--bg2);
+    border-radius: 14px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-top: 4px solid;
+    position: relative;
+    overflow: hidden;
+  }
+  .fhci-card::before {
+    content: attr(data-letter);
+    position: absolute;
+    right: 14px; top: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    opacity: 0.05;
+    color: #000;
+  }
+  .fhci-card.f { border-top-color: #F7B731; }
+  .fhci-card.h { border-top-color: #e8447a; }
+  .fhci-card.c { border-top-color: #2db87a; }
+  .fhci-card.i { border-top-color: #7c5cbf; }
+  .fhci-label { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; }
+  .fhci-card.f .fhci-label { color: #c98a00; }
+  .fhci-card.h .fhci-label { color: #e8447a; }
+  .fhci-card.c .fhci-label { color: #1e9960; }
+  .fhci-card.i .fhci-label { color: #5a3a9a; }
+  .fhci-desc { font-size: 0.87rem; color: var(--teks-redup); margin-bottom: 10px; }
+  .fhci-kata {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.83rem;
+    color: var(--teks-redup);
+  }
+  .fhci-kata strong {
+    color: var(--teks);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* MARKAH BAR */
+  .markah-bar {
+    background: #fff8e1;
+    border: 1.5px solid #ffe080;
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin: 4px 0 36px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--teks);
+  }
+  .markah-bar .merah { color: var(--merah); }
+  .markah-bar .hijau { color: #1e9960; }
+
+  /* SOALAN BOX */
+  .soalan-box {
+    background: #f0eeff;
+    border: 1.5px solid #c5b8f5;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 24px 0;
+  }
+  .soalan-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+    color: var(--ungu);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .soalan-box blockquote {
+    font-size: 0.97rem;
+    color: var(--teks);
+    line-height: 1.85;
+    font-style: italic;
+  }
+  .markah-chip {
+    display: inline-block;
+    background: var(--ungu);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-top: 14px;
+  }
+
+  /* HAMBURGER DEMO */
+  .hamburger-wrap {
+    margin: 20px 0 28px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .hamburger-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 0.93rem;
+    color: var(--teks);
+    background: var(--bg2);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .layer {
+    padding: 14px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+  }
+  .layer:last-child { border-bottom: none; }
+  .layer.f { background: #fffbf0; border-left: 4px solid #F7B731; }
+  .layer.h { background: #fff5f8; border-left: 4px solid #e8447a; }
+  .layer.c { background: #f0fff8; border-left: 4px solid #2db87a; }
+  .layer.i { background: #f3f0ff; border-left: 4px solid #7c5cbf; }
+  .layer-badge {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 0.78rem;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .layer.f .layer-badge { background: #F7B731; color: #1a1a2e; }
+  .layer.h .layer-badge { background: #e8447a; color: #fff; }
+  .layer.c .layer-badge { background: #2db87a; color: #fff; }
+  .layer.i .layer-badge { background: #7c5cbf; color: #fff; }
+  .layer-content { font-size: 0.92rem; color: var(--teks); }
+  .layer-kata { font-size: 0.8rem; color: var(--teks-redup); margin-bottom: 5px; font-style: italic; }
+
+  /* JAWAPAN LENGKAP */
+  .jawapan-box {
+    background: #f4fff9;
+    border: 1.5px solid #a8eac8;
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin: 20px 0 32px;
+  }
+  .jawapan-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+    color: #1e9960;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .jawapan-box p { font-size: 0.97rem; line-height: 1.95; margin-bottom: 0; }
+  .tag-f { color: #c98a00; font-weight: 700; }
+  .tag-h { color: #e8447a; font-weight: 700; }
+  .tag-c { color: #1e9960; font-weight: 700; }
+  .tag-i { color: #5a3a9a; font-weight: 700; }
+  .markah-confirm {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid #a8eac8;
+  }
+  .markah-chip-green {
+    background: #2db87a;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+  }
+  .markah-note { font-size: 0.82rem; color: var(--teks-redup); }
+
+  /* TIPS */
+  .tips-grid { display: grid; gap: 12px; margin: 20px 0 36px; }
+  .tip {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .tip-text { font-size: 0.92rem; color: var(--teks); }
+  .tip-text strong { color: var(--merah); display: block; margin-bottom: 4px; font-family: 'Poppins', sans-serif; font-size: 0.9rem; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 2px dashed var(--border); margin: 40px 0; }
+
+  /* CTA */
+  .cta-box {
+    background: linear-gradient(135deg, #fff5f8, #fff8e1);
+    border: 1.5px solid #ffd6e7;
+    border-radius: 20px;
+    padding: 36px 28px;
+    text-align: center;
+    margin-top: 48px;
+  }
+  .cta-box h3 { color: var(--merah); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Poppins', sans-serif; font-weight: 800; }
+  .cta-box p { color: var(--teks-redup); margin-bottom: 22px; }
+  .btn-yt {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FF0000;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-yt:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,0,0,0.25); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.75rem;
+    color: var(--teks-redup);
+    border-top: 1px solid var(--border);
+    background: var(--bg2);
+  }
+  footer a { color: var(--teks-redup); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="nav-back">← Laman Utama</a>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <div style="width:80px"></div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-img" src="cat_chef.png" alt="EasySejarah Formula Hamburger KBAT">
+  <div class="hero-overlay">
+    <div class="badge">Tips &amp; Teknik SPM</div>
+    <h1 class="hero-title">Soalan KBAT Buat Korang Cuak?<br>Cuba Formula <span>Hamburger FHCI!</span></h1>
+    <p class="hero-meta">EasySejarah · Teknik Jawab Kertas 2 Sejarah SPM</p>
+  </div>
+</div>
+
+<!-- ARTIKEL -->
+<div class="artikel">
+
+  <div class="intro-box">
+    Assalamualaikum dan salam sejahtera, pelajar-pelajar sekalian! Sebut sahaja soalan <strong>KBAT</strong>, ramai yang mula rasa seram sejuk. Tapi kami ada satu rahsia besar untuk dikongsi bersama: <strong>Soalan KBAT sebenarnya adalah peluang "markah percuma" yang paling mudah dalam Kertas 2!</strong> 🎉 Baca terus dan kami tunjukkan caranya.
+  </div>
+
+  <p>Mengapa? Sebab jawapan KBAT tidak semestinya ada dalam buku teks secara bulat-bulat. Asalkan logik, munasabah, dan ditulis mengikut struktur yang betul — pemeriksa tiada alasan untuk kedekut markah. Hari ini, kami kongsikan satu teknik yang sangat lazat: <strong>Formula Hamburger FHCI!</strong></p>
+
+  <!-- APA TU KBAT -->
+  <h2>🤔 Apa tu KBAT?</h2>
+  <p>KBAT bermaksud <strong>Kemahiran Berfikir Aras Tinggi</strong>. Dalam SPM Sejarah, soalan KBAT biasanya berbunyi macam ini:</p>
+  <ul class="soalan-list">
+    <li><em>"Beri ulasan anda..."</em></li>
+    <li><em>"Apakah mesej yang anda boleh sampaikan..."</em></li>
+    <li><em>"Wajarkah tindakan tersebut? Beri alasan anda."</em></li>
+    <li><em>"Mengapakah perkara ini penting pada masa kini?"</em></li>
+  </ul>
+  <p>Soalan-soalan ini tidak boleh dijawab dengan sekadar hafal fakta. Perlu <strong>fikir</strong>, <strong>analisis</strong>, dan <strong>hubungkaitkan</strong> dengan realiti atau pengetahuan sejarah yang ada.</p>
+
+  <!-- FORMULA HAMBURGER -->
+  <h2>🍔 Mengenali Formula Hamburger FHCI</h2>
+  <p>Bayangkan sebiji hamburger yang sangat tebal dan menyelerakan. Jawapan KBAT yang mantap pun sama — mesti ada <strong>lapisan yang cukup</strong> barulah dapat markah penuh!</p>
+
+  <img src="Nota_SOS_T4B2.png" alt="Infografik Formula Hamburger FHCI Sejarah SPM" class="infografik">
+
+  <div class="fhci-grid">
+    <div class="fhci-card f" data-letter="F">
+      <div class="fhci-label">🍞 F — Fakta</div>
+      <div class="fhci-desc">Isi utama atau jawapan terus kepada soalan. Pendek dan padat. Ini adalah "roti atas" hamburger.</div>
+      <div class="fhci-kata">
+        <strong>Kata Hubung</strong>
+        "Pada pendapat kami..." · "Langkah utama ialah..." · "Iktibar yang boleh diambil ialah..."
+      </div>
+    </div>
+    <div class="fhci-card h" data-letter="H">
+      <div class="fhci-label">🥩 H — Huraian</div>
+      <div class="fhci-desc">Terangkan Fakta tadi dengan lebih lanjut. Mengapa ia berlaku? Bagaimana ia berfungsi?</div>
+      <div class="fhci-kata">
+        <strong>Kata Hubung</strong>
+        "Hal ini dikatakan demikian kerana..." · "Hal ini penting supaya..." · "Hal ini dapat..."
+      </div>
+    </div>
+    <div class="fhci-card c" data-letter="C">
+      <div class="fhci-label">🥬 C — Contoh</div>
+      <div class="fhci-desc">Bukti atau contoh spesifik dari sejarah atau isu semasa. Ini yang "mencairkan hati" pemeriksa!</div>
+      <div class="fhci-kata">
+        <strong>Kata Hubung</strong>
+        "Sebagai contoh..." · "Misalnya..." · "Tamsilnya..." · "Buktinya..."
+      </div>
+    </div>
+    <div class="fhci-card i" data-letter="I">
+      <div class="fhci-label">🍞 I — Inferens</div>
+      <div class="fhci-desc">Rumusan atau kesimpulan kecil yang mengaitkan jawapan dengan impak positif kepada negara atau masyarakat.</div>
+      <div class="fhci-kata">
+        <strong>Kata Hubung</strong>
+        "Kesannya..." · "Jelaslah..." · "Kesimpulannya..." · "Tuntasnya..."
+      </div>
+    </div>
+  </div>
+
+  <div class="markah-bar">
+    🍔 Satu Hamburger (F+H+C+I) = <span class="merah">4 Markah</span> &nbsp;|&nbsp;
+    🍔🍔 Dua Hamburger = <span class="hijau">8 Markah!</span>
+  </div>
+
+  <!-- SOALAN SEBENAR -->
+  <h2>🛠️ Jom Cuba: Soalan Sebenar Trial SPM 2024!</h2>
+  <p>Kami ambil soalan yang betul-betul keluar dalam peperiksaan percubaan tahun lepas sebagai contoh:</p>
+
+  <div class="soalan-box">
+    <div class="soalan-label">📋 Soalan Sebenar — Trial Sejarah SPM 2024, KL Sentul · Soalan 1(c)</div>
+    <blockquote>
+      "Ketika kemerdekaan hendak dicapai, semangat nasionalisme berperanan dalam mengukuhkan kedaulatan dan membentuk identiti negara. Matlamatnya bukan sahaja membebaskan diri daripada penjajah tetapi nasionalisme memperkukuh perpaduan dalam masyarakat yang pernah dijajah."
+      <br><br>
+      <strong>Beri ulasan anda.</strong>
+    </blockquote>
+    <span class="markah-chip">4 markah → 1 Hamburger</span>
+  </div>
+
+  <p>Soalan ini bernilai 4 markah — bermakna kita perlu bina <strong>SATU hamburger</strong> (satu set FHCI). Jom bina bersama step-by-step:</p>
+
+  <!-- HAMBURGER DEMO -->
+  <div class="hamburger-wrap">
+    <div class="hamburger-title">🍔 Hamburger: Fokus "Nasionalisme &amp; Perpaduan"</div>
+    <div class="layer f">
+      <div class="layer-badge">F</div>
+      <div class="layer-content">
+        <div class="layer-kata">Kata hubung → "Pada pendapat kami..."</div>
+        Semangat nasionalisme memainkan peranan penting dalam perjuangan kemerdekaan negara kita.
+      </div>
+    </div>
+    <div class="layer h">
+      <div class="layer-badge">H</div>
+      <div class="layer-content">
+        <div class="layer-kata">Kata hubung → "Hal ini dikatakan demikian kerana..."</div>
+        Nasionalisme menyatukan rakyat pelbagai kaum untuk berjuang bersama-sama menentang penjajahan British, sekali gus membentuk identiti dan kedaulatan negara bangsa yang merdeka.
+      </div>
+    </div>
+    <div class="layer c">
+      <div class="layer-badge">C</div>
+      <div class="layer-content">
+        <div class="layer-kata">Kata hubung → "Sebagai contoh..."</div>
+        Gabungan pelbagai kaum melalui rundingan antara pemimpin UMNO, MCA dan MIC berjaya menuntut kemerdekaan Tanah Melayu pada 31 Ogos 1957 tanpa pertumpahan darah.
+      </div>
+    </div>
+    <div class="layer i">
+      <div class="layer-badge">I</div>
+      <div class="layer-content">
+        <div class="layer-kata">Kata hubung → "Jelaslah..."</div>
+        Jelaslah, semangat perpaduan dan nasionalisme yang diperjuangkan oleh generasi terdahulu perlu dikekalkan oleh generasi masa kini bagi memastikan kedaulatan dan keharmonian negara terus terpelihara.
+      </div>
+    </div>
+  </div>
+
+  <!-- JAWAPAN LENGKAP -->
+  <div class="jawapan-box">
+    <div class="jawapan-label">✍️ Jawapan Lengkap</div>
+    <p>
+      <span class="tag-f">Pada pendapat kami,</span> semangat nasionalisme memainkan peranan penting dalam perjuangan kemerdekaan negara kita.
+      <span class="tag-h">Hal ini dikatakan demikian kerana</span> nasionalisme menyatukan rakyat pelbagai kaum untuk berjuang bersama-sama menentang penjajahan British, sekali gus membentuk identiti dan kedaulatan negara bangsa yang merdeka.
+      <span class="tag-c">Sebagai contoh,</span> gabungan pelbagai kaum melalui rundingan antara pemimpin UMNO, MCA dan MIC berjaya menuntut kemerdekaan Tanah Melayu pada 31 Ogos 1957 tanpa pertumpahan darah.
+      <span class="tag-i">Jelaslah,</span> semangat perpaduan dan nasionalisme yang diperjuangkan oleh generasi terdahulu perlu dikekalkan oleh generasi masa kini bagi memastikan kedaulatan dan keharmonian negara terus terpelihara.
+    </p>
+    <div class="markah-confirm">
+      <div class="markah-chip-green">✅ Markah Dijangka: 4/4</div>
+      <span class="markah-note">Satu hamburger lengkap = markah penuh!</span>
+    </div>
+  </div>
+
+  <!-- NAK 8 MARKAH -->
+  <h2>🍔🍔 Nak Dapat 8 Markah?</h2>
+  <p>Mudah sahaja — bina <strong>dua hamburger</strong> dengan dua isi yang berbeza! Contohnya, hamburger kedua boleh fokus pada aspek lain seperti <em>"Menghormati Perlembagaan dan Undang-undang"</em> atau <em>"Pemupukan Semangat Patriotisme dalam Kalangan Generasi Muda"</em>. Struktur FHCI tetap sama, cuma isi berubah.</p>
+  <p>Ingat: <strong>setiap hamburger mesti ada kesemua empat lapisan</strong> — F, H, C, dan I. Tertinggal satu lapisan pun, markah akan terpotong!</p>
+
+  <!-- TIPS -->
+  <hr class="divider">
+  <h2>💡 Tips Tambahan Supaya Pemeriksa Terpukau</h2>
+
+  <div class="tips-grid">
+    <div class="tip">
+      <div class="tip-icon">🧠</div>
+      <div class="tip-text">
+        <strong>Gunakan Bahasa yang Matang</strong>
+        Elakkan ayat kebudak-budakan. Bukan <em>"Kita jangan gaduh nanti perang"</em> — sebaliknya tulis <em>"Kita mestilah mengelakkan konflik bagi menjamin kestabilan geopolitik."</em>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">🥬</div>
+      <div class="tip-text">
+        <strong>Jangan Skip Contoh!</strong>
+        Contoh adalah "keju" yang mencairkan hati pemeriksa. Bagi contoh realistik seperti isu semasa — pemeriksa akan nampak anda seorang pelajar yang cakna dengan dunia!
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">📝</div>
+      <div class="tip-text">
+        <strong>Satu Perenggan, Satu Hamburger</strong>
+        Jangan campur semua idea dalam satu perenggan yang panjang. Kemas dan teratur — pemeriksa pun lebih senang membaca!
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">⚠️</div>
+      <div class="tip-text">
+        <strong>Soalan Negatif? Balikkan PES!</strong>
+        Kalau soalan tanya kesan buruk sesuatu perkara, balikkan sahaja: <strong>Politik</strong> → huru-hara, <strong>Ekonomi</strong> → merosot, <strong>Sosial</strong> → berpecah. Senang je!
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3>🎬 Nak Belajar Lagi dengan EasySejarah?</h3>
+    <p>Tonton video penjelasan lengkap Formula Hamburger FHCI dan tips-tips lain di saluran YouTube kami. Percuma untuk semua pelajar Malaysia!</p>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+      Tonton di YouTube EasySejarah
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 EasySejarah · Semua hak terpelihara ·
+  <a href="privacy-policy.html">Dasar Privasi</a>
+</footer>
+
+</body>
+</html>
