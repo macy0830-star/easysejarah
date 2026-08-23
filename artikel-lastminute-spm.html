@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Dah Esok Tapi Belum Study? Ini Plan Perang Awak! | EasySejarah</title>
+<meta name="description" content="Tips ulang kaji last minute SPM yang berkesan. 5 bahagian strategi lengkap: Pelan Panic, Teknik Feynman, Memory Dump dan lebih lagi.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4490928206593094" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --merah: #e8447a;
+    --kuning: #F7B731;
+    --hijau: #2db87a;
+    --ungu: #7c5cbf;
+    --biru: #3a86ff;
+    --oren: #f97316;
+    --bg: #ffffff;
+    --bg2: #f8f9fc;
+    --teks: #1a1a2e;
+    --teks-redup: #5a5a7a;
+    --border: #e2e4ee;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans', sans-serif; background: var(--bg); color: var(--teks); line-height: 1.8; }
+
+  /* HEADER */
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 28px; border-bottom: 2px solid var(--border);
+    position: sticky; top: 0; background: #fff; z-index: 99;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .logo { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--teks); }
+  .logo span { color: var(--kuning); }
+  .nav-back { color: var(--teks-redup); font-size: 0.82rem; text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--merah); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 60%, #1a1a2e 100%);
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img {
+    width: 100%; max-height: 380px;
+    object-fit: cover; object-position: center;
+    display: block; opacity: 0.85;
+  }
+  .hero-img-wrap {
+    position: relative;
+  }
+  .hero-img-wrap::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to top, #1a1a2e, transparent);
+  }
+  .hero::before {
+    content: '⚔️';
+    position: absolute;
+    font-size: 18rem;
+    opacity: 0.04;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--oren);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; font-size: 0.72rem;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 16px; border-radius: 20px; margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(249,115,22,0); }
+  }
+  .hero-title {
+    font-family: 'Poppins', sans-serif; font-weight: 900;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: #fff; line-height: 1.15; margin-bottom: 16px;
+  }
+  .hero-title span { color: var(--kuning); }
+  .hero-desc { color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1.7; margin-bottom: 28px; }
+  .hero-steps {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+  }
+  .hero-step {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px; padding: 6px 16px;
+    font-size: 0.8rem; color: rgba(255,255,255,0.8);
+    font-family: 'Poppins', sans-serif; font-weight: 600;
+  }
+
+  /* ARTIKEL */
+  .artikel { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* INTRO BOX */
+  .intro-box {
+    background: #fff8e1; border-left: 4px solid var(--kuning);
+    border-radius: 0 12px 12px 0; padding: 20px 24px;
+    margin-bottom: 40px; font-size: 1rem;
+  }
+
+  /* BAHAGIAN HEADINGS */
+  .bahagian {
+    display: flex; align-items: center; gap: 14px;
+    margin: 48px 0 20px;
+  }
+  .bahagian-num {
+    font-family: 'Poppins', sans-serif; font-weight: 900;
+    font-size: 2rem; color: var(--border); line-height: 1;
+    flex-shrink: 0;
+  }
+  .bahagian-text {}
+  .bahagian-eyebrow {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 2px;
+  }
+  .bahagian-title {
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    font-size: 1.25rem; color: var(--teks);
+  }
+
+  h3 {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 1rem; color: var(--teks);
+    margin: 24px 0 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  p { margin-bottom: 14px; font-size: 0.97rem; color: var(--teks); }
+
+  /* PELAN PANIC */
+  .panic-steps { display: grid; gap: 12px; margin: 20px 0 28px; }
+  .panic-step {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 18px;
+  }
+  .panic-num {
+    font-family: 'Poppins', sans-serif; font-weight: 900;
+    font-size: 1.1rem; color: var(--merah); flex-shrink: 0;
+    min-width: 28px;
+  }
+  .panic-content { font-size: 0.93rem; }
+  .panic-content strong { font-family: 'Poppins', sans-serif; display: block; margin-bottom: 4px; }
+
+  /* WARNA BOXES */
+  .warna-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 16px 0 24px; }
+  @media(max-width:480px){ .warna-grid { grid-template-columns: 1fr; } }
+  .warna-box {
+    border-radius: 12px; padding: 14px 16px; text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  .warna-box.merah { background: #fff0f0; border: 2px solid #e5484d; }
+  .warna-box.kuning { background: #fff8e1; border: 2px solid #F7B731; }
+  .warna-box.hijau { background: #f0fff8; border: 2px solid #2db87a; }
+  .warna-dot { font-size: 1.8rem; margin-bottom: 6px; }
+  .warna-label { font-weight: 700; font-size: 0.82rem; color: var(--teks); margin-bottom: 4px; }
+  .warna-desc { font-size: 0.76rem; color: var(--teks-redup); }
+
+  /* ALERT BOX */
+  .alert-box {
+    border-radius: 12px; padding: 16px 20px;
+    margin: 20px 0; display: flex; gap: 12px; align-items: flex-start;
+  }
+  .alert-box.oren { background: #fff7ed; border: 1.5px solid #fed7aa; }
+  .alert-box.ungu { background: #f5f0ff; border: 1.5px solid #d8b4fe; }
+  .alert-box.hijau { background: #f0fff8; border: 1.5px solid #a8eac8; }
+  .alert-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .alert-content { font-size: 0.93rem; }
+  .alert-content strong { font-family: 'Poppins', sans-serif; display: block; margin-bottom: 4px; font-size: 0.9rem; }
+
+  /* 90-10 TABLE */
+  .table-90 {
+    width: 100%; border-collapse: collapse;
+    margin: 16px 0 24px; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .table-90 th {
+    background: var(--teks); color: #fff;
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.85rem; padding: 12px 18px; text-align: left;
+  }
+  .table-90 td { padding: 12px 18px; font-size: 0.9rem; border-top: 1px solid var(--border); }
+  .table-90 tr:nth-child(even) td { background: var(--bg2); }
+  .table-90 .pct {
+    font-family: 'Poppins', sans-serif; font-weight: 900;
+    font-size: 1.2rem;
+  }
+  .table-90 .pct.besar { color: var(--merah); }
+  .table-90 .pct.kecil { color: var(--teks-redup); }
+
+  /* FEYNMAN STEPS */
+  .feynman-wrap { margin: 16px 0 24px; }
+  .feynman-step {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+  }
+  .feynman-step:last-child { border-bottom: none; }
+  .feynman-icon { font-size: 1.3rem; flex-shrink: 0; width: 32px; text-align: center; margin-top: 2px; }
+  .feynman-text { font-size: 0.93rem; }
+  .feynman-text strong { font-family: 'Poppins', sans-serif; display: block; margin-bottom: 2px; }
+
+  /* WORKFLOW */
+  .workflow {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px 22px; margin: 16px 0 24px;
+  }
+  .workflow-title {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.82rem; color: var(--teks-redup);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .wf-step {
+    display: flex; gap: 12px; align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .wf-step:last-child { margin-bottom: 0; }
+  .wf-num {
+    background: var(--ungu); color: #fff;
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.72rem; min-width: 22px; height: 22px;
+    border-radius: 6px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0; margin-top: 2px;
+  }
+  .wf-text { font-size: 0.9rem; }
+
+  /* VIDEO TIPS */
+  .video-tips { display: grid; gap: 10px; margin: 16px 0 24px; }
+  .vt-row {
+    display: flex; gap: 12px; align-items: center;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 16px;
+  }
+  .vt-badge {
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    font-size: 0.72rem; min-width: 28px; height: 28px;
+    border-radius: 8px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+    background: var(--biru); color: #fff;
+  }
+  .vt-text { font-size: 0.9rem; }
+
+  /* MALAM HARI */
+  .malam-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 28px; }
+  @media(max-width:540px){ .malam-grid { grid-template-columns: 1fr; } }
+  .malam-card {
+    border-radius: 14px; padding: 20px;
+    border: 1.5px solid;
+  }
+  .malam-card.malam { background: #1a1a2e; border-color: rgba(124,92,191,0.4); }
+  .malam-card.pagi { background: #fff8e1; border-color: #ffe080; }
+  .malam-card-title {
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    font-size: 0.95rem; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .malam-card.malam .malam-card-title { color: #fff; }
+  .malam-card.pagi .malam-card-title { color: var(--teks); }
+  .malam-list { list-style: none; }
+  .malam-list li {
+    font-size: 0.88rem; padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex; gap: 8px;
+  }
+  .malam-card.pagi .malam-list li { border-color: rgba(0,0,0,0.06); color: var(--teks); }
+  .malam-card.malam .malam-list li { color: rgba(255,255,255,0.8); }
+  .malam-list li:last-child { border-bottom: none; }
+
+  /* MEMORY DUMP */
+  .memory-box {
+    background: linear-gradient(135deg, #fff5f8, #f5f0ff);
+    border: 1.5px solid #ffd6e7; border-radius: 16px;
+    padding: 24px 26px; margin: 20px 0 28px;
+  }
+  .memory-title {
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    font-size: 1rem; color: var(--merah); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .memory-steps { display: grid; gap: 10px; margin-bottom: 18px; }
+  .memory-step {
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .memory-badge {
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    font-size: 0.75rem; min-width: 26px; height: 26px;
+    border-radius: 8px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+    background: var(--merah); color: #fff;
+  }
+  .memory-step-text { font-size: 0.9rem; padding-top: 3px; }
+  .kelebihan-title {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--teks-redup);
+    margin-bottom: 10px;
+  }
+  .kelebihan-list { display: grid; gap: 8px; }
+  .kelebihan-item {
+    display: flex; gap: 8px; font-size: 0.88rem; align-items: flex-start;
+  }
+  .kelebihan-item span:first-child { flex-shrink: 0; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 2px dashed var(--border); margin: 40px 0; }
+
+  /* VIDEO LINK */
+  .video-link {
+    background: #fff3cd; border: 1.5px solid #ffe080;
+    border-radius: 14px; padding: 18px 22px;
+    margin: 32px 0; display: flex; align-items: center; gap: 16px;
+  }
+  .video-link-icon { font-size: 2rem; flex-shrink: 0; }
+  .video-link-text {}
+  .video-link-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; }
+  .video-link-btn {
+    color: var(--merah); font-family: 'Poppins', sans-serif;
+    font-weight: 700; font-size: 0.85rem; text-decoration: none;
+  }
+  .video-link-btn:hover { text-decoration: underline; }
+
+  /* CTA */
+  .cta-box {
+    background: linear-gradient(135deg, #1a1a2e, #2d1b4e);
+    border-radius: 20px; padding: 36px 28px;
+    text-align: center; margin-top: 48px;
+  }
+  .cta-box h3 {
+    color: var(--kuning); font-size: 1.2rem; margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    justify-content: center;
+  }
+  .cta-box p { color: rgba(255,255,255,0.65); margin-bottom: 22px; }
+  .btn-yt {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #FF0000; color: #fff;
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    padding: 12px 28px; border-radius: 50px;
+    text-decoration: none; font-size: 0.95rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-yt:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,0,0,0.3); }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 24px 20px;
+    font-size: 0.75rem; color: var(--teks-redup);
+    border-top: 1px solid var(--border); background: var(--bg2);
+  }
+  footer a { color: var(--teks-redup); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="nav-back">← Laman Utama</a>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <div style="width:80px"></div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-img-wrap">
+    <img class="hero-img" src="lastminstudytips.png" alt="SPM Last Minute Study Tips EasySejarah">
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge">🚨 Kecemasan SPM</div>
+    <h1 class="hero-title">Exam Dah Esok<br>Tapi Belum Study?<br><span>Ini Plan Perang Awak!</span></h1>
+    <p class="hero-desc">Masih ada harapan. Yang awak perlukan sekarang bukan sekadar semangat — tapi <strong style="color:#fff;">strategi</strong>. Dalam beberapa minit ni, kita ubah rasa huru-hara tu jadi satu pelan yang tersusun.</p>
+    <div class="hero-steps">
+      <span class="hero-step">⚔️ Merancang</span>
+      <span class="hero-step">🧠 Belajar Bijak</span>
+      <span class="hero-step">📋 Jurutera Balik</span>
+      <span class="hero-step">⚡ Percepatkan</span>
+      <span class="hero-step">🌙 Malam &amp; Hari H</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTIKEL -->
+<div class="artikel">
+
+  <div class="intro-box">
+    Okay, kita tahu. Awak dah silap langkah. Peperiksaan dah nak dekat dan baru sekarang nak panik. Tapi tunggu dulu — <strong>masih ada harapan. Serius.</strong> Apa yang awak perlukan sekarang bukan panik, tapi strategi. Jom kita mulakan.
+  </div>
+
+  <!-- BAHAGIAN 1 -->
+  <div class="bahagian">
+    <div class="bahagian-num">01</div>
+    <div class="bahagian-text">
+      <div class="bahagian-eyebrow" style="color:var(--merah);">Langkah Pertama</div>
+      <div class="bahagian-title">Merancang — Jangan Belajar Semua Benda</div>
+    </div>
+  </div>
+
+  <p>Peraturan nombor satu dalam mode kawalan kerosakan ini: <strong>henti berpura-pura awak boleh habiskan semua topik</strong>. Takkan sempat. Sebaliknya, kena jadi strategik — fokus pada yang betul-betul penting sahaja.</p>
+
+  <h3>🟥🟡🟩 Pelan Panic — Untuk Kecemasan Tertinggi</h3>
+  <p>Kalau masa betul-betul suntuk, ini cara paling laju:</p>
+
+  <div class="panic-steps">
+    <div class="panic-step">
+      <div class="panic-num">1</div>
+      <div class="panic-content">
+        <strong>Senaraikan semua topik</strong>
+        Tulis semua bab atau topik yang ada dalam syllabus.
+      </div>
+    </div>
+    <div class="panic-step">
+      <div class="panic-num">2</div>
+      <div class="panic-content">
+        <strong>Warnakan ikut tahap kefahaman</strong>
+        Jujur dengan diri sendiri — jangan tipu!
+      </div>
+    </div>
+    <div class="panic-step">
+      <div class="panic-num">3</div>
+      <div class="panic-content">
+        <strong>Terus serang zone merah je</strong>
+        Abaikan kuning dan hijau buat masa ni.
+      </div>
+    </div>
+  </div>
+
+  <div class="warna-grid">
+    <div class="warna-box merah">
+      <div class="warna-dot">🔴</div>
+      <div class="warna-label">Merah</div>
+      <div class="warna-desc">Langsung tak tahu — serang dulu!</div>
+    </div>
+    <div class="warna-box kuning">
+      <div class="warna-dot">🟡</div>
+      <div class="warna-label">Kuning</div>
+      <div class="warna-desc">Samar-samar — abaikan dulu</div>
+    </div>
+    <div class="warna-box hijau">
+      <div class="warna-dot">🟢</div>
+      <div class="warna-label">Hijau</div>
+      <div class="warna-desc">Dah mahir — abaikan terus</div>
+    </div>
+  </div>
+
+  <div class="alert-box oren">
+    <div class="alert-icon">🎯</div>
+    <div class="alert-content">
+      <strong>Ingat selalu!</strong>
+      Matlamat kita bukan nak jadi sempurna. Matlamat kita nak <strong>selamatkan sebanyak mana markah yang boleh</strong>.
+    </div>
+  </div>
+
+  <h3>📊 Matrix Ulang Kaji Pantas — Kalau Ada Lebih Masa</h3>
+  <p>Kalau ada beberapa hari lagi, ikut turutan ini untuk impact maksimum:</p>
+  <div class="panic-steps">
+    <div class="panic-step">
+      <div class="panic-num" style="color:var(--merah);">1st</div>
+      <div class="panic-content"><strong>Lemah + Keutamaan Tinggi</strong>Serang dulu — ini yang paling kritikal.</div>
+    </div>
+    <div class="panic-step">
+      <div class="panic-num" style="color:var(--kuning);">2nd</div>
+      <div class="panic-content"><strong>Lemah + Keutamaan Rendah</strong>Baru lepas tu.</div>
+    </div>
+    <div class="panic-step">
+      <div class="panic-num" style="color:var(--hijau);">3rd</div>
+      <div class="panic-content"><strong>Topik yang Dah Kuat</strong>Sentuh last sekali — jangan buang masa dekat sini dulu.</div>
+    </div>
+  </div>
+
+  <!-- BAHAGIAN 2 -->
+  <div class="bahagian">
+    <div class="bahagian-num">02</div>
+    <div class="bahagian-text">
+      <div class="bahagian-eyebrow" style="color:var(--ungu);">Cara Belajar</div>
+      <div class="bahagian-title">Belajar Bijak, Bukan Belajar Keras</div>
+    </div>
+  </div>
+
+  <p>Lupakan terus tabiat baca nota ulang-ulang kali. Itu bukan belajar — itu cuma "bersiaran dalam buku". Tak masuk kepala pun.</p>
+
+  <h3>📐 Peraturan 90-10</h3>
+  <table class="table-90">
+    <thead>
+      <tr><th>Masa</th><th>Aktiviti</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="pct besar">90%</span></td>
+        <td>Buat <strong>soalan latih tubi</strong> — soalan, soalan, soalan!</td>
+      </tr>
+      <tr>
+        <td><span class="pct kecil">10%</span></td>
+        <td>Baca nota</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Kenapa? Bila kita paksa otak selesaikan masalah, itu jauh lebih berkesan daripada baca pasif. Ini perbezaannya:</p>
+
+  <div class="alert-box ungu">
+    <div class="alert-icon">🧠</div>
+    <div class="alert-content">
+      <strong>Belajar Pasif vs Imbas Kembali Aktif</strong>
+      <strong>Pasif:</strong> Baca nota → rasa macam "oh, yang ni aku tahu" → tapi sebenarnya cuma kenal maklumat tu sahaja.<br><br>
+      <strong>Aktif:</strong> Paksa otak keluarkan balik maklumat dari memori → ini yang terbukti secara saintifik paling power!
+    </div>
+  </div>
+
+  <h3>🔬 Teknik Feynman — Cara Paling Power</h3>
+  <div class="feynman-wrap">
+    <div class="feynman-step">
+      <div class="feynman-icon">1️⃣</div>
+      <div class="feynman-text"><strong>Ambil satu konsep</strong>Pilih satu topik yang awak nak kuasai.</div>
+    </div>
+    <div class="feynman-step">
+      <div class="feynman-icon">🗣️</div>
+      <div class="feynman-text"><strong>Terangkan kuat-kuat guna bahasa paling mudah</strong>Bayangkan awak tengah ajar budak umur 5 tahun.</div>
+    </div>
+    <div class="feynman-step">
+      <div class="feynman-icon">🔍</div>
+      <div class="feynman-text"><strong>Bila mula tersekat-sekat?</strong><strong style="color:var(--merah);">Bingo!</strong> Itulah jurang dalam pengetahuan awak. Fokus kat situ.</div>
+    </div>
+    <div class="feynman-step">
+      <div class="feynman-icon">📖</div>
+      <div class="feynman-text"><strong>Balik ke nota, isi jurang tu</strong>Lepas faham, ulang semula dari langkah pertama.</div>
+    </div>
+  </div>
+
+  <!-- BAHAGIAN 3 -->
+  <div class="bahagian">
+    <div class="bahagian-num">03</div>
+    <div class="bahagian-text">
+      <div class="bahagian-eyebrow" style="color:var(--hijau);">Teknik Rahsia</div>
+      <div class="bahagian-title">Jurutera Balik Peperiksaan</div>
+    </div>
+  </div>
+
+  <p>Teknik ni rasa macam menipu sikit — tapi ia <strong>100% sah dan sangat efisien</strong>. Namanya: belajar terus daripada skema pemarkahan.</p>
+
+  <div class="alert-box hijau">
+    <div class="alert-icon">💡</div>
+    <div class="alert-content">
+      <strong>Kenapa cara ni hebat?</strong>
+      Skema pemarkahan hanya ada <strong>isi-isi penting yang bagi markah</strong> — tiada benda lebihan macam dalam buku teks. Awak belajar terus dari titik akhir!
+    </div>
+  </div>
+
+  <div class="workflow">
+    <div class="workflow-title">⚙️ Aliran Kerja</div>
+    <div class="wf-step">
+      <div class="wf-num">1</div>
+      <div class="wf-text">Dapatkan <strong>skema pemarkahan tahun-tahun lepas</strong></div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-num">2</div>
+      <div class="wf-text">Kaji jawapan contoh — <strong>cuba faham jawapan tu dulu</strong></div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-num">3</div>
+      <div class="wf-text">Kalau dah faham? <strong>Selesai — tak payah baca satu bab penuh</strong></div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-num">4</div>
+      <div class="wf-text">Buka buku teks <strong>hanya</strong> bila ada bahagian dalam jawapan yang tak faham</div>
+    </div>
+  </div>
+
+  <!-- BAHAGIAN 4 -->
+  <div class="bahagian">
+    <div class="bahagian-num">04</div>
+    <div class="bahagian-text">
+      <div class="bahagian-eyebrow" style="color:var(--biru);">Laju Lagi</div>
+      <div class="bahagian-title">Percepatkan Pembelajaran</div>
+    </div>
+  </div>
+
+  <p>Kita akan guna pelbagai deria dan teknik memampatkan maklumat supaya lagi cepat masuk.</p>
+
+  <h3>🎬 Tonton Video Pembelajaran Secara Aktif</h3>
+  <p>Kalau guna video untuk belajar, jangan tengok macam tengok filem. Ikut cara ini:</p>
+
+  <div class="video-tips">
+    <div class="vt-row">
+      <div class="vt-badge">1</div>
+      <div class="vt-text">Lajukan video ke <strong>1.5x</strong> kelajuan</div>
+    </div>
+    <div class="vt-row">
+      <div class="vt-badge">2</div>
+      <div class="vt-text">Pasang <strong>sari kata</strong> — dengar dan baca serentak</div>
+    </div>
+    <div class="vt-row">
+      <div class="vt-badge">3</div>
+      <div class="vt-text">Tulis <strong>kata kunci</strong> sambil tengok</div>
+    </div>
+    <div class="vt-row">
+      <div class="vt-badge">4</div>
+      <div class="vt-text">Setiap beberapa minit, <strong>berhentikan video</strong> dan cuba sebut balik apa yang baru dipelajari</div>
+    </div>
+  </div>
+
+  <h3>📖 Langkau ke Ringkasan</h3>
+  <p>Tak cukup masa nak baca satu bab penuh? Tak apa — <strong>terus pergi ke bahagian ringkasan atau summary</strong> di hujung bab. Di situlah semua isi paling penting dan padat diletakkan. Macam helaan tipu yang dah siap!</p>
+
+  <!-- BAHAGIAN 5 -->
+  <div class="bahagian">
+    <div class="bahagian-num">05</div>
+    <div class="bahagian-text">
+      <div class="bahagian-eyebrow" style="color:var(--kuning);">Kemuncak</div>
+      <div class="bahagian-title">Malam dan Hari Peperiksaan</div>
+    </div>
+  </div>
+
+  <div class="malam-grid">
+    <div class="malam-card malam">
+      <div class="malam-card-title">🌙 Malam Sebelum</div>
+      <ul class="malam-list">
+        <li><span>✅</span><span>Belek formula-formula penting dan istilah utama</span></li>
+        <li><span>✅</span><span>Ulang kaji perkara yang masih samar</span></li>
+        <li><span>😴</span><span><strong style="color:#ffd966;">Terus tidur!</strong> Otak simpan apa yang baru dipelajari ke memori jangka panjang semasa tidur</span></li>
+        <li><span>❌</span><span>Jangan berjaga sampai pagi — masuk dewan peperiksaan dengan kepala zombi lagi teruk!</span></li>
+      </ul>
+    </div>
+    <div class="malam-card pagi">
+      <div class="malam-card-title">☀️ Hari Peperiksaan</div>
+      <ul class="malam-list">
+        <li><span>✅</span><span>Sarapan — otak perlukan tenaga</span></li>
+        <li><span>✅</span><span>Bawa semua alat tulis</span></li>
+        <li><span>⏰</span><span>Tiba awal — jangan terkejar-kejar</span></li>
+        <li><span>🧘</span><span>Tarik nafas, awak dah buat yang terbaik</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>🧠 Memory Dump — Teknik Rahsia 5 Minit Pertama</h3>
+  <p>Bila loceng berbunyi dan kertas dah di tangan, <strong>jangan terus jawab soalan</strong>. Buat ini dulu:</p>
+
+  <div class="memory-box">
+    <div class="memory-title">⚡ Memory Dump</div>
+    <div class="memory-steps">
+      <div class="memory-step">
+        <div class="memory-badge">1</div>
+        <div class="memory-step-text">Terbalikkan kertas soalan ke <strong>muka surat kosong</strong></div>
+      </div>
+      <div class="memory-step">
+        <div class="memory-badge">2</div>
+        <div class="memory-step-text">Tulis semua benda yang dah hafal — <strong>formula, tarikh, definisi, apa saja</strong></div>
+      </div>
+      <div class="memory-step">
+        <div class="memory-badge">3</div>
+        <div class="memory-step-text"><strong>Tulis cepat-cepat</strong> — ambil masa 5 minit sahaja</div>
+      </div>
+    </div>
+    <div class="kelebihan-title">🏆 Kelebihan cara ini:</div>
+    <div class="kelebihan-list">
+      <div class="kelebihan-item"><span>✅</span><span>Keluarkan semua benda penting <strong>sebelum awak panik dan lupa</strong></span></div>
+      <div class="kelebihan-item"><span>✅</span><span>Cipta "helaan tipu" peribadi yang <strong>sah</strong> untuk digunakan sepanjang peperiksaan</span></div>
+      <div class="kelebihan-item"><span>✅</span><span>Tenangkan syaraf — mulakan peperiksaan dengan <strong>tugas yang aktif dan terkawal</strong></span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- VIDEO LINK -->
+  <div class="video-link">
+    <div class="video-link-icon">🎥</div>
+    <div class="video-link-text">
+      <div class="video-link-title">Nak tengok versi video penjelasan lengkap tips last minute SPM ini?</div>
+      <a href="https://youtu.be/ae053w64qm0" target="_blank" class="video-link-btn">▶ Tonton di YouTube EasySejarah →</a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3>💪 Pelan tindakan dah ada. Strategi semua dah siap.</h3>
+    <p>Soalannya sekarang — apa langkah pertama yang awak akan ambil? Jangan tunggu lagi. Mulakan sekarang juga. Selamat berjuang!</p>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+      Subscribe YouTube EasySejarah
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 EasySejarah · Semua hak terpelihara ·
+  <a href="privacy-policy.html">Dasar Privasi</a>
+</footer>
+
+</body>
+</html>
