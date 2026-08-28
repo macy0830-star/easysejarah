@@ -1042,7 +1042,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
     </div>
 
     <!-- ARTIKEL TERKINI -->
-    <div id="section-artikel-terkini" style="margin-top:12px;padding:28px 24px 8px;max-width:860px;">
+    <div id="section-artikel-terkini" style="margin-top:12px;padding:28px 24px 8px;max-width:860px;display:none;">
       <div class="sec-header">
         <div class="sec-title">📝 Artikel &amp; Tips Terkini</div>
         <span class="sec-badge b-new">Baharu!</span>
@@ -1946,11 +1946,19 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
       document.getElementById('btn-'+s)?.classList.toggle('active', s===id);
     });
+    // Tunjuk atau sembunyi artikel terkini — hanya bila di home
+    var artikelTerkini = document.getElementById('section-artikel-terkini');
+    if(artikelTerkini) artikelTerkini.style.display = (id === 'home') ? 'block' : 'none';
     window.scrollTo({top:0, behavior:'smooth'});
     try { history.replaceState(null,'','#'+id); } catch(e) {}
   }
   const h = location.hash.replace('#','');
   if(SECTIONS.includes(h)) show(h);
+  else {
+    // Default: tunjuk artikel terkini bila di home
+    var artikelTerkini = document.getElementById('section-artikel-terkini');
+    if(artikelTerkini) artikelTerkini.style.display = 'block';
+  }
 </script>
 
 <!-- WALKING CATS -->
