@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baca Buku dari Halaman 1? Kau Dah Buang Masa. Cuba Cara Ni. | EasySejarah</title>
+<meta name="description" content="Teknik Reverse Engineering peperiksaan — cara belajar dari jawapan, bukan dari bab pertama. Jimat masa, markah lebih tinggi. Tips SPM yang terbukti berkesan.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4490928206593094" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --merah: #e8447a; --kuning: #F7B731; --hijau: #2db87a;
+    --ungu: #7c5cbf; --biru: #3a86ff;
+    --bg: #ffffff; --bg2: #f8f9fc;
+    --teks: #1a1a2e; --teks-redup: #5a5a7a; --border: #e2e4ee;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans', sans-serif; background: var(--bg); color: var(--teks); line-height: 1.8; }
+
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 28px; border-bottom: 2px solid var(--border);
+    position: sticky; top: 0; background: #fff; z-index: 99;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .logo { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--teks); }
+  .logo span { color: var(--kuning); }
+  .nav-back { color: var(--teks-redup); font-size: 0.82rem; text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--merah); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 60%, #1a1a2e 100%);
+    padding: 52px 24px 44px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '📚'; position: absolute; right: -20px; top: 50%;
+    transform: translateY(-50%); font-size: 12rem; opacity: 0.04;
+  }
+  .hero-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-block; background: var(--merah); color: #fff;
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 16px; border-radius: 20px; margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'Poppins', sans-serif; font-weight: 900;
+    font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+    color: #fff; line-height: 1.2; margin-bottom: 14px;
+  }
+  .hero-title span { color: var(--kuning); }
+  .hero-desc { font-size: 0.97rem; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 600px; margin-bottom: 20px; }
+  .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero-chip {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px; padding: 5px 14px;
+    font-size: 0.78rem; color: rgba(255,255,255,0.85);
+    font-family: 'Poppins', sans-serif; font-weight: 600;
+  }
+
+  /* ARTIKEL */
+  .artikel { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  .intro-box {
+    background: #fff8e1; border-left: 4px solid var(--kuning);
+    border-radius: 0 12px 12px 0; padding: 20px 24px;
+    margin-bottom: 36px; font-size: 1rem;
+  }
+
+  h2 {
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    font-size: 1.3rem; color: var(--teks);
+    margin: 44px 0 14px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  h3 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; color: var(--teks); margin: 22px 0 10px; }
+  p { margin-bottom: 14px; font-size: 0.97rem; }
+
+  /* MASALAH BOX */
+  .cara-biasa {
+    background: #fff0f0; border: 1.5px solid #fca5a5;
+    border-radius: 14px; padding: 20px 24px; margin: 16px 0 24px;
+  }
+  .cara-biasa-label {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.72rem; letter-spacing: 1.2px; text-transform: uppercase;
+    color: #b91c1c; margin-bottom: 10px;
+  }
+  .cara-biasa-flow {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    font-size: 0.88rem;
+  }
+  .flow-step {
+    background: #fff; border: 1px solid #fca5a5;
+    border-radius: 8px; padding: 6px 12px; color: var(--teks);
+    font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.82rem;
+  }
+  .flow-arrow { color: #b91c1c; font-weight: 700; }
+  .flow-step.bad { background: #fee2e2; }
+
+  /* LANGKAH STEPS */
+  .langkah-grid { display: grid; gap: 12px; margin: 16px 0 28px; }
+  .langkah {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 18px;
+    border-left: 4px solid var(--biru);
+  }
+  .langkah-num {
+    font-family: 'Poppins', sans-serif; font-weight: 900;
+    font-size: 1rem; background: var(--biru); color: #fff;
+    min-width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .langkah-content { font-size: 0.93rem; }
+  .langkah-content strong { font-family: 'Poppins', sans-serif; display: block; margin-bottom: 4px; font-size: 0.97rem; }
+
+  /* DEMO SEBENAR */
+  .demo-box {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; margin: 16px 0 28px;
+  }
+  .demo-header {
+    background: #1a1a2e; padding: 14px 20px;
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.88rem; color: var(--kuning);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .demo-soalan {
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+    background: #fff;
+  }
+  .demo-soalan-label { font-size: 0.75rem; color: var(--teks-redup); margin-bottom: 6px; font-family: 'Poppins', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .demo-soalan-teks { font-size: 0.95rem; font-style: italic; color: var(--teks); }
+  .demo-steps { padding: 16px 20px; display: grid; gap: 12px; }
+  .demo-step { display: flex; gap: 12px; align-items: flex-start; }
+  .demo-step-badge {
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    font-size: 0.72rem; background: var(--biru); color: #fff;
+    min-width: 28px; height: 28px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .demo-step-text { font-size: 0.9rem; }
+  .demo-step-text strong { font-family: 'Poppins', sans-serif; display: block; margin-bottom: 4px; }
+  .isi-list { list-style: none; margin-top: 8px; }
+  .isi-list li { font-size: 0.88rem; padding: 5px 0; display: flex; gap: 8px; border-bottom: 1px solid var(--border); color: var(--teks); }
+  .isi-list li:last-child { border-bottom: none; }
+  .isi-list li::before { content: '✓'; color: var(--hijau); font-weight: 700; flex-shrink: 0; }
+  .masa-box {
+    background: #f0fff8; border: 1.5px solid #a8eac8;
+    border-radius: 8px; padding: 10px 14px; margin-top: 10px;
+    font-size: 0.88rem; display: flex; gap: 8px; align-items: center;
+  }
+
+  /* BANDING TABLE */
+  .banding-table {
+    width: 100%; border-collapse: collapse;
+    margin: 14px 0 24px; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--border); font-size: 0.88rem;
+  }
+  .banding-table th {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.82rem; padding: 10px 14px; text-align: left;
+  }
+  .banding-table th:first-child { background: var(--teks); color: #fff; }
+  .banding-table th.biasa { background: #fee2e2; color: #b91c1c; }
+  .banding-table th.re { background: #dcfce7; color: #15803d; }
+  .banding-table td { padding: 10px 14px; border-top: 1px solid var(--border); }
+  .banding-table tr:nth-child(even) td { background: var(--bg2); }
+  .banding-table td.bad { color: #b91c1c; font-weight: 600; }
+  .banding-table td.good { color: #15803d; font-weight: 600; }
+
+  /* SUBJEK GRID */
+  .subjek-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 24px; }
+  @media(max-width:500px){ .subjek-grid { grid-template-columns: 1fr; } }
+  .subjek-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 16px;
+    display: flex; gap: 12px; align-items: flex-start;
+    border-left: 4px solid;
+  }
+  .subjek-card.sesuai { border-left-color: var(--hijau); }
+  .subjek-card.kurang { border-left-color: #fca5a5; }
+  .subjek-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .subjek-content { font-size: 0.88rem; }
+  .subjek-content strong { font-family: 'Poppins', sans-serif; display: block; margin-bottom: 3px; font-size: 0.9rem; }
+  .subjek-content span { color: var(--teks-redup); }
+
+  /* ALERT */
+  .alert { border-radius: 12px; padding: 16px 20px; margin: 14px 0 20px; display: flex; gap: 12px; align-items: flex-start; }
+  .alert.kuning { background: #fff8e1; border: 1.5px solid #ffe080; }
+  .alert.hijau { background: #f0fff8; border: 1.5px solid #a8eac8; }
+  .alert.biru { background: #eff6ff; border: 1.5px solid #bfdbfe; }
+  .alert-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .alert-text { font-size: 0.92rem; }
+  .alert-text strong { font-family: 'Poppins', sans-serif; display: block; margin-bottom: 3px; }
+
+  /* TIPS */
+  .tips-grid { display: grid; gap: 12px; margin: 16px 0 32px; }
+  .tip { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start; }
+  .tip-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .tip-text { font-size: 0.92rem; }
+  .tip-text strong { font-family: 'Poppins', sans-serif; display: block; margin-bottom: 4px; color: var(--merah); }
+
+  .divider { border: none; border-top: 2px dashed var(--border); margin: 40px 0; }
+
+  /* SAINS BOX */
+  .sains-box {
+    background: linear-gradient(135deg, #f5f0ff, #eff6ff);
+    border: 1.5px solid #c5b8f5; border-radius: 14px;
+    padding: 20px 24px; margin: 20px 0 28px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .sains-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .sains-text { font-size: 0.92rem; }
+  .sains-text strong { font-family: 'Poppins', sans-serif; display: block; margin-bottom: 6px; font-size: 0.97rem; color: var(--ungu); }
+
+  .cta-box { background: linear-gradient(135deg, #1a1a2e, #2d1b4e); border-radius: 20px; padding: 36px 28px; text-align: center; margin-top: 48px; }
+  .cta-box h3 { color: var(--kuning); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Poppins', sans-serif; font-weight: 800; justify-content: center; }
+  .cta-box p { color: rgba(255,255,255,0.65); margin-bottom: 22px; }
+  .btn-yt { display: inline-flex; align-items: center; gap: 8px; background: #FF0000; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-size: 0.95rem; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-yt:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,0,0,0.3); }
+  footer { text-align: center; padding: 24px 20px; font-size: 0.75rem; color: var(--teks-redup); border-top: 1px solid var(--border); background: var(--bg2); }
+  footer a { color: var(--teks-redup); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="nav-back">← Laman Utama</a>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <div style="width:80px"></div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Tips Belajar SPM</div>
+    <h1 class="hero-title">Baca Buku dari Halaman 1?<br><span>Kau Dah Buang Masa.</span><br>Cuba Cara Ni.</h1>
+    <p class="hero-desc">Teknik Reverse Engineering peperiksaan — cara belajar dari jawapan, bukan dari bab pertama. Jimat masa, markah lebih tinggi.</p>
+    <div class="hero-chips">
+      <span class="hero-chip">⏱️ Jimat Masa</span>
+      <span class="hero-chip">🎯 Fokus Isi Penting</span>
+      <span class="hero-chip">📋 Guna Skema Pemarkahan</span>
+      <span class="hero-chip">✅ Terbukti Berkesan</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTIKEL -->
+<div class="artikel">
+
+  <div class="intro-box">
+    Berapa kali kau dah buka buku teks, baca dari muka surat pertama, lepas tu tutup balik sebab rasa overwhelmed? Ramai buat macam tu. Dan ramai yang tak sedar — cara tu adalah cara paling <strong>tidak efisyen</strong> untuk belajar sebelum exam. Hari ni kami nak ajar satu teknik yang rasa macam cheat code. Tapi ia 100% sah.
+  </div>
+
+  <!-- APA TU RE -->
+  <h2>🤔 Apa tu Reverse Engineering?</h2>
+  <p>Dalam dunia tech, <em>reverse engineering</em> bermaksud — kau ambil produk siap, bedah dia, faham macam mana dia berfungsi. Dari akhir ke awal.</p>
+  <p>Dalam konteks exam? Sama je konsepnya.</p>
+
+  <div class="alert hijau">
+    <div class="alert-icon">💡</div>
+    <div class="alert-text">
+      <strong>Prinsip asas Reverse Engineering:</strong>
+      Kau mulakan dari jawapan. Bukan dari bab pertama.
+    </div>
+  </div>
+
+  <!-- MASALAH CARA BIASA -->
+  <h2>❌ Masalah dengan Cara Belajar Biasa</h2>
+  <p>Kebanyakan pelajar buat macam ni:</p>
+
+  <div class="cara-biasa">
+    <div class="cara-biasa-label">❌ Cara Biasa — Tidak Efisyen</div>
+    <div class="cara-biasa-flow">
+      <span class="flow-step">Buka Buku Teks</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">Baca Bab 1</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">Baca Bab 2</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">Baca Bab 3...</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step bad">😱 Exam Esok → Panic!</span>
+    </div>
+  </div>
+
+  <p>Masalahnya? Buku teks penuh dengan maklumat yang <strong>tak keluar dalam exam</strong>. Penjelasan panjang. Contoh yang tak perlu. Nota kaki yang tak ada dalam skema pemarkahan.</p>
+  <p>Kau habiskan masa baca benda yang pemeriksa tak pernah tanya pun.</p>
+
+  <!-- CARA RE -->
+  <h2>✅ Cara Reverse Engineering — 4 Langkah je</h2>
+  <p>Cara ni senang je. Tapi keberkesanannya? <em>Game changer</em> serius.</p>
+
+  <div class="langkah-grid">
+    <div class="langkah">
+      <div class="langkah-num">1</div>
+      <div class="langkah-content">
+        <strong>Dapatkan Skema Pemarkahan</strong>
+        Bukan soalan exam. <em>Skema pemarkahan</em> — marking scheme. Skema tu ada apa? Tepat-tepat isi yang pemeriksa nak. Tak lebih, tak kurang. Cari soalan dan skema trial negeri-negeri lepas.
+      </div>
+    </div>
+    <div class="langkah">
+      <div class="langkah-num">2</div>
+      <div class="langkah-content">
+        <strong>Baca Jawapan Dulu — Bukan Soalan</strong>
+        Buka terus bahagian jawapan. Baca setiap isi yang ada dalam skema. Cuba faham: <em>"kenapa isi ni yang dapat markah?"</em>
+      </div>
+    </div>
+    <div class="langkah">
+      <div class="langkah-num">3</div>
+      <div class="langkah-content">
+        <strong>Kalau Faham — Selesai</strong>
+        Kalau kau dah faham kenapa jawapan tu betul, kau dah belajar topik tu. Tak perlu baca satu bab penuh.
+      </div>
+    </div>
+    <div class="langkah">
+      <div class="langkah-num">4</div>
+      <div class="langkah-content">
+        <strong>Buku Teks Hanya untuk "Tampal Jurang"</strong>
+        Kalau ada isi dalam skema yang kau tak faham, <em>baru</em> buka buku teks. Cari bahagian spesifik tu sahaja. Baca, faham, tutup.
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMO SEBENAR -->
+  <h2>🛠️ Demo Sebenar — Soalan Sejarah SPM</h2>
+  <p>Jom tengok macam mana teknik ni berfungsi dalam situasi sebenar.</p>
+
+  <div class="demo-box">
+    <div class="demo-header">🎯 Contoh Sebenar — Kelantan Trial 2022</div>
+    <div class="demo-soalan">
+      <div class="demo-soalan-label">Soalan KBAT · T4 Bab 5 · 8 Markah</div>
+      <div class="demo-soalan-teks">"Huraikan kepentingan PTM 1948 dalam usaha membina negara dan bangsa Malaysia."</div>
+    </div>
+    <div class="demo-steps">
+      <div class="demo-step">
+        <div class="demo-step-badge">1</div>
+        <div class="demo-step-text">
+          <strong>Cara biasa: Buka Bab 5, baca dari awal — habiskan 2 jam.</strong>
+          Ramai buat macam ni. Dan lepas 2 jam tu, masih tak sure nak tulis apa dalam exam.
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-badge">2</div>
+        <div class="demo-step-text">
+          <strong>Cara Reverse Engineering: Tengok skema pemarkahan dulu.</strong>
+          Isi yang dapat markah:
+          <ul class="isi-list">
+            <li>Mengembalikan kedaulatan Raja-Raja Melayu</li>
+            <li>Penubuhan Majlis Raja-Raja</li>
+            <li>Membuka kewarganegaraan kepada bukan Melayu</li>
+            <li>Penubuhan CLC (Jawatankuasa Hubungan Antara Kaum)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-badge">3</div>
+        <div class="demo-step-text">
+          <strong>Tanya diri sendiri: "Faham tak kenapa isi-isi ni dapat markah?"</strong>
+          Faham → terus latih tulis dalam format FHCI.<br>
+          Tak faham "Majlis Raja-Raja" tu apa? → <em>Baru</em> buka buku, cari subtopik tu sahaja, baca 5 minit, tutup.
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-badge">4</div>
+        <div class="demo-step-text">
+          <strong>Latih tulis jawapan guna isi dari skema.</strong>
+          <div class="masa-box">
+            ⏱️ <span>Masa yang digunakan: <strong>30 minit</strong> berbanding 2 jam cara biasa.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANDING -->
+  <h2>📊 Perbandingan: Cara Biasa vs Reverse Engineering</h2>
+
+  <table class="banding-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="biasa">❌ Cara Biasa</th>
+        <th class="re">✅ Reverse Engineering</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Mulakan dari</strong></td><td class="bad">Halaman pertama buku teks</td><td class="good">Skema pemarkahan</td></tr>
+      <tr><td><strong>Masa per topik</strong></td><td class="bad">2-3 jam</td><td class="good">30-45 minit</td></tr>
+      <tr><td><strong>Isi yang dipelajari</strong></td><td class="bad">Semua — termasuk yang tak keluar</td><td class="good">Hanya yang bagi markah</td></tr>
+      <tr><td><strong>Keyakinan exam</strong></td><td class="bad">"Entahlah..."</td><td class="good">"Aku tahu isi ni keluar"</td></tr>
+      <tr><td><strong>Sesuai untuk</strong></td><td class="bad">Pelajar yang ada masa lapang</td><td class="good">Semua orang, terutama last minute</td></tr>
+    </tbody>
+  </table>
+
+  <!-- SUBJEK -->
+  <h2>🎯 Subjek yang Paling Sesuai Guna Teknik Ini</h2>
+  <p>Teknik ni paling berkesan untuk subjek yang ada <strong>skema pemarkahan yang jelas dan isi yang tetap</strong>.</p>
+
+  <div class="subjek-grid">
+    <div class="subjek-card sesuai">
+      <div class="subjek-icon">📚</div>
+      <div class="subjek-content">
+        <strong>Sejarah</strong>
+        <span>Skema sangat spesifik, isi tetap, keluar berulang kali</span>
+      </div>
+    </div>
+    <div class="subjek-card sesuai">
+      <div class="subjek-icon">🇲🇾</div>
+      <div class="subjek-content">
+        <strong>Bahasa Malaysia</strong>
+        <span>Format jawapan boleh dipelajari dari skema</span>
+      </div>
+    </div>
+    <div class="subjek-card sesuai">
+      <div class="subjek-icon">⚖️</div>
+      <div class="subjek-content">
+        <strong>Moral</strong>
+        <span>Nilai-nilai tetap, boleh dihafal terus dari skema</span>
+      </div>
+    </div>
+    <div class="subjek-card sesuai">
+      <div class="subjek-icon">🌍</div>
+      <div class="subjek-content">
+        <strong>Geografi</strong>
+        <span>Fakta dan isi tetap, senang reverse engineer</span>
+      </div>
+    </div>
+    <div class="subjek-card kurang">
+      <div class="subjek-icon">➗</div>
+      <div class="subjek-content">
+        <strong>Matematik</strong>
+        <span>Kena faham konsep, bukan hafal jawapan</span>
+      </div>
+    </div>
+    <div class="subjek-card kurang">
+      <div class="subjek-icon">🔬</div>
+      <div class="subjek-content">
+        <strong>Sains Tulen</strong>
+        <span>Perlu faham proses, bukan sekadar isi</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TIPS TAMBAHAN -->
+  <h2>💡 Tips Tambahan Supaya Lebih Berkesan</h2>
+
+  <div class="tips-grid">
+    <div class="tip">
+      <div class="tip-icon">📅</div>
+      <div class="tip-text">
+        <strong>Guna Soalan 5 Tahun ke Belakang</strong>
+        Lepas kau tengok beberapa set skema, kau akan nampak pattern — isi yang sama keluar berulang kali. Itulah isi yang paling penting. Fokus situ dulu.
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">📝</div>
+      <div class="tip-text">
+        <strong>Buat "Bank Jawapan" Sendiri</strong>
+        Setiap kali kau belajar dari skema, tulis isi-isi penting dalam satu nota ringkas. Lepas habis semua topik, nota tu jadi <em>cheat sheet</em> kau masa last minute.
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">✍️</div>
+      <div class="tip-text">
+        <strong>Latih Tulis, Jangan Sekadar Baca</strong>
+        Teknik ni berkesan bila kau <em>praktis tulis</em> jawapan, bukan sekadar baca skema. Otak perlu <em>retrieve</em> maklumat, bukan sekadar <em>recognise</em>.
+      </div>
+    </div>
+  </div>
+
+  <!-- SAINS -->
+  <div class="sains-box">
+    <div class="sains-icon">🧠</div>
+    <div class="sains-text">
+      <strong>Kenapa Teknik Ni Berkesan Secara Saintifik?</strong>
+      Ada konsep dalam psikologi pendidikan namanya <em>"desirable difficulty"</em> — kesukaran yang betul-betul membantu otak belajar. Bila kau baca skema dulu dan cuba faham kenapa jawapan tu betul, otak kau bekerja lebih keras. Dan benda yang otak kau kerjakan dengan lebih keras, ia lebih <em>lekat</em> dalam ingatan — berbanding baca teks panjang secara pasif.
+    </div>
+  </div>
+
+  <div class="alert kuning">
+    <div class="alert-icon">🚀</div>
+    <div class="alert-text">
+      <strong>Nak cuba sekarang?</strong>
+      Ambil mana-mana soalan trial Sejarah, cari skemanya, dan cuba apply teknik ni. Kami dah sediakan contoh jawapan lengkap dengan skema untuk beberapa topik hot SPM — semak artikel lain di EasySejarah!
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>🎬 Nak Belajar Lagi dengan EasySejarah?</h3>
+    <p>Tonton video-video tips belajar dan sejarah yang seronok di saluran YouTube kami. Percuma untuk semua pelajar Malaysia!</p>
+    <a href="https://www.youtube.com/@EasySejarah" target="_blank" class="btn-yt">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+      Subscribe YouTube EasySejarah
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 EasySejarah · Semua hak terpelihara ·
+  <a href="privacy-policy.html">Dasar Privasi</a>
+</footer>
+
+</body>
+</html>
