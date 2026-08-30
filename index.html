@@ -695,7 +695,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       </div>
 
       <div class="hero-row" style="display:flex;gap:16px;align-items:stretch;flex-wrap:wrap;margin-bottom:20px;">
-      <div class="blackboard-hero" style="flex:1 1 320px;min-width:280px;margin-bottom:0;">
+      <div class="blackboard-hero" style="flex:1 1 0;min-width:0;margin-bottom:0;">
         <div class="bb-inner">
           <!-- Q1: Timer -->
           <div class="bb-section">
@@ -722,7 +722,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
 
 
       <!-- KUCING INTERAKTIF -->
-      <div id="kucing-widget" style="flex:1 1 320px;min-width:280px;margin:0;background:linear-gradient(135deg,#1e1e3a,#2a1a3a);border:1.5px solid rgba(255,255,255,0.1);border-radius:20px;padding:20px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <div id="kucing-widget" style="flex:1 1 0;min-width:0;margin:0;background:linear-gradient(135deg,#f472b6,#ec4899);border:1.5px solid rgba(255,255,255,0.25);border-radius:20px;padding:20px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
 
         <!-- SVG KUCING TIGA WARNA -->
         <div id="kucing-area" style="flex-shrink:0;position:relative;width:110px;height:110px;cursor:pointer;" onclick="belaiKucing()">
@@ -780,9 +780,9 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
           <div id="kucing-nama" style="font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem;color:#fff;margin-bottom:4px;">Mochi <span style="font-size:0.75rem;font-weight:400;color:rgba(255,255,255,0.5);">· Kucing EasySejarah</span></div>
           <div id="kucing-status" style="font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:14px;font-style:italic;">"Haiiii! Nak buat apa dengan aku hari ni?"</div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <button onclick="belaiKucing()" style="background:rgba(232,68,122,0.2);border:1.5px solid rgba(232,68,122,0.5);color:#e8447a;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(232,68,122,0.35)'" onmouseout="this.style.background='rgba(232,68,122,0.2)'">🖐️ Belai</button>
-            <button onclick="bukaMakan()" style="background:rgba(247,183,49,0.2);border:1.5px solid rgba(247,183,49,0.5);color:#F7B731;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(247,183,49,0.35)'" onmouseout="this.style.background='rgba(247,183,49,0.2)'">🍽️ Bagi Makan</button>
-            <button onclick="tipsMotivasi()" style="background:rgba(124,92,191,0.2);border:1.5px solid rgba(124,92,191,0.5);color:#a78bfa;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(124,92,191,0.35)'" onmouseout="this.style.background='rgba(124,92,191,0.2)'">📚 Teman Belajar</button>
+            <button onclick="belaiKucing()" style="background:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.5);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">🖐️ Belai</button>
+            <button onclick="bukaMakan()" style="background:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.5);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">🍽️ Bagi Makan</button>
+            <button onclick="tipsMotivasi()" style="background:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.5);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">📚 Teman Belajar</button>
           </div>
           <!-- Panel makan -->
           <div id="panel-makan" style="display:none;margin-top:12px;display:none;gap:8px;flex-wrap:wrap;">
@@ -1763,6 +1763,51 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
             <div class="blog-title">Komik Bab 1.2: Ciri-ciri Negara Bangsa Kesultanan Melayu Melaka</div>
             <div class="blog-excerpt">6 ciri penting yang menjadikan Kesultanan Melayu Melaka sebuah empayar yang agung dan disegani — dalam format komik yang seronok dan mudah faham!</div>
             <div class="blog-cta">Baca Komik →</div>
+          </div>
+        </a>
+
+        <a href="nota-t3b1-kedatangan-kuasa-barat.html" class="blog-card">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#eff6ff,#ecfdf5);display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;padding:20px;">
+              <div style="background:#3a86ff;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.68rem;padding:3px 12px;border-radius:999px;margin-bottom:10px;display:inline-block;letter-spacing:1px;">NOTA · T3 Bab 1</div>
+              <div style="font-family:'Poppins',sans-serif;font-weight:900;font-size:1.05rem;color:#1a1a2e;line-height:1.35;">Kedatangan<br>Kuasa Barat</div>
+            </div>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">EasySejarah · Nota Ringkas</div>
+            <div class="blog-title">Nota Ringkas T3 Bab 1: Kedatangan Kuasa Barat</div>
+            <div class="blog-excerpt">Kestabilan &amp; kemakmuran negara sebelum penjajahan, faktor kedatangan Barat, dan perbezaan strategi Belanda vs British — padat dalam satu nota.</div>
+            <div class="blog-cta">Baca Nota →</div>
+          </div>
+        </a>
+
+        <a href="nota-t3b2-pentadbiran-nns.html" class="blog-card">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#eff6ff,#ecfdf5);display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;padding:20px;">
+              <div style="background:#3a86ff;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.68rem;padding:3px 12px;border-radius:999px;margin-bottom:10px;display:inline-block;letter-spacing:1px;">NOTA · T3 Bab 2</div>
+              <div style="font-family:'Poppins',sans-serif;font-weight:900;font-size:1.05rem;color:#1a1a2e;line-height:1.35;">Pentadbiran<br>Negeri-negeri Selat</div>
+            </div>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">EasySejarah · Nota Ringkas</div>
+            <div class="blog-title">Nota Ringkas T3 Bab 2: Pentadbiran Negeri-negeri Selat</div>
+            <div class="blog-excerpt">Peluasan British di Pulau Pinang, Singapura &amp; Melaka, Perjanjian London 1824, sampai pembentukan NNS — semua dalam satu nota padat.</div>
+            <div class="blog-cta">Baca Nota →</div>
+          </div>
+        </a>
+
+        <a href="nota-f5b1-kedaulatan-negara.html" class="blog-card">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#eff6ff,#ecfdf5);display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;padding:20px;">
+              <div style="background:#3a86ff;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.68rem;padding:3px 12px;border-radius:999px;margin-bottom:10px;display:inline-block;letter-spacing:1px;">NOTA · F5 Bab 1</div>
+              <div style="font-family:'Poppins',sans-serif;font-weight:900;font-size:1.05rem;color:#1a1a2e;line-height:1.35;">Kedaulatan<br>Negara</div>
+            </div>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">EasySejarah · Nota Ringkas</div>
+            <div class="blog-title">Nota Ringkas F5 Bab 1: Kedaulatan Negara</div>
+            <div class="blog-excerpt">Konsep &amp; jenis kedaulatan, ciri-ciri negara berdaulat, kepentingan, dan langkah mempertahankan kedaulatan — padat dalam satu nota.</div>
+            <div class="blog-cta">Baca Nota →</div>
           </div>
         </a>
 
