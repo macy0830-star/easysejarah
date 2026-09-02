@@ -737,11 +737,29 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
 
 
       <!-- KUCING INTERAKTIF -->
-      <div id="kucing-widget" style="flex:1 1 0;min-width:0;margin:0;background:linear-gradient(135deg,#f472b6,#ec4899);border:1.5px solid rgba(255,255,255,0.25);border-radius:20px;padding:20px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <style>
+        @keyframes kucingFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);} }
+        @keyframes kucingSparkle { 0%,100%{opacity:0.35;transform:scale(1);} 50%{opacity:1;transform:scale(1.2);} }
+        @keyframes kucingGlow { 0%,100%{opacity:0.5;} 50%{opacity:0.9;} }
+        #kucing-bubble { position:absolute; top:-42px; left:50%; transform:translateX(-50%); background:#fff; color:#c2185b; font-size:0.74rem; font-weight:800; padding:6px 13px; border-radius:999px; white-space:nowrap; box-shadow:0 4px 12px rgba(0,0,0,0.22); font-family:'Poppins',sans-serif; z-index:2; }
+        #kucing-bubble::after { content:''; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); border-width:6px 6px 0 6px; border-style:solid; border-color:#fff transparent transparent transparent; }
+        .kucing-btn { background:rgba(255,255,255,0.22); border:1.5px solid rgba(255,255,255,0.45); color:#fff; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.78rem; padding:8px 16px; border-radius:999px; cursor:pointer; transition:all 0.2s ease; box-shadow:0 2px 8px rgba(0,0,0,0.1); display:inline-flex; align-items:center; gap:5px; }
+        .kucing-btn:hover { background:rgba(255,255,255,0.36); transform:translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,0.18); }
+        .kucing-btn-food { background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.32); color:#fff; font-size:0.8rem; padding:6px 14px; border-radius:999px; cursor:pointer; font-family:'Poppins',sans-serif; font-weight:600; transition:all 0.2s ease; }
+        .kucing-btn-food:hover { background:rgba(255,255,255,0.3); transform:translateY(-1px); }
+        .kucing-status-bubble { background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.25); border-radius:14px; padding:8px 12px; backdrop-filter:blur(2px); }
+      </style>
+      <div id="kucing-widget" style="flex:1 1 0;min-width:0;margin:0;position:relative;overflow:hidden;background:linear-gradient(160deg,#fb7dab 0%,#ec4899 55%,#d6338a 100%);border:none;border-radius:22px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:0 12px 28px rgba(214,51,138,0.35), inset 0 1px 0 rgba(255,255,255,0.25);">
+
+        <!-- Hiasan taburan bintang & tapak kaki -->
+        <div style="position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle at 12% 18%,rgba(255,255,255,0.35) 1.5px,transparent 1.5px),radial-gradient(circle at 88% 12%,rgba(255,255,255,0.3) 1.5px,transparent 1.5px),radial-gradient(circle at 92% 70%,rgba(255,255,255,0.25) 1.5px,transparent 1.5px),radial-gradient(circle at 8% 82%,rgba(255,255,255,0.25) 1.5px,transparent 1.5px);"></div>
+        <div style="position:absolute;top:12px;right:18px;font-size:1.1rem;opacity:0.7;animation:kucingSparkle 2.4s ease-in-out infinite;pointer-events:none;">✨</div>
+        <div style="position:absolute;bottom:16px;right:44px;font-size:0.85rem;opacity:0.45;animation:kucingSparkle 3s ease-in-out infinite 0.7s;pointer-events:none;">🐾</div>
 
         <!-- SVG KUCING TIGA WARNA -->
-        <div id="kucing-area" style="flex-shrink:0;position:relative;width:110px;height:110px;cursor:pointer;" onclick="belaiKucing()">
-          <svg id="kucing-svg" viewBox="0 0 110 110" width="110" height="110" xmlns="http://www.w3.org/2000/svg">
+        <div id="kucing-area" style="flex-shrink:0;position:relative;width:110px;height:118px;cursor:pointer;animation:kucingFloat 3.6s ease-in-out infinite;" onclick="belaiKucing()">
+          <div style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:64px;height:14px;background:rgba(0,0,0,0.18);border-radius:50%;filter:blur(3px);"></div>
+          <svg id="kucing-svg" viewBox="0 0 110 110" width="110" height="110" xmlns="http://www.w3.org/2000/svg" style="position:relative;filter:drop-shadow(0 6px 8px rgba(0,0,0,0.15));">
             <!-- Badan -->
             <ellipse cx="55" cy="72" rx="30" ry="26" fill="#f5a623"/>
             <!-- Patch putih badan -->
@@ -787,23 +805,28 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
             <text id="kucing-zzz" x="75" y="18" font-size="13" fill="#aaa" opacity="0" style="transition:opacity 0.3s;">💤</text>
           </svg>
           <!-- Bubble status -->
-          <div id="kucing-bubble" style="display:none;position:absolute;top:-38px;left:50%;transform:translateX(-50%);background:#fff;color:#1a1a2e;font-size:0.72rem;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);font-family:'Poppins',sans-serif;"></div>
+          <div id="kucing-bubble" style="display:none;"></div>
         </div>
 
         <!-- TEKS + BUTANG -->
-        <div style="flex:1;min-width:200px;">
-          <div id="kucing-nama" style="font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem;color:#fff;margin-bottom:4px;">Mochi <span style="font-size:0.75rem;font-weight:400;color:rgba(255,255,255,0.5);">· Kucing EasySejarah</span></div>
-          <div id="kucing-status" style="font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:14px;font-style:italic;">"Haiiii! Nak buat apa dengan aku hari ni?"</div>
+        <div style="flex:1;min-width:200px;position:relative;z-index:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
+            <div id="kucing-nama" style="font-family:'Poppins',sans-serif;font-weight:800;font-size:1.08rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.15);">Mochi</div>
+            <span style="font-size:0.66rem;font-weight:700;color:#c2185b;background:rgba(255,255,255,0.85);padding:2px 9px;border-radius:999px;letter-spacing:0.3px;">🐾 Kucing Rasmi</span>
+          </div>
+          <div class="kucing-status-bubble" style="margin-bottom:14px;">
+            <div id="kucing-status" style="font-size:0.82rem;color:#fff;font-style:italic;line-height:1.5;">"Haiiii! Nak buat apa dengan aku hari ni?"</div>
+          </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <button onclick="belaiKucing()" style="background:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.5);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">🖐️ Belai</button>
-            <button onclick="bukaMakan()" style="background:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.5);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">🍽️ Bagi Makan</button>
-            <button onclick="tipsMotivasi()" style="background:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.5);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">📚 Teman Belajar</button>
+            <button onclick="belaiKucing()" class="kucing-btn">🖐️ Belai</button>
+            <button onclick="bukaMakan()" class="kucing-btn">🍽️ Bagi Makan</button>
+            <button onclick="tipsMotivasi()" class="kucing-btn">📚 Teman Belajar</button>
           </div>
           <!-- Panel makan -->
-          <div id="panel-makan" style="display:none;margin-top:12px;display:none;gap:8px;flex-wrap:wrap;">
-            <button onclick="suapMakan('ikan')" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:0.8rem;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;">🐟 Ikan Segar</button>
-            <button onclick="suapMakan('kibble')" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:0.8rem;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;">🟤 Kibble</button>
-            <button onclick="suapMakan('tin')" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:0.8rem;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;">🥫 Makanan Tin</button>
+          <div id="panel-makan" style="display:none;margin-top:12px;gap:8px;flex-wrap:wrap;">
+            <button onclick="suapMakan('ikan')" class="kucing-btn-food">🐟 Ikan Segar</button>
+            <button onclick="suapMakan('kibble')" class="kucing-btn-food">🟤 Kibble</button>
+            <button onclick="suapMakan('tin')" class="kucing-btn-food">🥫 Makanan Tin</button>
           </div>
         </div>
       </div>
