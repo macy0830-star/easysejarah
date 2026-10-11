@@ -207,6 +207,7 @@ header { display:flex; align-items:center; justify-content:space-between; paddin
 .sec-title { font-family:'Poppins',sans-serif; font-weight:900; font-size:1.1rem; }
 .sec-badge { font-size:0.68rem; font-weight:700; padding:3px 10px; border-radius:999px; text-transform:uppercase; letter-spacing:0.5px; }
 .b-t3 { background:#ffeef5; color:var(--pink); border:1px solid var(--pink); }
+.b-t2 { background:#fff4e6; color:#e67e22; border:1px solid #e67e22; }
 .b-t4 { background:#edfaf3; color:var(--hijau); border:1px solid var(--hijau); }
 .b-t5 { background:#fff0f0; color:var(--merah); border:1px solid var(--merah); }
 .b-sains { background:#f5f0ff; color:var(--ungu); border:1px solid var(--ungu); }
@@ -635,6 +636,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
       <button class="sb-btn" onclick="window.location.href='misteri_retakan_sejarah_f3.html'" id="btn-misteri" style="color:#e8a030;background:rgba(26,18,10,0.06);border-left-color:transparent;">
         <span class="sb-icon">🔍</span><span class="sb-label">Misteri F3</span><span class="sb-badge" style="background:#e8a030;">BARU</span>
       </button>
+      <button class="sb-btn" onclick="show('t2')" id="btn-t2"><span class="sb-icon">📙</span><span class="sb-label">Tingkatan 2</span><span class="sb-badge">1</span></button>
       <button class="sb-btn" onclick="show('t3')" id="btn-t3"><span class="sb-icon">📗</span><span class="sb-label">Tingkatan 3</span><span class="sb-badge">8</span></button>
       <button class="sb-btn" onclick="show('t4')" id="btn-t4"><span class="sb-icon">📘</span><span class="sb-label">Tingkatan 4</span><span class="sb-badge">10</span></button>
       <button class="sb-btn" onclick="show('t5')" id="btn-t5"><span class="sb-icon">📕</span><span class="sb-label">Tingkatan 5</span><span class="sb-badge">10</span></button>
@@ -1165,6 +1167,14 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
     </div>
 
     <!-- SEJARAH T3 -->
+    <!-- SEJARAH T2 -->
+    <div class="section" id="section-t2">
+      <div class="sec-header"><div class="sec-title">Sejarah Tingkatan 2</div><span class="sec-badge b-t2">F2</span></div>
+      <div class="bab-grid">
+        <a href="sej_t2b1.html" class="bab-card ready"><div class="bab-type-label bab-type-kuiz">✏️ KUIZ</div><div class="bab-num">Bab 1</div><div class="bab-title">Kerajaan Alam Melayu</div><div class="bab-meta"><span class="dot"></span><span class="bab-info">10 soalan · Sedia</span></div></a>
+      </div>
+    </div>
+
     <div class="section" id="section-t3">
       <div class="sec-header"><div class="sec-title">Sejarah Tingkatan 3</div><span class="sec-badge b-t3">F3</span></div>
       <div class="bab-grid">
@@ -2316,7 +2326,7 @@ footer { text-align:center; padding:20px; border-top:1px solid var(--border); ma
   if(localStorage.getItem('cookieOK')) document.getElementById('cookie-banner').style.display='none';
   function acceptCookie(){ localStorage.setItem('cookieOK','1'); document.getElementById('cookie-banner').style.display='none'; }
 
-  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','bi5','t3','t4','t5','sains3','sains4','sains5','niaga4','niaga5','kimia4','kimia5','ekonomi4','biologi4','biologi5','perakaunan4','perakaunan5','nota','blog','animasi','about'];
+  const SECTIONS = ['home','hub-t3','hub-t4','hub-t5','bi5','t2','t3','t4','t5','sains3','sains4','sains5','niaga4','niaga5','kimia4','kimia5','ekonomi4','biologi4','biologi5','perakaunan4','perakaunan5','nota','blog','animasi','about'];
   function show(id){
     SECTIONS.forEach(s=>{
       document.getElementById('section-'+s)?.classList.toggle('active', s===id);
