@@ -575,9 +575,9 @@
     </div>
     <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
 
-    <a href="index.html" class="btn-next-bab" style="background:linear-gradient(135deg,#2db87a,#1e8a5a);">
-      <div><span class="next-label">🎉 Tamat! Kembali ke</span><span class="next-title">🏠 Laman Utama</span></div>
-      <span class="next-arrow">✓</span>
+    <a href="sej_t2b2.html" class="btn-next-bab">
+      <div><span class="next-label">Bab Seterusnya →</span><span class="next-title">Bab 2: Sistem Pemerintahan dan Kegiatan Ekonomi</span></div>
+      <span class="next-arrow">→</span>
     </a>
   </div>
 
@@ -585,6 +585,7 @@
     <p>Bab Lain — Sejarah Tingkatan 2</p>
     <div class="bab-chips">
       <span class="chip active">Bab 1 ✓</span>
+      <a href="sej_t2b2.html" class="chip">Bab 2 ✓</a>
     </div>
   </div>
 
@@ -666,7 +667,7 @@
     document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
 
     let title = '', sub = '';
-    if (pct === 100) { title = 'Cemerlang! 🏆'; sub = 'Markah penuh! Anda menguasai Bab 1 Kerajaan Alam Melayu.'; }
+    if (pct === 100) { title = 'Cemerlang! 🏆'; sub = 'Markah penuh! Anda menguasai Bab 1.'; }
     else if (pct >= 80) { title = 'Bagus! 🎉'; sub = 'Hampir sempurna! Teruskan usaha mengkaji kerajaan-kerajaan awal Alam Melayu.'; }
     else if (pct >= 60) { title = 'Boleh Lagi! 💪'; sub = 'Anda mempunyai asas yang baik. Ulang kaji semula kerajaan Funan, Srivijaya dan Kedah Tua.'; }
     else { title = 'Jangan Putus Asa! 📚'; sub = 'Baca semula nota Bab 1 dan cuba lagi.'; }
