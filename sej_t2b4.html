@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Sejarah Tingkatan 2 Bab 4: Agama, Kepercayaan dan Keunikan Warisan Masyarakat Kerajaan Alam Melayu | EasySejarah</title>
+<meta name="description" content="Kuiz Sejarah Tingkatan 2 Bab 4 Agama, Kepercayaan dan Keunikan Warisan Masyarakat Kerajaan Alam Melayu: 10 soalan pilihan berganda tentang kepercayaan awal, agama, sistem pemerintahan beraja dan kebijaksanaan pemerintah.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+
+  :root {
+    --merah: #D62828;
+    --kuning: #F7B731;
+    --hitam: #1A1A2E;
+    --putih: #FAFAF8;
+    --kelabu: #F0EDE8;
+    --kelabu-teks: #5C5C6E;
+    --hijau: #2D9E5F;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: var(--hitam);
+    color: var(--putih);
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 2px solid rgba(213, 191, 175, 0.25);
+    position: sticky; top: 0;
+    background: var(--hitam);
+    z-index: 99;
+  }
+
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--kuning); }
+
+  .badge-topik {
+    background: rgba(213, 191, 175, 0.15);
+    border: 1px solid var(--kuning);
+    color: var(--kuning);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 48px 24px 32px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    color: var(--kuning);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 em { font-style: normal; color: var(--kuning); }
+
+  .hero p {
+    color: rgba(244, 241, 234, 0.55);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .progress-wrap {
+    background: rgba(244, 241, 234, 0.1);
+    border-radius: 999px;
+    height: 6px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--kuning);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-label {
+    font-size: 0.76rem;
+    color: rgba(244, 241, 234, 0.4);
+    text-align: right;
+  }
+
+  .quiz-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  .question-card {
+    background: #3C3A38;
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(244, 241, 234, 0.06);
+    display: none;
+    animation: fadeUp 0.3s ease;
+  }
+  .question-card.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .q-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--kuning);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .q-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 22px;
+    color: var(--putih);
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(244, 241, 234, 0.05);
+    border: 2px solid rgba(244, 241, 234, 0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(244, 241, 234, 0.82);
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--kuning);
+    background: rgba(213, 191, 175, 0.08);
+  }
+  .option-btn:disabled { cursor: default; }
+
+  .option-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(244, 241, 234, 0.1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .option-btn.correct { border-color: var(--hijau); background: rgba(148, 166, 149, 0.14); }
+  .option-btn.correct .option-letter { background: var(--hijau); color: var(--hitam); }
+  .option-btn.wrong { border-color: var(--merah); background: rgba(196, 154, 154, 0.12); }
+  .option-btn.wrong .option-letter { background: var(--merah); color: var(--hitam); }
+
+  .explanation {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: rgba(213, 191, 175, 0.07);
+    border-left: 3px solid var(--kuning);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(244, 241, 234, 0.78);
+  }
+  .explanation.show { display: block; }
+  .explanation strong { color: var(--kuning); }
+
+  .btn-next {
+    display: none;
+    margin-top: 18px;
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .btn-next:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-next.show { display: block; }
+
+  /* RESULT */
+  #result-section {
+    display: none;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    text-align: center;
+  }
+  #result-section.show { display: block; }
+
+  .result-card {
+    background: #3C3A38;
+    border-radius: 20px;
+    padding: 40px 28px;
+    border: 1px solid rgba(244, 241, 234, 0.08);
+  }
+
+  .score-ring {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(var(--kuning) var(--pct, 0%), rgba(244, 241, 234, 0.08) 0%);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .score-ring::after {
+    content: '';
+    position: absolute;
+    width: 88px; height: 88px;
+    background: #3C3A38;
+    border-radius: 50%;
+  }
+  .score-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--kuning);
+    position: relative;
+    z-index: 1;
+  }
+
+  .result-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .result-subtitle {
+    color: rgba(244, 241, 234, 0.5);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .stat-box {
+    background: rgba(244, 241, 234, 0.05);
+    border-radius: 10px;
+    padding: 12px 20px;
+    min-width: 82px;
+  }
+  .stat-val {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--kuning);
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: rgba(244, 241, 234, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-retry {
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: opacity 0.2s;
+  }
+  .btn-retry:hover { opacity: 0.9; }
+
+  .bab-nav {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .bab-nav p {
+    font-size: 0.75rem;
+    color: rgba(244, 241, 234, 0.3);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .bab-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .chip {
+    background: rgba(244, 241, 234, 0.05);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    color: rgba(244, 241, 234, 0.55);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    text-decoration: none;
+  }
+  .chip.active { border-color: var(--kuning); color: var(--kuning); }
+  .chip.coming { opacity: 0.3; cursor: default; }
+
+  footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.75rem;
+    color: rgba(244, 241, 234, 0.18);
+    border-top: 1px solid rgba(244, 241, 234, 0.06);
+    margin-top: 20px;
+  }
+
+  .btn-yt-result { display:inline-flex; align-items:center; gap:8px; background:#FF0000; color:#fff; text-decoration:none; padding:13px 22px; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.92rem; transition:opacity 0.2s; width:100%; justify-content:center; margin-top:12px; }
+  .btn-yt-result:hover { opacity:0.85; }
+
+  .btn-next-bab {
+    display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(135deg,#e8447a,#c4306a);
+    color:#fff; text-decoration:none;
+    padding:16px 22px; border-radius:12px;
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem;
+    margin-bottom:12px; transition:opacity 0.2s; gap:12px;
+    box-shadow:0 4px 14px rgba(232,68,122,0.35);
+  }
+  .btn-next-bab:hover { opacity:0.88; }
+  .btn-next-bab .next-label { font-size:0.7rem; font-weight:600; opacity:0.8; text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:2px; }
+  .btn-next-bab .next-title { display:block; }
+  .btn-next-bab .next-arrow { font-size:1.4rem; flex-shrink:0; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4490928206593094"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(244,241,234,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.15s;" onmouseover="this.style.color='var(--kuning)'" onmouseout="this.style.color='rgba(244,241,234,0.5)'">← Laman Utama</a><div class="badge-topik">T2 Bab 4</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 2 · Bab 4</div>
+  <h1>Agama, Kepercayaan dan<br><em>Keunikan Warisan</em></h1>
+  <p>10 soalan pilihan berganda merangkumi kepercayaan awal, perkembangan agama, sistem pemerintahan beraja, kegiatan ekonomi dan kebijaksanaan pemerintah kerajaan Alam Melayu.</p>
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-label">0 / 10 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <!-- Q1 -->
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 10</div>
+    <div class="q-text">Antara berikut, yang manakah menerangkan konsep dinamisme dalam kepercayaan awal masyarakat kerajaan Alam Melayu?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pemujaan dewa-dewa utama Hindu untuk mendapatkan kesuburan tanah</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Penyembahan roh nenek moyang yang telah meninggal dunia di dalam hutan</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Kepercayaan bahawa semua tumbuhan mempunyai semangat penunggu sungai</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kepercayaan terhadap kekuatan atau semangat yang dikenali sebagai mana</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: D</strong><br>Dinamisme berkait rapat dengan kepercayaan terhadap kekuatan yang juga dikenali sebagai mana atau semangat.<br><small style="opacity:.6">Rujukan: 4.1 Agama dan Kepercayaan (Kepercayaan Awal)</small></div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 10</div>
+    <div class="q-text">Siapakah pemerintah kerajaan Champa yang mendirikan candi Hindu di Lembah Mi Son yang dikenali sebagai Siva-Bhadresvara?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Bhadravarman</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Fan Shih-man</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Jayavarman VII</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Suryavarman II</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: A</strong><br>Pemerintah Champa, Bhadravarman, mendirikan candi Hindu di Lembah Mi Son yang dikenali sebagai Siva-Bhadresvara.<br><small style="opacity:.6">Rujukan: 4.1 Perkembangan Agama (Kerajaan Champa)</small></div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 10</div>
+    <div class="q-text">Selain berasaskan keturunan diraja yang suci dan berdaulat, bagaimanakah cara lain pemilihan raja boleh dilakukan dalam sesetengah kerajaan Alam Melayu?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Dilantik terus oleh golongan pendeta Brahmin dari India</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Ditentukan sepenuhnya oleh ketua-ketua pedagang asing di pelabuhan</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Dipilih daripada golongan tentera seperti dalam kerajaan Funan dan Champa</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Dipilih melalui undian terbuka oleh seluruh rakyat jelata</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: C</strong><br>Raja juga boleh dipilih daripada golongan tentera seperti dalam kerajaan Funan dan Champa.<br><small style="opacity:.6">Rujukan: 4.2 Keunikan Warisan - Sistem Pemerintahan Beraja (Pemilihan Raja)</small></div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 10</div>
+    <div class="q-text">Mengapakah pemerintah kerajaan Alam Melayu memilih lokasi di lembah sungai atau pesisiran pantai sebagai pusat pemerintahan?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Supaya mereka dapat membina empangan besar bagi menghalang kemasukan tentera musuh</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Untuk mengelakkan sebarang campur tangan daripada pedagang kuasa barat dari timur dan barat yang berniat menakluki wilayah</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Bagi memudahkan pembangunan pertanian subur serta menjadikan sungai sebagai laluan pengangkutan utama</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Untuk memastikan tiada kapal asing boleh melabur di wilayah pentadbiran mereka</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: C</strong><br>Pemerintah memilih lokasi strategik di lembah sungai untuk memperkembangkan pertanian di kawasan subur dan sungai berfungsi sebagai laluan pengangkutan utama.<br><small style="opacity:.6">Rujukan: 4.2 Keunikan Warisan - Kebijaksanaan Pemerintah (Memilih dan Membangunkan Pusat Pemerintahan)</small></div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 10</div>
+    <div class="q-text">Apakah perbezaan utama antara pelabuhan pembekal dengan pelabuhan entrepot dalam sistem ekonomi kerajaan Alam Melayu?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Pelabuhan pembekal hanya khusus untuk pedagang tempatan manakala pelabuhan entrepot dimiliki sepenuhnya oleh pedagang asing dari barat</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Pelabuhan entrepot mengenakan cukai yang sangat tinggi, manakala pelabuhan pembekal percuma</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Pelabuhan pembekal terletak di pedalaman sungai, manakala pelabuhan entrepot terletak di puncak gunung</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Pelabuhan pembekal berfungsi sebagai tempat persinggahan membekalkan barangan serta makanan, manakala entrepot menjadi tumpuan pengumpul dan pengedar barangan serantau serta antarabangsa</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: D</strong><br>Pelabuhan pembekal adalah tempat persinggahan membekalkan bahan dagangan dan makanan, manakala entrepot menjadi tumpuan pengumpul dan pengedar barangan serantau serta antarabangsa.<br><small style="opacity:.6">Rujukan: 4.2 Keunikan Warisan - Kegiatan Ekonomi (Membina Pelabuhan)</small></div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 10</div>
+    <div class="q-text">Bagaimanakah sifat terbuka dan toleransi dalam amalan beragama ditunjukkan oleh masyarakat kerajaan Alam Melayu?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Raja mewajibkan seluruh rakyat memeluk satu agama rasmi yang sama tanpa terkecuali</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mereka melarang sebarang pengaruh kebudayaan luar daripada masuk ke dalam sistem pentadbiran kerajaan pusat secara mutlak</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Penganut agama Hindu membina Candi Prambanan berdekatan dengan Candi Borobudur tempat ibadat penganut agama Buddha</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Golongan agama Buddha menghapuskan semua amalan animisme secara paksa</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: C</strong><br>Penganut agama Hindu membina Candi Prambanan berdekatan dengan Candi Borobudur tempat ibadat penganut agama Buddha di Jawa Tengah sebagai lambang toleransi.<br><small style="opacity:.6">Rujukan: 4.2 Keunikan Warisan - Amalan Beragama</small></div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 10</div>
+    <div class="q-text">Apakah tujuan utama pemerintah kerajaan Alam Melayu menjalinkan hubungan diplomatik yang berterusan dengan kerajaan luar?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Memelihara kedaulatan, mendapatkan perlindungan, meluaskan jaringan perdagangan serta memperkukuh agama dan budaya</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Untuk menjamin kestabilan politik serantau melalui peluasan wilayah jajahan dan penguasaan ketenteraan secara paksa terhadap negeri jiran</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Meluaskan wilayah dengan menakluk ibu kota negara jiran secara paksa</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menyatukan pentadbiran empayar di bawah satu undang-undang pusat yang ketat</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: A</strong><br>Hubungan diplomatik penting untuk memelihara kedaulatan, mendapatkan perlindungan, meluaskan jaringan perdagangan dan memperkukuh agama serta budaya.<br><small style="opacity:.6">Rujukan: 4.2 Keunikan Warisan - Kebijaksanaan Pemerintah (Menjalinkan Hubungan Diplomatik)</small></div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8 daripada 10</div>
+    <div class="q-text">Apakah peranan tulisan Palava dan Kawi dalam perkembangan sosiobudaya masyarakat kerajaan Alam Melayu?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menjadi satu-satunya tulisan rasmi yang dikhususkan untuk golongan hamba sahaja</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Tulisan Palava dan Kawi yang berasal dari India digunakan dengan meluas sebagai medium tulisan bahasa tempatan dan Sanskrit</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menggantikan tulisan Jawi sepenuhnya selepas kedatangan agama Islam ke Nusantara bagi tujuan pentadbiran rasmi</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Dicipta khas oleh pedagang China untuk merekodkan aktiviti perlombongan bijih</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: B</strong><br>Tulisan Palava dan Kawi yang berasal dari India digunakan dengan meluas sebagai medium tulisan bahasa tempatan dan Sanskrit.<br><small style="opacity:.6">Rujukan: 4.2 Keunikan Warisan - Perkembangan Sosiobudaya (Sistem Tulisan dan Bahasa)</small></div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 10</div>
+    <div class="q-text">Berdasarkan petikan teks, apakah peranan penting yang dimainkan oleh golongan agama seperti Brahmin dalam sistem pemerintahan kerajaan Angkor?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Mengetuai angkatan tentera laut dalam ekspedisi peluasan empayar</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mengisytiharkan kedudukan raja sebagai Dewaraja semasa upacara pertabalan</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menulis karya sastera epik seperti Ramayana dan Mahabharata</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Mengutip cukai pelabuhan di kawasan pesisir pantai dan muara sungai yang dikunjungi oleh pedagang antarabangsa</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: B</strong><br>Golongan Brahmin mempunyai peranan besar semasa pertabalan raja, seperti Brahmin bernama Hiranyadama mengisytiharkan Jayavarman II sebagai Dewaraja.<br><small style="opacity:.6">Rujukan: 4.2 Keunikan Warisan - Amalan Beragama</small></div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 10</div>
+    <div class="q-text">Berdasarkan maklumat dalam bab ini, apakah implikasi utama kedatangan agama Islam terhadap aspek pemerintahan dan institusi masyarakat di Alam Melayu?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Kegiatan perdagangan antarabangsa terhenti kerana penutupan semua pelabuhan penting di Alam Melayu</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Memperkenalkan konsep khalifah, gelaran Sultan dan pembinaan masjid sebagai pusat ibadat</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Sistem pemerintahan beraja dimansuhkan sepenuhnya dan digantikan dengan sistem republik moden</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Segala unsur Hindu dan Buddha diharamkan serta-merta tanpa sebarang penyesuaian budaya tempatan</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: B</strong><br>Kedatangan Islam memperkenalkan konsep khalifah, gelaran Sultan digunakan, serta masjid dibina sebagai pusat ibadat, pendidikan dan kebajikan.<br><small style="opacity:.6">Rujukan: 4.1 &amp; 4.2 Keunikan Warisan (Amalan Beragama &amp; Sistem Pemerintahan Beraja)</small></div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/10</span>
+    </div>
+    <div class="result-title" id="result-title">Tahniah!</div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-val" id="stat-betul">0</span>
+        <span class="stat-lbl">Betul</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-salah">0</span>
+        <span class="stat-lbl">Salah</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-pct">0%</span>
+        <span class="stat-lbl">Markah</span>
+      </div>
+    </div>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+
+    <a href="index.html" class="btn-next-bab" style="background:linear-gradient(135deg,#2db87a,#1e8a5a);">
+      <div><span class="next-label">🎉 Tamat! Kembali ke</span><span class="next-title">🏠 Laman Utama</span></div>
+      <span class="next-arrow">✓</span>
+    </a>
+  </div>
+
+  <div class="bab-nav">
+    <p>Bab Lain — Sejarah Tingkatan 2</p>
+    <div class="bab-chips">
+      <a href="sej_t2b1.html" class="chip">Bab 1 ✓</a>
+      <a href="sej_t2b2.html" class="chip">Bab 2 ✓</a>
+      <a href="sej_t2b3.html" class="chip">Bab 3 ✓</a>
+      <span class="chip active">Bab 4 ✓</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 EasySejarah · Soalan berdasarkan silibus SPM Sejarah Tingkatan 2
+</footer>
+
+<script>
+  const CORRECT = {
+    1:'D',
+    2:'A',
+    3:'C',
+    4:'C',
+    5:'D',
+    6:'C',
+    7:'A',
+    8:'B',
+    9:'B',
+    10:'B'
+  };
+
+  let score = 0, answered = 0;
+  const TOTAL = 10;
+
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.question-card');
+      const q = parseInt(card.dataset.q);
+      const chosen = this.dataset.ans;
+      const correct = CORRECT[q];
+
+      card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+
+      if (chosen === correct) {
+        this.classList.add('correct');
+        score++;
+      } else {
+        this.classList.add('wrong');
+        card.querySelectorAll('.option-btn').forEach(b => {
+          if (b.dataset.ans === correct) b.classList.add('correct');
+        });
+      }
+
+      answered++;
+      updateProgress();
+      document.getElementById('exp-' + q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current) {
+    document.querySelector('[data-q="' + current + '"]').classList.remove('active');
+    const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+    if (next) {
+      next.classList.add('active');
+      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function updateProgress() {
+    const pct = (answered / TOTAL) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+  }
+
+  function showResult() {
+    document.getElementById('quiz-section').style.display = 'none';
+    const rs = document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const pct = Math.round((score / TOTAL) * 100);
+    document.getElementById('score-display').textContent = score + '/' + TOTAL;
+    document.getElementById('stat-betul').textContent = score;
+    document.getElementById('stat-salah').textContent = TOTAL - score;
+    document.getElementById('stat-pct').textContent = pct + '%';
+    document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+
+    let title = '', sub = '';
+    if (pct === 100) { title = 'Cemerlang! 🏆'; sub = 'Markah penuh! Anda menguasai Bab 4.'; }
+    else if (pct >= 80) { title = 'Bagus! 🎉'; sub = 'Hampir sempurna! Teruskan usaha mengkaji warisan kerajaan Alam Melayu.'; }
+    else if (pct >= 60) { title = 'Boleh Lagi! 💪'; sub = 'Anda mempunyai asas yang baik. Ulang kaji semula agama, kepercayaan dan keunikan warisan kerajaan Alam Melayu.'; }
+    else { title = 'Jangan Putus Asa! 📚'; sub = 'Baca semula nota Bab 4 dan cuba lagi.'; }
+
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-subtitle').textContent = sub;
+  }
+
+  function retryQuiz() {
+    score = 0; answered = 0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display = 'block';
+
+    document.querySelectorAll('.question-card').forEach((card, i) => {
+      card.classList.toggle('active', i === 0);
+      card.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('correct', 'wrong');
+      });
+      card.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
