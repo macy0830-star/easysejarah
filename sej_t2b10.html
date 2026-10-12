@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuiz SPM Sejarah Tingkatan 2 Bab 10: Sarawak dan Sabah | EasySejarah</title>
+<meta name="description" content="Kuiz Sejarah Tingkatan 2 Bab 10 Sarawak dan Sabah: 10 soalan pilihan berganda tentang Sarawak dan Sabah dalam Alam Melayu, kepimpinan, ekonomi, seni bina, tarian dan perayaan.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Noto+Sans:wght@400;500&display=swap');
+
+  :root {
+    --merah: #D62828;
+    --kuning: #F7B731;
+    --hitam: #1A1A2E;
+    --putih: #FAFAF8;
+    --kelabu: #F0EDE8;
+    --kelabu-teks: #5C5C6E;
+    --hijau: #2D9E5F;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: var(--hitam);
+    color: var(--putih);
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 2px solid rgba(213, 191, 175, 0.25);
+    position: sticky; top: 0;
+    background: var(--hitam);
+    z-index: 99;
+  }
+
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--kuning); }
+
+  .badge-topik {
+    background: rgba(213, 191, 175, 0.15);
+    border: 1px solid var(--kuning);
+    color: var(--kuning);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 48px 24px 32px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    color: var(--kuning);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 em { font-style: normal; color: var(--kuning); }
+
+  .hero p {
+    color: rgba(244, 241, 234, 0.55);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .progress-wrap {
+    background: rgba(244, 241, 234, 0.1);
+    border-radius: 999px;
+    height: 6px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--kuning);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-label {
+    font-size: 0.76rem;
+    color: rgba(244, 241, 234, 0.4);
+    text-align: right;
+  }
+
+  .quiz-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  .question-card {
+    background: #3C3A38;
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(244, 241, 234, 0.06);
+    display: none;
+    animation: fadeUp 0.3s ease;
+  }
+  .question-card.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .q-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--kuning);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .q-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 22px;
+    color: var(--putih);
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(244, 241, 234, 0.05);
+    border: 2px solid rgba(244, 241, 234, 0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(244, 241, 234, 0.82);
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--kuning);
+    background: rgba(213, 191, 175, 0.08);
+  }
+  .option-btn:disabled { cursor: default; }
+
+  .option-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(244, 241, 234, 0.1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .option-btn.correct { border-color: var(--hijau); background: rgba(148, 166, 149, 0.14); }
+  .option-btn.correct .option-letter { background: var(--hijau); color: var(--hitam); }
+  .option-btn.wrong { border-color: var(--merah); background: rgba(196, 154, 154, 0.12); }
+  .option-btn.wrong .option-letter { background: var(--merah); color: var(--hitam); }
+
+  .explanation {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: rgba(213, 191, 175, 0.07);
+    border-left: 3px solid var(--kuning);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(244, 241, 234, 0.78);
+  }
+  .explanation.show { display: block; }
+  .explanation strong { color: var(--kuning); }
+
+  .btn-next {
+    display: none;
+    margin-top: 18px;
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .btn-next:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-next.show { display: block; }
+
+  /* RESULT */
+  #result-section {
+    display: none;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    text-align: center;
+  }
+  #result-section.show { display: block; }
+
+  .result-card {
+    background: #3C3A38;
+    border-radius: 20px;
+    padding: 40px 28px;
+    border: 1px solid rgba(244, 241, 234, 0.08);
+  }
+
+  .score-ring {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(var(--kuning) var(--pct, 0%), rgba(244, 241, 234, 0.08) 0%);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .score-ring::after {
+    content: '';
+    position: absolute;
+    width: 88px; height: 88px;
+    background: #3C3A38;
+    border-radius: 50%;
+  }
+  .score-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--kuning);
+    position: relative;
+    z-index: 1;
+  }
+
+  .result-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .result-subtitle {
+    color: rgba(244, 241, 234, 0.5);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .stat-box {
+    background: rgba(244, 241, 234, 0.05);
+    border-radius: 10px;
+    padding: 12px 20px;
+    min-width: 82px;
+  }
+  .stat-val {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--kuning);
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: rgba(244, 241, 234, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-retry {
+    width: 100%;
+    padding: 14px;
+    background: var(--kuning);
+    color: var(--hitam);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: opacity 0.2s;
+  }
+  .btn-retry:hover { opacity: 0.9; }
+
+  .bab-nav {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .bab-nav p {
+    font-size: 0.75rem;
+    color: rgba(244, 241, 234, 0.3);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .bab-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .chip {
+    background: rgba(244, 241, 234, 0.05);
+    border: 1px solid rgba(244, 241, 234, 0.12);
+    color: rgba(244, 241, 234, 0.55);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    text-decoration: none;
+  }
+  .chip.active { border-color: var(--kuning); color: var(--kuning); }
+  .chip.coming { opacity: 0.3; cursor: default; }
+
+  footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.75rem;
+    color: rgba(244, 241, 234, 0.18);
+    border-top: 1px solid rgba(244, 241, 234, 0.06);
+    margin-top: 20px;
+  }
+
+  .btn-yt-result { display:inline-flex; align-items:center; gap:8px; background:#FF0000; color:#fff; text-decoration:none; padding:13px 22px; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:0.92rem; transition:opacity 0.2s; width:100%; justify-content:center; margin-top:12px; }
+  .btn-yt-result:hover { opacity:0.85; }
+
+  .btn-next-bab {
+    display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(135deg,#e8447a,#c4306a);
+    color:#fff; text-decoration:none;
+    padding:16px 22px; border-radius:12px;
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:0.95rem;
+    margin-bottom:12px; transition:opacity 0.2s; gap:12px;
+    box-shadow:0 4px 14px rgba(232,68,122,0.35);
+  }
+  .btn-next-bab:hover { opacity:0.88; }
+  .btn-next-bab .next-label { font-size:0.7rem; font-weight:600; opacity:0.8; text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:2px; }
+  .btn-next-bab .next-title { display:block; }
+  .btn-next-bab .next-arrow { font-size:1.4rem; flex-shrink:0; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FLLFJJNPP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FLLFJJNPP');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4490928206593094"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+  <div class="logo">Easy<span>Sejarah</span></div>
+  <a href="index.html" style="color:rgba(244,241,234,0.5);font-size:0.8rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.15s;" onmouseover="this.style.color='var(--kuning)'" onmouseout="this.style.color='rgba(244,241,234,0.5)'">← Laman Utama</a><div class="badge-topik">T2 Bab 10</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Tingkatan 2 · Bab 10</div>
+  <h1>Sarawak<br><em>dan Sabah</em></h1>
+  <p>10 soalan pilihan berganda merangkumi Sarawak dan Sabah dalam Alam Melayu, kepimpinan dan wakil raja, kegiatan ekonomi, seni bina, tarian serta perayaan.</p>
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-label">0 / 10 soalan</div>
+</div>
+
+<div class="quiz-section" id="quiz-section">
+
+  <!-- Q1 -->
+  <div class="question-card active" data-q="1">
+    <div class="q-number">Soalan 1 daripada 10</div>
+    <div class="q-text">Apakah kegiatan ekonomi yang mula berkembang di Santubong, Sarawak pada abad ke-13 berdasarkan catatan sejarah?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Penanaman padi bendang komersial</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Perlombongan emas secara meluas</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Pembuatan kain pua kumbu</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Industri peleburan bijih besi</button>
+    </div>
+    <div class="explanation" id="exp-1"><strong>✓ Jawapan: D</strong><br>Teks menyatakan bahawa pada abad ke-13, muncul industri peleburan bijih besi di Santubong.<br><small style="opacity:.6">Rujukan: 10.1 Sarawak dan Sabah dalam Alam Melayu</small></div>
+    <button class="btn-next" onclick="nextQ(1)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-q="2">
+    <div class="q-number">Soalan 2 daripada 10</div>
+    <div class="q-text">Apakah gelaran bagi pemimpin masyarakat Iban di kawasan pedalaman Sarawak?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Tuai Rumah</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Peran Lepo</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Laih Rayeh</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Kelunan Maren</button>
+    </div>
+    <div class="explanation" id="exp-2"><strong>✓ Jawapan: A</strong><br>Masyarakat Iban mempunyai ketua mereka sendiri yang dikenali sebagai Tuai Rumah.<br><small style="opacity:.6">Rujukan: 10.2 Kepimpinan Kesukuan (Sarawak)</small></div>
+    <button class="btn-next" onclick="nextQ(2)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-q="3">
+    <div class="q-number">Soalan 3 daripada 10</div>
+    <div class="q-text">Tarian tradisional apakah yang ditarikan oleh kaum Kadazandusun semasa menyambut Pesta Kaamatan?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Tarian Ngajat</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Tarian Datun Julud</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Tarian Sumazau</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Tarian Magunatip</button>
+    </div>
+    <div class="explanation" id="exp-3"><strong>✓ Jawapan: C</strong><br>Sumazau ialah tarian kaum Kadazandusun yang ditarikan semasa Pesta Kaamatan dan majlis keramaian.<br><small style="opacity:.6">Rujukan: 10.4 Tarian Sabah</small></div>
+    <button class="btn-next" onclick="nextQ(3)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-q="4">
+    <div class="q-number">Soalan 4 daripada 10</div>
+    <div class="q-text">Mengapakah pelabuhan Chu-Po di utara Sabah penting kepada kerajaan Funan dan Champa pada abad ketiga?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menjadi tempat mengeksport besi ke Funan dan Champa</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Menyediakan tapak pengkalan tentera laut utama</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menjadi pusat pengumpulan bijih timah dan rempah ratus</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menjadi pelabuhan utama mengeksport kain sutera</button>
+    </div>
+    <div class="explanation" id="exp-4"><strong>✓ Jawapan: A</strong><br>Pelabuhan Chu-Po menjadi tempat mengeksport besi ke Funan dan Champa pada abad ketiga.<br><small style="opacity:.6">Rujukan: 10.1 Sarawak dan Sabah dalam Alam Melayu</small></div>
+    <button class="btn-next" onclick="nextQ(4)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-q="5">
+    <div class="q-number">Soalan 5 daripada 10</div>
+    <div class="q-text">Apakah persamaan bidang kuasa yang dijalankan oleh wakil-wakil raja Brunei dan Sulu di Sarawak dan Sabah?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Mengetuai upacara ritual keagamaan tradisional dan melantik Bobohizan</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Menggubal perlembagaan bertulis negeri serta melantik ketua bebas secara mutlak</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Mengutip cukai, mentadbir kehakiman, menjaga keamanan serta kebajikan penduduk</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Menguasai aktiviti perdagangan antarabangsa tanpa mengenakan cukai pelabuhan</button>
+    </div>
+    <div class="explanation" id="exp-5"><strong>✓ Jawapan: C</strong><br>Wakil-wakil raja menjalankan pemerintahan dalam aspek kehakiman, kebajikan, menjaga keamanan, serta mengutip cukai.<br><small style="opacity:.6">Rujukan: 10.2 Wakil Raja (Sarawak &amp; Sabah)</small></div>
+    <button class="btn-next" onclick="nextQ(5)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-q="6">
+    <div class="q-number">Soalan 6 daripada 10</div>
+    <div class="q-text">Berdasarkan taburan lokasi, apakah kegiatan ekonomi utama yang diusahakan oleh kaum Melanau di kawasan pesisir pantai Sarawak?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Menanam padi huma dan mengumpul sarang burung layang-layang</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Menangkap ikan, membuat perahu, dan perusahaan sagu</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menjalankan perlombongan bijih besi secara komersial</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Mengutip hasil hutan dan memburu haiwan liar di pedalaman</button>
+    </div>
+    <div class="explanation" id="exp-6"><strong>✓ Jawapan: B</strong><br>Masyarakat di pesisir pantai seperti kaum Melanau menjalankan aktiviti menangkap ikan, membuat perahu, dan perusahaan sagu.<br><small style="opacity:.6">Rujukan: 10.3 Kegiatan Ekonomi Masyarakat Sarawak</small></div>
+    <button class="btn-next" onclick="nextQ(6)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-q="7">
+    <div class="q-number">Soalan 7 daripada 10</div>
+    <div class="q-text">Apakah perbezaan fungsi utama antara Rumah Baruk kaum Bidayuh dengan Rumah Tinggi kaum Melanau di Sarawak?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Rumah Baruk tempat bersantai keluarga, manakala Rumah Tinggi pusat keagamaan suku</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Rumah Baruk tempat ritual dan mesyuarat, manakala Rumah Tinggi dibina tinggi untuk mengelak serangan musuh</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Rumah Baruk digunakan untuk penyimpanan hasil padi, manakala Rumah Tinggi berfungsi sebagai tempat simpanan senjata utama</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Rumah Baruk berfungsi sebagai tempat kediaman keluarga besar, manakala Rumah Tinggi ialah pusat pentadbiran wilayah</button>
+    </div>
+    <div class="explanation" id="exp-7"><strong>✓ Jawapan: B</strong><br>Rumah Baruk berfungsi untuk menyimpan tengkorak, senjata, pusat ritual dan mesyuarat, manakala Rumah Tinggi dibina setinggi 10 meter untuk mengelak serangan musuh.<br><small style="opacity:.6">Rujukan: 10.4 Seni Bina Sarawak</small></div>
+    <button class="btn-next" onclick="nextQ(7)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-q="8">
+    <div class="q-number">Soalan 8 daripada 10</div>
+    <div class="q-text">Apakah tujuan utama pelaksanaan Pesta Kaul yang diraikan oleh kaum Melanau di Sarawak?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Bertujuan mengelak malapetaka buruk oleh roh jahat Ipok</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Memperingati peranan perahu lepa dalam kalangan masyarakat</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Merayakan kejayaan penanaman padi sawah dan semangat padi</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Memperingati kepahlawanan pahlawan Iban di medan perang</button>
+    </div>
+    <div class="explanation" id="exp-8"><strong>✓ Jawapan: A</strong><br>Kaum Melanau mengadakan Pesta Kaul yang bertujuan untuk mengelak malapetaka buruk oleh roh jahat yang dipanggil sebagai Ipok.<br><small style="opacity:.6">Rujukan: 10.4 Perayaan Sarawak (Pesta Kaul)</small></div>
+    <button class="btn-next" onclick="nextQ(8)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-q="9">
+    <div class="q-number">Soalan 9 daripada 10</div>
+    <div class="q-text">Berdasarkan maklumat tentang Ketua Bebas di Sabah seperti Syarif Osman dan Datu Kurunding, bagaimanakah kedudukan dan corak pentadbiran mereka?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Bertindak sebagai wakil mutlak Kesultanan Melayu Brunei tanpa sebarang autonomi wilayah di bawah pentadbiran pusat</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mentadbir wilayah muara sungai dengan undang-undang sendiri serta mempunyai pertalian keluarga diraja atau Arab Sharif</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Dilantik secara rasmi oleh wakil gabenor Barat untuk mengutip cukai perdagangan antarabangsa secara eksklusif di pelabuhan</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Merupakan pemimpin kesukuan di pedalaman yang tidak mempunyai sebarang kaitan langsung dengan kuasa luar mahupun diraja</button>
+    </div>
+    <div class="explanation" id="exp-9"><strong>✓ Jawapan: B</strong><br>Ketua bebas mentadbir wilayah di muara sungai, menjalankan undang-undang sendiri, serta mempunyai pertalian dengan keluarga diraja Brunei, Sulu atau keturunan Arab Sharif.<br><small style="opacity:.6">Rujukan: 10.2 Ketua Bebas (Sabah)</small></div>
+    <button class="btn-next" onclick="nextQ(9)">Soalan Seterusnya →</button>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-q="10">
+    <div class="q-number">Soalan 10 daripada 10</div>
+    <div class="q-text">Apakah ciri keistimewaan seni bina rumah panjang Rungus (Vinatang) di Sabah yang membezakannya daripada binaan lain?</div>
+    <div class="options">
+        <button class="option-btn" data-ans="A"><span class="option-letter">A</span>Dibina di atas pokok tinggi bagi mengelak ancaman binatang buas serta serangan musuh luar</button>
+        <button class="option-btn" data-ans="B"><span class="option-letter">B</span>Mempunyai lantai khas bertingkat untuk acara perlumbaan perahu di dalam ruang tamu utama</button>
+        <button class="option-btn" data-ans="C"><span class="option-letter">C</span>Menggunakan sepenuhnya batu marmar import untuk struktur dinding kediaman dan tiang utama</button>
+        <button class="option-btn" data-ans="D"><span class="option-letter">D</span>Bilik tidurnya dibina dengan kedudukan kepala pada sudut tepat arah Gunung Kinabalu</button>
+    </div>
+    <div class="explanation" id="exp-10"><strong>✓ Jawapan: D</strong><br>Keistimewaan rumah panjang Rungus ialah bilik tidurnya dibina dengan kedudukan kepala pada sudut tepat arah Gunung Kinabalu.<br><small style="opacity:.6">Rujukan: 10.4 Seni Bina Sabah (Rumah Panjang Rungus)</small></div>
+    <button class="btn-next" onclick="showResult()">Lihat Keputusan →</button>
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div id="result-section">
+  <div class="result-card">
+    <div class="score-ring" id="score-ring">
+      <span class="score-number" id="score-display">0/10</span>
+    </div>
+    <div class="result-title" id="result-title">Tahniah!</div>
+    <div class="result-subtitle" id="result-subtitle"></div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-val" id="stat-betul">0</span>
+        <span class="stat-lbl">Betul</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-salah">0</span>
+        <span class="stat-lbl">Salah</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val" id="stat-pct">0%</span>
+        <span class="stat-lbl">Markah</span>
+      </div>
+    </div>
+    <button class="btn-retry" onclick="retryQuiz()">Cuba Semula ↺</button>
+
+    <a href="index.html" class="btn-next-bab" style="background:linear-gradient(135deg,#2db87a,#1e8a5a);">
+      <div><span class="next-label">🎉 Tamat! Kembali ke</span><span class="next-title">🏠 Laman Utama</span></div>
+      <span class="next-arrow">✓</span>
+    </a>
+  </div>
+
+  <div class="bab-nav">
+    <p>Bab Lain — Sejarah Tingkatan 2</p>
+    <div class="bab-chips">
+      <a href="sej_t2b1.html" class="chip">Bab 1 ✓</a>
+      <a href="sej_t2b2.html" class="chip">Bab 2 ✓</a>
+      <a href="sej_t2b3.html" class="chip">Bab 3 ✓</a>
+      <a href="sej_t2b4.html" class="chip">Bab 4 ✓</a>
+      <a href="sej_t2b5.html" class="chip">Bab 5 ✓</a>
+      <a href="sej_t2b6.html" class="chip">Bab 6 ✓</a>
+      <a href="sej_t2b7.html" class="chip">Bab 7 ✓</a>
+      <a href="sej_t2b8.html" class="chip">Bab 8 ✓</a>
+      <a href="sej_t2b9.html" class="chip">Bab 9 ✓</a>
+      <span class="chip active">Bab 10 ✓</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 EasySejarah · Soalan berdasarkan silibus SPM Sejarah Tingkatan 2
+</footer>
+
+<script>
+  const CORRECT = {
+    1:'D',
+    2:'A',
+    3:'C',
+    4:'A',
+    5:'C',
+    6:'B',
+    7:'B',
+    8:'A',
+    9:'B',
+    10:'D'
+  };
+
+  let score = 0, answered = 0;
+  const TOTAL = 10;
+
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.question-card');
+      const q = parseInt(card.dataset.q);
+      const chosen = this.dataset.ans;
+      const correct = CORRECT[q];
+
+      card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+
+      if (chosen === correct) {
+        this.classList.add('correct');
+        score++;
+      } else {
+        this.classList.add('wrong');
+        card.querySelectorAll('.option-btn').forEach(b => {
+          if (b.dataset.ans === correct) b.classList.add('correct');
+        });
+      }
+
+      answered++;
+      updateProgress();
+      document.getElementById('exp-' + q).classList.add('show');
+      card.querySelector('.btn-next').classList.add('show');
+    });
+  });
+
+  function nextQ(current) {
+    document.querySelector('[data-q="' + current + '"]').classList.remove('active');
+    const next = document.querySelector('[data-q="' + (current + 1) + '"]');
+    if (next) {
+      next.classList.add('active');
+      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function updateProgress() {
+    const pct = (answered / TOTAL) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = answered + ' / ' + TOTAL + ' soalan';
+  }
+
+  function showResult() {
+    document.getElementById('quiz-section').style.display = 'none';
+    const rs = document.getElementById('result-section');
+    rs.classList.add('show');
+    rs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const pct = Math.round((score / TOTAL) * 100);
+    document.getElementById('score-display').textContent = score + '/' + TOTAL;
+    document.getElementById('stat-betul').textContent = score;
+    document.getElementById('stat-salah').textContent = TOTAL - score;
+    document.getElementById('stat-pct').textContent = pct + '%';
+    document.getElementById('score-ring').style.setProperty('--pct', pct + '%');
+
+    let title = '', sub = '';
+    if (pct === 100) { title = 'Cemerlang! 🏆'; sub = 'Markah penuh! Anda menguasai Bab 10.'; }
+    else if (pct >= 80) { title = 'Bagus! 🎉'; sub = 'Hampir sempurna! Teruskan usaha mengkaji sejarah Sarawak dan Sabah.'; }
+    else if (pct >= 60) { title = 'Boleh Lagi! 💪'; sub = 'Anda mempunyai asas yang baik. Ulang kaji semula kepimpinan, ekonomi, seni bina dan perayaan Sarawak dan Sabah.'; }
+    else { title = 'Jangan Putus Asa! 📚'; sub = 'Baca semula nota Bab 10 dan cuba lagi.'; }
+
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-subtitle').textContent = sub;
+  }
+
+  function retryQuiz() {
+    score = 0; answered = 0;
+    updateProgress();
+    document.getElementById('result-section').classList.remove('show');
+    document.getElementById('quiz-section').style.display = 'block';
+
+    document.querySelectorAll('.question-card').forEach((card, i) => {
+      card.classList.toggle('active', i === 0);
+      card.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('correct', 'wrong');
+      });
+      card.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+      card.querySelectorAll('.btn-next').forEach(b => b.classList.remove('show'));
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
